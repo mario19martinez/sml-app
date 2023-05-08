@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+.container h1 {
+    margin: 25px;
+    }
+
+.linksRoutes {
+    background-color: rgb(59, 131, 121);
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 30px;
+    text-align: center;
+}
