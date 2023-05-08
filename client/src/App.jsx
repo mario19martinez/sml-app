@@ -1,11 +1,7 @@
 import './App.css';
 
 function App() {
-	return (
-		<div >
-			<h1 className='text-xl' >SMLAPP</h1>
-		</div>
-	);
+	return <div className=''></div>;
 }
 
 export default App;
