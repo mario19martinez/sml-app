@@ -1,9 +1,12 @@
 import React from 'react'
+import style from "./Nav.module.css"
 
 function Nav() {
   return (
-    <div>Nav</div>
+    <div className={style.container}>
+      <h1>Nav</h1>
+    </div>
   )
 }
 
-export default Nav
+export default Nav;
