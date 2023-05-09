@@ -1,8 +1,14 @@
 import React from 'react'
+import DashboardContract from '../../components/CardPotencialLead/CardPotencialLead'
 
 function Dashboard() {
   return (
-    <div>Dashboard</div>
+    <main>
+      <div>Dashboard</div>
+      <DashboardContract/>
+    </main>
+      
+    
   )
 }
 
