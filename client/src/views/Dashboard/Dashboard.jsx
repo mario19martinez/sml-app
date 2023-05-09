@@ -3,10 +3,10 @@ import DashboardContract from '../../components/CardPotencialLead/CardPotencialL
 
 function Dashboard() {
   return (
-    <main>
+    <div className='w-full h-full'>
       <div>Dashboard</div>
       <DashboardContract/>
-    </main>
+    </div>
       
     
   )

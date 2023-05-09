@@ -29,42 +29,42 @@ const data = [
         telefono: '321',
         email: 'programador@gmail.com',
         status: 'sin contactar'
-
-    },]
+    },
+]
 
 const DashboardContract = () => {
     return(
-        <>
-        <Card>
-            <Title></Title>
-            <Table >
-            <TableHead>
-                <TableRow className="bg-lime">
-                    <TableHeaderCell className=" text-left font-medium">Invoice Id</TableHeaderCell>
-                    <TableHeaderCell className=" text-left font-medium">Name</TableHeaderCell>
-                    <TableHeaderCell className=" text-left font-medium">Profesion</TableHeaderCell>
-                    <TableHeaderCell className=" text-left font-medium">Nivel</TableHeaderCell>
-                    <TableHeaderCell className=" text-left font-medium">Telefono</TableHeaderCell>
-                    <TableHeaderCell className=" text-left font-medium">Email</TableHeaderCell>
-                    <TableHeaderCell className=" text-left font-medium">Status</TableHeaderCell>
-                </TableRow>
-            </TableHead>
-            <TableBody>
-                {data.map((item) => (
-                    <TableRow className={`${styles.styles}`}>
-                        <TableCell className=" text-left">{item.invoiseId}</TableCell>
-                        <TableCell className=" text-left">{item.name}</TableCell>
-                        <TableCell className=" text-left">{item.profesion}</TableCell>
-                        <TableCell className=" text-left">{item.nivel}</TableCell>
-                        <TableCell className=" text-left">{item.telefono}</TableCell>
-                        <TableCell className=" text-left">{item.email}</TableCell>
-                        <TableCell className=" text-left">{item.status}</TableCell>
-                    </TableRow>
-                ))}
-            </TableBody>
-            </Table>
-        </Card>
-        </>
+        <div className="flex justify-center items-center h-screen w-full">
+            <Card>
+                
+                <Table className="w-full">
+                    <TableHead>
+                        <TableRow className="bg-black">
+                            <TableHeaderCell className="text-left font-medium">Invoice Id</TableHeaderCell>
+                            <TableHeaderCell className="text-left font-medium">Name</TableHeaderCell>
+                            <TableHeaderCell className="text-left font-medium">Profesion</TableHeaderCell>
+                            <TableHeaderCell className="text-left font-medium">Nivel</TableHeaderCell>
+                            <TableHeaderCell className="text-left font-medium">Telefono</TableHeaderCell>
+                            <TableHeaderCell className="text-left font-medium">Email</TableHeaderCell>
+                            <TableHeaderCell className="text-left font-medium">Status</TableHeaderCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {data.map((item) => (
+                            <TableRow className={`${styles.styles}`}>
+                                <TableCell className="text-left">{item.invoiseId}</TableCell>
+                                <TableCell className="text-left">{item.name}</TableCell>
+                                <TableCell className="text-left">{item.profesion}</TableCell>
+                                <TableCell className="text-left">{item.nivel}</TableCell>
+                                <TableCell className="text-left">{item.telefono}</TableCell>
+                                <TableCell className="text-left">{item.email}</TableCell>
+                                <TableCell className="text-left">{item.status}</TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </Card>
+        </div>
     )
 }
 
