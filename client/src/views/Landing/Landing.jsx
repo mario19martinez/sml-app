@@ -8,6 +8,8 @@ function Employees() {
     <h1>SML VIEWS</h1>
     <Link to="/employees" className={style.linksRoutes}>Employees</Link>
     <Link to="/analytics" className={style.linksRoutes}>Analytics</Link>
+    <Link to="/login" className={style.linksRoutes}>Login</Link>
+
   </div>
   );
 }
