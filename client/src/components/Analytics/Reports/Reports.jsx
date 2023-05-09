@@ -44,11 +44,17 @@ export const data = {
 
 function Reports() {
 	return (
-		<div className='flex w-[30rem] bg-[#39394B] color-[#6d6e80] border border-white'>
-			<Line
-				options={options}
-				data={data}
-			/>
+		<div className='flex flex-col w-[65rem] p-5 h-[40rem] bg-[#39394B] color-[#6d6e80] border border-white'>
+			<div className="flex flex-col">
+				<div className='flex w-[25rem] items-center justify-between'>
+					<h2>Goals</h2>
+					<p>...</p>
+				</div>
+				<Line
+					options={options}
+					data={data}
+				/>
+			</div>
 		</div>
 	);
 }

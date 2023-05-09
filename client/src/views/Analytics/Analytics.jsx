@@ -18,7 +18,7 @@ function Analytics() {
 				<div>
 					<AnalyticsNumerics />
 				</div>
-				<div className='flex mt-12 ml-10'>
+				<div className='flex justify-around items-center gap-5 mt-12 ml-10'>
 					<Reports />
 					<Goals />
 				</div>

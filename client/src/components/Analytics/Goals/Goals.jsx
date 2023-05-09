@@ -5,10 +5,10 @@ import { Pie } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const data = {
-	labels: ['Red', 'Blue', 'Orange'],
+	labels: ['Gonzalo', 'Gustavo', 'Nicolas'],
 	datasets: [
 		{
-			data: [12, 19, 3, 5, 2, 3],
+			data: [12, 19, 3],
 			backgroundColor: [
 				'rgba(255, 99, 132, 0.2)',
 				'rgba(54, 162, 235, 0.2)',
@@ -26,8 +26,14 @@ export const data = {
 
 function Goals() {
 	return (
-		<div className="w-[15rem]">
-			<Pie data={data} />
+		<div className='flex flex-col justify-around items-center rounded-xl h-[40rem] w-[30rem] bg-[#39394b]'>
+			<div className='flex w-[25rem] justify-between items-center'>
+				<h2>Goals</h2>
+				<p>...</p>
+			</div>
+			<div className='flex justify-center items-center'>
+				<Pie data={data} />
+			</div>
 		</div>
 	);
 }
