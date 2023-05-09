@@ -7,7 +7,7 @@ import Nav from "./components/Nav/Nav";
 function App() {
   const location = useLocation();
   return (
-    <div>
+    <div className="App">
       {location.pathname !== "/" && <Nav/>}
       <Routes>
         <Route path="/" element={<Landing/>} />
