@@ -1,5 +1,6 @@
 .container {
   border: 2px solid orange;
+  background-color: #222131;
   display: flex;
   align-items: start;
   justify-content: space-between;
@@ -8,7 +9,8 @@
   /* height: 100vh; */
 }
 .container h1{
-margin: 60px;
+  margin: 60px;
+
 }
 
 .lista {
@@ -19,4 +21,5 @@ margin: 60px;
 }
 .lista li{
 margin: 20px 60px;
+color: #C1C1C6;
 }

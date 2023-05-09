@@ -5,10 +5,11 @@
     flex-direction: row;
     width: fit-content;
     height: 40px;
-    background-color:#39394b ;
+    background-color:#39394B ;
     border-radius: 10px;
     margin: 0 60px; 
 }
 .divCard h6{
+    color: #92929C;
     margin: 0 60px;
 }
