@@ -60,6 +60,16 @@ function Detail() {
       },
     },
   };
+  const keyframes = `
+    @keyframes fill-progress {
+      from {
+        stroke-dasharray: 0 100;
+      }
+      to {
+        stroke-dasharray: var(--percent) 100;
+      }
+    }
+  `;
 
   return (
     <div className="  flex h-screen bg-slate-700  justify-center items-center w-1/5 flex-col  relative">
@@ -161,6 +171,7 @@ function Detail() {
             style={{ "--percent": "70" }}
             className=" flex w-2/5 h-4/6 border-white border-2 relative"
           >
+            <style>{keyframes}</style>
             <svg>
               <circle
                 r="35%"
@@ -177,20 +188,8 @@ function Detail() {
                 pathLength="100"
                 strokeDasharray="var(--percent) 100"
                 className="fill-none stroke-green-300 stroke-[10%] transform -rotate-90 origin-center border-red-600 "
-                style={{
-                  animation: "rellenar 0.35s linear forwards",
-                }}
-              >
-                <style>
-                  {`
-                @keyframes rellenar {
-                  to {
-                    stroke-dasharray: var(--percent) 100;
-                  }
-                }
-              `}
-                </style>
-              </circle>
+                style={{ animation: "fill-progress 1s ease-out forwards" }}
+              ></circle>
             </svg>
             <span className="absolute top-0 bottom-0 left-0 right-0 items-center justify-center flex font-normal text-18 pt-0 text-white">
               70%
@@ -202,6 +201,7 @@ function Detail() {
             style={{ "--percent": "60" }}
             className=" flex w-2/5 h-4/6 border-white border-2 relative"
           >
+            <style>{keyframes}</style>
             <svg>
               <circle
                 r="35%"
@@ -217,13 +217,8 @@ function Detail() {
                 cy="50%"
                 pathLength="100"
                 strokeDasharray="var(--percent) 100"
-                className="fill-none stroke-blue-600 stroke-[10%] transform -rotate-90 origin-center border-red-600  "
-                style={{
-                  animationName: "rellenar",
-                  animationDuration: "0.35s",
-                  animationTimingFunction: "linear",
-                  animationFillMode: "forwards",
-                }}
+                className="fill-none stroke-blue-600 stroke-[10%] transform -rotate-90 origin-center border-red-600 "
+                style={{ animation: "fill-progress 1s ease-out forwards" }}
               ></circle>
             </svg>
             <span className="absolute top-0 bottom-0 left-0 right-0 items-center justify-center flex font-normal text-18 pt-0 text-white">
