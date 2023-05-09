@@ -1,10 +1,32 @@
 .container {
-    background-color: rgb(247, 247, 247);
+    background-color: #39394B;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 160px;
+    width: 20vw;
     height: 100vh;
     color: beige;
     position: absolute;
+}
+
+.containerContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+}
+.list li {
+    display: flex;
 }
