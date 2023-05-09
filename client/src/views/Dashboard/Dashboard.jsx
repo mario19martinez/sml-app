@@ -1,8 +1,11 @@
 import React from 'react'
+import Nav from '../../components/Nav/Nav';
 
 function Dashboard() {
   return (
-    <div>Dashboard</div>
+    <div>
+			<Nav />
+    </div>
   )
 }
 
