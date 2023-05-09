@@ -20,18 +20,18 @@
     align-items: center;
     justify-content: space-around;
     width: 100%;
-    color: #FCFCFC;
+    color: #cfcece;
 }
 
 
 .list .liImage img{
-    width: 25px;
+    width: 30px;
     border-radius: 50%;
 
 }
 .list .liPosition{
 
-    background-color: #2FE6A7;
+    background-color: #2aaa7d;
     text-align: center;
     width: 80px;
     border-radius: 20px;
