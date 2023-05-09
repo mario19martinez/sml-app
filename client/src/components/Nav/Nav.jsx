@@ -12,27 +12,40 @@ function Nav() {
 	return (
 		<div className={style.container}>
 			<div className={style.containerContent}>
-				<div className={style.content}>
+				<div className={style.contentTitle}>
 					<div className={style.title}>
 						<Link to='/'>
 							<span>ICONO</span>
 						</Link>
 						<h1>SML</h1>
 					</div>
-					<div className={style.list}>
-						<ul>
-							<li>
-								<IoGrid />  Dashboard
-							</li>
-							<li>
-								<IoStatsChart />  Analytics
-							</li>
-							<li>
-								<IoSettingsSharp />  Settings
-							</li>
-						</ul>
+					<div />
+					<div className={style.contentList}>
+						<div className={style.list}>
+							<ul>
+								<li>
+									<span>
+										<IoGrid />
+									</span>
+									<span>Dashboard</span>
+								</li>
+								<li>
+									<span>
+										<IoStatsChart />
+									</span>
+									<span>Analytics</span>
+								</li>
+								<li>
+									<span>
+										<IoSettingsSharp />
+									</span>
+									<span>Settings</span>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
+
 				<div className={style.log}>
 					<img
 						className={style.img}
