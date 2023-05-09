@@ -8,10 +8,9 @@ function App() {
   const location = useLocation();
   return (
     <div>
-      {location.pathname !== "/" && <Nav/>}
       <Routes>
-        <Route path="/" element={<Landing/>} />
-        <Route path="/employees" element={<Employees/>} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/employees" element={<Employees />} />
       </Routes>
     </div>
   );
