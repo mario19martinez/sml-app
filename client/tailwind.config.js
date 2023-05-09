@@ -1,6 +1,6 @@
-/** @type {import('tailwindcss').Config} */
+/ @type {import('tailwindcss').Config} /;
 export default {
-  content: ["./*.html", "./src/**/**/**/*.jsx"],
+  content: ["./*.html", "./src/**/**/**/*.jsx", "./src/views/**/*.jsx", "./node_modules/@tremor/**/*.jsx",],
   theme: {
     extend: {},
     fontSize: {
@@ -12,3 +12,4 @@ export default {
   },
   plugins: [],
 };
+
