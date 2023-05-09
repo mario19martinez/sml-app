@@ -63,6 +63,7 @@ function Detail() {
 
   return (
     <div className="  flex h-screen bg-slate-700  justify-center items-center w-1/5 flex-col  relative">
+      {/* ********* ********* ********* ********* ********* ********* TARJETA DE USUARIO ********* ********* ********* *********  ********* ********* */}
       <div className=" h-1/4 justify-center items-center text-center flex flex-col min-w-min gap-2 relative">
         <div className=" bg-emerald-700  w-16 h-16 rounded-full flex " />
         <p className=" font-bold text-24 pt-1 text-white">Nico Fadel</p>
@@ -71,6 +72,8 @@ function Detail() {
         </p>
       </div>
       <hr className=" border-gray-400 w-5/6 " />
+
+      {/* ********* ********* ********* ********* ********* *********  INFORMACION DEL USUARIO ********* ********* ********* ********* ********* *********  */}
       <div className=" h-1/4 justify-center items-left text-left flex flex-col w-4/5 relative gap-2">
         <p className=" font-normal text-18 pt-1 text-white">Contact Info</p>
         <div className="flex items-center gap-2 text-center">
@@ -126,7 +129,10 @@ function Detail() {
         </div>
       </div>
       <hr className=" border-gray-400 w-5/6 " />
+
+      {/* ********* ********* ********* ********* ********* ********* GRAFICOS ********* ********* ********* ********* ********* ********* *********  */}
       <div className=" flex flex-col h-2/4 w-full items-center gap-y-2">
+        {/* ********* ********* ********* ********* ********* ********* PERFORMANCE ********* ********* ********* ********* ********* ********* ********* */}
         <div className=" w-10/12 h-3/6 border-white border-2">
           <div className="flex h-1/12 items-center justify-between pr-4 pl-2 pt-2">
             <p className=" font-normal text-18 pt-0 text-white">Performance</p>
@@ -150,6 +156,7 @@ function Detail() {
           </div>
         </div>
         <div className=" flex flex-row h-3/6 w-full justify-center gap-x-3">
+          {/* ********* ********* ********* ********* ********* ********* CIRCLE 1 ********* ********* ********* ********* ********* ********* *********  */}
           <div
             style={{ "--percent": "70" }}
             className=" flex w-2/5 h-4/6 border-white border-2 relative"
@@ -189,6 +196,8 @@ function Detail() {
               70%
             </span>
           </div>
+
+          {/* ********* ********* ********* ********* ********* ********* CIRCLE 2 ********* ********* ********* ********* ********* ********* *********  */}
           <div
             style={{ "--percent": "60" }}
             className=" flex w-2/5 h-4/6 border-white border-2 relative"
@@ -208,21 +217,14 @@ function Detail() {
                 cy="50%"
                 pathLength="100"
                 strokeDasharray="var(--percent) 100"
-                className="fill-none stroke-blue-600 stroke-[10%] transform -rotate-90 origin-center border-red-600 "
+                className="fill-none stroke-blue-600 stroke-[10%] transform -rotate-90 origin-center border-red-600  "
                 style={{
-                  animation: "rellenar 0.35s linear forwards",
+                  animationName: "rellenar",
+                  animationDuration: "0.35s",
+                  animationTimingFunction: "linear",
+                  animationFillMode: "forwards",
                 }}
-              >
-                <style>
-                  {`
-                @keyframes rellenar {
-                  to {
-                    stroke-dasharray: var(--percent) 100;
-                  }
-                }
-              `}
-                </style>
-              </circle>
+              ></circle>
             </svg>
             <span className="absolute top-0 bottom-0 left-0 right-0 items-center justify-center flex font-normal text-18 pt-0 text-white">
               60%
