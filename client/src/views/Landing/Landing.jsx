@@ -7,6 +7,7 @@ function Employees() {
   <div className={style.container}>
     <h1>SML VIEWS</h1>
     <Link to="/employees" className={style.linksRoutes}>Employees</Link>
+    <Link to="/analytics" className={style.linksRoutes}>Analytics</Link>
   </div>
   );
 }

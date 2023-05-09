@@ -2,6 +2,7 @@ import "./App.css";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Landing from "./views/Landing/Landing";
 import Employees from "./views/Employees/Employees.jsx";
+import Analytics from "./views/Analytics/Analytics.jsx";
 import Nav from "./components/Nav/Nav";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing/>} />
         <Route path="/employees" element={<Employees/>} />
+        <Route path="/analytics" element={<Analytics/>} />
       </Routes>
     </div>
   );
