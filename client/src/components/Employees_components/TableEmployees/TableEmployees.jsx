@@ -76,6 +76,9 @@ export const TableEmployees = () => {
               Phone Number
             </TableHeaderCell>
             <TableHeaderCell className="text-start">Position</TableHeaderCell>
+            <TableHeaderCell className="text-start">
+              <h1></h1>
+            </TableHeaderCell>
           </TableRow>
         </TableHead>
 
