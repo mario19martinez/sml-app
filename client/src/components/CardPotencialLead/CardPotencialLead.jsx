@@ -29,42 +29,46 @@ const data = [
         telefono: '321',
         email: 'programador@gmail.com',
         status: 'sin contactar'
-
-    },]
+    },
+]
 
 const DashboardContract = () => {
     return(
-        <>
-        <Card>
-            <Title></Title>
-            <Table >
-            <TableHead>
-                <TableRow className={`${styles.tableRow} ${styles.tableRowH}`}>
-                    <TableHeaderCell className={`${styles.p}`}>Invoice Id</TableHeaderCell>
-                    <TableHeaderCell className={`${styles.p}`}>Name</TableHeaderCell>
-                    <TableHeaderCell className={`${styles.p}`}>Profesion</TableHeaderCell>
-                    <TableHeaderCell className={`${styles.p}`}>Nivel</TableHeaderCell>
-                    <TableHeaderCell className={`${styles.p}`}>Telefono</TableHeaderCell>
-                    <TableHeaderCell className={`${styles.p}`}>Email</TableHeaderCell>
-                    <TableHeaderCell className={`${styles.p}`}>Status</TableHeaderCell>
-                </TableRow>
-            </TableHead>
-            <TableBody>
-                {data.map((item) => (
-                    <TableRow className={`${styles.tableRow}`}>
-                        <TableCell className={`${styles.p}`}>{item.invoiseId}</TableCell>
-                        <TableCell className={`${styles.p}`}>{item.name}</TableCell>
-                        <TableCell className={`${styles.p}`}>{item.profesion}</TableCell>
-                        <TableCell className={`${styles.level} ${"stext-left"}`}>{item.nivel}</TableCell>
-                        <TableCell className={`${styles.p}`}>{item.telefono}</TableCell>
-                        <TableCell className={`${styles.p}`}>{item.email}</TableCell>
-                        <TableCell className={`${styles.status}`}>{item.status}</TableCell>
-                    </TableRow>
-                ))}
-            </TableBody>
-            </Table>
-        </Card>
-        </>
+        <div className="">
+            <Card>
+                
+                <Table className="w-full">
+                    <TableHead>
+                        <TableRow className="bg-black">
+                          <div>
+                            <TableHeaderCell className="font-medium">Invoice Id</TableHeaderCell>
+                            <TableHeaderCell className="text-left font-medium">Name</TableHeaderCell>
+                            <TableHeaderCell className="text-left font-medium">Profesion</TableHeaderCell>
+                            <TableHeaderCell className="text-left font-medium">Nivel</TableHeaderCell>
+                            <TableHeaderCell className="text-left font-medium">Telefono</TableHeaderCell>
+                            <TableHeaderCell className="text-left font-medium">Email</TableHeaderCell>
+                            <TableHeaderCell className="text-left font-medium">Status</TableHeaderCell>
+                            </div>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody className="flex flex-col">
+                        {data.map((item) => (
+                          <div className="bg-white flex flex-row">
+                            <TableRow >
+                                <TableCell className="text-left">{item.invoiseId}</TableCell>
+                                <TableCell className="text-left">{item.name}</TableCell>
+                                <TableCell className="text-left">{item.profesion}</TableCell>
+                                <TableCell className="text-left">{item.nivel}</TableCell>
+                                <TableCell className="text-left">{item.telefono}</TableCell>
+                                <TableCell className="text-left">{item.email}</TableCell>
+                                <TableCell className="text-left">{item.status}</TableCell>
+                            </TableRow>
+                            </div>
+                        ))}
+                    </TableBody>
+                </Table>
+            </Card>
+        </div>
     )
 }
 
