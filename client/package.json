@@ -15,7 +15,6 @@
     "faker": "^6.6.6",
     "@heroicons/react": "^1.0.6",
     "@tremor/react": "^2.4.1",
-    "@tremor/react": "^2.4.1",
     "process": "^0.11.10",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
