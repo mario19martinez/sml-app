@@ -4,7 +4,7 @@ import AnalyticsNumerics from '../../components/Analytics/AnalyticsNumerics/Anal
 import Reports from '../../components/Analytics/Reports/Reports';
 import Goals from '../../components/Analytics/Goals/Goals';
 import BestSellers from '../../components/Analytics/BestSellers/BestSellers';
-import Sales from '../../components/Analytics/Sales/Sales';
+import { Sales } from '../../components/Analytics/Sales/Sales';
 
 function Analytics() {
 	return (
