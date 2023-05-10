@@ -1,3 +1,4 @@
+import Style from './CardPotencialLead.module.css'
 import React from "react";
 import {
   Card,
@@ -74,7 +75,7 @@ const DashboardContract = () => {
           </TableHead>
           <TableBody className="flex flex-col">
             {data.map((item) => (
-              <div className="bg-white flex flex-row">
+              <div className={Style.tableRow}>
                 <TableRow>
                   <TableCell className="text-left">{item.invoiseId}</TableCell>
                   <TableCell className="text-left">{item.name}</TableCell>
