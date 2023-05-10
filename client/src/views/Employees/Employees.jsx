@@ -9,7 +9,7 @@ function Employees() {
   return (
     <>
       <Nav />
-      <div className="border-2 border-orange-500 bg-gray-900 flex items-start justify-between flex-row w-full h-screen">
+      <div className="bg-gray-900 flex items-start justify-between flex-row  h-screen">
         <TableEmployees />
         <Detail />
       </div>
