@@ -15,7 +15,7 @@ import {
 } from "@tremor/react";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { CiMail } from "react-icons/ci";
-
+//
 export const TableEmployees = () => {
   const data = [
     {
@@ -62,7 +62,7 @@ export const TableEmployees = () => {
   ];
 
   return (
-    <Card className="w-4/5 h-screen ">
+    <Card className="w-4/5 h-screen bg-[#222131] rounded-none">
       <div className="flex justify-between items-center m-5">
         <Title className={style.title}>Employees</Title>
         <button className={style.buttonAdd}>Add Customer +</button>
