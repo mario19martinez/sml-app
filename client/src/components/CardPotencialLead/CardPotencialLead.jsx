@@ -34,24 +34,27 @@ const data = [
 
 const DashboardContract = () => {
     return(
-        <div className="flex justify-center items-center h-screen w-full">
+        <div className="">
             <Card>
                 
                 <Table className="w-full">
                     <TableHead>
                         <TableRow className="bg-black">
-                            <TableHeaderCell className="text-left font-medium">Invoice Id</TableHeaderCell>
+                          <div>
+                            <TableHeaderCell className="font-medium">Invoice Id</TableHeaderCell>
                             <TableHeaderCell className="text-left font-medium">Name</TableHeaderCell>
                             <TableHeaderCell className="text-left font-medium">Profesion</TableHeaderCell>
                             <TableHeaderCell className="text-left font-medium">Nivel</TableHeaderCell>
                             <TableHeaderCell className="text-left font-medium">Telefono</TableHeaderCell>
                             <TableHeaderCell className="text-left font-medium">Email</TableHeaderCell>
                             <TableHeaderCell className="text-left font-medium">Status</TableHeaderCell>
+                            </div>
                         </TableRow>
                     </TableHead>
-                    <TableBody>
+                    <TableBody className="flex flex-col">
                         {data.map((item) => (
-                            <TableRow className={`${styles.styles}`}>
+                          <div className="bg-white flex flex-row">
+                            <TableRow >
                                 <TableCell className="text-left">{item.invoiseId}</TableCell>
                                 <TableCell className="text-left">{item.name}</TableCell>
                                 <TableCell className="text-left">{item.profesion}</TableCell>
@@ -60,6 +63,7 @@ const DashboardContract = () => {
                                 <TableCell className="text-left">{item.email}</TableCell>
                                 <TableCell className="text-left">{item.status}</TableCell>
                             </TableRow>
+                            </div>
                         ))}
                     </TableBody>
                 </Table>

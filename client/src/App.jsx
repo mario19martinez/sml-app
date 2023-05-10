@@ -6,6 +6,7 @@ import Analytics from "./views/Analytics/Analytics.jsx";
 import Nav from "./components/Nav/Nav";
 import Login from "./views/Login/Login";
 import Dashboard from "./views/Dashboard/Dashboard";
+import './index.css'
 
 function App() {
   const location = useLocation();
