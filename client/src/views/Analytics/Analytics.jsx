@@ -3,6 +3,8 @@ import Nav from '../../components/Nav/Nav';
 import AnalyticsNumerics from '../../components/Analytics/AnalyticsNumerics/AnalyticsNumerics';
 import Reports from '../../components/Analytics/Reports/Reports';
 import Goals from '../../components/Analytics/Goals/Goals';
+import BestSellers from '../../components/Analytics/BestSellers/BestSellers';
+import Sales from '../../components/Analytics/Sales/Sales';
 
 function Analytics() {
 	return (
@@ -18,9 +20,15 @@ function Analytics() {
 				<div>
 					<AnalyticsNumerics />
 				</div>
-				<div className='flex justify-around items-center gap-5 mt-12 ml-10'>
-					<Reports />
-					<Goals />
+				<div className='flex flex-col justify-between items-center gap-5 mt-12 ml-10 mb-10'>
+					<div className='flex gap-5 '>
+						<Reports />
+						<Goals />
+					</div>
+					<div className='flex gap-5'>
+						<Sales />
+						<BestSellers />
+					</div>
 				</div>
 			</div>
 		</div>
