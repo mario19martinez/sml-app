@@ -4,8 +4,8 @@
   font-size: 20px;
 }
 .buttonAdd {
-  background-color: #38369e;
-  color: rgb(202, 202, 202);
+  background-color: #4f4de7;
+  color: rgb(219, 219, 219);
   border-radius: 7px;
   padding: 6px 25px;
   font-size: 13px;
@@ -44,6 +44,7 @@
   margin: 20px;
   padding: 13px;
   border-radius: 10px;
+  height: 3.7rem;
 }
 
 .tableCell {
