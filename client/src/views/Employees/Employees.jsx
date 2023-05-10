@@ -8,12 +8,16 @@ import { TableEmployees } from "../../components/Employees_components/TableEmplo
 function Employees() {
   return (
     <>
+
+
       <Nav />
       <div className="bg-gray-900 flex items-start justify-between flex-row w-screen h-screen">
         <TableEmployees />
         <Detail />
       </div>
+
     </>
+
   );
 }
 
