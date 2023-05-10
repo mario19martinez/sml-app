@@ -17,6 +17,7 @@ ChartJS.register(
   LinearScale,
   BarElement
 );
+// a
 
 function Detail() {
   const data = {
