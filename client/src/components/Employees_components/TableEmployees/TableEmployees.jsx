@@ -1,4 +1,5 @@
 import CardEmploy from "../CardEmploy/CardEmploy";
+import style from "./TableEmployees.module.css";
 import { StatusOnlineIcon } from "@heroicons/react/outline";
 import {
   Card,
@@ -12,7 +13,8 @@ import {
   Title,
   Badge,
 } from "@tremor/react";
-
+import { HiOutlineDotsHorizontal } from "react-icons/hi";
+import { CiMail } from "react-icons/ci";
 
 export const TableEmployees = () => {
   const data = [
@@ -21,8 +23,8 @@ export const TableEmployees = () => {
       name: "Tomas Agilar",
       mail: "tomasaguilar@gmail.com",
       phone: "11-5566-8899",
-      position: "Corredor",
-      color: "green",
+      position: "Vendedor",
+  
       extra: "...",
     },
     {
@@ -31,7 +33,6 @@ export const TableEmployees = () => {
       mail: "tomasaguilar@gmail.com",
       phone: "11-5566-8899",
       position: "Corredor",
-      color: "green",
       extra: "...",
     },
     {
@@ -40,78 +41,80 @@ export const TableEmployees = () => {
       mail: "tomasaguilar@gmail.com",
       phone: "11-5566-8899",
       position: "Corredor",
-      color: "green",
+      extra: "...",
+    },
+    {
+      image: "https://i.pravatar.cc/150",
+      name: "Tomas Adgilar",
+      mail: "tomasa@gmail.com",
+      phone: "11-5566-8899",
+      position: "Vendedor",
       extra: "...",
     },
     {
       image: "https://i.pravatar.cc/150",
       name: "Tomas Agilar",
-      mail: "tomasaguilar@gmail.com",
+      mail: "tomr@gmail.com",
       phone: "11-5566-8899",
       position: "Corredor",
-      color: "green",
-      extra: "...",
-    },
-    {
-      image: "https://i.pravatar.cc/150",
-      name: "Tomas Agilar",
-      mail: "tomasaguilar@gmail.com",
-      phone: "11-5566-8899",
-      position: "Corredor",
-      color: "green",
       extra: "...",
     },
   ];
 
   return (
-    <Card className="border-2 w5/5 h-screen ">
-      <div className="border-2 border-yellow-500 flex justify-between items-center m-4 ">
-        <Title className="border-2 border-yellow-500">Employees</Title>
-        <button className="border-2 border-yellow-500">aaaaaaaaaa</button>
+    <Card className="w-4/5 h-screen ">
+      <div className="flex justify-between items-center m-5">
+        <Title className={style.title}>Employees</Title>
+        <button className={style.buttonAdd}>Add Customer +</button>
       </div>
-      <Table className="border-2 flex justify-between items-center m-4  ">
-        <TableHead className="border-2 border-yellow-500">
-          <TableRow className="border-2 border-green-500">
-            <TableHeaderCell>Name</TableHeaderCell>
-            <TableHeaderCell>Email</TableHeaderCell>
-            <TableHeaderCell>Phone Number</TableHeaderCell>
-            <TableHeaderCell>Position</TableHeaderCell>
+      <Table className={style.table}>
+        <TableHead className={style.tableHead}>
+          <TableRow className={style.tableRow}>
+            <TableHeaderCell className="text-start">Name</TableHeaderCell>
+            <TableHeaderCell className="text-start">Email</TableHeaderCell>
+            <TableHeaderCell className="text-start">
+              Phone Number
+            </TableHeaderCell>
+            <TableHeaderCell className="text-start">Position</TableHeaderCell>
           </TableRow>
         </TableHead>
-        <TableBody>
 
-
+        <TableBody className={style.tableBody}>
           {data.map((item) => (
-            <TableRow key={item.name} className="border-2 bg-black space-x-2">
-
-                <TableCell className="flex flex-row justify-center items-center m-5 p-4 ">
-                  {/* <div className="flex flex-row justify-center items-center"> */}
-                  <img
-                    className="w-7 rounded-full"
-                    src={item.image}
-                    alt="avatar image"
-                  />
-                  <Text className="text-center ">{item.name}</Text>
-                  {/* </div> */}
-                </TableCell>
-                <TableCell>
-                  <Text className="text-center">{item.mail}</Text>
-                </TableCell>
-                <TableCell>
-                  <Text className="text-center">{item.phone}</Text>
-                </TableCell>
-                <TableCell>
-                  <Text className="text-center">{item.position}</Text>
-                </TableCell>
-                <TableCell>
-                  <Badge color="emerald" icon={StatusOnlineIcon}>
-                    {item.status}
-                  </Badge>
-                </TableCell>
-
+            <TableRow key={item.name} className={style.tableCards}>
+              <TableCell className="flex justify-start items-center p-0">
+                <img
+                  className="w-8 ml-2 mr-4 rounded-full"
+                  src={item.image}
+                  alt="avatar image"
+                />
+                <Text className="text-start">{item.name}</Text>
+              </TableCell>
+              <TableCell className="flex justify-start items-center p-0">
+                <CiMail className={style.icon} />
+                <Text className="text-start">{item.mail}</Text>
+              </TableCell>
+              <TableCell className="p-0 mx-3">
+                <Text className="text-start">{item.phone}</Text>
+              </TableCell>
+              <TableCell className="p-0">
+                {item.position === "Corredor" ? (
+                  <Text className="bg-[#26af7f]  text-[#1f1e1e] w-fit p-1 px-2 pb-1.5 rounded-xl">
+                    {item.position}
+                  </Text>
+                ) : (
+                  <Text className="bg-[#b44f82] text-[#e0dfdf] w-fit p-1 px-2 pb-1.5 rounded-xl">
+                    {item.position}
+                  </Text>
+                )}
+              </TableCell>
+              <TableCell className="p-0">
+                <a href="">
+                  <HiOutlineDotsHorizontal className="text-18" />
+                </a>
+              </TableCell>
             </TableRow>
           ))}
-            
         </TableBody>
       </Table>
     </Card>
