@@ -1,5 +1,4 @@
 import React from "react";
-import styles from '../CardPotencialLead/CardPotencialLead.module.css'
 import { Card, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow, Title } from "@tremor/react"
 
 const data = [
