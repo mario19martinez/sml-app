@@ -76,7 +76,13 @@ function Detail() {
     <div className="  flex h-screen bg-slate-700  justify-center items-center w-1/5 flex-col  relative">
       {/* ********* ********* ********* ********* ********* ********* TARJETA DE USUARIO ********* ********* ********* *********  ********* ********* */}
       <div className=" h-1/4 justify-center items-center text-center flex flex-col min-w-min gap-2 relative">
-        <div className=" bg-emerald-700  w-16 h-16 rounded-full flex " />
+        <div className=" bg-emerald-700  w-20 h-20 rounded-full flex ">
+          <img
+            src="https://i.pravatar.cc/150"
+            alt="avatar"
+            className="rounded-full "
+          />
+        </div>
         <p className=" font-bold text-24 pt-1 text-white">Nico Fadel</p>
         <p className=" font-light text-14 text-gray-400">
           Developer / FullStack
