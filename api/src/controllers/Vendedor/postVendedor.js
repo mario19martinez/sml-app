@@ -1,6 +1,6 @@
-const Lead = require('../../models/Lead');
+const Vendedor = require('../../models/Vendedor');
 
-const postLead = async ({
+const postVendedor = async ({
 	From,
 	Name,
 	Profession,
@@ -12,7 +12,7 @@ const postLead = async ({
 	Status,
 	Deleted,
 }) => {
-	const lead = await Lead.create({
+	const vendedor = await Vendedor.create({
 		From,
 		Name,
 		Profession,
@@ -24,7 +24,7 @@ const postLead = async ({
 		Status,
 		Deleted,
 	});
-	return lead;
+	return vendedor;
 };
 
-module.exports = postLead;
+module.exports = postVendedor;

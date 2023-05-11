@@ -1,6 +1,6 @@
-const Lead = require('../../models/Lead');
+const Corredor = require('../../models/Corredor');
 
-const postLead = async ({
+const postCorredor = async ({
 	From,
 	Name,
 	Profession,
@@ -12,7 +12,7 @@ const postLead = async ({
 	Status,
 	Deleted,
 }) => {
-	const lead = await Lead.create({
+	const corredor = await Corredor.create({
 		From,
 		Name,
 		Profession,
@@ -24,7 +24,7 @@ const postLead = async ({
 		Status,
 		Deleted,
 	});
-	return lead;
+	return corredor;
 };
 
-module.exports = postLead;
+module.exports = postCorredor;

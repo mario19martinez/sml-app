@@ -1,6 +1,6 @@
-const Lead = require('../../models/Lead');
+const Leader = require('../../models/Leader');
 
-const postLead = async ({
+const postLeader = async ({
 	From,
 	Name,
 	Profession,
@@ -12,7 +12,7 @@ const postLead = async ({
 	Status,
 	Deleted,
 }) => {
-	const lead = await Lead.create({
+	const leader = await Leader.create({
 		From,
 		Name,
 		Profession,
@@ -24,7 +24,7 @@ const postLead = async ({
 		Status,
 		Deleted,
 	});
-	return lead;
+	return leader;
 };
 
-module.exports = postLead;
+module.exports = postLeader;

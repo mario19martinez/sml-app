@@ -4,10 +4,10 @@ const getLeadByName = require('../controllers/Lead/getLeadByName');
 const postLead = require('../controllers/Lead/postLead');
 const updateLeadById = require('../controllers/Lead/updateLeadById');
 
-const getAllLeadHandler = async (req, res) => {
+const getAllLeadlHandler = async (req, res) => {
 	try {
-		const leads = await getAllLeads();
-		res.status(200).json(leads);
+		const lead = await getAllLeads();
+		res.status(200).json(lead);
 	} catch (error) {
 		res.status(404).json({ error: error.message });
 	}
@@ -59,7 +59,7 @@ const getLeadByIdHandler = async (req, res) => {
 };
 
 module.exports = {
-	getAllLeadHandler,
+	getAllLeadlHandler,
 	postLeadHandler,
 	updateLeadHandler,
 	getLeadByIdHandler,

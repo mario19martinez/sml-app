@@ -4,7 +4,7 @@ const getCLevelByName = require('../controllers/CLevel/getCLevelByName');
 const postCLevel = require('../controllers/CLevel/postCLevel');
 const updateCLevelById = require('../controllers/CLevel/updateCLevelById');
 
-const getAllCLeveslHandler = async (req, res) => {
+const getAllCLevelsHandler = async (req, res) => {
 	try {
 		const cLevels = await getAllCLevels();
 		res.status(200).json(cLevels);
@@ -59,7 +59,7 @@ const getCLevelByIdHandler = async (req, res) => {
 };
 
 module.exports = {
-	getAllCLeveslHandler,
+	getAllCLevelsHandler,
 	postCLevelHandler,
 	updateCLevelHandler,
 	getCLevelByIdHandler,

@@ -1,37 +1,47 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 
-const CLevelSchema = new mongoose.Schema(
+const CorredorSchema = new mongoose.Schema(
 	{
-		From: {
-			type: String,
-		},
 		Name: {
 			type: String,
-		},
-		Profession: {
-			type: String,
+			require: true,
 		},
 		Email: {
 			type: String,
+			required: true,
+			unique: true,
 			validate: {
 				validator: validator.isEmail,
 				message: 'El correo electrónico debe tener un formato válido',
 			},
 		},
-		Contact_number: {
+		Birthdate: {
+			type: Date,
+			required: true,
+		},
+		Photo: {
 			type: String,
 		},
-		Web: {
+		Country: {
 			type: String,
 		},
-		Instagram: {
+		ContactNumber: {
 			type: String,
 		},
-		Level: {
+		Description: {
 			type: String,
 		},
-		Status: {
+		Classifications: {
+			type: String,
+		},
+		Average_delay: {
+			type: String,
+		},
+		Incidences: {
+			type: String,
+		},
+		Hired_leads: {
 			type: String,
 		},
 		Deleted: {
@@ -43,10 +53,10 @@ const CLevelSchema = new mongoose.Schema(
 	{ timestamps: true }
 );
 
-CLevelSchema.pre('find', function () {
+CorredorSchema.pre('find', function () {
 	this.where({ deleted: false });
 });
 
-const CLevel = new mongoose.model('clevel', CLevelSchema);
+const Corredor = new mongoose.model('corredor', CorredorSchema);
 
-module.exports = CLevel;
+module.exports = Corredor;
