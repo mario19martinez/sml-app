@@ -8,15 +8,14 @@ import Settings from "./views/Settings/Settings.jsx";
 import Login from "./views/Login/Login";
 import Dashboard from "./views/Dashboard/Dashboard";
 
-
 function App() {
   // const location = useLocation();
   return (
     <div className="App">
       {/* {location.pathname !== "/" && <Nav />} */}
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Landing />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Landing />} />
         <Route path="/employees" element={<Employees />} />
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/Dashboard" element={<Dashboard />} />
