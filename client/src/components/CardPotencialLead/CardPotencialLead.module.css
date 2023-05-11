@@ -1,44 +1,45 @@
-.style {
-  background-color: rgb(59, 131, 121);
+.container {
+	display: flex;
+	width: 100vw;
 }
-.tableRow {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #39394b;
-  width: 80vw;
-  padding: 10px;
-  margin: 10px 10px 10px 0;
-  border-radius: 10px;
+
+.containerAnalytics {
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
 }
-.tableRowH {
-  background-color: transparent;
+
+.containerTitle {
+	display: flex;
+	justify-content: space-between;
+	margin: 2rem;
 }
-.p {
-  text-align: center;
-  width: 15%;
+
+@media screen and (max-width: 1024px) {
+	.containerTitle {
+		margin: 1rem;
+	}
 }
-.status {
-  background-color: #ff69b4;
-  color: white;
-  padding: 5px 15px;
-  border-radius: 20px;
-  width: 15%;
-  text-align: center;
+
+.title {
+	font-size: 1.5rem;
+	color: #fff;
 }
-.bold {
-  font-weight: bold;
+
+.select {
+	width: 8rem;
+	height: 3rem;
+	border-radius: 0.5rem;
+	background-color: #6254ff;
+	color: #fff;
+	text-align: center;
 }
-.level {
-  background-color: #6254ff;
-  line-height: 0.5;
-  padding: 10px;
-  border-radius: 5px;
-  color: #3b3961;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
+
+@media screen and (max-width: 1024px) {
+	.select {
+		width: 5rem;
+		height: 2rem;
+	}
 }
 .tableRow {
   margin-top: 20px;

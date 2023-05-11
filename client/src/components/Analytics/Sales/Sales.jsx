@@ -10,7 +10,6 @@ import {
 	Text,
 	Title,
 } from '@tremor/react';
-import { HiOutlineDotsHorizontal } from 'react-icons/hi';
 import { CiCalendarDate } from 'react-icons/ci';
 
 export const Sales = () => {

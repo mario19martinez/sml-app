@@ -1,6 +1,6 @@
 import React from "react";
-import DashboardContract from "../../components/CardPotencialLead/CardPotencialLead";
 import Nav from "../../components/Nav/Nav";
+import { CardPotencialLead } from "../../components/CardPotencialLead/CardPotencialLead";
 
 function Dashboard() {
   return (
@@ -8,7 +8,7 @@ function Dashboard() {
       <Nav />
       <div className="flex flex-col w-[2000px] items-center">
         <div>Dashboard</div>
-        <DashboardContract />
+        <CardPotencialLead />
       </div>
     </div>
   );
