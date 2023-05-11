@@ -1,7 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import style from "./Login.module.css";
-import Form from "../../components/Form/Form";
-import { validate } from "../../components/Form/validation";
+import Form from "../../components/Login/Form/Form";
+import { validate } from "../../components/Login/Form/validation";
 
 function Login() {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
