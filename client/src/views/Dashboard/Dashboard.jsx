@@ -6,7 +6,7 @@ function Dashboard() {
   return (
     <div className="flex flex-row w-screen">
       <Nav />
-      <div className="flex flex-col w-[2000px] items-center">
+      <div className="">
         <div>Dashboard</div>
         <CardPotencialLead />
       </div>
