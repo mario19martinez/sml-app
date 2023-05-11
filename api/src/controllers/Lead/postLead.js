@@ -10,7 +10,6 @@ const postLead = async ({
 	email,
 	web,
 	instagram,
-	nivel,
 	deleted,
 }) => {
 	const lead = await Lead.create({
@@ -23,7 +22,6 @@ const postLead = async ({
 		email,
 		web,
 		instagram,
-		nivel,
 		deleted,
 	});
 	return lead;

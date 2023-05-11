@@ -56,11 +56,6 @@ const LeadSchema = new mongoose.Schema(
 			required: true,
 			trim: true,
 		},
-		nivel: {
-			type: String,
-			required: true,
-			trim: true,
-		},
 		deleted: {
 			type: Boolean,
 			default: false,
