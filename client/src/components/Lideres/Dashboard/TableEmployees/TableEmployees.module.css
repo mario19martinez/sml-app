@@ -27,9 +27,9 @@
   margin-top: 20px;
   display: grid;
 
-  grid-template-columns: 27% 31% 19.7% 10% auto;
+  grid-template-columns: 26% 31% 19.7% 10% auto;
   /* grid-template-columns: repeat(5, 1fr); */
-  margin-left: 50px;
+  margin-left: 30px;
 }
 
 .tableCards {
