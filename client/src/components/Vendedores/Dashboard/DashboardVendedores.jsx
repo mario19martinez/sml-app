@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import style from './CorredoresAnalytics.module.css';
+import style from './DashboardVendedores.module.css';
 
 import {
 	Card,

@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from '../../components/Nav/Nav';
-import DashboardVendedores from '../../components/Vendedores/Dashboard/CardPotencialLead';
+import DashboardVendedores from '../../components/Vendedores/Dashboard/DashboardVendedores';
 
 function Dashboard() {
 	return (
