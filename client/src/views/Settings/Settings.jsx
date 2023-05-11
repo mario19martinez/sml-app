@@ -14,10 +14,10 @@ export default function Settings() {
             <option value="Spanish">Spanish</option>
           </select>
         </div>
-        <p>Edit my Profile</p>
+        <p className="text-24 m-5 text-white">Edit Profile</p>
         <div className="flex flex-col gap-4 w-10/12 h-full items-center">
           <input
-            className="bg-transparent border border-white rounded-md text-center w-2/5 shadow-sm shadow-white"
+            className="bg-transparent border border-white rounded-md text-center w-2/5 shadow-sm shadow-white p-1 text-[#d1d1d1]"
             placeholder="Name"
             type="text"
             id="name"
@@ -25,28 +25,28 @@ export default function Settings() {
           <input
             type="text"
             id="email"
-            className="bg-transparent border border-white rounded-md text-center w-2/5 shadow-sm shadow-white"
+            className="bg-transparent border border-white rounded-md text-center w-2/5 shadow-sm shadow-white p-1 text-[#d1d1d1]"
             placeholder="Email"
           />
           <input
             type="text"
             id="phone"
-            className="bg-transparent border border-white rounded-md text-center w-2/5 shadow-sm shadow-white"
+            className="bg-transparent border border-white rounded-md text-center w-2/5 shadow-sm shadow-white p-1 text-[#d1d1d1]"
             placeholder="Phone"
           />
           <input
             type="text"
             id="location"
-            className="bg-transparent border border-white rounded-md text-center w-2/5 shadow-sm shadow-white"
+            className="bg-transparent border border-white rounded-md text-center w-2/5 shadow-sm shadow-white p-1 text-[#d1d1d1]"
             placeholder="Location"
           />
           <input
             type="text"
             id="status"
-            className="bg-transparent border border-white rounded-md text-center w-2/5 h-1/5 shadow-md shadow-white"
+            className="bg-transparent border border-white rounded-md text-center w-2/5 h-1/5 shadow-md shadow-white p-1 text-[#d1d1d1]"
             placeholder="Status"
           />
-          <button>Save Changes</button>
+          <button className="bg-[#334155] hover:bg-[#4f6686] text-white py-2 px-4 rounded-full m-5">Save Changes</button>
         </div>
       </div>
       <Detail />
