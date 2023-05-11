@@ -19,7 +19,7 @@ import { CiGlobe, CiWarning, CiInstagram } from "react-icons/ci";
 const CorredoresAnlaytics = () => {
   const [client, setClient] = useState([
     {
-      id: 1111111,
+      id: 1111,
       name: "Juan  Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
@@ -27,7 +27,7 @@ const CorredoresAnlaytics = () => {
       Incidencia: "",
     },
     {
-      id: 2222222,
+      id: 22222,
       name: "Juan Carlos ",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
@@ -35,7 +35,7 @@ const CorredoresAnlaytics = () => {
       Incidencia: "",
     },
     {
-      id: 2222222,
+      id: 22222,
       name: "Gabriel Carlos Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
@@ -43,24 +43,8 @@ const CorredoresAnlaytics = () => {
       Incidencia: "",
     },
     {
-      id: 26554542,
+      id: 265542,
       name: "Juan Carlos Gomez",
-      Web: "www.google.com",
-      Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
-    },
-    {
-      id: 2234222,
-      name: "Pedro Gomez",
-      Web: "www.google.com",
-      Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
-    },
-    {
-      id: 2345546,
-      name: "Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
       Nivel: "2",
@@ -68,6 +52,22 @@ const CorredoresAnlaytics = () => {
     },
     {
       id: 223422,
+      name: "Pedro Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
+      id: 234546,
+      name: "Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
+      id: 22342,
       name: "Javier Gomes",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
@@ -75,7 +75,7 @@ const CorredoresAnlaytics = () => {
       Incidencia: "",
     },
     {
-      id: 2222222,
+      id: 22548722,
       name: "Julio Gomes",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
@@ -91,7 +91,7 @@ const CorredoresAnlaytics = () => {
       Incidencia: "",
     },
     {
-      id: 2222222,
+      id: 2278922,
       name: "Juan Carlos Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
@@ -107,7 +107,7 @@ const CorredoresAnlaytics = () => {
       Incidencia: "",
     },
     {
-      id: 2222222,
+      id: 2232422,
       name: "Julio Gomes",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
@@ -123,7 +123,7 @@ const CorredoresAnlaytics = () => {
       Incidencia: "",
     },
     {
-      id: 2222222,
+      id: 249872,
       name: "Juan Carlos Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
@@ -131,7 +131,7 @@ const CorredoresAnlaytics = () => {
       Incidencia: "",
     },
     {
-      id: 2222222,
+      id: 2224852,
       name: "Julio Gomes",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
@@ -139,7 +139,7 @@ const CorredoresAnlaytics = () => {
       Incidencia: "",
     },
     {
-      id: 2222222,
+      id: 246877,
       name: "Juan Carlos Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
@@ -147,7 +147,7 @@ const CorredoresAnlaytics = () => {
       Incidencia: "",
     },
     {
-      id: 2222222,
+      id: 224562,
       name: "Gonzalo Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
@@ -373,7 +373,7 @@ const CorredoresAnlaytics = () => {
 
         <TableBody className={style.tableBody}>
           {currentCard?.map((item, index) => (
-            <TableRow key={item.id} className={style.tableCards}>
+            <TableRow key={index} className={style.tableCards}>
               <TableCell className="flex justify-start items-center p-0">
                 <div className="w-8 ml-2 mr-4 rounded-full">{item.id}</div>
               </TableCell>
