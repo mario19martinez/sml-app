@@ -53,4 +53,4 @@ EmploySchema.pre('find', function () {
 
 const Employ = new mongoose.model('employ', EmploySchema);
 
-module.exports = { Employ };
+module.exports =  Employ ;

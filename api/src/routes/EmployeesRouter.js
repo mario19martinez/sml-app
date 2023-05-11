@@ -1,11 +1,17 @@
-const { Router } = require("express");
-const EmployeesRouter = Router();
+const { Router } = require('express');
 const {
-  getAllEmployeesHandler,
-  postEmployeesHandler,
-} = require("../Handlers/employeesHandlers");
+	postEmployeeHandler,
+	getAllEmployeesHandler,
+	getEmployByIdHandler,
+	getEmployByNameHandler,
+	updateEmployeeHandler,
+} = require('../Handlers/employeesHandlers');
+const EmployeesRouter = Router();
 
-EmployeesRouter.get("/", getAllEmployeesHandler);
-EmployeesRouter.post("/", postEmployeesHandler);
+EmployeesRouter.post('/', postEmployeeHandler);
+EmployeesRouter.get('/', getAllEmployeesHandler);
+EmployeesRouter.get('/name', getEmployByNameHandler);
+EmployeesRouter.put('/:id', updateEmployeeHandler);
+EmployeesRouter.get('/:id', getEmployByIdHandler);
 
 module.exports = EmployeesRouter;
