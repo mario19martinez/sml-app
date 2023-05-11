@@ -5,7 +5,7 @@ import Employees from "./views/Employees/Employees.jsx";
 import Analytics from "./views/Analytics/Analytics.jsx";
 import Settings from "./views/Settings/Settings.jsx";
 import Login from "./views/Login/Login";
-import Dashboard from "./views/Dashboard/Dashboard";
+import DashboardVendedores from "./components/Vendedores/Dashboard/DashboardVendedores";
 
 function App() {
   const location = useLocation();
@@ -17,8 +17,8 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/employees" element={<Employees />} />
         <Route path="/analytics" element={<Analytics />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/vendedores" element={<DashboardVendedores />} />
       </Routes>
     </div>
   );

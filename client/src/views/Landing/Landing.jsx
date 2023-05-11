@@ -19,6 +19,9 @@ function Landing() {
             <Link to="/analytics" className={style.linksRoutes}>
               Analytics
             </Link>
+            <Link to="/vendedores" className={style.linksRoutes}>
+              VendedoresDashboard
+            </Link>
           </div>
         </>
       ) : null}
