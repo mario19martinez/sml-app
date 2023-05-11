@@ -4,7 +4,6 @@ import Landing from "./views/Landing/Landing";
 import Employees from "./views/Employees/Employees.jsx";
 import Analytics from "./views/Analytics/Analytics.jsx";
 import Settings from "./views/Settings/Settings.jsx";
-// import Nav from "./components/Nav/Nav";
 import Login from "./views/Login/Login";
 import Dashboard from "./views/Dashboard/Dashboard";
 
@@ -13,7 +12,6 @@ function App() {
 
   return (
     <div className="App">
-      {location.pathname !== "/" && location.pathname !== "/login" && <Nav />}
       <Routes>
         <Route path="/home" element={<Landing />} />
         <Route path="/" element={<Login />} />

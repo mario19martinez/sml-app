@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Logout from "../../views/Logout/Logout";
 import Profile from "../../views/Login/Profile";
+import style from "./Nav.module.css";
 
 import { IoStatsChart, IoSettingsSharp, IoGrid } from "react-icons/io5";
 

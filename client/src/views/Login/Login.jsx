@@ -22,7 +22,7 @@ function Login() {
         // Si la autenticación es exitosa, redirigir a la ruta "/"
         // window.location.href = "/landing?fromLogin=true";
         window.location.href = {
-          pathname: "/landing",
+          pathname: "/home",
           state: { fromLogin: true },
         };
       } catch (error) {
@@ -41,7 +41,7 @@ function Login() {
         className={`${style["auth-button"]} ${style["google-button"]}`}
       >
         <span className={style["google-icon"]}></span>
-       
+
         <span className={style["button-text"]}>Google</span>
       </button>
     </div>
@@ -66,7 +66,6 @@ export default Login;
 // function Login() {
 //   const { loginWithRedirect } = useAuth0();
 //   const googleRedirectUri = window.location.origin + "/login/callback"
-  
 
 //   const handleGoogleLogin = () => {
 //     loginWithRedirect({
