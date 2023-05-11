@@ -3,60 +3,59 @@ const validator = require('validator');
 
 const LeadSchema = new mongoose.Schema(
 	{
-		id: {
-			type: Number,
-			required: true,
-			unique: true,
-			trim: true,
-		},
-		name: {
+		Name: {
 			type: String,
 			required: true,
 			trim: true,
 		},
-		profesion: {
+		Category: {
 			type: String,
-			required: true,
 			trim: true,
 		},
-		nivel: {
+		City: {
+			type: String,
+			trim: true,
+		},
+		Province: {
+			type: String,
+			trim: true,
+		},
+		Url: {
+			type: String,
+			trim: true,
+		},
+		Nivel: {
 			type: Number,
 			required: true,
 			trim: true,
 			enum: [1, 2, 3],
 		},
-		phone: {
+		Telephone: {
 			type: String,
-			required: true,
 			trim: true,
 		},
-		status: {
-			type: Boolean,
-			required: true,
-			default: false,
+		Status: {
+			type: String,
+			enum: ['sin contratar', 'contratado'],
+			default: 'sin contratar',
 			trim: true,
 		},
-		email: {
+
+		Email: {
 			type: String,
 			required: true,
-			unique: true,
 			trim: true,
 			validate: {
 				validator: validator.isEmail,
 				message: 'El correo electrónico debe tener un formato válido',
 			},
 		},
-		web: {
+		Instagram: {
 			type: String,
 			required: true,
 			trim: true,
 		},
-		instagram: {
-			type: String,
-			required: true,
-			trim: true,
-		},
-		deleted: {
+		Deleted: {
 			type: Boolean,
 			default: false,
 			select: false,
