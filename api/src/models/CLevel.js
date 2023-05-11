@@ -1,44 +1,29 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 
-const LeadSchema = new mongoose.Schema(
+const CLevelSchema = new mongoose.Schema(
 	{
-		id: {
-			type: Number,
-			required: true,
-			unique: true,
-			trim: true,
-		},
 		name: {
 			type: String,
-			required: true,
-			trim: true,
+			require: true,
 		},
 		email: {
 			type: String,
 			required: true,
 			unique: true,
-			trim: true,
 			validate: {
 				validator: validator.isEmail,
 				message: 'El correo electrónico debe tener un formato válido',
 			},
 		},
-		web: {
+		phone: {
 			type: String,
-			required: true,
-			trim: true,
+			require: true,
+			default: 0,
 		},
-		instagram: {
+		image: {
 			type: String,
-			required: true,
-			trim: true,
-		},
-		nivel: {
-			type: Number,
-			required: true,
-			trim: true,
-			enum: [1, 2, 3],
+			require: true,
 		},
 		deleted: {
 			type: Boolean,
@@ -51,10 +36,10 @@ const LeadSchema = new mongoose.Schema(
 	}
 );
 
-LeadSchema.pre('find', function () {
+CLevelSchema.pre('find', function () {
 	this.where({ deleted: false });
 });
 
-const Lead = mongoose.model('Lead', LeadSchema);
+const CLevel = new mongoose.model('clevel', CLevelSchema);
 
-module.exports = Lead;
+module.exports = CLevel;

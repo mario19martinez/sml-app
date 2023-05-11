@@ -9,7 +9,7 @@ import {
 
 function Nav() {
   return (
-    <div className="bg-[#39394b] flex md:min-w-[12rem] min-w-[8rem] h-screen">
+    <div className="bg-[#39394b] flex md:min-w-[12rem] w-1/5 h-screen">
       <div className="flex flex-col justify-between items-center mt-2 w-full">
         <div className="flex flex-col items-center justify-center gap-2 mt-5 w-full">
           <div className="flex flex-col items-center justify-center">
