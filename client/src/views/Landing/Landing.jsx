@@ -16,6 +16,12 @@ function Landing() {
             <Link to="/employees" className={style.linksRoutes}>
               Employees
             </Link>
+            <Link to="/corredores" className={style.linksRoutes}>
+              Corredores-Dashbord
+            </Link>
+            <Link to="/corredores/analytics" className={style.linksRoutes}>
+              Corredores-Analytics
+            </Link>
             <Link to="/analytics" className={style.linksRoutes}>
               Analytics
             </Link>
