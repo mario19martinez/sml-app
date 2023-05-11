@@ -1,7 +1,17 @@
-const {Router} = require("express");
-const leadsRouter = Router();
-const {getAllLeadsHandler} = require("../Handlers/leadsHandlers")
+const { Router } = require('express');
+const {
+	postLeadHandler,
+	getAllLeadHandler,
+	updateLeadHandler,
+	getLeadByIdHandler,
+	getLeadByNameHandler,
+} = require('../Handlers/leadsHandlers');
+const LeadsRouter = Router();
 
-leadsRouter.get("/", getAllLeadsHandler);
+LeadsRouter.post('/', postLeadHandler);
+LeadsRouter.get('/', getAllLeadHandler);
+LeadsRouter.get('/name', getLeadByNameHandler);
+LeadsRouter.get('/:id', getLeadByIdHandler);
+LeadsRouter.put('/:id', updateLeadHandler);
 
-module.exports = leadsRouter;
+module.exports = LeadsRouter;
