@@ -6,7 +6,9 @@ import Analytics from "./views/Analytics/Analytics.jsx";
 import CorredoresAnalytics from "./components/Corredores/Analitycs/CorredoresAnalytics";
 import Settings from "./views/Settings/Settings.jsx";
 import Login from "./views/Login/Login";
-import Dashboard from "./views/Dashboard/Dashboard";
+import CorredoresDashboard from "./components/Corredores/Dashboard/CorredoresDashboard"
+import Corredores from "./components/Corredores/Corredores";
+// import Dashboard from "./views/Dashboard/Dashboard";
 
 function App() {
   const location = useLocation();
@@ -18,7 +20,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/employees" element={<Employees />} />
         <Route path="/corredores" element={<CorredoresDashboard />} />
-        <Route path="/corredores/analytics" element={<CorredoresAnalytics />} />
+        <Route path="/corredores/analytics" element={<Corredores />} />
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/settings" element={<Settings />} />
       </Routes>
