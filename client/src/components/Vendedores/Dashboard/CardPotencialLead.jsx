@@ -8,44 +8,34 @@ import {
 	TableBody,
 	TableCell,
 	Text,
-	Title,
 } from '@tremor/react';
 import { CiCalendarDate } from 'react-icons/ci';
 
 export const CardPotencialLead = () => {
 	const data = [
 		{
-			id: '876364',
-			client: 'Social Media Lab',
-			profesion: 'Abogado',
-			nivel: 1,
-			telefono: '+492563627',
+			Name: 'Social Media Lab',
+			Category: 'Abogado',
+			Nivel: 1,
+			Thelephone: '+492563627',
 			Email: 'arroragaur@gmail.com',
-            status: true
+			Status: true,
 		},
 	];
 
 	return (
 		<Card className='h-screen bg-[39394b] w-[40rem]'>
-			<div className='flex justify-between items-center m-5'>
-				<Title className={style.title}>Sales</Title>
-				<button>...</button>
-			</div>
 			<Table className={style.table}>
 				<TableHead className={style.tableHead}>
 					<TableRow className={style.tableRow}>
-						<TableHeaderCell className='text-start'>Invoice Id</TableHeaderCell>
-						<TableHeaderCell className='text-start'>
-							Name
+						<TableHeaderCell className='text-start'>Name</TableHeaderCell>
+						<TableHeaderCell className='text-start ml-5'>
+							Profesion
 						</TableHeaderCell>
-						<TableHeaderCell className='text-start ml-5'>Profesion</TableHeaderCell>
 						<TableHeaderCell className='text-start ml-5'>Nivel</TableHeaderCell>
-						<TableHeaderCell className='text-start'>
-							Email
-						</TableHeaderCell>
-						<TableHeaderCell className='text-start'>
-							Status
-						</TableHeaderCell>
+						<TableHeaderCell className='text-start ml-5'>Telefono</TableHeaderCell>
+						<TableHeaderCell className='text-start ml-5'>Email</TableHeaderCell>
+						<TableHeaderCell className='text-start ml-5'>Status</TableHeaderCell>
 					</TableRow>
 				</TableHead>
 
@@ -55,27 +45,22 @@ export const CardPotencialLead = () => {
 							key={item.id}
 							className={style.tableCards}>
 							<TableCell className='flex justify-start items-center p-0'>
-								<p>#{item.id}</p>
+								<Text className='text-start'>{item.Name}</Text>
 							</TableCell>
 							<TableCell className='flex justify-start items-center p-0'>
-								<Text className='text-start'>{item.client}</Text>
+								<Text className='text-start'>{item.Category}</Text>
 							</TableCell>
 							<TableCell className='flex justify-start items-center p-0'>
-								<CiCalendarDate className={style.icon} />
-								<Text className='text-start'>{item.date}</Text>
+								<Text className='text-start'>{item.Nivel}</Text>
 							</TableCell>
-							<TableCell className='p-0 mx-3'>
-								<div className='flex gap-1'>
-									<img
-										className='w-8 ml-2 mr-4 rounded-full'
-										src={item.image}
-										alt='avatar image'
-									/>
-									<Text className='text-start'>{item.name}</Text>
-								</div>
+							<TableCell className='flex justify-start items-center p-0'>
+								<Text className='text-start'>{item.Thelephone}</Text>
 							</TableCell>
-							<TableCell className='p-0'>
-								<Text className='text-center'>{item.amount}</Text>
+							<TableCell className='flex justify-start items-center p-0'>
+								<Text className='text-start'>{item.Email}</Text>
+							</TableCell>
+							<TableCell className='flex justify-start items-center p-0'>
+								<Text className='text-start'>{item.Status}</Text>
 							</TableCell>
 						</TableRow>
 					))}
