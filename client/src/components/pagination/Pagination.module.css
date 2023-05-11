@@ -1,0 +1,111 @@
+.divPagination {
+  background-color: rgba(19, 19, 19, 0.712);
+  backdrop-filter: blur(20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  margin: 25px 0 0px 0;
+  border-radius: 15px;
+  /* border: 1px solid yellow; */
+  height: 40px;
+}
+.divPagination {
+
+  animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  animation-delay: 1s;
+
+  animation-fill-mode: both;
+  }
+
+  @keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+  } 
+
+.lista {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline-start: 0;
+  list-style: none;
+  z-index: 999;
+}
+
+.items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgb(216, 198, 158);
+  margin: 3px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 5px;
+}
+.items:hover {
+  transform: scale(1.08);
+}
+.currentPage {
+  border: 2px solid rgba(63, 202, 126, 0.562);
+  margin: 0;
+  padding: 0;
+  width: 19px;
+
+}
+
+.items a {
+  text-decoration: none;
+  cursor: pointer;
+font-size: 11px;
+border-radius: 5px;
+padding: 5px 5px 6px 5px;
+  color: rgb(223, 191, 123);
+}
+.items a:hover {
+  transform: scale(1.02);
+}
+
+@media screen and (max-width: 440px) {
+  .divPagination {
+    padding: 0 15px;
+  }
+
+  .items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 17px;
+    height: 18px;
+    border: 1px solid rgb(216, 198, 158);
+    margin: 2px;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 5px;
+  }
+  .items:hover {
+    transform: scale(1.08);
+  }
+  .currentPage {
+    border: 2px solid rgba(63, 202, 126, 0.562);
+    margin: 0;
+    padding: 0;
+    width: 17px;
+  
+  }
+  
+  .items a {
+    text-decoration: none;
+    cursor: pointer;
+  font-size: 9px;
+  border-radius: 5px;
+  padding: 5px 5px 6px 5px;
+    color: rgb(223, 191, 123);
+  }
+  .items a:hover {
+    transform: scale(1.02);
+  }
+}

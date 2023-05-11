@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import style from "./CorredoresAnalytics.module.css";
-
+import Pagination from "../../pagination/Pagination";
 import {
   Card,
   Table,
@@ -20,97 +20,97 @@ const CorredoresAnlaytics = () => {
   const [client, setClient] = useState([
     {
       id: 2222222,
-      name: 'Juan Carlos Gomez',
-      Web: 'www.google.com',
-      Instagram: '@carlosgomez',
-      Nivel: '2',
-      Incidencia: ''
+      name: "Juan Carlos Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
     },
     {
       id: 2222222,
-      name: 'Juan Carlos Gomez',
-      Web: 'www.google.com',
-      Instagram: '@carlosgomez',
-      Nivel: '2',
-      Incidencia: ''
+      name: "Juan Carlos Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
     },
     {
       id: 2222222,
-      name: 'Juan Carlos Gomez',
-      Web: 'www.google.com',
-      Instagram: '@carlosgomez',
-      Nivel: '2',
-      Incidencia: ''
+      name: "Juan Carlos Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
     },
     {
       id: 2222222,
-      name: 'Juan Carlos Gomez',
-      Web: 'www.google.com',
-      Instagram: '@carlosgomez',
-      Nivel: '2',
-      Incidencia: ''
+      name: "Juan Carlos Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
     },
     {
       id: 2222222,
-      name: 'Juan Carlos Gomez',
-      Web: 'www.google.com',
-      Instagram: '@carlosgomez',
-      Nivel: '2',
-      Incidencia: ''
+      name: "Juan Carlos Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
     },
     {
       id: 2222222,
-      name: 'Juan Carlos Gomez',
-      Web: 'www.google.com',
-      Instagram: '@carlosgomez',
-      Nivel: '2',
-      Incidencia: ''
+      name: "Juan Carlos Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
     },
     {
       id: 2222222,
-      name: 'Juan Carlos Gomez',
-      Web: 'www.google.com',
-      Instagram: '@carlosgomez',
-      Nivel: '2',
-      Incidencia: ''
+      name: "Juan Carlos Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
     },
     {
       id: 2222222,
-      name: 'Juan Carlos Gomez',
-      Web: 'www.google.com',
-      Instagram: '@carlosgomez',
-      Nivel: '2',
-      Incidencia: ''
+      name: "Juan Carlos Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
     },
     {
       id: 2222222,
-      name: 'Juan Carlos Gomez',
-      Web: 'www.google.com',
-      Instagram: '@carlosgomez',
-      Nivel: '2',
-      Incidencia: ''
+      name: "Juan Carlos Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
     },
     {
       id: 2222222,
-      name: 'Juan Carlos Gomez',
-      Web: 'www.google.com',
-      Instagram: '@carlosgomez',
-      Nivel: '2',
-      Incidencia: ''
-    }
-]);
-const [nivel, setNivel] = useState({
-  1:'',
-  2:'',
-  3:'',
-  4:'',
-  5:'',
-  6:'',
-  7:'',
-  8:'',
-  9:'',
-  10:''
-})
+      name: "Juan Carlos Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+  ]);
+  const [nivel, setNivel] = useState({
+    1: "",
+    2: "",
+    3: "",
+    4: "",
+    5: "",
+    6: "",
+    7: "",
+    8: "",
+    9: "",
+    10: "",
+  });
   const data = [
     {
       id: "#876365",
@@ -167,15 +167,30 @@ const [nivel, setNivel] = useState({
       Incidencia: "...",
     },
   ];
-  const handleNivelClick = (event) => {
-    
-    setNivel({...nivel, [event.target.name]: event.target.value});
+
+  const [pageStyle, setPageStyle] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [cardXPage, setCardXpage] = useState(9);
+  const indexLastCard = currentPage * cardXPage;
+  const indexFirstCard = indexLastCard - cardXPage;
+  const currentCard = client.slice(indexFirstCard, indexLastCard);
+
+  const pages = (pageNumber) => {
+    setCurrentPage(pageNumber);
   };
+
+  const handleNivelClick = (event) => {
+    setNivel({ ...nivel, [event.target.name]: event.target.value });
+  };
+  
   const handleSubmit = (event) => {
     event.preventDefault();
+  };
 
-
+  if (currentCard.length === 1 && currentCard[0].hasOwnProperty("error")) {
+    return <p className={style.noResults}>No hay resultados...</p>;
   }
+
   return (
     <Card className="w-4/5 h-screen ">
       <div className="flex justify-between items-center m-5">
@@ -188,18 +203,15 @@ const [nivel, setNivel] = useState({
           <TableRow className={style.tableRow}>
             <TableHeaderCell className="text-start">Invoice Id</TableHeaderCell>
             <TableHeaderCell className="text-start">Name</TableHeaderCell>
-            <TableHeaderCell className="text-start">
-              Web
-            </TableHeaderCell>
+            <TableHeaderCell className="text-start">Web</TableHeaderCell>
             <TableHeaderCell className="text-start">Instagram</TableHeaderCell>
             <TableHeaderCell className="text-start">Nivel</TableHeaderCell>
             <TableHeaderCell className="text-start">Incidencia</TableHeaderCell>
           </TableRow>
         </TableHead>
-        
-        <TableBody className={style.tableBody}>
-          {client.map((item,index) => (
 
+        <TableBody className={style.tableBody}>
+          {currentCard?.map((item, index) => (
             <TableRow key={item.id} className={style.tableCards}>
               <TableCell className="flex justify-start items-center p-0">
                 <div className="w-8 ml-2 mr-4 rounded-full">{item.id}</div>
@@ -208,41 +220,97 @@ const [nivel, setNivel] = useState({
                 <Text className="text-start">{item.name}</Text>
               </TableCell>
               <TableCell className="flex justify-start items-center p-0">
-                <button><CiGlobe className={style.icon} /></button>
+                <button>
+                  <CiGlobe className={style.icon} />
+                </button>
               </TableCell>
               <TableCell className="flex justify-start items-center p-0 mx-3">
                 <CiInstagram className={style.iconInsta} />
                 <Text className="text-start">{item.Instagram}</Text>
               </TableCell>
               <TableCell className="flex justify-start items-center p-0">
-                {nivel == '1' ?
-                  <button className={style.buttonNivelActive} type="button" name={client[index].id} value="1"
-                    onClick={handleNivelClick}>1</button>
-                  : <button className={style.buttonNivel} type="button" name={client[index].id} value="1"
-                    onClick={handleNivelClick}>1</button>}
-                {nivel == '2' ?
-                  <button className={style.buttonNivelActive} type="button" name={client[index].id} value="2"
-                    onClick={handleNivelClick}>2</button>
-                  : <button className={style.buttonNivel} type="button" name={client[index].id} value="2"
-                    onClick={handleNivelClick}>2</button>}
-                {nivel == '3' ?
-                  <button className={style.buttonNivelActive} type="button" name={client[index].id} value="3"
-                    onClick={handleNivelClick}>3</button>
-                  : <button className={style.buttonNivel} type="button" name={client[index].id} value="3"
-                    onClick={handleNivelClick}>3</button>}
+                {nivel == "1" ? (
+                  <button
+                    className={style.buttonNivelActive}
+                    type="button"
+                    name={client[index].id}
+                    value="1"
+                    onClick={handleNivelClick}
+                  >
+                    1
+                  </button>
+                ) : (
+                  <button
+                    className={style.buttonNivel}
+                    type="button"
+                    name={client[index].id}
+                    value="1"
+                    onClick={handleNivelClick}
+                  >
+                    1
+                  </button>
+                )}
+                {nivel == "2" ? (
+                  <button
+                    className={style.buttonNivelActive}
+                    type="button"
+                    name={client[index].id}
+                    value="2"
+                    onClick={handleNivelClick}
+                  >
+                    2
+                  </button>
+                ) : (
+                  <button
+                    className={style.buttonNivel}
+                    type="button"
+                    name={client[index].id}
+                    value="2"
+                    onClick={handleNivelClick}
+                  >
+                    2
+                  </button>
+                )}
+                {nivel == "3" ? (
+                  <button
+                    className={style.buttonNivelActive}
+                    type="button"
+                    name={client[index].id}
+                    value="3"
+                    onClick={handleNivelClick}
+                  >
+                    3
+                  </button>
+                ) : (
+                  <button
+                    className={style.buttonNivel}
+                    type="button"
+                    name={client[index].id}
+                    value="3"
+                    onClick={handleNivelClick}
+                  >
+                    3
+                  </button>
+                )}
               </TableCell>
               <TableCell className="flex justify-start items-center p-0">
-              <button><CiWarning className={style.icon} /></button>
-
+                <button>
+                  <CiWarning className={style.icon} />
+                </button>
               </TableCell>
             </TableRow>
           ))}
         </TableBody>
-        
       </Table>
+      <Pagination
+        pageStyle={pageStyle}
+        setPageStyle={setPageStyle}
+        cardXPage={cardXPage}
+        client={client}
+        pages={pages}
+      />
     </Card>
   );
 };
 
 export default CorredoresAnlaytics;
-
