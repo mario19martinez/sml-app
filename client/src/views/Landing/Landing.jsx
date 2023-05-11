@@ -17,7 +17,7 @@ function Landing() {
               Employees
             </Link>
             <Link to="/corredores" className={style.linksRoutes}>
-              Corredores
+              Corredores-Dashbord
             </Link>
             <Link to="/corredores/analytics" className={style.linksRoutes}>
               Corredores-Analytics

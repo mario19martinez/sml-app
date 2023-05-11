@@ -19,8 +19,64 @@ import { CiGlobe, CiWarning, CiInstagram } from "react-icons/ci";
 const CorredoresAnlaytics = () => {
   const [client, setClient] = useState([
     {
+      id: 1111111,
+      name: "Juan  Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
       id: 2222222,
+      name: "Juan Carlos ",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
+      id: 2222222,
+      name: "Gabriel Carlos Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
+      id: 26554542,
       name: "Juan Carlos Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
+      id: 2234222,
+      name: "Pedro Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
+      id: 2345546,
+      name: "Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
+      id: 223422,
+      name: "Javier Gomes",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
+      id: 2222222,
+      name: "Julio Gomes",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
       Nivel: "2",
@@ -52,7 +108,7 @@ const CorredoresAnlaytics = () => {
     },
     {
       id: 2222222,
-      name: "Juan Carlos Gomez",
+      name: "Julio Gomes",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
       Nivel: "2",
@@ -76,7 +132,63 @@ const CorredoresAnlaytics = () => {
     },
     {
       id: 2222222,
+      name: "Julio Gomes",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
+      id: 2222222,
       name: "Juan Carlos Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
+      id: 2222222,
+      name: "Gonzalo Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
+      id: 2222222,
+      name: "Juan Carlos Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
+      id: 2222222,
+      name: "Gonzalo Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
+      id: 2222222,
+      name: "Nicolas Depecho",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
+      id: 2222222,
+      name: "Juan Carlos Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
+      id: 2222222,
+      name: "Nicolas Depecho",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
       Nivel: "2",
@@ -98,6 +210,55 @@ const CorredoresAnlaytics = () => {
       Nivel: "2",
       Incidencia: "",
     },
+    {
+      id: 2222222,
+      name: "Ximena Gabriela Tomasini",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
+      id: 2222222,
+      name: "Juan Carlos Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
+      id: 2222222,
+      name: "Ximena Gabriela Tomasini",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
+      id: 2222222,
+      name: "Juan Carlos Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
+      id: 2222222,
+      name: "Ximena Gabriela Tomasini",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+    {
+      id: 2222222,
+      name: "Juan Carlos Gomez",
+      Web: "www.google.com",
+      Instagram: "@carlosgomez",
+      Nivel: "2",
+      Incidencia: "",
+    },
+
   ]);
   const [nivel, setNivel] = useState({
     1: "",
@@ -170,7 +331,7 @@ const CorredoresAnlaytics = () => {
 
   const [pageStyle, setPageStyle] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
-  const [cardXPage, setCardXpage] = useState(9);
+  const [cardXPage, setCardXpage] = useState(10);
   const indexLastCard = currentPage * cardXPage;
   const indexFirstCard = indexLastCard - cardXPage;
   const currentCard = client.slice(indexFirstCard, indexLastCard);
