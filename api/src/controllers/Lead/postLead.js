@@ -3,6 +3,10 @@ const Lead = require('../../models/Lead');
 const postLead = async ({
 	id,
 	name,
+	profesion,
+	nivel,
+	phone,
+	status,
 	email,
 	web,
 	instagram,
@@ -12,6 +16,10 @@ const postLead = async ({
 	const lead = await Lead.create({
 		id,
 		name,
+		profesion,
+		nivel,
+		phone,
+		status,
 		email,
 		web,
 		instagram,

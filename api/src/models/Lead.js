@@ -14,6 +14,28 @@ const LeadSchema = new mongoose.Schema(
 			required: true,
 			trim: true,
 		},
+		profesion: {
+			type: String,
+			required: true,
+			trim: true,
+		},
+		nivel: {
+			type: Number,
+			required: true,
+			trim: true,
+			enum: [1, 2, 3],
+		},
+		phone: {
+			type: String,
+			required: true,
+			trim: true,
+		},
+		status: {
+			type: Boolean,
+			required: true,
+			default: false,
+			trim: true,
+		},
 		email: {
 			type: String,
 			required: true,
@@ -35,10 +57,9 @@ const LeadSchema = new mongoose.Schema(
 			trim: true,
 		},
 		nivel: {
-			type: Number,
+			type: String,
 			required: true,
 			trim: true,
-			enum: [1, 2, 3],
 		},
 		deleted: {
 			type: Boolean,
