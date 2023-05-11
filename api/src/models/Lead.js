@@ -70,6 +70,6 @@ LeadSchema.pre('find', function () {
 	this.where({ deleted: false });
 });
 
-const Lead = mongoose.model('Lead', LeadSchema);
+const Lead = mongoose.model('lead', LeadSchema);
 
 module.exports = Lead;

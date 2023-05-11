@@ -3,7 +3,6 @@ const getLeadById = require('../controllers/Lead/getLeadById');
 const getLeadByName = require('../controllers/Lead/getLeadByName');
 const postLead = require('../controllers/Lead/postLead');
 const updateLeadById = require('../controllers/Lead/updateLeadById');
-const { getCLevelByNameHandler } = require('./cLevelHandlers');
 
 const getAllLeadHandler = async (req, res) => {
 	try {

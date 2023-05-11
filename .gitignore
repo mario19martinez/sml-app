@@ -1,4 +1,6 @@
 # Logs
+
+**.env
 logs
 *.log
 npm-debug.log*
@@ -11,6 +13,7 @@ wetransfer_poppins_tipografias-social-media-lab_2023-05-10_0002
 dist
 dist-ssr
 *.local
+
 
 # Editor directories and files
 .vscode/*

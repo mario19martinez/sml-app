@@ -6,7 +6,7 @@ function Dashboard() {
 	return (
 		<div className='flex flex-row w-screen'>
 			<Nav />
-			<div className=''>
+			<div className='flex flex-row w-screen'>
 				<div>Dashboard</div>
 				<DashboardVendedores />
 			</div>
