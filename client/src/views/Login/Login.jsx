@@ -4,6 +4,7 @@ import Form from "../../components/Login/Form/Form";
 import { validate } from "../../components/Login/Form/validation";
 import { Link } from "react-router-dom";
 
+
 function Login() {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
 
