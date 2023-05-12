@@ -1,6 +1,6 @@
 import Nav from '../../Nav/Nav'
 import { useState, useEffect } from 'react';
-import img from '../../../Assets/Captura.png'
+
 const AnalyticsSealer = () => {
   const data = [
     {
