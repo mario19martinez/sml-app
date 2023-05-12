@@ -3,38 +3,38 @@ const validator = require('validator');
 
 const LeadSchema = new mongoose.Schema(
 	{
-		From: {
+		from: {
 			type: String,
 		},
-		Name: {
+		name: {
 			type: String,
 		},
-		Profession: {
+		profession: {
 			type: String,
 		},
-		Email: {
+		email: {
 			type: String,
 			validate: {
 				validator: validator.isEmail,
 				message: 'El correo electrónico debe tener un formato válido',
 			},
 		},
-		Contact_number: {
+		contact_number: {
 			type: String,
 		},
-		Web: {
+		web: {
 			type: String,
 		},
-		Instagram: {
+		instagram: {
 			type: String,
 		},
-		Level: {
+		level: {
 			type: String,
 		},
-		Status: {
+		status: {
 			type: String,
 		},
-		Deleted: {
+		deleted: {
 			type: Boolean,
 			default: false,
 			select: false,
