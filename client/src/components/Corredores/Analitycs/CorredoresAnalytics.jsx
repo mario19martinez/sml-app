@@ -1075,13 +1075,11 @@ const CorredoresAnlaytics = () => {
 
   return (
     <Card className="w-full h-screen m-5">
-      <div className="flex justify-between items-center m-5">
-        <Title className={style.title}>Analytics</Title>
-
+      <div className="flex justify-between items-center mt-2 mx-5">
+        <Title className="font-bold text-[#e2e2e2] text-lg">Analytics</Title>
       </div>
-
-      <Table className={style.table}>
-        <TableHead className={style.tableHead}>
+      <Table className="flex">
+        <TableHead className="text-gray-400 text-sm font-thin">
           <TableRow className={style.tableRow}>
             <TableHeaderCell className="text-start">Invoice Id</TableHeaderCell>
             <TableHeaderCell className="text-start">Name</TableHeaderCell>
