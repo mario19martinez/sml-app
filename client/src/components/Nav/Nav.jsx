@@ -18,7 +18,7 @@ function Nav() {
             <h1 className=" text-2xl">SML</h1>
           </div>
           <div className="w-full" />
-          <div className="flex w-full ml-10">
+          <div className="flex w-full ml-[250px] mt-[25px]">
             <ul className="flex flex-col gap-2">
               <li className="flex gap-2 items-center">
                 <span className=" text-lg">
