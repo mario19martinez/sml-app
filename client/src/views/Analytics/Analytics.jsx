@@ -18,7 +18,6 @@ function Analytics() {
             <option className="py-1">2023</option>
           </select>
         </div>
-        <AnalyticsSealer/>
         <div>
           <AnalyticsNumerics />
         </div>
