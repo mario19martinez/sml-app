@@ -12,7 +12,7 @@ function Nav() {
       <div className="flex flex-col justify-between items-center mt-2">
         <div className="flex flex-col items-center justify-center gap-2 mt-5">
           <div className="flex flex-col items-center justify-center">
-            <Link to="/">
+            <Link to="/home">
               <span>ICONO</span>
             </Link>
             <h1 className=" text-2xl">SML</h1>
@@ -20,16 +20,7 @@ function Nav() {
           <div/>
           <div className="flex w-full ml-10">
             <ul className="flex flex-col gap-2">
-              <li className="flex gap-2 items-center">
-                <span className=" text-lg">
-                  <IoGrid />
-                </span>
-                <span>
-                  <Link to="/dashboard" className=" hover:text-gray-200">
-                    Dashboard
-                  </Link>
-                </span>
-              </li>
+              
               <li className="flex gap-2 items-center">
                 <span className=" text-lg">
                   <IoStatsChart />
