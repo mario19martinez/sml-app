@@ -186,8 +186,8 @@ const DashboardVendedores = () => {
 	};
 	return (
 		<div className='flex flex-row w-screen'>
-		<Nav />
-			<Card className='w-full mx-10 h-screen '>
+			<Nav />
+			<Card className='w-full m-5 h-screen '>
 				<div className='flex justify-between items-center m-5'>
 					<Title className={style.title}>Dashboard</Title>
 					<button className={style.buttonAdd}>Send </button>
@@ -229,7 +229,9 @@ const DashboardVendedores = () => {
 									<Text className='text-start'>{item.Profesion}</Text>
 								</TableCell>
 								<TableCell className='flex justify-start items-center p-0 mx-3'>
-									<Text className='text-start bg-[#6254ff] py-2 px-3 text-xl rounded-md'>{item.Nivel}</Text>
+									<Text className='text-start bg-[#6254ff] py-2 px-3 text-xl rounded-md'>
+										{item.Nivel}
+									</Text>
 								</TableCell>
 								<TableCell className='flex justify-start items-center p-0'>
 									<Text className='text-start'>{item.Telephone}</Text>
@@ -238,7 +240,9 @@ const DashboardVendedores = () => {
 									<Text className='text-start'>{item.Email}</Text>
 								</TableCell>
 								<TableCell className='flex justify-start items-start p-0'>
-									<button className='bg-[#ff69b4] rounded-3xl px-6 py-1'>Contratado</button>
+									<button className='bg-[#ff69b4] rounded-3xl px-6 py-1'>
+										Contratado
+									</button>
 								</TableCell>
 							</TableRow>
 						))}

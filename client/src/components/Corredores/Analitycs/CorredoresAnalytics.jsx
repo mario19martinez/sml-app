@@ -353,7 +353,7 @@ const CorredoresAnlaytics = () => {
   }
 
   return (
-    <Card className="w-4/5 h-screen ">
+    <Card className="w-full h-screen m-5">
       <div className="flex justify-between items-center m-5">
         <Title className={style.title}>Dashboard</Title>
         <button className={style.buttonAdd}>Send </button>
