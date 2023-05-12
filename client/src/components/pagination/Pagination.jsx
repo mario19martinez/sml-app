@@ -9,31 +9,32 @@ const Pagination = ({ pageStyle, setPageStyle, cardXPage, client, pages }) => {
   }, [currentPage]);
 
   for (let i = 1; i <= Math.ceil(client.length / cardXPage); i++) {
-
     pageNumbers.push(i);
   }
-console.log(pageNumbers)
+
   const nextPageHandler = (arrow, num) => {
     if (arrow === "up" && pageStyle < pageNumbers.length) {
-      setPageStyle(pageStyle + 1)
-      pages(pageStyle + 1)
-    } 
-   else {
-    if(arrow === "down" && pageStyle > 1){
-      setPageStyle(pageStyle - 1)
-      pages(pageStyle - 1)
+      setPageStyle(pageStyle + 1);
+      pages(pageStyle + 1);
+    } else {
+      if (arrow === "down" && pageStyle > 1) {
+        setPageStyle(pageStyle - 1);
+        pages(pageStyle - 1);
+      }
     }
-
-   }
-
   };
 
   return (
     <>
       <div className={style.divPagination}>
-        <button className={style.itemsArrow} onClick={() => {
+        <button
+          className={style.itemsArrow}
+          onClick={() => {
             nextPageHandler("down");
-          }}>&lt;</button>
+          }}
+        >
+          &lt;
+        </button>
         <ul className={style.lista}>
           {pageNumbers.map((num) => (
             <li
