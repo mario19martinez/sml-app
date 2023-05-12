@@ -12,15 +12,17 @@ const Pagination = ({ pageStyle, setPageStyle, cardXPage, client, pages }) => {
 
     pageNumbers.push(i);
   }
-console.log(pageStyle)
+console.log(pageNumbers)
   const nextPageHandler = (arrow, num) => {
-    if (arrow === "up") {
+    if (arrow === "up" && pageStyle < pageNumbers.length) {
       setPageStyle(pageStyle + 1)
       pages(pageStyle + 1)
     } 
    else {
-     setPageStyle(pageStyle - 1)
-     pages(pageStyle - 1)
+    if(arrow === "down" && pageStyle > 1){
+      setPageStyle(pageStyle - 1)
+      pages(pageStyle - 1)
+    }
 
    }
 

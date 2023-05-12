@@ -3,6 +3,7 @@ import style from "./Login.module.css";
 import Form from "../../components/Login/Form/Form";
 import { validate } from "../../components/Login/Form/validation";
 
+
 function Login() {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
 
