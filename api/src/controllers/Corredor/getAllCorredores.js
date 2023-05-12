@@ -1,7 +1,7 @@
 const Corredor = require('../../models/Corredor');
 
 const getAllCorredores = async () => {
-	const corredor = await Corredor.find();
+	const corredor = await Corredor.findOne();
 	return corredor;
 };
 

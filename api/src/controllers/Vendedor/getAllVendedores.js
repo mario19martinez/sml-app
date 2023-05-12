@@ -1,8 +1,13 @@
 const Vendedor = require('../../models/Vendedor');
 
 const getAllVendedores = async () => {
-	const vendedors = await Vendedor.find();
-	return vendedors;
+	try {
+		const vendedors = await Vendedor.findOne();
+		return vendedors;
+	} catch (error) {
+		console.log(error);
+		throw new Error('No se pudieron obtener los vendedores');
+	}
 };
 
 module.exports = getAllVendedores;
