@@ -253,10 +253,8 @@ const AnalyticsSealer = () => {
                       2
                     </div>}</div>
                   <div className="w-1/7 text-center">{item.telefono}</div>
-                  <div className="w-1/7 text-center">{item.Email}</div>
-                  {
-                    //falta  poner imagen de mail
-                  }
+                  <div className="w-1/7 text-center"><img scr='' />{item.Email}</div>
+                  
                   <div className="w-1/7 text-center">
                     {item.status === true ? (
                       <div className="bg-emerald-400 w-44 h-11 flex justify-center items-center text-white rounded-3xl">
