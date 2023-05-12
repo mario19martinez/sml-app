@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Landing from "./views/Landing/Landing";
 import Employees from "./views/Employees/Employees.jsx";
 import Analytics from "./views/Analytics/Analytics.jsx";
@@ -11,7 +11,6 @@ import Corredores from "./components/Corredores/Corredores";
 // import Dashboard from "./views/Dashboard/Dashboard";
 
 function App() {
-  const location = useLocation();
 
   return (
     <div className="App">

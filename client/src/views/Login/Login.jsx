@@ -2,6 +2,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import style from "./Login.module.css";
 import Form from "../../components/Login/Form/Form";
 import { validate } from "../../components/Login/Form/validation";
+import { Link } from "react-router-dom";
 
 function Login() {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
@@ -34,16 +35,17 @@ function Login() {
 
   return (
     <div className={style.container}>
-      {!isAuthenticated && <Form Login={handleFormLogin} />}
-      <h1 className="underline">hola</h1>
-      <button
+      {/* {!isAuthenticated && <Form Login={handleFormLogin} />}
+      <h1 className="underline">hola</h1> */}
+      {isAuthenticated ? <Link to="/home">Home</Link> : <button
         onClick={() => loginWithRedirect()}
         className={`${style["auth-button"]} ${style["google-button"]}`}
       >
         <span className={style["google-icon"]}></span>
+        <span className={style["button-text"]}>Login</span>
+      </button>}
 
-        <span className={style["button-text"]}>Google</span>
-      </button>
+
     </div>
   );
 }
