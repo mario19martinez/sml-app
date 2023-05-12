@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Landing from "./views/Landing/Landing";
 import Employees from "./views/Employees/Employees.jsx";
 import Analytics from "./views/Analytics/Analytics.jsx";
-import CorredoresAnalytics from "./components/Corredores/Analitycs/CorredoresAnalytics";
+// import CorredoresAnalytics from "./components/Corredores/Analitycs/CorredoresAnalytics";
 import Settings from "./views/Settings/Settings.jsx";
 import Login from "./views/Login/Login";
 import CorredoresDashboard from "./components/Corredores/Dashboard/CorredoresDashboard"
