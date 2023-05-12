@@ -1,3 +1,4 @@
+
 const getAllCLevels = require('../controllers/CLevel/getAllCLevels');
 const getCLevelById = require('../controllers/CLevel/getCLevelById');
 const getCLevelByName = require('../controllers/CLevel/getCLevelByName');
@@ -6,9 +7,7 @@ const updateCLevelById = require('../controllers/CLevel/updateCLevelById');
 
 const getAllCLevelsHandler = async (req, res) => {
 	try {
-		console.log(req.data);
 		const cLevels = await getAllCLevels();
-		console.log(cLevels);
 		res.status(200).json(cLevels);
 	} catch (error) {
 		res.status(404).json({ error: error.message });
@@ -17,7 +16,6 @@ const getAllCLevelsHandler = async (req, res) => {
 
 const postCLevelHandler = async (req, res) => {
 	const data = req.body;
-	console.log(data);
 	try {
 		const cLevel = await postCLevel(data);
 		res.status(200).json(data);

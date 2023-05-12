@@ -1,7 +1,7 @@
 const Vendedor = require('../../models/Vendedor');
 
 const getAllVendedores = async () => {
-	const vendedors = await Vendedor.find();
+	const vendedors = await Vendedor.findOne();
 	return vendedors;
 };
 

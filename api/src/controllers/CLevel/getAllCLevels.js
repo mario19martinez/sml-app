@@ -1,8 +1,7 @@
 const CLevel = require('../../models/CLevel');
 
 const getAllCLevels = async () => {
-	const cLevels = await CLevel.find();
-	console.log(cLevels);
+	const cLevels = await CLevel.findOne();
 	return cLevels;
 };
 
