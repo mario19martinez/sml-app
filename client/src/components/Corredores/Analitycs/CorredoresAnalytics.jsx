@@ -23,119 +23,119 @@ const CorredoresAnlaytics = () => {
       name: "Juan  Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "2",
+      Incidencia: false,
     },
     {
       id: 22222,
       name: "Juan Carlos ",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "1",
+      Incidencia: false,
     },
     {
       id: 22222,
       name: "Gabriel Carlos Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "2",
+      Incidencia: true,
     },
     {
       id: 265542,
       name: "Juan Carlos Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "2",
+      Incidencia: false,
     },
     {
       id: 223422,
       name: "Pedro Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "3",
+      Incidencia: false,
     },
     {
       id: 234546,
       name: "Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "1",
+      Incidencia: false,
     },
     {
       id: 22342,
       name: "Javier Gomes",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "3",
+      Incidencia: false,
     },
     {
       id: 22548722,
       name: "Julio Gomes",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "2",
+      Incidencia: false,
     },
     {
       id: 2222222,
       name: "Juan Carlos Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "1",
+      Incidencia: false,
     },
     {
       id: 2278922,
       name: "Juan Carlos Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "1",
+      Incidencia: true,
     },
     {
       id: 2222222,
       name: "Juan Carlos Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "3",
+      Incidencia: false,
     },
     {
       id: 2232422,
       name: "Julio Gomes",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "1",
+      Incidencia: false,
     },
     {
       id: 2222222,
       name: "Juan Carlos Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "3",
+      Incidencia: false,
     },
     {
       id: 249872,
       name: "Juan Carlos Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "3",
+      Incidencia: false,
     },
     {
       id: 2224852,
       name: "Julio Gomes",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
+      nivel: "2",
       Incidencia: "",
     },
     {
@@ -143,191 +143,191 @@ const CorredoresAnlaytics = () => {
       name: "Juan Carlos Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "2",
+      Incidencia: false,
     },
     {
       id: 224562,
       name: "Gonzalo Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "1",
+      Incidencia: false,
     },
     {
       id: 2222222,
       name: "Juan Carlos Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "1",
+      Incidencia: false,
     },
     {
       id: 2222222,
       name: "Gonzalo Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "3",
+      Incidencia: true,
     },
     {
       id: 2222222,
       name: "Nicolas Depecho",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "2",
+      Incidencia: false,
     },
     {
       id: 2222222,
       name: "Juan Carlos Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "1",
+      Incidencia: false,
     },
     {
       id: 2222222,
       name: "Nicolas Depecho",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "2",
+      Incidencia: false,
     },
     {
       id: 2222222,
       name: "Juan Carlos Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "1",
+      Incidencia: false,
     },
     {
       id: 2222222,
       name: "Juan Carlos Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "2",
+      Incidencia: false,
     },
     {
       id: 2222222,
       name: "Ximena Gabriela Tomasini",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "2",
+      Incidencia: true,
     },
     {
       id: 2222222,
       name: "Juan Carlos Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "2",
+      Incidencia: false,
     },
     {
       id: 2222222,
       name: "Ximena Gabriela Tomasini",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "3",
+      Incidencia: false,
     },
     {
       id: 2222222,
       name: "Juan Carlos Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "3",
+      Incidencia: false,
     },
     {
       id: 2222222,
       name: "Ximena Gabriela Tomasini",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "1",
+      Incidencia: false,
     },
     {
       id: 2222222,
       name: "Juan Carlos Gomez",
       Web: "www.google.com",
       Instagram: "@carlosgomez",
-      Nivel: "2",
-      Incidencia: "",
+      nivel: "3",
+      Incidencia: false,
     },
 
   ]);
-  const [nivel, setNivel] = useState({
-    1: "",
-    2: "",
-    3: "",
-    4: "",
-    5: "",
-    6: "",
-    7: "",
-    8: "",
-    9: "",
-    10: "",
-  });
-  const data = [
-    {
-      id: "#876365",
-      name: "Social Media Lab",
-      Web: "tomasaguilar@gmail.com",
-      Instagram: "@social.meadia.lab",
-      Nivel: "1 2 3 4 5 6 7 8 9 10 ",
+  // const [nivel, setNivel] = useState({
+  //   1: "",
+  //   2: "",
+  //   3: "",
+  //   4: "",
+  //   5: "",
+  //   6: "",
+  //   7: "",
+  //   8: "",
+  //   9: "",
+  //   10: "",
+  // });
+  // const data = [
+  //   {
+  //     id: "#876365",
+  //     name: "Social Media Lab",
+  //     Web: "tomasaguilar@gmail.com",
+  //     Instagram: "@social.meadia.lab",
+  //     Nivel: "1 2 3 4 5 6 7 8 9 10 ",
 
-      Incidencia: "...",
-    },
-    {
-      id: "#876366",
-      name: "Social Media Lab",
-      Web: "tomasaguilar@gmail.com",
-      Instagram: "@social.meadia.lab",
-      Nivel: "1 2 3",
+  //     Incidencia: "...",
+  //   },
+  //   {
+  //     id: "#876366",
+  //     name: "Social Media Lab",
+  //     Web: "tomasaguilar@gmail.com",
+  //     Instagram: "@social.meadia.lab",
+  //     Nivel: "1 2 3",
 
-      Incidencia: "...",
-    },
-    {
-      id: "#876367",
-      name: "Social Media Lab",
-      Web: "tomasaguilar@gmail.com",
-      Instagram: "@social.meadia.lab",
-      Nivel: "1 2 3",
+  //     Incidencia: "...",
+  //   },
+  //   {
+  //     id: "#876367",
+  //     name: "Social Media Lab",
+  //     Web: "tomasaguilar@gmail.com",
+  //     Instagram: "@social.meadia.lab",
+  //     Nivel: "1 2 3",
 
-      Incidencia: "...",
-    },
-    {
-      id: "#876368",
-      name: "Social Media Lab",
-      Web: "tomasaguilar@gmail.com",
-      Instagram: "@social.meadia.lab",
-      Nivel: "1 2 3",
+  //     Incidencia: "...",
+  //   },
+  //   {
+  //     id: "#876368",
+  //     name: "Social Media Lab",
+  //     Web: "tomasaguilar@gmail.com",
+  //     Instagram: "@social.meadia.lab",
+  //     Nivel: "1 2 3",
 
-      Incidencia: "...",
-    },
-    {
-      id: "#876369",
-      name: "Social Media Lab",
-      Web: "tomasaguilar@gmail.com",
-      Instagram: "@social.meadia.lab",
-      Nivel: "1 2 3",
+  //     Incidencia: "...",
+  //   },
+  //   {
+  //     id: "#876369",
+  //     name: "Social Media Lab",
+  //     Web: "tomasaguilar@gmail.com",
+  //     Instagram: "@social.meadia.lab",
+  //     Nivel: "1 2 3",
 
-      Incidencia: "...",
-    },
-    {
-      id: "#876360",
-      name: "Social Media Lab",
-      Web: "tomasaguilar@gmail.com",
-      Instagram: "@social.meadia.lab",
-      Nivel: "1 2 3",
+  //     Incidencia: "...",
+  //   },
+  //   {
+  //     id: "#876360",
+  //     name: "Social Media Lab",
+  //     Web: "tomasaguilar@gmail.com",
+  //     Instagram: "@social.meadia.lab",
+  //     Nivel: "1 2 3",
 
-      Incidencia: "...",
-    },
-  ];
+  //     Incidencia: "...",
+  //   },
+  // ];
 
   const [pageStyle, setPageStyle] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
@@ -390,68 +390,45 @@ const CorredoresAnlaytics = () => {
                 <Text className="text-start">{item.Instagram}</Text>
               </TableCell>
               <TableCell className="flex justify-start items-center p-0">
-                {nivel == "1" ? (
-                  <button
+                {item.nivel == "1" ? (
+                  <label
                     className={style.buttonNivelActive}
-                    type="button"
-                    name={client[index].id}
-                    value="1"
-                    onClick={handleNivelClick}
                   >
                     1
-                  </button>
+                  </label>
                 ) : (
-                  <button
+                  <label
                     className={style.buttonNivel}
-                    type="button"
-                    name={client[index].id}
-                    value="1"
-                    onClick={handleNivelClick}
                   >
                     1
-                  </button>
+                  </label>
                 )}
-                {nivel == "2" ? (
-                  <button
+                {item.nivel == "2" ? (
+                  <label
                     className={style.buttonNivelActive}
-                    type="button"
-                    name={client[index].id}
-                    value="2"
-                    onClick={handleNivelClick}
                   >
                     2
-                  </button>
+                  </label>
                 ) : (
-                  <button
+                  <label
                     className={style.buttonNivel}
-                    type="button"
-                    name={client[index].id}
-                    value="2"
-                    onClick={handleNivelClick}
                   >
                     2
-                  </button>
+                  </label>
                 )}
-                {nivel == "3" ? (
-                  <button
+                {item.nivel == "3" ? (
+                  <label
                     className={style.buttonNivelActive}
-                    type="button"
-                    name={client[index].id}
-                    value="3"
-                    onClick={handleNivelClick}
                   >
                     3
-                  </button>
+                  </label>
                 ) : (
-                  <button
+                  <label
                     className={style.buttonNivel}
-                    type="button"
-                    name={client[index].id}
-                    value="3"
-                    onClick={handleNivelClick}
+
                   >
                     3
-                  </button>
+                  </label>
                 )}
               </TableCell>
               <TableCell className="flex justify-start items-center p-0">
