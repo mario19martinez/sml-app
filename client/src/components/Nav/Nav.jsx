@@ -6,7 +6,7 @@ import style from "./Nav.module.css";
 
 import { IoStatsChart, IoSettingsSharp, IoGrid } from "react-icons/io5";
 
-function Nav() {
+function Nav(props) {
   return (
     <div className="bg-[#39394b] flex h-screen">
       <div className="flex flex-col justify-between items-center mt-2">
@@ -17,10 +17,9 @@ function Nav() {
             </Link>
             <h1 className=" text-2xl">SML</h1>
           </div>
-          <div/>
+          <div />
           <div className="flex w-full ml-10">
             <ul className="flex flex-col gap-2">
-              
               <li className="flex gap-2 items-center">
                 <span className=" text-lg">
                   <IoStatsChart />
@@ -58,7 +57,6 @@ function Nav() {
 }
 
 export default Nav;
-
 
 // import React from 'react';
 // import { Link } from 'react-router-dom';
