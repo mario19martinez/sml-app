@@ -27,6 +27,9 @@ function Landing() {
             </Link>
             <Link to="/vendedores" className={style.linksRoutes}>
               VendedoresDashboard
+              </Link>
+            <Link to="/analyticsSelers" className={style.linksRoutes}>
+              Analytics Selers
             </Link>
           </div>
         </>
