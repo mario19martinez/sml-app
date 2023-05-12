@@ -9,6 +9,7 @@ import Login from "./views/Login/Login";
 import CorredoresDashboard from "./components/Corredores/Dashboard/CorredoresDashboard"
 import Corredores from "./components/Corredores/Corredores";
 // import Dashboard from "./views/Dashboard/Dashboard";
+import DashboardVendedores from "./components/Vendedores/Dashboard/DashboardVendedores";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/corredores/analytics" element={<Corredores />} />
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/vendedores" element={<DashboardVendedores />} />
       </Routes>
     </div>
   );

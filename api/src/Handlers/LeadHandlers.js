@@ -3,12 +3,11 @@ const getLeadById = require('../controllers/Lead/getLeadById');
 const getLeadByName = require('../controllers/Lead/getLeadByName');
 const postLead = require('../controllers/Lead/postLead');
 const updateLeadById = require('../controllers/Lead/updateLeadById');
-const { getCLevelByNameHandler } = require('./cLevelHandlers');
 
 const getAllLeadHandler = async (req, res) => {
 	try {
-		const leads = await getAllLeads();
-		res.status(200).json(leads);
+		const lead = await getAllLeads();
+		res.status(200).json(lead);
 	} catch (error) {
 		res.status(404).json({ error: error.message });
 	}
@@ -38,10 +37,10 @@ const updateLeadHandler = async (req, res) => {
 };
 
 const getLeadByNameHandler = async (req, res) => {
-	const { name } = req.query;
+	const { Name } = req.query;
 
 	try {
-		const lead = await getLeadByName(name);
+		const lead = await getLeadByName(Name);
 		res.status(200).json(lead);
 	} catch (error) {
 		res.status(404).json({ error: error.message });

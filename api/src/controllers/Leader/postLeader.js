@@ -1,6 +1,6 @@
-const CLevel = require('../../models/CLevel');
+const Leader = require('../../models/Leader');
 
-const postCLevel = async ({
+const postLeader = async ({
 	Name,
 	Email,
 	Birthdate,
@@ -10,7 +10,7 @@ const postCLevel = async ({
 	Description,
 	Deleted,
 }) => {
-	const cLevel = await CLevel.create({
+	const leader = await Leader.create({
 		Name,
 		Email,
 		Birthdate,
@@ -20,7 +20,7 @@ const postCLevel = async ({
 		Description,
 		Deleted,
 	});
-	return cLevel;
+	return leader;
 };
 
-module.exports = postCLevel;
+module.exports = postLeader;

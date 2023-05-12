@@ -1,29 +1,27 @@
 const Lead = require('../../models/Lead');
 
 const postLead = async ({
+	From,
 	Name,
-	Category,
-	City,
-	Province,
-	Url,
-	Nivel,
-	Telephone,
-	Status,
+	Profession,
 	Email,
+	Contact_number,
+	Web,
 	Instagram,
+	Level,
+	Status,
 	Deleted,
 }) => {
 	const lead = await Lead.create({
+		From,
 		Name,
-		Category,
-		City,
-		Province,
-		Url,
-		Nivel,
-		Telephone,
-		Status,
+		Profession,
 		Email,
+		Contact_number,
+		Web,
 		Instagram,
+		Level,
+		Status,
 		Deleted,
 	});
 	return lead;

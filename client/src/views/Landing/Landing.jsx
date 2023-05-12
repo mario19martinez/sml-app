@@ -8,7 +8,7 @@ function Landing() {
   const { isAuthenticated } = useAuth0();
   return (
     <div className={style.container}>
-      {isAuthenticated || location.state?.fromLogin ? (
+      {/* {isAuthenticated || location.state?.fromLogin ? ( */}
         <>
           <Nav />
           <div>
@@ -25,9 +25,12 @@ function Landing() {
             <Link to="/analytics" className={style.linksRoutes}>
               Analytics
             </Link>
+            <Link to="/vendedores" className={style.linksRoutes}>
+              VendedoresDashboard
+            </Link>
           </div>
         </>
-      ) : null}
+      {/* ) : null} */}
     </div>
   );
 }
