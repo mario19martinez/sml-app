@@ -37,10 +37,10 @@ const updateCorredorHandler = async (req, res) => {
 };
 
 const getCorredorByNameHandler = async (req, res) => {
-	const { name } = req.query;
+	const { Name } = req.query;
 
 	try {
-		const corredores = await getCorredorByName(name);
+		const corredores = await getCorredorByName(Name);
 		res.status(200).json(corredores);
 	} catch (error) {
 		res.status(404).json({ error: error.message });

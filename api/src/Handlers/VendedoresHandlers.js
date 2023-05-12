@@ -1,4 +1,4 @@
-const getAllVendedors = require('../controllers/Vendedor/getAllVendedors');
+const getAllVendedores = require('../controllers/Vendedor/getAllVendedores');
 const getVendedorById = require('../controllers/Vendedor/getVendedorById');
 const getVendedorByName = require('../controllers/Vendedor/getVendedorByName');
 const postVendedor = require('../controllers/Vendedor/postVendedor');
@@ -6,7 +6,7 @@ const updateVendedorById = require('../controllers/Vendedor/updateVendedorById')
 
 const getAllVendedoresHandler = async (req, res) => {
 	try {
-		const vendedores = await getAllVendedors();
+		const vendedores = await getAllVendedores();
 		res.status(200).json(vendedores);
 	} catch (error) {
 		res.status(404).json({ error: error.message });
@@ -37,10 +37,10 @@ const updateVendedorHandler = async (req, res) => {
 };
 
 const getVendedorByNameHandler = async (req, res) => {
-	const { name } = req.query;
+	const { Name } = req.query;
 
 	try {
-		const vendedor = await getVendedorByName(name);
+		const vendedor = await getVendedorByName(Name);
 		res.status(200).json(vendedor);
 	} catch (error) {
 		res.status(404).json({ error: error.message });

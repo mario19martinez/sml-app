@@ -8,7 +8,7 @@ function Landing() {
   const { isAuthenticated } = useAuth0();
   return (
     <div className={style.container}>
-      {isAuthenticated || location.state?.fromLogin ? (
+      {/* {isAuthenticated || location.state?.fromLogin ? ( */}
         <>
           <Nav />
           <div>
@@ -24,7 +24,7 @@ function Landing() {
             </Link>
           </div>
         </>
-      ) : null}
+      {/* ) : null} */}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 
-const CLevelSchema = new mongoose.Schema(
+const LeadSchema = new mongoose.Schema(
 	{
 		From: {
 			type: String,
@@ -43,10 +43,10 @@ const CLevelSchema = new mongoose.Schema(
 	{ timestamps: true }
 );
 
-CLevelSchema.pre('find', function () {
+LeadSchema.pre('find', function () {
 	this.where({ deleted: false });
 });
 
-const CLevel = new mongoose.model('clevel', CLevelSchema);
+const Lead = new mongoose.model('lead', LeadSchema);
 
-module.exports = CLevel;
+module.exports = Lead;

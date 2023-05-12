@@ -10,7 +10,6 @@ const postCLevel = async ({
 	Description,
 	Deleted,
 }) => {
-	console.log(name);
 	const cLevel = await CLevel.create({
 		Name,
 		Email,

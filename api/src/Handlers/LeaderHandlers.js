@@ -2,7 +2,7 @@ const getAllLeaders = require('../controllers/Leader/getAllLeaders');
 const getLeaderById = require('../controllers/Leader/getLeaderById');
 const getLeaderByName = require('../controllers/Leader/getLeaderByName');
 const postLeader = require('../controllers/Leader/postLeader');
-const updateLeaderById = require('../controllers/Leader/updateLeaderById');
+const updateLeaderById = require('../controllers/Leader/updateLeadById');
 
 const getAllLeadersHandler = async (req, res) => {
 	try {
@@ -37,10 +37,10 @@ const updateLeaderHandler = async (req, res) => {
 };
 
 const getLeaderByNameHandler = async (req, res) => {
-	const { name } = req.query;
+	const { Name } = req.query;
 
 	try {
-		const leaders = await getLeaderByName(name);
+		const leaders = await getLeaderByName(Name);
 		res.status(200).json(leaders);
 	} catch (error) {
 		res.status(404).json({ error: error.message });

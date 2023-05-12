@@ -5,7 +5,7 @@ const CLevelSchema = new mongoose.Schema(
 	{
 		Name: {
 			type: String,
-			require: true,
+			required: true,
 		},
 		Email: {
 			type: String,
