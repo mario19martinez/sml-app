@@ -1,30 +1,30 @@
 const Lead = require("../../models/Lead");
 
 const postLead = async ({
-  From,
-  Name,
-  Profession,
-  Email,
-  Contact_number,
-  Web,
-  Instagram,
-  Level,
-  Status,
-  Deleted,
+	from,
+	name,
+	profession,
+	email,
+	contact_number,
+	web,
+	instagram,
+	level,
+	status,
+	deleted,
 }) => {
-  const lead = await Lead.create({
-    From,
-    Name,
-    Profession,
-    Email,
-    Contact_number,
-    Web,
-    Instagram,
-    Level,
-    Status,
-    Deleted,
-  });
-  return lead;
+	const lead = await Lead.create({
+		from,
+		name,
+		profession,
+		email,
+		contact_number,
+		web,
+		instagram,
+		level,
+		status,
+		deleted,
+	});
+	return lead;
 };
 
 module.exports = postLead;
