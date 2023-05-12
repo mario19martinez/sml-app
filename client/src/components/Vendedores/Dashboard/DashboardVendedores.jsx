@@ -229,7 +229,7 @@ const DashboardVendedores = () => {
 									<Text className='text-start'>{item.Profesion}</Text>
 								</TableCell>
 								<TableCell className='flex justify-start items-center p-0 mx-3'>
-									<Text className='text-start'>{item.Nivel}</Text>
+									<Text className='text-start bg-[#6254ff] py-2 px-3 text-xl rounded-md'>{item.Nivel}</Text>
 								</TableCell>
 								<TableCell className='flex justify-start items-center p-0'>
 									<Text className='text-start'>{item.Telephone}</Text>
