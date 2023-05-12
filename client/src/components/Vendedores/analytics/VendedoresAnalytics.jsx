@@ -24,7 +24,7 @@ const AnalyticsSealer = () => {
       id: '223456',
       client: 'juenito jobs',
       profesion: 'macdonalero',
-      nivel: 0,
+      nivel: 2,
       telefono: '+222222222',
       Email: 'siemprepar@gmail.com',
       status: true
@@ -222,15 +222,15 @@ const AnalyticsSealer = () => {
         </div>
         <div className="h-3/5">
           <div className="flex flex-col">
-          <div className="w-full flex justify-center  mb-[30px] ">
-            <div className="flex flex-row  w-[1500px] items-start mt-80px  space-x-52">
-              <div className=" w-1/7 text-center">Invoice ID</div>
-              <div className="w-1/7 text-center">Name</div>
-              <div className=" w-1/7 text-center">Profession</div>
-              <div className="w-1/7 text-center">Nivel</div>
-              <div className="w-1/7 text-center">Email</div>
-              <div className="w-1/7 text-center">Status</div>
-            </div>
+            <div className="w-full flex justify-center  mb-[30px] ">
+              <div className="flex flex-row  w-[1500px] items-start mt-80px  space-x-52">
+                <div className=" w-1/7 text-center">Invoice ID</div>
+                <div className="w-1/7 text-center">Name</div>
+                <div className=" w-1/7 text-center">Profession</div>
+                <div className="w-1/7 text-center">Nivel</div>
+                <div className="w-1/7 text-center">Email</div>
+                <div className="w-1/7 text-center">Status</div>
+              </div>
             </div>
             {currentCards.map((item) => (
               <div className="w-full flex justify-center mb-8 h-3/5" key={item.id}>
@@ -238,12 +238,22 @@ const AnalyticsSealer = () => {
                   <div className="w-1/7 text-center">{item.id}</div>
                   <div className="w-1/7 text-center">{item.client}</div>
                   <div className="w-1/7 text-center">{item.profesion}</div>
-                  <div className="w-1/7 text-center">{item.nivel}</div>
-                  {
-                    //falta logica para poner imagen de nivel segun el nivel
-                  }
+                  <div className="w-1/7 text-center">{item.nivel === 0 ?
+                    <div
+                      className='bg-purple-500 text-[#39394B] w-[40px] rounded h-10 flex items-center justify-center text-[35px] drop-shadow-xl'
+                    >
+                      0
+                    </div> : item.nivel === 1 ? <div
+                      className='bg-purple-500 text-[#39394B] w-[40px] rounded h-10 flex items-center justify-center text-[35px] drop-shadow-xl'
+                    >
+                      1
+                    </div> : <div
+                      className='bg-purple-500 text-[#39394B] w-[40px] rounded h-10 flex items-center justify-center text-[35px] drop-shadow-xl'
+                    >
+                      2
+                    </div>}</div>
                   <div className="w-1/7 text-center">{item.telefono}</div>
-                  <div className="w-1/7 text-center">{item.Email}</div> 
+                  <div className="w-1/7 text-center">{item.Email}</div>
                   {
                     //falta  poner imagen de mail
                   }
