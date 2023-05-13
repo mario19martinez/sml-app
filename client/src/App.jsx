@@ -12,20 +12,11 @@ import Corredores from "./components/Corredores/Corredores";
 import DashboardVendedores from "./components/Vendedores/Dashboard/DashboardVendedores";
 import AnalyticsSealer from "./components/Vendedores/analytics/VendedoresAnalytics";
 import { AnalyticLeader } from "./components/Lideres/Analytic/AnalyticLeader";
-import { fetchLead } from "./redux/actions";
 import { useEffect } from "react";
 
 function App() {
   const location = useLocation();
 
-  const dispatch = useDispatch();
-	const lead = useSelector((state) => state.lead);
-
-	useEffect(() => {
-		dispatch(fetchLead());
-	}, [dispatch]);
-
-  console.log(lead);
   return (
     <div className="App">
       {location.pathname === "/" && (
@@ -44,8 +35,8 @@ function App() {
         <Route path="/corredores/analytics" element={<Corredores lead={lead}/>} />
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/settings" element={<Settings />} />
-        <Route path="/vendedores" element={<DashboardVendedores lead={lead}/>} />
-        <Route path="/analyticsSelers" element={<AnalyticsSealer lead={lead}/>} />
+        <Route path="/vendedores" element={<DashboardVendedores/>} />
+        <Route path="/analyticsSelers" element={<AnalyticsSealer />} />
       </Routes>
     </div>
   );
