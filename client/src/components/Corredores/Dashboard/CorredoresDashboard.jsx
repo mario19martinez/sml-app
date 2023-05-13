@@ -172,9 +172,9 @@ const CorredoresDashboard = ({ lead }) => {
 											}
 											type='button'
 											name={item.level}
-											value='2'
+											value='incidencia'
 											onClick={(event) => handleleadClick(event, index)}>
-											2
+											incidencia
 										</button>
 									</TableCell>
 									<TableCell className='text-start'></TableCell>
