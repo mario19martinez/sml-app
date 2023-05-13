@@ -3,6 +3,7 @@
 	color: rgb(202, 202, 202);
 	font-size: 20px;
 }
+
 .buttonAdd {
 	background-color: #38369e;
 	color: rgb(202, 202, 202);
@@ -10,6 +11,7 @@
 	padding: 6px 25px;
 	font-size: 13px;
 }
+
 .buttonNivel {
 	background-color: rgb(202, 202, 202);
 	color: #39394b;
@@ -19,6 +21,7 @@
 	margin-left: 10px;
 	font-weight: 700;
 }
+
 .buttonNivelActive {
 	background-color: #38369e;
 	color: #39394b;
@@ -71,23 +74,49 @@
 	/* border: 1px solid green; */
 }
 
-.tableCards {
-}
+.tableCards {}
+
 .icon {
 	color: rgb(116, 136, 201);
 	font-size: 30px;
 	margin-left: 6px;
 }
+
 .iconComplete {
 	color: #2d2bbf;
 	font-size: 33px;
 	margin-left: 6px;
 }
+
 .iconInstaComplete {
 	color: #2d2bbf;
 	font-size: 33px;
 	margin-left: 6px;
 }
+
+.iconCompleteWeb {
+	color: #2d2bbf;
+	font-size: 33px;
+	margin-left: 6px;
+	
+}
+.iconWeb {
+	
+	color: rgb(116, 136, 201);
+	font-size: 30px;
+	margin-left: 6px;
+	
+}
+.id {
+	font-size: 17px;
+	margin-left: 10px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.name {
+	font-size: 17px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 
 .divInput {
 	position: absolute;
@@ -98,6 +127,7 @@
 	height: 870px;
 	width: 970px;
 }
+
 .divInput2 {
 	z-index: 1;
 	background-color: #39394b;
@@ -105,6 +135,7 @@
 	width: 285px;
 	border-radius: 5px;
 }
+
 .input {
 	margin-top: 5px;
 	margin-left: 5px;
@@ -115,17 +146,11 @@
 	margin-right: 5px;
 	margin-bottom: 5px;
 	width: 230px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-.inputName {
-	margin-top: 5px;
-	margin-left: 5px;
-	background-color: #39394b;
-	color: rgb(204, 203, 203);
-	font-size: 14px;
-	border: none;
 
-	width: 160px;
-}
+
+
 .bottomInput {
 	margin-top: 5px;
 	margin-left: 5px;
@@ -136,6 +161,7 @@
 	margin-left: 45px;
 	border-radius: 5px;
 }
+
 @media screen and (max-width: 1500px) {
 	.tableRow {
 		grid-template-columns: 12.5% 19.5% 11% 27% 17% auto;
