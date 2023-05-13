@@ -1,6 +1,6 @@
 import style from "./TableEmployees.module.css";
 import { StatusOnlineIcon } from "@heroicons/react/outline";
-import Pagination from "../../pagination/Pagination2";
+import PaginationOutlined from "../../pagination/PaginationOutlined";
 import {
   Card,
   Table,
@@ -302,11 +302,11 @@ export const AnalyticLeader = () => {
             </TableBody>
           </Table>
         </Card>
-        <Pagination
+        <PaginationOutlined
           pageStyle={pageStyle}
           setPageStyle={setPageStyle}
           cardXPage={cardXPage}
-          client={data}
+          data={data}
           pages={pages}
         />
       </div>

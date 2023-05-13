@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-import style from "./Pagination.module.css";
+import style from "./PaginationOutlined.module.css";
 
 export default function PaginationOutlined({
   pageStyle,
