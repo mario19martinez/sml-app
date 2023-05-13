@@ -10,26 +10,24 @@ import {
 	TableHeaderCell,
 	TableBody,
 	TableCell,
-	Text,
 	Title,
-	Badge,
 } from '@tremor/react';
 
-import { CiGlobe, CiWarning, CiInstagram } from 'react-icons/ci';
+import { CiGlobe } from 'react-icons/ci';
+import { GrInstagram } from 'react-icons/gr';
 import { Link } from 'react-router-dom';
 
 const CorredoresDashboard = ({ lead }) => {
-	const [buttonWebStates, setButtonWebStates] = useState(lead.map(() => false));
+	const [instagram, setInstagram] = useState([{lead.map
+    
+  }]);
 	const [buttoninstaStates, setButtoninstaStates] = useState(
 		lead.map(() => false)
 	);
-	const [buttonIncidenciaStates, setbuttonIncidenciaStates] = useState(
-		lead.map(() => false)
-	);
-	const [webComplete, setWebComplete] = useState(lead.map(() => false));
-	const [instaComplete, setInstaComplete] = useState(lead.map(() => false));
 
-	useEffect(() => {}, [lead]);
+	useEffect(() => {
+    lead.map((lead) =>
+  }, [lead]);
 
 	const handleleadClick = (event, index) => {
 		const { name, value } = event.target;
@@ -41,13 +39,6 @@ const CorredoresDashboard = ({ lead }) => {
 				[name]: value,
 				Nivel: value,
 			};
-			if (name === 'Web') {
-				setWebComplete((prevWebComplete) => {
-					const updatedWebComplete = [...prevWebComplete];
-					updatedWebComplete[index] = value.trim() !== '';
-					return updatedWebComplete;
-				});
-			}
 			if (name === 'Instagram') {
 				setInstaComplete((prevInstaComplete) => {
 					const updatedInstaComplete = [...prevInstaComplete];
@@ -72,7 +63,9 @@ const CorredoresDashboard = ({ lead }) => {
 		window.open(webUrl, '_blank');
 	};
 
-  
+	const handleChange = (value) => {
+		setInstagram(value);
+	};
 
 	return (
 		<>
@@ -109,23 +102,34 @@ const CorredoresDashboard = ({ lead }) => {
 								<TableRow
 									key={item._id}
 									className={style.tableRow}>
-									<TableCell className='text-start'>{item._id}</TableCell>
-									<TableCell className='text-start'>{item.name}</TableCell>
 									<TableCell className='text-start'>
+										<div className='w-24 p-1 px-3 rounded-full text-ellipsis opacity-1 overflow-hidden hover:overflow-visible hover:bg-[#ffffff] hover:w-fit hover:text-black z-111 hover:absolute'>
+											{item._id}
+										</div>
+									</TableCell>
+									<TableCell className='text-start'>{item.name}</TableCell>
+									<TableCell className='flex items-center'>
 										<Link
 											to={item.web}
 											target='_blank'>
 											<div>
-												<CiGlobe />
+												<CiGlobe className='text-[2rem] text-[#38369E]' />
 											</div>
 										</Link>
 									</TableCell>
-									<TableCell className='text-start'>
+									<TableCell className='flex justify-start items-center gap-2'>
+										<div>
+											<GrInstagram className='text-[2rem] text-[#38369E]' />
+										</div>
 										<input
-											value={item.instagram}
+											className='bg-[#888891] rounded-full border-2 border-gray-300 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 placeholder-gray-500'
+											value={instagram}
+                      id={item._id}
 											name='instagram'
 											type='text'
-											placeholder='Ingrese el instagram'></input>
+											onChange={(event) => handleChange(event.target.value)}
+											placeholder='Ingrese el instagram'
+										/>
 									</TableCell>
 									<TableCell className='flex justify-start items-center p-0'>
 										<button
