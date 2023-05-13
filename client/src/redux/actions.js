@@ -11,7 +11,7 @@ export const getAllLead = () => {
 	};
 };
 
-export const getLeadUnchequed = () => {
+export const getLeadUnchecked = () => {
 	return async (dispatch) => {
 	  const response = await axios.get("http://localhost:3001/lead/unchecked");
 	  const LeadUnchecked = response.data;

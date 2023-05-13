@@ -1,6 +1,6 @@
 import style from "./TableEmployees.module.css";
 import { StatusOnlineIcon } from "@heroicons/react/outline";
-import Pagination from "../../pagination/Pagination";
+import Pagination from "../../pagination/Pagination2";
 import {
   Card,
   Table,
