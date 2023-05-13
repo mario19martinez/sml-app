@@ -18,16 +18,12 @@ import { GrInstagram } from 'react-icons/gr';
 import { Link } from 'react-router-dom';
 
 const CorredoresDashboard = ({ lead }) => {
-	const [instagram, setInstagram] = useState([{lead.map
-    
-  }]);
+	const [instagram, setInstagram] = useState('');
 	const [buttoninstaStates, setButtoninstaStates] = useState(
 		lead.map(() => false)
 	);
 
-	useEffect(() => {
-    lead.map((lead) =>
-  }, [lead]);
+	useEffect(() => {}, [lead]);
 
 	const handleleadClick = (event, index) => {
 		const { name, value } = event.target;
