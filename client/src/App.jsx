@@ -36,7 +36,7 @@ function App() {
         <Route path="/corredores/analytics" element={<Corredores />} />
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/settings" element={<Settings />} />
-        <Route path="/vendedores" element={<DashboardVendedores lead={lead}/>} />
+        <Route path="/vendedores" element={<DashboardVendedores/>} />
         <Route path="/analyticsSelers" element={<AnalyticsSealer />} />
       </Routes>
     </div>
