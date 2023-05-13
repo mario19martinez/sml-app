@@ -29,7 +29,6 @@ const CorredoresAnlaytics = () => {
     dispatch(getLeadUnchecked());
   }, [dispatch]);
 
-
   // const [client, setClient] = useState([
   //   {
   //     id: 1111,
@@ -1085,7 +1084,7 @@ const CorredoresAnlaytics = () => {
 
   return (
     <>
-    <Nav/>
+      <Nav />
       <Card className="w-full h-screen m-5">
         <div className="flex justify-between items-center mt-2 mx-5">
           <Title className="font-bold text-[#e2e2e2] text-lg">Analytics</Title>
