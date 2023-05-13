@@ -11,6 +11,7 @@ export const fetchLead = () => {
 	return (dispatch) => {
 		return axios
 			.get('http://localhost:3001/lead')
+			// .get('https://sa-east-1.aws.data.mongodb-api.com/app/data-fmblk/endpoint/api')
 			.then((response) => {
 				const lead = response.data;
 				dispatch(setLead(lead));
