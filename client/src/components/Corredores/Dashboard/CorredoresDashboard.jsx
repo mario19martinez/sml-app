@@ -16,35 +16,38 @@ import {
 import { CiGlobe } from 'react-icons/ci';
 import { GrInstagram } from 'react-icons/gr';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllLead } from '../../../redux/actions';
 
-const CorredoresDashboard = ({ lead }) => {
+const CorredoresDashboard = () => {
 	const [instagram, setInstagram] = useState('');
-	const [buttoninstaStates, setButtoninstaStates] = useState(
-		lead.map(() => false)
-	);
+	const { lead} = useSelector((state) => state);
+	const dispatch = useDispatch();
+  
+	useEffect(() => {
+	  dispatch(getAllLead());
+	}, [dispatch]);
 
-	useEffect(() => {}, [lead]);
+	// const handleleadClick = (event, index) => {
+	// 	const { name, value } = event.target;
 
-	const handleleadClick = (event, index) => {
-		const { name, value } = event.target;
-
-		setlead((prevState) => {
-			const updatedlead = [...prevState];
-			updatedlead[index] = {
-				...updatedlead[index],
-				[name]: value,
-				Nivel: value,
-			};
-			if (name === 'Instagram') {
-				setInstaComplete((prevInstaComplete) => {
-					const updatedInstaComplete = [...prevInstaComplete];
-					updatedInstaComplete[index] = value.trim() !== '';
-					return updatedInstaComplete;
-				});
-			}
-			return updatedlead;
-		});
-	};
+	// 	setlead((prevState) => {
+	// 		const updatedlead = [...prevState];
+	// 		updatedlead[index] = {
+	// 			...updatedlead[index],
+	// 			[name]: value,
+	// 			Nivel: value,
+	// 		};
+	// 		if (name === 'Instagram') {
+	// 			setInstaComplete((prevInstaComplete) => {
+	// 				const updatedInstaComplete = [...prevInstaComplete];
+	// 				updatedInstaComplete[index] = value.trim() !== '';
+	// 				return updatedInstaComplete;
+	// 			});
+	// 		}
+	// 		return updatedlead;
+	// 	});
+	// };
 
 	const handleSubmit = (event) => {
 		event.preventDefault();

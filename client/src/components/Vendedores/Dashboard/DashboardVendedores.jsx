@@ -1,5 +1,7 @@
 import style from './DashboardVendedores.module.css';
-
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllLead } from '../../../redux/actions';
 import {
 	Card,
 	Table,
@@ -16,7 +18,14 @@ import {
 import Nav from '../../Nav/Nav';
 
 
-const DashboardVendedores = ({lead}) => {
+const DashboardVendedores = () => {
+	const { lead} = useSelector((state) => state);
+	const dispatch = useDispatch();
+  
+	useEffect(() => {
+	  dispatch(getAllLead());
+	}, [dispatch]);
+
 	return (
 		<div className='flex flex-row w-screen'>
 			<Nav />

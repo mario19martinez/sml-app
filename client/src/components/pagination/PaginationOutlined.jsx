@@ -8,7 +8,7 @@ export default function PaginationOutlined({
   pageStyle,
   setPageStyle,
   cardXPage,
-  client,
+  data,
   pages,
 }) {
   const [currentPage, setCurrentPage] = useState(pageStyle);
@@ -18,7 +18,9 @@ export default function PaginationOutlined({
     setCurrentPage(currentPage);
   }, [currentPage]);
 
-  for (let i = 1; i <= Math.ceil(client.length / cardXPage); i++) {
+  console.log(data)
+  console.log(cardXPage)
+  for (let i = 1; i <= Math.ceil(data.length / cardXPage); i++) {
     pageNumbers.push(i);
   }
 
