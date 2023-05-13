@@ -24,7 +24,6 @@ export default function PaginationOutlined({
 
   
   const handleChangePage = (e, p) => {
-    console.log(e)
     setPageStyle(p);
     pages(p);
     setCurrentPage(p);

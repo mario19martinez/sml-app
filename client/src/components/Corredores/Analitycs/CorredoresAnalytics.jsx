@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import style from "./CorredoresAnalytics.module.css";
-import PaginationOutlined from  "../../pagination/PaginationOutlined"
-import Pagination from "../../pagination/Pagination";
+import PaginationOutlined from "../../pagination/PaginationOutlined";
+import { useDispatch, useSelector } from "react-redux";
+import { getLeadChecked } from "../../../redux/actions";
 import {
   Card,
   Table,
@@ -18,6 +19,15 @@ import {
 import { CiGlobe, CiWarning, CiInstagram } from "react-icons/ci";
 
 const CorredoresAnlaytics = () => {
+  const { leadChequed } = useSelector((state) => state);
+  const { leadUnchequed } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getLeadChecked());
+  }, [dispatch]);
+
+
   const [client, setClient] = useState([
     {
       id: 1111,
@@ -979,7 +989,6 @@ const CorredoresAnlaytics = () => {
       nivel: "3",
       Incidencia: false,
     },
-
   ]);
   // const [nivel, setNivel] = useState({
   //   1: "",
@@ -1064,7 +1073,7 @@ const CorredoresAnlaytics = () => {
   const handleNivelClick = (event) => {
     setNivel({ ...nivel, [event.target.name]: event.target.value });
   };
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -1091,11 +1100,13 @@ const CorredoresAnlaytics = () => {
         </TableHead>
 
         <TableBody className={style.tableBody}>
-          {currentCard?.map((item, index) => (
+          {leadChequed?.map((item, index) => (
             <TableRow key={index} className={style.tableCards}>
               {/* sdsd */}
               <TableCell className="flex justify-start items-center p-0">
-                <div className="w-8 ml-2 mr-4 rounded-full">{item.id}</div>
+                <div className="w-24 ml-2 mr-4 rounded-full text-ellipsis overflow-hidden hover:overflow-visible hover:bg-[#fafafa] hover:opacity-0 hover:w-fit hover:text-black p-2 z-111">
+                  {item._id}
+                </div>
               </TableCell>
               <TableCell className="flex justify-start items-center p-0">
                 <Text className="text-start">{item.name}</Text>
@@ -1111,44 +1122,19 @@ const CorredoresAnlaytics = () => {
               </TableCell>
               <TableCell className="flex justify-start items-center p-0">
                 {item.nivel == "1" ? (
-                  <label
-                    className={style.buttonNivelActive}
-                  >
-                    1
-                  </label>
+                  <label className={style.buttonNivelActive}>1</label>
                 ) : (
-                  <label
-                    className={style.buttonNivel}
-                  >
-                    1
-                  </label>
+                  <label className={style.buttonNivel}>1</label>
                 )}
                 {item.nivel == "2" ? (
-                  <label
-                    className={style.buttonNivelActive}
-                  >
-                    2
-                  </label>
+                  <label className={style.buttonNivelActive}>2</label>
                 ) : (
-                  <label
-                    className={style.buttonNivel}
-                  >
-                    2
-                  </label>
+                  <label className={style.buttonNivel}>2</label>
                 )}
                 {item.nivel == "3" ? (
-                  <label
-                    className={style.buttonNivelActive}
-                  >
-                    3
-                  </label>
+                  <label className={style.buttonNivelActive}>3</label>
                 ) : (
-                  <label
-                    className={style.buttonNivel}
-
-                  >
-                    3
-                  </label>
+                  <label className={style.buttonNivel}>3</label>
                 )}
               </TableCell>
               <TableCell className="flex justify-start items-center p-0">
@@ -1161,11 +1147,12 @@ const CorredoresAnlaytics = () => {
         </TableBody>
       </Table>
       <PaginationOutlined
-      pageStyle={pageStyle}
-      setPageStyle={setPageStyle}
-      cardXPage={cardXPage}
-      client={client}
-      pages={pages}/>
+        pageStyle={pageStyle}
+        setPageStyle={setPageStyle}
+        cardXPage={cardXPage}
+        client={client}
+        pages={pages}
+      />
       {/* <Pagination
         pageStyle={pageStyle}
         setPageStyle={setPageStyle}
@@ -1174,6 +1161,8 @@ const CorredoresAnlaytics = () => {
         pages={pages}
       /> */}
 
+      {console.log(leadChequed)}
+      {console.log(leadUnchequed)}
     </Card>
   );
 };
