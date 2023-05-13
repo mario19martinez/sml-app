@@ -12,7 +12,6 @@ import Corredores from "./components/Corredores/Corredores";
 import DashboardVendedores from "./components/Vendedores/Dashboard/DashboardVendedores";
 import AnalyticsSealer from "./components/Vendedores/analytics/VendedoresAnalytics";
 import { AnalyticLeader } from "./components/Lideres/Analytic/AnalyticLeader";
-import { fetchLead } from "./redux/actions";
 import { useEffect } from "react";
 
 function App() {
@@ -21,9 +20,7 @@ function App() {
   const dispatch = useDispatch();
   const lead = useSelector((state) => state.lead);
 
-  useEffect(() => {
-    dispatch(fetchLead());
-  }, [dispatch]);
+  useEffect(() => {}, [dispatch]);
 
   console.log(lead);
   return (
