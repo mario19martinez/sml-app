@@ -84,13 +84,13 @@
 .tableCards {}
 
 .icon {
-	color: rgb(116, 136, 201);
+	color: #4a47e6;
 	font-size: 30px;
 	margin-left: 6px;
 }
 
 .iconComplete {
-	color: #2d2bbf;
+	color: #e4e738;
 	font-size: 33px;
 	margin-left: 6px;
 }

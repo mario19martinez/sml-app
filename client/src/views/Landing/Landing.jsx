@@ -16,7 +16,19 @@ function Landing() {
           <div>
             <h1>SML VIEWS</h1>
             <Link to="/employees" className={style.linksRoutes}>
-              Employees
+              Lider-Dashboard
+            </Link>
+            <Link to="/employees/employees" className={style.linksRoutes}>
+              Lider-Employees
+            </Link>
+            <Link to="/employees/analytics" className={style.linksRoutes}>
+              Lider-Analytics
+            </Link>
+            <Link to="/corredores" className={style.linksRoutes}>
+              Corredores-Dashbord
+            </Link>
+            <Link to="/corredores/analytics" className={style.linksRoutes}>
+              Corredores-Analytics
             </Link>
             <Link to="/corredores" className={style.linksRoutes}>
               Corredores-Dashbord
@@ -29,7 +41,7 @@ function Landing() {
             </Link>
             <Link to="/vendedores" className={style.linksRoutes}>
               VendedoresDashboard
-              </Link>
+            </Link>
             <Link to="/analyticsSelers" className={style.linksRoutes}>
               Analytics Selers
             </Link>
@@ -41,4 +53,3 @@ function Landing() {
 }
 
 export default Landing;
-

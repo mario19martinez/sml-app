@@ -8,6 +8,7 @@ const {
 } = require('../Handlers/CorredorHandlers');
 const CorredorRouter = Router();
 
+console.log("entro")
 CorredorRouter.post('/', postCorredorHandler);
 CorredorRouter.get('/', getAllCorredoresHandler);
 CorredorRouter.get('/name', getCorredorByNameHandler);
