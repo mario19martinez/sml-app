@@ -1,4 +1,4 @@
-const Lead = require("../../models/Lead");
+const Lead = require('../../models/Lead');
 
 const postLead = async ({
 	from,
@@ -10,6 +10,7 @@ const postLead = async ({
 	instagram,
 	level,
 	status,
+	checked,
 	deleted,
 }) => {
 	const lead = await Lead.create({
@@ -22,6 +23,7 @@ const postLead = async ({
 		instagram,
 		level,
 		status,
+		checked,
 		deleted,
 	});
 	return lead;
