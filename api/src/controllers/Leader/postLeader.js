@@ -1,24 +1,24 @@
 const Leader = require('../../models/Leader');
 
 const postLeader = async ({
-	Name,
-	Email,
-	Birthdate,
-	Photo,
-	Country,
-	ContactNumber,
-	Description,
-	Deleted,
+	name,
+	email,
+	birthdate,
+	photo,
+	country,
+	contactNumber,
+	description,
+	deleted,
 }) => {
 	const leader = await Leader.create({
-		Name,
-		Email,
-		Birthdate,
-		Photo,
-		Country,
-		ContactNumber,
-		Description,
-		Deleted,
+		name,
+		email,
+		birthdate,
+		photo,
+		country,
+		contactNumber,
+		description,
+		deleted,
 	});
 	return leader;
 };

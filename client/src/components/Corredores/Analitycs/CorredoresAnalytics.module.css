@@ -1,8 +1,4 @@
-.title {
-  font-weight: 600;
-  color: rgb(202, 202, 202);
-  font-size: 20px;
-}
+
 .buttonAdd {
   background-color: #38369e;
   color: rgb(202, 202, 202);
@@ -12,7 +8,7 @@
 }
 .buttonNivel {
   background-color: rgb(202, 202, 202);
-  color: #39394b;
+  color: #39394B;
   border-radius: 2px;
   padding: 1px 10px;
   font-size: 18px;
@@ -29,11 +25,6 @@
   font-weight: 700;
 }
 
-.table {
-  /* border: 1px solid violet; */
-  display: flex;
-  
-}
 
 .tableHead {
   color: rgb(189, 189, 189);
@@ -50,7 +41,7 @@
   
   grid-template-columns:  13% 20.8% 20% 20% 20.5% auto;
   /* grid-template-columns:  14% 22% 15% 20% 14% auto; */
-  margin-left: 20px;
+  margin-left: 0px;
 }
 
 .tableCards {

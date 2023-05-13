@@ -1,7 +1,7 @@
 const Leader = require('../../models/Leader');
 
 const getAllLeaders = async () => {
-	const leaders = await Leader.findOne();
+	const leaders = await Leader.find();
 	return leaders;
 };
 
