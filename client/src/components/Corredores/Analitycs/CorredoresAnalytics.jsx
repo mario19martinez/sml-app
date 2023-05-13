@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import style from "./CorredoresAnalytics.module.css";
 import PaginationOutlined from "../../pagination/PaginationOutlined";
-import Pagination2 from "../../pagination/Pagination2";
 import { useDispatch, useSelector } from "react-redux";
 import { getLeadUnchecked } from "../../../redux/actions";
 import Nav from "../../Nav/Nav";
@@ -19,7 +19,6 @@ import {
 } from "@tremor/react";
 
 import { CiGlobe, CiWarning, CiInstagram } from "react-icons/ci";
-import { Pagination } from "@mui/material";
 
 const CorredoresAnlaytics = () => {
   const { leadUnchecked } = useSelector((state) => state);
@@ -28,7 +27,6 @@ const CorredoresAnlaytics = () => {
   useEffect(() => {
     dispatch(getLeadUnchecked());
   }, [dispatch]);
-
 
   // const [client, setClient] = useState([
   //   {
@@ -1071,10 +1069,6 @@ const CorredoresAnlaytics = () => {
     setCurrentPage(pageNumber);
   };
 
-  const handleNivelClick = (event) => {
-    setNivel({ ...nivel, [event.target.name]: event.target.value });
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -1085,89 +1079,118 @@ const CorredoresAnlaytics = () => {
 
   return (
     <>
-    <Nav/>
-      <Card className="w-full h-screen m-5">
-        <div className="flex justify-between items-center mt-2 mx-5">
-          <Title className="font-bold text-[#e2e2e2] text-lg">Analytics</Title>
-        </div>
-        <Table className="flex">
-          <TableHead className="text-gray-400 text-sm font-thin">
-            <TableRow className={style.tableRow}>
-              <TableHeaderCell className="text-start">
-                Invoice Id
-              </TableHeaderCell>
-              <TableHeaderCell className="text-start">Name</TableHeaderCell>
-              <TableHeaderCell className="text-start">Web</TableHeaderCell>
-              <TableHeaderCell className="text-start">
-                Instagram
-              </TableHeaderCell>
-              <TableHeaderCell className="text-start">Nivel</TableHeaderCell>
-              <TableHeaderCell className="text-start">
-                Incidencia
-              </TableHeaderCell>
-            </TableRow>
-          </TableHead>
-
-          <TableBody className={style.tableBody}>
-            {currentCard?.map((item, index) => (
-              <TableRow key={index} className={style.tableCards}>
-                <TableCell className="flex justify-start items-center p-0">
-                  <div className="w-24 p-1 px-3 rounded-full text-ellipsis opacity-1 overflow-hidden hover:overflow-visible hover:bg-[#ffffff] hover:w-fit hover:text-black z-111 hover:absolute">
-                    {item._id}
-                  </div>
-                </TableCell>
-                <TableCell className="flex justify-start items-center p-0">
-                  <Text className="text-start">{item.name}</Text>
-                </TableCell>
-                <TableCell className="flex justify-start items-center p-0">
-                  <button>
-                    <CiGlobe className={style.icon} />
-                  </button>
-                </TableCell>
-                <TableCell className="flex justify-start items-center p-0 mx-3">
-                  <CiInstagram className={style.iconInsta} />
-                  <Text className="text-start">{item.Instagram}</Text>
-                </TableCell>
-                <TableCell className="flex justify-start items-center p-0">
-                  {item.nivel == "1" ? (
-                    <label className={style.buttonNivelActive}>1</label>
-                  ) : (
-                    <label className={style.buttonNivel}>1</label>
-                  )}
-                  {item.nivel == "2" ? (
-                    <label className={style.buttonNivelActive}>2</label>
-                  ) : (
-                    <label className={style.buttonNivel}>2</label>
-                  )}
-                  {item.nivel == "3" ? (
-                    <label className={style.buttonNivelActive}>3</label>
-                  ) : (
-                    <label className={style.buttonNivel}>3</label>
-                  )}
-                </TableCell>
-                <TableCell className="flex justify-start items-center p-0">
-                  <button>
-                    <CiWarning className={style.icon} />
-                  </button>
-                </TableCell>
+      <Nav />
+      <div className="flex flex-col justify-start items-center w-full h-full mx-5">
+        <Card className="m-5">
+          <div className="flex justify-between items-center mt-2 mx-5 ">
+            <Title className="font-bold text-[#e2e2e2] text-lg">
+              Analytics
+            </Title>
+          </div>
+          <Table className="flex">
+            <TableHead className="text-gray-400 text-sm font-thin">
+              <TableRow className={style.tableRow}>
+                <TableHeaderCell className="text-start">
+                  Invoice Id
+                </TableHeaderCell>
+                <TableHeaderCell className="text-start">Name</TableHeaderCell>
+                <TableHeaderCell className="text-start">Web</TableHeaderCell>
+                <TableHeaderCell className="text-start">
+                  Instagram
+                </TableHeaderCell>
+                <TableHeaderCell className="text-start">Nivel</TableHeaderCell>
+                <TableHeaderCell className="text-start">
+                  Incidencia
+                </TableHeaderCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-        <PaginationOutlined
-          pageStyle={pageStyle}
-          setPageStyle={setPageStyle}
-          cardXPage={cardXPage}
-          data={leadUnchecked}
-          pages={pages}
-        />
-        {/* <Pagination2
+            </TableHead>
+
+            <TableBody className={style.tableBody}>
+              {currentCard?.map((item, index) => (
+                <TableRow key={index} className={style.tableCards}>
+                  <TableCell className="flex justify-start items-center p-0">
+                    <div className="w-24 p-1 px-3 rounded-full text-ellipsis opacity-1 overflow-hidden hover:overflow-visible hover:bg-[#ffffff] hover:w-fit hover:text-black z-111 hover:absolute">
+                      {item._id}
+                    </div>
+                  </TableCell>
+                  <TableCell className="flex justify-start items-center p-0">
+                    <Text className="text-start">{item.name}</Text>
+                  </TableCell>
+                  <TableCell className="flex justify-start items-center p-0">
+                    {item.url ? (
+                      <Link to={item.url} target="_blank">
+                        <div>
+                          <CiGlobe className="text-[30px] mr-5 text-[#418df0]" />
+                        </div>
+                      </Link>
+                    ) : (
+                      <div>
+                        <CiGlobe className="text-[30px] mr-5 text-[#9eabbe]" />
+                      </div>
+                    )}
+                  </TableCell>
+                  <TableCell className="flex justify-start items-center p-0 mx-3">
+                    {item.instagram ? (
+                      <Link to={item.instagram} target="_blank">
+                        <div>
+                          <CiInstagram className="text-[30px] mr-5 text-[#fc3f8d]" />
+                          <Text className="text-start">{item.Instagram}</Text>
+                        </div>
+                      </Link>
+                    ) : (
+                      <div>
+                        <CiInstagram className="text-[30px] mr-5 text-[#418df0]" />
+                        <Text className="text-start">{item.Instagram}</Text>
+                      </div>
+                    )}
+                  </TableCell>
+                  <TableCell className="flex justify-start items-center p-0">
+                    {item.level == "0" ? (
+                      <label className={style.buttonNivelActive}>0</label>
+                    ) : (
+                      <label className={style.buttonNivel}>0</label>
+                    )}
+                    {item.level == "1" ? (
+                      <label className={style.buttonNivelActive}>1</label>
+                    ) : (
+                      <label className={style.buttonNivel}>1</label>
+                    )}
+                    {item.level == "2" ? (
+                      <label className={style.buttonNivelActive}>2</label>
+                    ) : (
+                      <label className={style.buttonNivel}>2</label>
+                    )}
+                  </TableCell>
+                  <TableCell className="flex justify-start items-center p-0">
+                    <div>
+                      {item.level == "3" ? (
+                        <CiWarning className="text-[30px] mr-5 text-[#f0de41]" />
+                      ) : (
+                        <CiWarning className="text-[30px] mr-5 text-[#418df0]" />
+                      )}
+                    </div>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+          {/* <Pagination2
         pageStyle={pageStyle}
         setPageStyle={setPageStyle}
         cardXPage={cardXPage}
         data={leadUnchecked}
-        pages={pages}/> */}
-      </Card>
+      pages={pages}/> */}
+        </Card>
+        <div className="">
+          <PaginationOutlined
+            pageStyle={pageStyle}
+            setPageStyle={setPageStyle}
+            cardXPage={cardXPage}
+            data={leadUnchecked}
+            pages={pages}
+          />
+        </div>
+      </div>
     </>
   );
 };
