@@ -10,11 +10,10 @@ import Analytic from "../../components/C-Level/Analytics/Analytic";
 
 function Analytics() {
   return (
-    
     <>
-    <Nav/>
-       <Analytic /> 
-     {/* <AnalyticLeader />*/}
+      <Nav />
+      <Analytic />
+      {/* <AnalyticLeader />*/}
     </>
   );
 }
