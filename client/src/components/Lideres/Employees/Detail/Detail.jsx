@@ -4,9 +4,9 @@ import About from "../About/About";
 
 function Detail(props) {
   return (
-    <div className="  flex h-screen bg-slate-700  justify-center items-center w-1/5 flex-col  relative">
+    <div className="  flex h-screen bg-slate-700  justify-center items-center w-1/5 flex-col relative ">
       {/* ********* ********* ********* ********* ********* ********* TARJETA DE USUARIO ********* ********* ********* *********  ********* ********* */}
-      <div className=" h-1/4 justify-center items-center text-center flex flex-col min-w-min gap-2 relative">
+      <div className=" h-1/4 justify-center items-center text-center flex flex-col w-full gap-2 relative">
         <div className=" bg-emerald-700  w-20 h-20 rounded-full flex ">
           <img
             src="https://i.pravatar.cc/150"

@@ -3,48 +3,47 @@ const validator = require('validator');
 
 const VendedorSchema = new mongoose.Schema(
 	{
-		Name: {
+		name: {
 			type: String,
 			require: true,
 		},
-		Email: {
+		email: {
 			type: String,
 			required: true,
-			unique: true,
 			validate: {
 				validator: validator.isEmail,
 				message: 'El correo electrónico debe tener un formato válido',
 			},
 		},
-		Birthdate: {
+		birthdate: {
 			type: Date,
 			required: true,
 		},
-		Photo: {
+		photo: {
 			type: String,
 		},
-		Country: {
+		country: {
 			type: String,
 		},
-		ContactNumber: {
+		contactNumber: {
 			type: String,
 		},
-		Description: {
+		description: {
 			type: String,
 		},
-		Leads_contacted: {
+		leads_contacted: {
 			type: String,
 		},
-		Hired_leads: {
+		hired_leads: {
 			type: String,
 		},
-		Declined_leads: {
+		declined_leads: {
 			type: String,
 		},
-		Unanswered_leads: {
+		unanswered_leads: {
 			type: String,
 		},
-		Deleted: {
+		deleted: {
 			type: Boolean,
 			default: false,
 			select: false,

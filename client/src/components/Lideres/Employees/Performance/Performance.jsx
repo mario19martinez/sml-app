@@ -71,7 +71,6 @@ export default function Performance() {
       `;
   return (
     <div className=" flex flex-col h-2/4 w-full items-center gap-y-2">
-      {/* ********* ********* ********* ********* ********* ********* PERFORMANCE ********* ********* ********* ********* ********* ********* ********* */}
       <div className=" w-10/12 h-3/6 border-white border-2">
         <div className="flex h-1/12 items-center justify-between pr-4 pl-2 pt-2">
           <p className=" font-normal text-18 pt-0 text-white">Performance</p>
@@ -94,8 +93,7 @@ export default function Performance() {
           <Bar data={data} options={options} />
         </div>
       </div>
-      <div className=" flex flex-row h-3/6 w-full justify-center gap-x-3">
-        {/* ********* ********* ********* ********* ********* ********* CIRCLE 1 ********* ********* ********* ********* ********* ********* *********  */}
+      <div className=" flex flex-row h-3/6 w-[300px] justify-center  items-center gap-x-3 ">
         <div
           style={{ "--percent": "70" }}
           className=" flex w-2/5 h-4/6 border-white border-2 relative"
@@ -124,8 +122,6 @@ export default function Performance() {
             70%
           </span>
         </div>
-
-        {/* ********* ********* ********* ********* ********* ********* CIRCLE 2 ********* ********* ********* ********* ********* ********* *********  */}
         <div
           style={{ "--percent": "60" }}
           className=" flex w-2/5 h-4/6 border-white border-2 relative"
