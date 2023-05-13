@@ -17,111 +17,28 @@ import {
 
 import { CiGlobe, CiWarning, CiInstagram } from "react-icons/ci";
 
-const CorredoresDashboard = () => {
-  const [client, setClient] = useState([
-    {
-      id: 1,
-      name: "",
-      Web: "",
-      Instagram: "",
-      Nivel: "",
-      Incidencia: "",
-    },
-    {
-      id: 2,
-      name: "",
-      Web: "",
-      Instagram: "",
-      Nivel: "",
-      Incidencia: "",
-    },
-    {
-      id: 3,
-      name: "",
-      Web: "",
-      Instagram: "",
-      Nivel: "",
-      Incidencia: "",
-    },
-    {
-      id: 4,
-      name: "",
-      Web: "",
-      Instagram: "",
-      Nivel: "",
-      Incidencia: "",
-    },
-    {
-      id: 5,
-      name: "",
-      Web: "",
-      Instagram: "",
-      Nivel: "",
-      Incidencia: "",
-    },
-    {
-      id: 6,
-      name: "",
-      Web: "",
-      Instagram: "",
-      Nivel: "",
-      Incidencia: "",
-    },
-    {
-      id: 7,
-      name: "",
-      Web: "",
-      Instagram: "",
-      Nivel: "",
-      Incidencia: "",
-    },
-    {
-      id: 8,
-      name: "",
-      Web: "",
-      Instagram: "",
-      Nivel: "",
-      Incidencia: "",
-    },
-    {
-      id: 9,
-      name: "",
-      Web: "",
-      Instagram: "",
-      Nivel: "",
-      Incidencia: "",
-    },
-    {
-      id: 10,
-      name: "",
-      Web: "",
-      Instagram: "",
-      Nivel: "",
-      Incidencia: "",
-    },
-  ]);
-
+const CorredoresDashboard = ({lead}) => {
   const [buttonWebStates, setButtonWebStates] = useState(
-    client.map(() => false)
+    lead.map(() => false)
   );
   const [buttoninstaStates, setButtoninstaStates] = useState(
-    client.map(() => false)
+    lead.map(() => false)
   );
   const [buttonIncidenciaStates, setbuttonIncidenciaStates] = useState(
-    client.map(() => false)
+    lead.map(() => false)
   );
-  const [webComplete, setWebComplete] = useState(client.map(() => false));
-  const [instaComplete, setInstaComplete] = useState(client.map(() => false));
+  const [webComplete, setWebComplete] = useState(lead.map(() => false));
+  const [instaComplete, setInstaComplete] = useState(lead.map(() => false));
 
-  useEffect(() => {}, [client]);
+  useEffect(() => {}, [lead]);
 
-  const handleClientClick = (event, index) => {
+  const handleleadClick = (event, index) => {
     const { name, value } = event.target;
 
-    setClient((prevState) => {
-      const updatedClient = [...prevState];
-      updatedClient[index] = {
-        ...updatedClient[index],
+    setlead((prevState) => {
+      const updatedlead = [...prevState];
+      updatedlead[index] = {
+        ...updatedlead[index],
         [name]: value,
         Nivel: value,
       };
@@ -139,7 +56,7 @@ const CorredoresDashboard = () => {
           return updatedInstaComplete;
         });
       }
-      return updatedClient;
+      return updatedlead;
     });
   };
   const handleClickWeb = (index) => {
@@ -199,10 +116,10 @@ const CorredoresDashboard = () => {
           </TableHead>
 
           <TableBody className={style.tableBody}>
-            {client.map((item, index) => (
-              <TableRow key={item.id} className={style.tableCards}>
+            {lead.map((item, index) => (
+              <TableRow key={item._id} className={style.tableCards}>
                 <TableCell className="flex justify-start items-center p-0">
-                  <div className="w-8 ml-2 mr-4 rounded-full">{item.id}</div>
+                  <div className="w-8 ml-2 mr-4 rounded-full">{item._id}</div>
                 </TableCell>
                 <TableCell className="flex justify-start items-center p-0">
                   <Text className="text-start">
@@ -210,8 +127,8 @@ const CorredoresDashboard = () => {
                       className={style.inputName}
                       type="text"
                       name="name"
-                      value={client[index].name}
-                      onChange={(event) => handleClientClick(event, index)}
+                      value={lead[index].name}
+                      onChange={(event) => handleleadClick(event, index)}
                       placeholder="Ingrese el nombre"
                     />
                   </Text>
@@ -222,7 +139,7 @@ const CorredoresDashboard = () => {
 
                   <button
                     type="button"
-                    name={item.id}
+                    name={item._id}
                     onClick={() => handleClickWeb(index)}
                   >
                     <CiGlobe
@@ -238,14 +155,14 @@ const CorredoresDashboard = () => {
                         className={style.input}
                         type="text"
                         name="Web"
-                        value={client[index].Web}
-                        onChange={(event) => handleClientClick(event, index)}
+                        value={lead[index].Web}
+                        onChange={(event) => handleleadClick(event, index)}
                         placeholder="Ingrese la url"
                       />
                       <button
                         className={style.bottomInput}
                         type="button"
-                        name={item.id}
+                        name={item._id}
                         onClick={() => handleClickWeb(index)}
                       >
                         cerrar
@@ -258,7 +175,7 @@ const CorredoresDashboard = () => {
                 <TableCell className="flex justify-start items-center p-0 mx-3">
                   <button
                     type="button"
-                    name={item.id}
+                    name={item._id}
                     onClick={() => handleClickInsta(index)}
                   >
                     <CiInstagram
@@ -278,14 +195,14 @@ const CorredoresDashboard = () => {
                         className={style.input}
                         type="text"
                         name="Instagram"
-                        value={client[index].Instagram}
-                        onChange={(event) => handleClientClick(event, index)}
+                        value={lead[index].Instagram}
+                        onChange={(event) => handleleadClick(event, index)}
                         placeholder="Ingrese un insta"
                       />
                       <button
                         className={style.bottomInput}
                         type="button"
-                        name={item.id}
+                        name={item._id}
                         onClick={() => handleClickInsta(index)}
                       >
                         cerrar
@@ -305,9 +222,9 @@ const CorredoresDashboard = () => {
                         : style.buttonNivel
                     }
                     type="button"
-                    name={item.id}
+                    name={item._id}
                     value="1"
-                    onClick={(event) => handleClientClick(event, index)}
+                    onClick={(event) => handleleadClick(event, index)}
                   >
                     1
                   </button>
@@ -318,9 +235,9 @@ const CorredoresDashboard = () => {
                         : style.buttonNivel
                     }
                     type="button"
-                    name={item.id}
+                    name={item._id}
                     value="2"
-                    onClick={(event) => handleClientClick(event, index)}
+                    onClick={(event) => handleleadClick(event, index)}
                   >
                     2
                   </button>
@@ -331,9 +248,9 @@ const CorredoresDashboard = () => {
                         : style.buttonNivel
                     }
                     type="button"
-                    name={item.id}
+                    name={item._id}
                     value="3"
-                    onClick={(event) => handleClientClick(event, index)}
+                    onClick={(event) => handleleadClick(event, index)}
                   >
                     3
                   </button>
@@ -342,7 +259,7 @@ const CorredoresDashboard = () => {
                 <TableCell className="flex justify-start items-center p-0">
                   <button
                     type="button"
-                    name={item.id}
+                    name={item._id}
                     onClick={() => handleClickIncidencia(index)}
                   >
                     <CiWarning className={style.icon} />
@@ -351,8 +268,8 @@ const CorredoresDashboard = () => {
                     <input
                       type="text"
                       name="Incidencia"
-                      value={client[index].Incidencia}
-                      onChange={(event) => handleClientClick(event, index)}
+                      value={lead[index].Incidencia}
+                      onChange={(event) => handleleadClick(event, index)}
                       placeholder="Ingrese un incidencia"
                     />
                   )}

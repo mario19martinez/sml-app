@@ -40,12 +40,12 @@ function App() {
         <Route path="/employees" element={<Employees />} />
         <Route path="/employees/employees" element={<Employees />} />
         <Route path="/employees/analytics" element={<AnalyticLeader />} />
-        <Route path="/corredores" element={<CorredoresDashboard />} />
-        <Route path="/corredores/analytics" element={<Corredores />} />
+        <Route path="/corredores" element={<CorredoresDashboard lead={lead}/>} />
+        <Route path="/corredores/analytics" element={<Corredores lead={lead}/>} />
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/vendedores" element={<DashboardVendedores lead={lead}/>} />
-        <Route path="/analyticsSelers" element={<AnalyticsSealer />} />
+        <Route path="/analyticsSelers" element={<AnalyticsSealer lead={lead}/>} />
       </Routes>
     </div>
   );
