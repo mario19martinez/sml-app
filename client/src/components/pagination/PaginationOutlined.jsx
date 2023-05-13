@@ -18,12 +18,13 @@ export default function PaginationOutlined({
     setCurrentPage(currentPage);
   }, [currentPage]);
 
-  console.log(data);
-  console.log(cardXPage);
+  console.log(data)
+  console.log(cardXPage)
   for (let i = 1; i <= Math.ceil(data.length / cardXPage); i++) {
     pageNumbers.push(i);
   }
 
+  
   const handleChangePage = (e, p) => {
     setPageStyle(p);
     pages(p);
@@ -33,7 +34,7 @@ export default function PaginationOutlined({
   return (
     <div className={`${style.textPagination} flex items-center justify-center`}>
       <Stack spacing={2} className="bg-[#39394B] mt-3 p-1 flex rounded-xl">
-        <Pagination
+        <Pagination 
           count={pageNumbers.length}
           color="primary"
           onChange={handleChangePage}
@@ -42,3 +43,4 @@ export default function PaginationOutlined({
     </div>
   );
 }
+

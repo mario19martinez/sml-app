@@ -1,93 +1,98 @@
-import style from "./DashboardVendedores.module.css";
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getAllLead } from "../../../redux/actions";
+import style from './DashboardVendedores.module.css';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllLead } from '../../../redux/actions';
 import {
-  Card,
-  Table,
-  TableHead,
-  TableRow,
-  TableHeaderCell,
-  TableBody,
-  TableCell,
-  Text,
-  Title,
-  Badge,
-} from "@tremor/react";
+	Card,
+	Table,
+	TableHead,
+	TableRow,
+	TableHeaderCell,
+	TableBody,
+	TableCell,
+	Text,
+	Title,
+	Badge,
+} from '@tremor/react';
 
-import Nav from "../../Nav/Nav";
+import Nav from '../../Nav/Nav';
+
 
 const DashboardVendedores = () => {
-  const { lead } = useSelector((state) => state);
-  const dispatch = useDispatch();
+	const { lead} = useSelector((state) => state);
+	const dispatch = useDispatch();
+  
+	useEffect(() => {
+	  dispatch(getAllLead());
+	}, [dispatch]);
 
-  useEffect(() => {
-    dispatch(getAllLead());
-  }, [dispatch]);
+	return (
+		<div className='flex flex-row w-screen'>
+			<Nav />
+			<Card className='w-full m-5 h-screen '>
+				<div className='flex justify-between items-center m-5'>
+					<Title className={style.title}>Dashboard</Title>
+					<button className={style.buttonAdd}>Send </button>
+				</div>
 
-  return (
-    <div className="flex flex-row w-screen">
-      <Nav />
-      <Card className="w-full m-5 h-screen ">
-        <div className="flex justify-between items-center m-5">
-          <Title className={style.title}>Dashboard</Title>
-          <button className={style.buttonAdd}>Send </button>
-        </div>
+				<Table className={style.table}>
+					<TableHead className={style.tableHead}>
+						<TableRow className={style.tableRow}>
+							<TableHeaderCell className='text-start'>
+								Invoice Id
+							</TableHeaderCell>
+							<TableHeaderCell className='text-start'>Name</TableHeaderCell>
+							<TableHeaderCell className='text-start'>
+								Profesion
+							</TableHeaderCell>
+							<TableHeaderCell className='text-start'>Nivel</TableHeaderCell>
+							<TableHeaderCell className='text-start'>
+								Telephone
+							</TableHeaderCell>
+							<TableHeaderCell className='text-start'>Email</TableHeaderCell>
+							<TableHeaderCell className='text-start'>Status</TableHeaderCell>
+						</TableRow>
+					</TableHead>
 
-        <Table className={style.table}>
-          <TableHead className={style.tableHead}>
-            <TableRow className={style.tableRow}>
-              <TableHeaderCell className="text-start">
-                Invoice Id
-              </TableHeaderCell>
-              <TableHeaderCell className="text-start">Name</TableHeaderCell>
-              <TableHeaderCell className="text-start">
-                Profesion
-              </TableHeaderCell>
-              <TableHeaderCell className="text-start">Nivel</TableHeaderCell>
-              <TableHeaderCell className="text-start">
-                Telephone
-              </TableHeaderCell>
-              <TableHeaderCell className="text-start">Email</TableHeaderCell>
-              <TableHeaderCell className="text-start">Status</TableHeaderCell>
-            </TableRow>
-          </TableHead>
-
-          <TableBody className={style.tableBody}>
-            {lead.map((item, index) => (
-              <TableRow key={item._id} className={style.tableCards}>
-                <TableCell className="flex justify-start items-center p-0">
-                  <div className="w-8 ml-2 mr-4 rounded-full">{item._id}</div>
-                </TableCell>
-                <TableCell className="flex justify-start items-center p-0">
-                  <Text className="text-start">{item.name}</Text>
-                </TableCell>
-                <TableCell className="flex justify-start items-center p-0">
-                  <Text className="text-start">{item.profession}</Text>
-                </TableCell>
-                <TableCell className="flex justify-start items-center p-0 mx-3">
-                  <Text className="text-start bg-[#6254ff] py-2 px-3 text-xl rounded-md">
-                    {item.level}
-                  </Text>
-                </TableCell>
-                <TableCell className="flex justify-start items-center p-0">
-                  <Text className="text-start">{item.contact_number}</Text>
-                </TableCell>
-                <TableCell className="flex justify-start items-center p-0">
-                  <Text className="text-start">{item.email}</Text>
-                </TableCell>
-                <TableCell className="flex justify-start items-start p-0">
-                  <button className="bg-[#ff69b4] rounded-3xl px-6 py-1">
-                    Contratado
-                  </button>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </Card>
-    </div>
-  );
+					<TableBody className={style.tableBody}>
+						{lead.map((item, index) => (
+							<TableRow
+								key={item._id}
+								className={style.tableCards}>
+								<TableCell className='flex justify-start items-center p-0'>
+									<div className='w-8 ml-2 mr-4 rounded-full'>
+										{item._id}
+									</div>
+								</TableCell>
+								<TableCell className='flex justify-start items-center p-0'>
+									<Text className='text-start'>{item.name}</Text>
+								</TableCell>
+								<TableCell className='flex justify-start items-center p-0'>
+									<Text className='text-start'>{item.profession}</Text>
+								</TableCell>
+								<TableCell className='flex justify-start items-center p-0 mx-3'>
+									<Text className='text-start bg-[#6254ff] py-2 px-3 text-xl rounded-md'>
+										{item.level}
+									</Text>
+								</TableCell>
+								<TableCell className='flex justify-start items-center p-0'>
+									<Text className='text-start'>{item.contact_number}</Text>
+								</TableCell>
+								<TableCell className='flex justify-start items-center p-0'>
+									<Text className='text-start'>{item.email}</Text>
+								</TableCell>
+								<TableCell className='flex justify-start items-start p-0'>
+									<button className='bg-[#ff69b4] rounded-3xl px-6 py-1'>
+										Contratado
+									</button>
+								</TableCell>
+							</TableRow>
+						))}
+					</TableBody>
+				</Table>
+			</Card>
+		</div>
+	);
 };
 
 export default DashboardVendedores;

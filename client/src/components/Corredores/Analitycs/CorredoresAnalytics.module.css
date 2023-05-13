@@ -1,3 +1,4 @@
+
 .buttonAdd {
   background-color: #38369e;
   color: rgb(202, 202, 202);
@@ -7,7 +8,7 @@
 }
 .buttonNivel {
   background-color: rgb(202, 202, 202);
-  color: #39394b;
+  color: #39394B;
   border-radius: 2px;
   padding: 1px 10px;
   font-size: 18px;
@@ -24,6 +25,7 @@
   font-weight: 700;
 }
 
+
 .tableHead {
   color: rgb(189, 189, 189);
   font-size: 12px;
@@ -33,18 +35,18 @@
 
 .tableRow {
   /* border: 1px solid white; */
-
+  
   margin-top: 20px;
   display: grid;
-
-  grid-template-columns: 13% 20.8% 20% 20% 20.5% auto;
+  
+  grid-template-columns:  13% 20.8% 20% 20% 20.5% auto;
   /* grid-template-columns:  14% 22% 15% 20% 14% auto; */
   margin-left: 0px;
 }
 
 .tableCards {
   display: grid;
-  grid-template-columns: 11% 19% 17% 19% 20% 3%;
+  grid-template-columns:  11% 19% 17% 19% 20% 3%;
 
   align-items: center;
   justify-content: space-between;
@@ -78,33 +80,33 @@
 }
 @media screen and (max-width: 1850px) {
   .tableRow {
-    grid-template-columns: 13% 24.5% 19% 19% 17% auto;
+    grid-template-columns:  13% 24.5% 19% 19% 17% auto;
   }
   .tableCards {
-    grid-template-columns: 13% 24% 17% 19% 18% 4%;
+grid-template-columns:  13% 24% 17% 19% 18% 4%;
   }
 }
 @media screen and (max-width: 1500px) {
   .tableRow {
-    grid-template-columns: 13% 24.5% 19% 19% 15% auto;
+    grid-template-columns:  13% 24.5% 19% 19% 15% auto;
   }
   .tableCards {
-    grid-template-columns: 13% 24% 17% 19% 18% 5%;
+grid-template-columns:  13% 24% 17% 19% 18% 5%;
   }
 }
 @media screen and (max-width: 1350px) {
   .tableRow {
-    grid-template-columns: 13% 24.5% 19% 18% 15.5% auto;
+    grid-template-columns:  13% 24.5% 19% 18% 15.5% auto;
   }
   .tableCards {
-    grid-template-columns: 13% 24% 17% 19% 18% 5%;
+grid-template-columns:  13% 24% 17% 19% 18% 5%;
   }
 }
 @media screen and (max-width: 1110px) {
   .tableRow {
-    grid-template-columns: 12% 22% 19% 20% 16% auto;
+    grid-template-columns:  12% 22% 19% 20% 16% auto;
   }
   .tableCards {
-    grid-template-columns: 10% 20% 15% 20% 16% auto;
+    grid-template-columns:  10% 20% 15% 20% 16% auto;
   }
 }
