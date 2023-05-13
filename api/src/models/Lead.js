@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const validator = require('validator');
+const mongoose = require("mongoose");
+const validator = require("validator");
 
 const LeadSchema = new mongoose.Schema(
 	{
@@ -43,10 +43,10 @@ const LeadSchema = new mongoose.Schema(
 	{ timestamps: true }
 );
 
-LeadSchema.pre('find', function () {
-	this.where({ deleted: false });
+LeadSchema.pre("find", function () {
+  this.where({ deleted: false });
 });
 
-const Lead = new mongoose.model('lead', LeadSchema);
+const Lead = new mongoose.model("lead", LeadSchema);
 
 module.exports = Lead;
