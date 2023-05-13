@@ -18,6 +18,8 @@ import {
 import { CiGlobe, CiWarning, CiInstagram } from "react-icons/ci";
 
 const CorredoresDashboard = () => {
+
+  /* data hardcodeada */
   const [client, setClient] = useState([
     {
       id: 1,
@@ -25,7 +27,7 @@ const CorredoresDashboard = () => {
       Web: "https://www.google.com/",
       Instagram: "",
       Nivel: "",
-      Incidencia: "",
+ 
     },
     {
       id: 2,
@@ -33,7 +35,7 @@ const CorredoresDashboard = () => {
       Web: "https://www.facebook.com/",
       Instagram: "",
       Nivel: "",
-      Incidencia: "",
+ 
     },
     {
       id: 3,
@@ -41,7 +43,7 @@ const CorredoresDashboard = () => {
       Web: "",
       Instagram: "",
       Nivel: "",
-      Incidencia: "",
+
     },
     {
       id: 4,
@@ -49,7 +51,7 @@ const CorredoresDashboard = () => {
       Web: "",
       Instagram: "",
       Nivel: "",
-      Incidencia: "",
+
     },
     {
       id: 5,
@@ -57,7 +59,7 @@ const CorredoresDashboard = () => {
       Web: "",
       Instagram: "",
       Nivel: "",
-      Incidencia: "",
+
     },
     {
       id: 6,
@@ -65,7 +67,7 @@ const CorredoresDashboard = () => {
       Web: "",
       Instagram: "",
       Nivel: "",
-      Incidencia: "",
+
     },
     {
       id: 7,
@@ -73,7 +75,7 @@ const CorredoresDashboard = () => {
       Web: "",
       Instagram: "",
       Nivel: "",
-      Incidencia: "",
+ 
     },
     {
       id: 8,
@@ -81,7 +83,7 @@ const CorredoresDashboard = () => {
       Web: "",
       Instagram: "",
       Nivel: "",
-      Incidencia: "",
+
     },
     {
       id: 9,
@@ -89,7 +91,7 @@ const CorredoresDashboard = () => {
       Web: "",
       Instagram: "",
       Nivel: "",
-      Incidencia: "",
+
     },
     {
       id: 10,
@@ -97,14 +99,42 @@ const CorredoresDashboard = () => {
       Web: "",
       Instagram: "",
       Nivel: "",
-      Incidencia: "",
+ 
     },
   ]);
   
   const [webComplete, setWebComplete] = useState(client.map(() => false));
   const [instaComplete, setInstaComplete] = useState(client.map(() => false));
+  const [formComplete, setFormComplete] = useState(false);
 
-  useEffect(() => { }, [client]);
+  /* validacion por el momento */
+  useEffect(() => { 
+    if(client[0].Instagram!='' &&
+    (client[0].Nivel=='1'||client[0].Nivel=='0' ||client[0].Nivel=='2'||client[0].Nivel==undefined)&&
+    client[1].Instagram!='' &&
+    (client[0].Nivel=='1'||client[0].Nivel=='0' ||client[0].Nivel=='2'||client[0].Nivel==undefined)&&
+    client[2].Instagram!='' &&
+    (client[0].Nivel=='1'||client[0].Nivel=='0' ||client[0].Nivel=='2'||client[0].Nivel==undefined)&&
+    client[3].Instagram!='' &&
+    (client[0].Nivel=='1'||client[0].Nivel=='0' ||client[0].Nivel=='2'||client[0].Nivel==undefined)&&
+    client[4].Instagram!='' &&
+    (client[0].Nivel=='1'||client[0].Nivel=='0' ||client[0].Nivel=='2'||client[0].Nivel==undefined)&&
+    client[5].Instagram!='' &&
+    (client[0].Nivel=='1'||client[0].Nivel=='0' ||client[0].Nivel=='2'||client[0].Nivel==undefined)&&
+    client[6].Instagram!='' &&
+    (client[0].Nivel=='1'||client[0].Nivel=='0' ||client[0].Nivel=='2'||client[0].Nivel==undefined)&&
+    client[7].Instagram!='' &&
+    (client[0].Nivel=='1'||client[0].Nivel=='0' ||client[0].Nivel=='2'||client[0].Nivel==undefined)&&
+    client[8].Instagram!='' &&
+    (client[0].Nivel=='1'||client[0].Nivel=='0' ||client[0].Nivel=='2'||client[0].Nivel==undefined)&&
+    client[9].Instagram!='' &&
+    (client[0].Nivel=='1'||client[0].Nivel=='0' ||client[0].Nivel=='2'||client[0].Nivel==undefined)){
+      setFormComplete(true)
+    }else{
+      setFormComplete(false)
+    }
+
+  }, [client]);
 
   const handleClientClick = (event, index) => {
     const { name, value } = event.target;
@@ -116,6 +146,8 @@ const CorredoresDashboard = () => {
         [name]: value,
         Nivel: value,
       };
+      /* este if no lo borren por las dudas si necesitamos ocupar hay que preguntar a martin
+      por ahora no funciona */
       if (name === "Web") {
         setWebComplete((prevWebComplete) => {
           const updatedWebComplete = [...prevWebComplete];
@@ -140,13 +172,26 @@ const CorredoresDashboard = () => {
     window.open(webUrl, '_blank');
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (formComplete) {
+      //funcion para hacer update
+      console.log('mandando info');
+    }
+
+  }
+
   return (
     <>
       <Nav />
+      <form onSubmit={handleSubmit}>
       <Card className="w-full h-screen m-5">
         <div className="flex justify-between items-center m-5">
           <Title className={style.title}>Dashboard</Title>
-          <button className={style.buttonAdd}>Send </button>
+
+          {/* boton submit */}
+          <button type="submit" disabled={!formComplete} complete={formComplete} 
+          className={formComplete?style.buttonAdd:style.buttonAddDisable}>Send </button>
         </div>
 
         <Table className={style.table}>
@@ -167,6 +212,8 @@ const CorredoresDashboard = () => {
             </TableRow>
           </TableHead>
 
+          {/* aca lee la informacion con un ma utilizando el index para setear el objeto
+          en su posicion correspondiente*/}
           <TableBody className={style.tableBody}>
             {client.map((item, index) => (
               <TableRow key={item.id} className={style.tableCards}>
@@ -178,9 +225,7 @@ const CorredoresDashboard = () => {
                 </TableCell>
 
                 <TableCell className="flex justify-start items-center p-0">
-                  {/* Botón de web */}
-                  
-                    
+                  {/* Botón de web este boton te llava a otra pagina */}
                       <button class={style.buttonWeb} value={item.Web}
                       onClick={() => handleLinkWeb(item.Web)}>
                         <CiGlobe
@@ -191,7 +236,7 @@ const CorredoresDashboard = () => {
                     
                     
                 </TableCell>
-
+                  {/* aca esta input de instagram */}
                 <TableCell className="flex justify-start items-center p-0 mx-3">
                   <div>
                     <CiInstagram
@@ -262,6 +307,8 @@ const CorredoresDashboard = () => {
                     value="incidencia"
                     onClick={(event) => handleClientClick(event, index)}
                   >
+                    {/* item.nivel se utiliza para comprobar si esta seleccionado 
+                    incidencia o otro nivel */}
                     <CiWarning className={
                       (item.Nivel == undefined)
                         ? style.iconComplete
@@ -275,6 +322,7 @@ const CorredoresDashboard = () => {
           </TableBody>
         </Table>
       </Card>
+      </form>
     </>
   );
 };
