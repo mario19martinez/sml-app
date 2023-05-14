@@ -145,6 +145,7 @@ const CorredoresDashboard = () => {
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		console.log('Enviado');
+		alert('Enviando Informacion')
 		try {
 			for (let i = 0; i < leadUnchecked10.length; i++) {
 				const response = await axios.put(
@@ -160,6 +161,8 @@ const CorredoresDashboard = () => {
 				);
 				console.log(response.data);
 			}
+			alert('Solicitud enviada correctamente')
+			dispatch(getLeadUnchecked10());
 		} catch (error) {
 			console.log('No se envio el put');
 		}
