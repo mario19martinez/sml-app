@@ -5,6 +5,7 @@ const getLeadByName = require('../controllers/Lead/getLeadByName');
 const postLead = require('../controllers/Lead/postLead');
 const updateLeadById = require('../controllers/Lead/updateLeadById');
 const getLeadUnchecked = require('../controllers/Lead/getLeadUnchecked');
+const getLead10Unchecked = require('../controllers/Lead/getLead10Unchecked');
 
 const getAllLeadHandler = async (req, res) => {
 	try {
@@ -17,6 +18,14 @@ const getAllLeadHandler = async (req, res) => {
 const getLeadUncheckedHandler = async (req, res) => {
 	try {
 		const leadUnchecked = await getLeadUnchecked();
+		res.status(200).json(leadUnchecked);
+	} catch (error) {
+		res.status(404).json({ error: error.message });
+	}
+};
+const getLead10UncheckedHandler = async (req, res) => {
+	try {
+		const leadUnchecked = await getLead10Unchecked();
 		res.status(200).json(leadUnchecked.slice(0, 10));
 	} catch (error) {
 		res.status(404).json({ error: error.message });
@@ -54,17 +63,6 @@ const updateLeadHandler = async (req, res) => {
 	}
 };
 
-const updateMultipleLeadsHandler = async (req, res) => {
-	const leadsToUpdate = req.body.leadsToUpdate;
-	const updatedData = req.body.updatedData;
-	try {
-		const updatedLeads = await updateMultipleLeads(leadsToUpdate, updatedData);
-		res.status(200).json(updatedLeads);
-	} catch (error) {
-		res.status(500).json({ error: error.message });
-	}
-};
-
 const getLeadByNameHandler = async (req, res) => {
 	const { Name } = req.query;
 
@@ -93,7 +91,7 @@ module.exports = {
 	getLeadCheckedHandler,
 	postLeadHandler,
 	updateLeadHandler,
-	updateMultipleLeadsHandler,
+	getLead10UncheckedHandler,
 	getLeadByIdHandler,
 	getLeadByNameHandler,
 };
