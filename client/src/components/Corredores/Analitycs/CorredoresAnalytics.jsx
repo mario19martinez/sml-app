@@ -104,13 +104,13 @@ const CorredoresAnlaytics = () => {
                     {item.instagram ? (
                       <Link to={item.instagram} target="_blank">
                         <div>
-                          <CiInstagram className="text-[30px] mr-5 text-[#fc3f8d]" />
+                          <CiInstagram className="text-[30px] mr-5 text-[#ff598b]" />
                           <Text className="text-start">{item.Instagram}</Text>
                         </div>
                       </Link>
                     ) : (
                       <div>
-                        <CiInstagram className="text-[30px] mr-5 text-[#418df0]" />
+                        <CiInstagram className="text-[30px] mr-5 text-[#9eabbe]" />
                         <Text className="text-start">{item.Instagram}</Text>
                       </div>
                     )}
@@ -134,7 +134,7 @@ const CorredoresAnlaytics = () => {
                   </TableCell>
                   <TableCell className="flex justify-start items-center p-0">
                     <div>
-                      {item.level == "3" ? (
+                      {item.level == "incidencia" ? (
                         <CiWarning className="text-[30px] mr-5 text-[#f0de41]" />
                       ) : (
                         <CiWarning className="text-[30px] mr-5 text-[#418df0]" />

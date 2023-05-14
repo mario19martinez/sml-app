@@ -18,8 +18,7 @@ export default function PaginationOutlined({
     setCurrentPage(currentPage);
   }, [currentPage]);
 
-  console.log(data);
-  console.log(cardXPage);
+
   for (let i = 1; i <= Math.ceil(data.length / cardXPage); i++) {
     pageNumbers.push(i);
   }
