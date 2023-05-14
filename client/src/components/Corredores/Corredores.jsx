@@ -5,8 +5,7 @@ import Analytics from "./Analitycs/CorredoresAnalytics";
 function Corredores() {
   return (
     <>
-      <Nav />
-      <Analytics/>
+      <Analytics />
     </>
   );
 }

@@ -10,6 +10,7 @@
   color: rgb(255, 255, 255);
 }
 
+
 .lista {
   display: flex;
   justify-content: center;
@@ -25,7 +26,7 @@
   justify-content: center;
   width: 25px;
   height: 25px;
-  background-color: #39394b;
+  background-color: #39394B;
   color: white;
 
   margin: 3px;
@@ -46,14 +47,15 @@
   height: 25px;
 }
 
+
 .items a {
   text-decoration: none;
   cursor: pointer;
-  font-size: 13px;
+font-size: 13px;
 
-  border-radius: 5px;
-  padding: 5px 5px 6px 5px;
-  color: rgb(255, 255, 255);
+border-radius: 5px;
+padding: 5px 5px 6px 5px;
+color: rgb(255, 255, 255);
 }
 .items a:hover {
   font-size: 11px;
@@ -70,19 +72,18 @@
   margin: 0px 10px;
   overflow: hidden;
   border-radius: 5px;
-  background-color: #39394b;
+  background-color: #39394B;
   color: white;
   font-size: 16px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 /* className={mx-1 px-4 py-2 rounded-lg ${currentPage === index + 1 ? 'bg-purple-500 text-white' : 'bg-[#39394B] text-white'
 }} */
 
-.textPagination button {
+.textPagination button{
   color: white;
 }
-.textPagination div {
+.textPagination div{
   color: white;
 }

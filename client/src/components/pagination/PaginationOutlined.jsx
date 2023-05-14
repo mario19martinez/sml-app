@@ -2,13 +2,13 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-import style from "./Pagination.module.css";
+import style from "./PaginationOutlined.module.css";
 
 export default function PaginationOutlined({
   pageStyle,
   setPageStyle,
   cardXPage,
-  client,
+  data,
   pages,
 }) {
   const [currentPage, setCurrentPage] = useState(pageStyle);
@@ -18,11 +18,12 @@ export default function PaginationOutlined({
     setCurrentPage(currentPage);
   }, [currentPage]);
 
-  for (let i = 1; i <= Math.ceil(client.length / cardXPage); i++) {
+  console.log(data);
+  console.log(cardXPage);
+  for (let i = 1; i <= Math.ceil(data.length / cardXPage); i++) {
     pageNumbers.push(i);
   }
 
-  
   const handleChangePage = (e, p) => {
     setPageStyle(p);
     pages(p);
@@ -32,7 +33,7 @@ export default function PaginationOutlined({
   return (
     <div className={`${style.textPagination} flex items-center justify-center`}>
       <Stack spacing={2} className="bg-[#39394B] mt-3 p-1 flex rounded-xl">
-        <Pagination 
+        <Pagination
           count={pageNumbers.length}
           color="primary"
           onChange={handleChangePage}
@@ -41,4 +42,3 @@ export default function PaginationOutlined({
     </div>
   );
 }
-
