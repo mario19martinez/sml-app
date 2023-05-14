@@ -291,15 +291,9 @@ const CorredoresDashboard = () => {
 											}
 											type='button'
 											name={item._id}
-											value='incidencia'
+											value='3'
 											onClick={(event) => handleClientClick(event, index)}>
-											<CiWarning
-												className={
-													item.level == 'incidencia'
-														? style.iconComplete
-														: style.icon
-												}
-											/>
+											3
 										</button>
 									</TableCell>
 								</TableRow>
