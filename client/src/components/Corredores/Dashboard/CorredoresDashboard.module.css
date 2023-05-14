@@ -5,7 +5,7 @@
 }
 
 .buttonAdd {
-  background-color: #38369e;
+  background-color: #418df0;
   color: rgb(202, 202, 202);
   border-radius: 7px;
   padding: 6px 25px;
@@ -23,7 +23,7 @@
 }
 
 .buttonNivelActive {
-  background-color: #38369e;
+  background-color: #418df0;
   color: #39394b;
   border-radius: 2px;
   padding: 1px 10px;
@@ -49,13 +49,13 @@
 .tableRow {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: 17% 16% 18% 18%auto;
+  grid-template-columns: 22% 21.5% 22% 22%auto;
   margin-left: 20px;
 }
 
 .tableCards {
   display: grid;
-  grid-template-columns: 8% 11% 10% 8% 16%auto;
+  grid-template-columns: 7% 12% 3% 12% 1% auto;
   align-items: center;
   justify-content: space-between;
   background-color: #39394b;
@@ -71,7 +71,7 @@
 }
 
 .icon {
-  color: #4a47e6;
+  color: #418df0;
   font-size: 30px;
   margin-left: 6px;
 }
@@ -94,7 +94,7 @@
   margin-left: 6px;
 }
 .iconWeb {
-  color: rgb(116, 136, 201);
+  color: #418df0;
   font-size: 30px;
   margin-left: 6px;
 }
@@ -142,7 +142,7 @@
 .bottomInput {
   margin-top: 5px;
   margin-left: 5px;
-  background-color: #38369e;
+  background-color: #418df0;
   color: rgb(204, 203, 203);
   font-size: 15px;
   width: 150px;
