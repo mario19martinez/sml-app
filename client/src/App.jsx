@@ -9,8 +9,8 @@ import Settings from "./views/Settings/Settings.jsx";
 import Login from "./views/Login/Login";
 import CorredoresDashboard from "./components/Corredores/Dashboard/CorredoresDashboard";
 import Corredores from "./components/Corredores/Corredores";
-import DashboardVendedores from "./components/Vendedores/Dashboard/DashboardVendedores";
-import AnalyticsSealer from "./components/Vendedores/analytics/VendedoresAnalytics";
+import VendedoresDashboard from "./components/Vendedores/Dashboard/VendedoresDashboard";
+import VendedoresAnalytics from "./components/Vendedores/Analytics/VendedoresAnalytics";
 import { AnalyticLeader } from "./components/Lideres/Analytic/AnalyticLeader";
 import { useEffect } from "react";
 
@@ -43,9 +43,9 @@ function App() {
         <Route path="/settings" element={<Settings />} />
         <Route
           path="/vendedores"
-          element={<DashboardVendedores lead={lead} />}
+          element={<VendedoresDashboard lead={lead} />}
         />
-        <Route path="/analyticsSelers" element={<AnalyticsSealer />} />
+        <Route path="/vendedores/analytics" element={<VendedoresAnalytics />} />
       </Routes>
     </div>
   );
