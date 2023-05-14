@@ -291,7 +291,7 @@ const CorredoresDashboard = () => {
 											}
 											type='button'
 											name={item._id}
-											value='3'
+											value='incidencia'
 											onClick={(event) => handleClientClick(event, index)}>
 											3
 										</button>
