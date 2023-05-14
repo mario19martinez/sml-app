@@ -1,10 +1,8 @@
 const Lead = require('../../models/Lead');
 
 const getLeadUnchecked = async () => {
-	const leadChequed = await Lead.find({
-	checked: false,
-	});
-	return leadChequed;
+	const leadUnchecked = await Lead.find({ checked: false }).limit(10).exec();
+	return leadUnchecked;
 };
 
 module.exports = getLeadUnchecked;
