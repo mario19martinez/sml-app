@@ -292,7 +292,7 @@ export const AnalyticLeader = () => {
                         Contactado
                       </Text>
                     ) : (
-                      <Text className="bg-[#b44f82] text-[#e0dfdf] w-full  px-2 py-1.5 rounded-xl text-center w-48">
+                      <Text className="bg-[#b44f82] text-[#e0dfdf] w-full px-2 py-1.5 rounded-xl text-center">
                         No Contactado
                       </Text>
                     )}
