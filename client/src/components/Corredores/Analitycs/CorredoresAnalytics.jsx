@@ -84,7 +84,7 @@ const CorredoresAnlaytics = () => {
                     </div>
                   </TableCell>
                   <TableCell className="flex justify-start items-center p-0">
-                    <Text className="w-96 p-1 px-3 rounded-full text-ellipsis opacity-1 overflow-hidden hover:overflow-visible hover:bg-[#e3e1e1] hover:w-fit hover:text-black z-111 hover:absolute">{item.name}</Text>
+                    <Text className="w-96 p-1 px-3 rounded-full text-ellipsis opacity-1 whitespace-nowrap overflow-hidden hover:overflow-visible hover:bg-[#e3e1e1] hover:w-fit hover:text-black z-111 hover:absolute">{item.name}</Text>
                   </TableCell>
                   <TableCell className="flex justify-start items-center p-0">
                     {item.url ? (
