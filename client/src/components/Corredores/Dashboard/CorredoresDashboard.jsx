@@ -21,6 +21,7 @@ import { CiGlobe, CiWarning } from 'react-icons/ci';
 import { GrInstagram } from 'react-icons/gr';
 import { Link } from 'react-router-dom';
 import { getLeadUnchecked10 } from '../../../redux/actions';
+import IconLabelButtons from '../../MaterialUi/IconLabelButtons';
 
 const CorredoresDashboard = () => {
 	const [instaComplete, setInstaComplete] = useState([]);
@@ -54,98 +55,27 @@ const CorredoresDashboard = () => {
 	}, [dispatch]);
 
 	useEffect(() => {
-		setClient(
-			leadUnchecked10.length > 0
-				? [
-						{
-							_id: leadUnchecked10[0]._id,
-							name: leadUnchecked10[0].name,
-							url: leadUnchecked10[0].url,
-							instagram: '',
-							level: '0',
-							checked: true,
-						},
-						{
-							_id: leadUnchecked10[1]._id,
-							name: leadUnchecked10[1].name,
-							url: leadUnchecked10[1].url,
-							instagram: '',
-							level: '0',
-							checked: true,
-						},
-						{
-							_id: leadUnchecked10[2]._id,
-							name: leadUnchecked10[2].name,
-							url: leadUnchecked10[2].url,
-							instagram: '',
-							level: '0',
-							checked: true,
-						},
-						{
-							_id: leadUnchecked10[3]._id,
-							name: leadUnchecked10[3].name,
-							url: leadUnchecked10[3].url,
-							instagram: '',
-							level: '0',
-							checked: true,
-						},
-						{
-							_id: leadUnchecked10[4]._id,
-							name: leadUnchecked10[4].name,
-							url: leadUnchecked10[4].url,
-							instagram: '',
-							level: '0',
-							checked: true,
-						},
-						{
-							_id: leadUnchecked10[5]._id,
-							name: leadUnchecked10[5].name,
-							url: leadUnchecked10[5].url,
-							instagram: '',
-							level: '0',
-							checked: true,
-						},
-						{
-							_id: leadUnchecked10[6]._id,
-							name: leadUnchecked10[6].name,
-							url: leadUnchecked10[6].url,
-							instagram: '',
-							level: '',
-							checked: true,
-						},
-						{
-							_id: leadUnchecked10[7]._id,
-							name: leadUnchecked10[7].name,
-							url: leadUnchecked10[7].url,
-							instagram: '',
-							level: '0',
-							checked: true,
-						},
-						{
-							_id: leadUnchecked10[8]._id,
-							name: leadUnchecked10[8].name,
-							url: leadUnchecked10[8].url,
-							instagram: '',
-							level: '0',
-							checked: true,
-						},
-						{
-							_id: leadUnchecked10[9]._id,
-							name: leadUnchecked10[9].name,
-							url: leadUnchecked10[9].url,
-							instagram: '',
-							level: '0',
-							checked: true,
-						},
-				  ]
-				: []
-		);
+		let clientes = [];
+		let i = 0;
+		if (leadUnchecked10.length > 0) {
+			for (i = 0; i < 10; i++) {
+				clientes.push({
+					_id: leadUnchecked10[i]._id,
+					name: leadUnchecked10[i].name,
+					url: leadUnchecked10[i].url,
+					instagram: '',
+					level: '0',
+					checked: true,
+				});
+			}
+		}
+		setClient(clientes);
 	}, [leadUnchecked10]);
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		console.log('Enviado');
-		alert('Enviando Informacion')
+		alert('Enviando Informacion');
 		try {
 			for (let i = 0; i < leadUnchecked10.length; i++) {
 				const response = await axios.put(
@@ -161,14 +91,13 @@ const CorredoresDashboard = () => {
 				);
 				console.log(response.data);
 			}
-			alert('Solicitud enviada correctamente')
+			alert('Solicitud enviada correctamente');
 			dispatch(getLeadUnchecked10());
 		} catch (error) {
 			console.log('No se envio el put');
 		}
 	};
 
-	console.log(leadUnchecked10);
 	return (
 		<>
 			<Nav />
@@ -177,10 +106,9 @@ const CorredoresDashboard = () => {
 					<div className='flex justify-between items-center m-5'>
 						<Title className={style.title}>Dashboard</Title>
 						<button
-							className={style.buttonAdd}
 							type='submit'
 							onClick={handleSubmit}>
-							Send
+							<IconLabelButtons />
 						</button>
 					</div>
 					<Table className={style.table}>
@@ -240,12 +168,12 @@ const CorredoresDashboard = () => {
 											<GrInstagram className='text-[2rem] text-[#418df0]' />
 										</div>
 										<input
-											className='bg-[#888891] rounded-full border-2 border-gray-300 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 placeholder-gray-500'
+											className='bg-transparent rounded-full border-2 border-gray-300 py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 placeholder-white focus:placeholder-black'
 											type='text'
 											name='instagram'
 											value={client[index].Instagram}
 											onChange={(event) => handleClientClick(event, index)}
-											placeholder='Ingrese un insta'
+											placeholder='Ingrese un instagram'
 										/>
 									</TableCell>
 
