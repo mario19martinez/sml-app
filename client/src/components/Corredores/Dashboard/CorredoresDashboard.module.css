@@ -49,13 +49,13 @@
 .tableRow {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: 17% 16% 18% 18% 19%auto;
+  grid-template-columns: 17% 16% 18% 18%auto;
   margin-left: 20px;
 }
 
 .tableCards {
   display: grid;
-  grid-template-columns: 8% 11% 10% 8% 16% 1% auto;
+  grid-template-columns: 8% 11% 10% 8% 16%auto;
   align-items: center;
   justify-content: space-between;
   background-color: #39394b;
