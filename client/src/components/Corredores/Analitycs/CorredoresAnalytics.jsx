@@ -18,7 +18,7 @@ import {
   Badge,
 } from "@tremor/react";
 
-import { CiGlobe, CiWarning, CiInstagram } from "react-icons/ci";
+import { CiGlobe, CiWarning, CiInstagram, CiMail } from "react-icons/ci";
 
 const CorredoresAnlaytics = () => {
   const { leadUnchecked } = useSelector((state) => state);
@@ -51,14 +51,14 @@ const CorredoresAnlaytics = () => {
     <>
       <Nav />
       <div className=" flex flex-col justify-start items-center w-full h-screen mx-5">
-        <Card className="m-5">
+        <Card className="w-full m-5 h-screen ">
           <div className="flex justify-between items-center mt-2 mx-5 ">
             <Title className="font-bold text-[#e2e2e2] text-lg">
               Analytics
             </Title>
           </div>
           <Table className="flex">
-            <TableHead className="text-gray-400 text-sm font-thin">
+            <TableHead className="text-gray-400 text-14 font-thin">
               <TableRow className={style.tableRow}>
                 <TableHeaderCell className="text-start">
                   Invoice Id
@@ -84,7 +84,7 @@ const CorredoresAnlaytics = () => {
                     </div>
                   </TableCell>
                   <TableCell className="flex justify-start items-center p-0">
-                    <Text className="text-start">{item.name}</Text>
+                    <Text className="w-96 p-1 px-3 rounded-full text-ellipsis opacity-1 whitespace-nowrap overflow-hidden hover:overflow-visible hover:bg-[#e3e1e1] hover:w-fit hover:text-black z-111 hover:absolute">{item.name}</Text>
                   </TableCell>
                   <TableCell className="flex justify-start items-center p-0">
                     {item.url ? (
