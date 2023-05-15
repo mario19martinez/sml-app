@@ -25,11 +25,6 @@ function Landing() {
 								Lider-Dashboard
 							</Link>
 							<Link
-								to='/employees/employees'
-								className={style.linksRoutes}>
-								Lider-Employees
-							</Link>
-							<Link
 								to='/employees/analytics'
 								className={style.linksRoutes}>
 								Lider-Analytics
