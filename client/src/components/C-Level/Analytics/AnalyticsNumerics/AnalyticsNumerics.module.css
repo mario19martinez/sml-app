@@ -1,9 +1,8 @@
 .container {
 	display: flex;
-	
 	align-items: center;
 	justify-content: space-evenly;
-    width: 100%;
+  width: 100%;
 	gap: 1rem;
 }
 
@@ -12,8 +11,10 @@
 	align-items: center;
 	justify-content: center;
 	background-color: #39394b;
-	
+	width: 200px;
+	height: 70px;
 	border-radius: 1rem;
+	margin-bottom: 7px;
 }
 
 @media screen and (max-width: 1024px) {
