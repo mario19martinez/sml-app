@@ -16,7 +16,7 @@ function Analytic() {
       </div>
       <div className="flex flex-col  items-center gap-5 mb-10">
         <AnalyticsNumerics />
-        <div className="flex flex-col gap-5 h-screen">
+        <div className="flex flex-col gap-5 h-full">
           <div className="flex gap-5 space-x-72">
             <Reports />
             <Goals />
