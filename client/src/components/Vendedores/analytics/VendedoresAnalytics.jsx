@@ -259,11 +259,11 @@ const VendedoresAnalytics = () => {
                   <div className="w-1/7 text-center">
                     {item.status === true ? (
                       <div className="bg-emerald-400 w-44 h-11 flex justify-center items-center text-white rounded-3xl">
-                        Contactado
+                        Contratado
                       </div>
                     ) : (
                       <div className="bg-pink-500 w-44 h-11 flex justify-center items-center text-white rounded-3xl ">
-                        Sin contacto
+                        rechazado
                       </div>
                     )}
                   </div>

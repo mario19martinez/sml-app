@@ -212,7 +212,7 @@ export const TableEmployees = () => {
         <div className="flex justify-between items-center">
           <Title className="font-bold text-[#e2e2e2] text-lg ml-4">Employees</Title>
           <button className="bg-indigo-700 text-gray-100 rounded-md px-5 py-2 text-xs mr-3">
-            Add Customer +
+            Add Employees +
           </button>
         </div>
         <Table className="">
