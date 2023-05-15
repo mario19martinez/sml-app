@@ -9,9 +9,9 @@ import Login from "./views/Login/Login";
 import CorredoresDashboard from "./components/Corredores/Dashboard/CorredoresDashboard";
 import Corredores from "./components/Corredores/Corredores";
 import VendedoresDashboard from "./components/Vendedores/Dashboard/VendedoresDashboard";
-import VendedoresAnalytics from "./components/Vendedores/Analytics/VendedoresAnalytics";
 import { AnalyticLeader } from "./components/Lideres/Analytic/AnalyticLeader";
 import { useEffect } from "react";
+import VendedoresAnalytics from "./components/Vendedores/analytics/VendedoresAnalytics";
 
 function App() {
   const location = useLocation()

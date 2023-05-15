@@ -700,6 +700,10 @@ video {
   display: grid;
 }
 
+.h-1 {
+  height: 0.25rem;
+}
+
 .h-1\/4 {
   height: 25%;
 }
@@ -768,12 +772,12 @@ video {
   height: 1.5rem;
 }
 
-.h-8 {
-  height: 2rem;
+.h-\[410px\] {
+  height: 410px;
 }
 
-.h-\[40rem\] {
-  height: 40rem;
+.h-\[450px\] {
+  height: 450px;
 }
 
 .h-fit {
@@ -998,6 +1002,14 @@ video {
 
 .gap-5 {
   gap: 1.25rem;
+}
+
+.gap-10 {
+  gap: 2.5rem;
+}
+
+.gap-14 {
+  gap: 3.5rem;
 }
 
 .gap-x-3 {

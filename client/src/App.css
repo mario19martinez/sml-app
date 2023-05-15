@@ -2,7 +2,7 @@
   display: flex;
   color: #9b9ba4;
   background-color: #222131;
-  
+  flex-direction: row;
   background-size: contain;
   background-size: 80% ;
   background-position: center left 250px;
