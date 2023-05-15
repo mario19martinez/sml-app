@@ -1,9 +1,9 @@
-import './App.css';
-import { Routes, Route, useLocation } from 'react-router-dom';
-import Landing from './views/Landing/Landing';
-import { useDispatch, useSelector } from 'react-redux';
-import Employees from './views/Employees/Employees.jsx';
-import Analytics from './views/Analytics/Analytics.jsx';
+import "./App.css";
+import { Routes, Route, useLocation } from "react-router-dom";
+import Landing from "./views/Landing/Landing";
+import { useDispatch, useSelector } from "react-redux";
+import Employees from "./views/Employees/Employees.jsx";
+import Analytics from "./views/Analytics/Analytics.jsx";
 // import CorredoresAnalytics from "./components/Corredores/Analitycs/CorredoresAnalytics";
 import Settings from "./views/Settings/Settings.jsx";
 import Login from "./views/Login/Login";
@@ -25,12 +25,6 @@ function App() {
   console.log(lead);
   return (
     <div className="App">
-      {location.pathname === "/" && (
-        <img
-          className="Appimg"
-          src="https://cdn.discordapp.com/attachments/1105243107555037294/1106577865698459788/White_Logo_Social_Media_Lab.png"
-        />
-      )}
       <Routes>
         <Route path="/home" element={<Landing />} />
         <Route path="/" element={<Login />} />
@@ -47,6 +41,15 @@ function App() {
         />
         <Route path="/vendedores/analytics" element={<VendedoresAnalytics />} />
       </Routes>
+
+      {location.pathname === "/" && (
+        <div className="App flex items-center justify-center">
+          <img
+            className="opacity-20 w-4/5 mt-[2%]"
+            src="https://cdn.discordapp.com/attachments/1105243107555037294/1106577865698459788/White_Logo_Social_Media_Lab.png"
+          />
+        </div>
+      )}
     </div>
   );
 }

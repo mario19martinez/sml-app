@@ -13,7 +13,7 @@ function Landing() {
       {(isAuthenticated || location.state?.fromLogin) && (
         <>
           <Nav />
-          <div>
+          <div className="flex flex-col gap-5">
             <h1>SML VIEWS</h1>
             <Link to="/employees" className={style.linksRoutes}>
               Lider-Dashboard
