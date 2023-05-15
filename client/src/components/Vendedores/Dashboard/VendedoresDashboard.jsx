@@ -6,11 +6,18 @@ import PaginationOutlined from "../../pagination/PaginationOutlined";
 import { getAllLead } from "../../../redux/actions";
 import { SiGooglemaps } from "react-icons/si";
 import { AiOutlinePhone, AiTwotonePhone } from "react-icons/ai";
-import { CiEdit, CiWarning, CiInstagram, CiMail } from "react-icons/ci";
+
 import { FaRegEdit } from "react-icons/fa";
 import { BiEdit } from "react-icons/bi";
 import { AiFillEdit } from "react-icons/ai";
 import { IoGrid, IoStatsChart } from "react-icons/io5";
+import {
+  CiGlobe,
+  CiWarning,
+  CiInstagram,
+  CiMail,
+  CiEdit,
+} from "react-icons/ci";
 
 import {
   Card,
@@ -59,10 +66,15 @@ const VendedoresDashboard = () => {
 
   return (
     <>
+    {console.log(lead)}
       <Nav />
-      <div className="border-2 flex flex-col justify-between items-center w-screen">
-        {showCopiedMessage && <p className="mt-2 p-3 bg-[#b9b9b978] text-white rounded-md absolute">Copiado al portapapeles</p>}
-        <Card className="w-11/12 mt-5">
+      <div className="flex flex-col justify-between items-center w-screen m-5">
+        {showCopiedMessage && (
+          <p className="mt-2 p-3 bg-[#b9b9b978] text-white rounded-md absolute">
+            Copiado al portapapeles
+          </p>
+        )}
+        <Card className="w-full mt-5">
           <div className="flex gap-10 items-center">
             <Title className="font-bold text-[#e2e2e2] text-lg mx-5 mt-2">
               Dashboard
@@ -91,8 +103,8 @@ const VendedoresDashboard = () => {
                   Country
                 </TableHeaderCell>
                 {/* <TableHeaderCell className="text-start">
-                  Phone
-                </TableHeaderCell> */}
+            Phone
+          </TableHeaderCell> */}
                 <TableHeaderCell className="text-start">Email</TableHeaderCell>
                 <TableHeaderCell className="text-start">
                   Instagram
@@ -141,7 +153,7 @@ const VendedoresDashboard = () => {
                   </TableCell>
                   <TableCell className="flex justify-start items-center p-0 mx-3">
                     {item.instagram ? (
-                      <div onClick={() => handleCopyClick(item.email)}>
+                      <div onClick={() => handleCopyClick(item.instagram)}>
                         <div className="cursor-pointer">
                           <CiInstagram className="text-[30px] mr-5 text-[#ff598b]" />
                         </div>
