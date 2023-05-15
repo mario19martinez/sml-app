@@ -12,9 +12,7 @@ import {
 	TableHeaderCell,
 	TableBody,
 	TableCell,
-	Text,
 	Title,
-	Badge,
 } from '@tremor/react';
 
 import { CiGlobe } from 'react-icons/ci';
@@ -27,6 +25,21 @@ import IconLabelButtons from '../../MaterialUi/IconLabelButtons';
 const CorredoresDashboard = () => {
 	const [instaComplete, setInstaComplete] = useState([]);
 	const [client, setClient] = useState([]);
+
+	const handleChangeInstagram = (event, index) => {
+		const {name, value} = event.target;
+		console.log(value);
+		setClient((prevState) => {
+			const updatedClient = [...prevState];
+			updatedClient[index] = {
+				...updatedClient[index],
+				[name]: value,
+				instagram: value,
+			};
+			return updatedClient;
+		});
+	}
+
 	const handleClientClick = (event, index) => {
 		const { name, value } = event.target;
 
@@ -48,7 +61,7 @@ const CorredoresDashboard = () => {
 		});
 	};
 
-	const handleView = async (event) => {
+	const handleView = async () => {
 		console.log('Enviado el view');
 		try {
 			for (let i = 0; i < leadUnchecked10.length; i++) {
@@ -84,7 +97,7 @@ const CorredoresDashboard = () => {
 					name: leadUnchecked10[i].name,
 					url: leadUnchecked10[i].url,
 					instagram: '',
-					level: '',
+					level: leadUnchecked10[i].level,
 					checked: true,
 					view: true,
 				});
@@ -100,10 +113,11 @@ const CorredoresDashboard = () => {
 		try {
 			for (let i = 0; i < leadUnchecked10.length; i++) {
 				if (!client[i].level || !client[i].instagram) {
+					// Verificar si los campos están vacíos
 					alert(
 						`campos incompletos en name: ${client[i].name} id: ${client[i]._id}`
 					);
-					continue; 
+					continue; // Saltar a la siguiente iteración del bucle
 				}
 				const response = await axios.put(
 					`http://localhost:3001/lead/${client[i]._id}`,
@@ -215,8 +229,8 @@ const CorredoresDashboard = () => {
 											}`}
 											type='text'
 											name='instagram'
-											value={client[index].Instagram}
-											onChange={(event) => handleClientClick(event, index)}
+											value={client[index].instagram}
+											onChange={(event) => handleChangeInstagram(event, index)}
 											placeholder='Ingrese un instagram'
 										/>
 									</TableCell>
