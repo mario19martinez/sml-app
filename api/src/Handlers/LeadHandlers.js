@@ -5,6 +5,7 @@ const getLeadByName = require('../controllers/Lead/getLeadByName');
 const postLead = require('../controllers/Lead/postLead');
 const updateLeadById = require('../controllers/Lead/updateLeadById');
 const getLeadUnchecked = require('../controllers/Lead/getLeadUnchecked');
+const getLead10Unchecked = require('../controllers/Lead/getLead10Unchecked');
 
 const getAllLeadHandler = async (req, res) => {
 	try {
@@ -16,12 +17,21 @@ const getAllLeadHandler = async (req, res) => {
 };
 const getLeadUncheckedHandler = async (req, res) => {
 	try {
-		const leadUnchequed = await getLeadUnchecked();
-		res.status(200).json(leadUnchequed);
+		const leadUnchecked = await getLeadUnchecked();
+		res.status(200).json(leadUnchecked);
 	} catch (error) {
 		res.status(404).json({ error: error.message });
 	}
 };
+const getLead10UncheckedHandler = async (req, res) => {
+	try {
+		const leadUnchecked = await getLead10Unchecked();
+		res.status(200).json(leadUnchecked.slice(0, 10));
+	} catch (error) {
+		res.status(404).json({ error: error.message });
+	}
+};
+
 const getLeadCheckedHandler = async (req, res) => {
 	try {
 		const leadChequed = await getLeadChecked();
@@ -43,10 +53,9 @@ const postLeadHandler = async (req, res) => {
 };
 
 const updateLeadHandler = async (req, res) => {
-	const id = req.params.id;
-	const updatedData = req.body;
-
 	try {
+		const id = req.params.id;
+		const updatedData = req.body;
 		const lead = await updateLeadById(id, updatedData);
 		res.status(200).json(lead);
 	} catch (error) {
@@ -82,6 +91,7 @@ module.exports = {
 	getLeadCheckedHandler,
 	postLeadHandler,
 	updateLeadHandler,
+	getLead10UncheckedHandler,
 	getLeadByIdHandler,
 	getLeadByNameHandler,
 };

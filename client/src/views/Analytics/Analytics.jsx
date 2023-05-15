@@ -5,16 +5,15 @@ import Reports from "../../components/C-Level/Analytics/Reports/Reports";
 import Goals from "../../components/C-Level/Analytics/Goals/Goals";
 import BestSellers from "../../components/C-Level/Analytics/BestSellers/BestSellers";
 import { Sales } from "../../components/C-Level/Analytics/Sales/Sales";
-import AnalyticsSealer from "../../components/Vendedores/analytics/VendedoresAnalytics";
+import AnalyticsSealer from "../../components/Vendedores/Analytics/VendedoresAnalytics";
 import Analytic from "../../components/C-Level/Analytics/Analytic";
 
 function Analytics() {
   return (
-    
     <>
-    <Nav/>
-       <Analytic /> 
-     {/* <AnalyticLeader />*/}
+      <Nav />
+      <Analytic />
+      {/* <AnalyticLeader />*/}
     </>
   );
 }

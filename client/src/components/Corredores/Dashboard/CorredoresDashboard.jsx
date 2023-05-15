@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
 import style from './CorredoresDashboard.module.css';
 import Nav from '../../Nav/Nav';
 
@@ -10,75 +12,122 @@ import {
 	TableHeaderCell,
 	TableBody,
 	TableCell,
+	Text,
 	Title,
+	Badge,
 } from '@tremor/react';
 
-import { CiGlobe } from 'react-icons/ci';
+import { CiGlobe, CiWarning } from 'react-icons/ci';
 import { GrInstagram } from 'react-icons/gr';
+import { IoGrid, IoStatsChart } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { getAllLead } from '../../../redux/actions';
+import { getLeadUnchecked10 } from '../../../redux/actions';
+import IconLabelButtons from '../../MaterialUi/IconLabelButtons';
 
 const CorredoresDashboard = () => {
-	const [instagram, setInstagram] = useState('');
-	const { lead} = useSelector((state) => state);
+	const [instaComplete, setInstaComplete] = useState([]);
+	const [client, setClient] = useState([]);
+	const handleClientClick = (event, index) => {
+		const { name, value } = event.target;
+
+		setClient((prevState) => {
+			const updatedClient = [...prevState];
+			updatedClient[index] = {
+				...updatedClient[index],
+				[name]: value,
+				level: value,
+			};
+			if (name === 'instagram') {
+				setInstaComplete((prevInstaComplete) => {
+					const updatedInstaComplete = [...prevInstaComplete];
+					updatedInstaComplete[index] = value.trim() !== '';
+					return updatedInstaComplete;
+				});
+			}
+			return updatedClient;
+		});
+	};
+
+	const { leadUnchecked10 } = useSelector((state) => state);
 	const dispatch = useDispatch();
-  
+
 	useEffect(() => {
-	  dispatch(getAllLead());
+		dispatch(getLeadUnchecked10());
 	}, [dispatch]);
 
-	// const handleleadClick = (event, index) => {
-	// 	const { name, value } = event.target;
+	useEffect(() => {
+		let clientes = [];
+		let i = 0;
+		if (leadUnchecked10.length > 0) {
+			for (i = 0; i < 10; i++) {
+				clientes.push({
+					_id: leadUnchecked10[i]._id,
+					name: leadUnchecked10[i].name,
+					url: leadUnchecked10[i].url,
+					instagram: '',
+					level: '0',
+					checked: true,
+				});
+			}
+		}
+		setClient(clientes);
+	}, [leadUnchecked10]);
 
-	// 	setlead((prevState) => {
-	// 		const updatedlead = [...prevState];
-	// 		updatedlead[index] = {
-	// 			...updatedlead[index],
-	// 			[name]: value,
-	// 			Nivel: value,
-	// 		};
-	// 		if (name === 'Instagram') {
-	// 			setInstaComplete((prevInstaComplete) => {
-	// 				const updatedInstaComplete = [...prevInstaComplete];
-	// 				updatedInstaComplete[index] = value.trim() !== '';
-	// 				return updatedInstaComplete;
-	// 			});
-	// 		}
-	// 		return updatedlead;
-	// 	});
-	// };
-
-	const handleSubmit = (event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
-		const formData = new FormData(event.target);
-		const jsonData = Object.fromEntries(formData.entries());
-		console.log(jsonData); // send this JSON object to your backend
-	};
-
-	/* handleweb */
-	const handleLinkWeb = (Url) => {
-		const webUrl = Url;
-		window.open(webUrl, '_blank');
-	};
-
-	const handleChange = (value) => {
-		setInstagram(value);
+		console.log('Enviado');
+		alert('Enviando Informacion');
+		try {
+			for (let i = 0; i < leadUnchecked10.length; i++) {
+				const response = await axios.put(
+					`http://localhost:3001/lead/${client[i]._id}`,
+					{
+						_id: client[i]._id,
+						name: client[i].name,
+						url: client[i].url,
+						instagram: client[i].instagram,
+						level: client[i].level,
+						checked: client[i].checked,
+					}
+				);
+				console.log(response.data);
+			}
+			alert('Solicitud enviada correctamente');
+			dispatch(getLeadUnchecked10());
+		} catch (error) {
+			console.log('No se envio el put');
+		}
 	};
 
 	return (
 		<>
 			<Nav />
 			<Card className='w-full h-screen m-5'>
-				<div className='flex justify-between items-center m-5'>
-					<Title className={style.title}>Dashboard</Title>
-					<button
-						className={style.buttonAdd}
-						onClick={handleSubmit}>
-						Send
-					</button>
-				</div>
 				<form onSubmit={handleSubmit}>
+					<div className='flex justify-between items-center'>
+						<div className='flex gap-10  mt-2 mx-5 '>
+							<Title className='font-bold text-[#e2e2e2] text-lg'>
+								Dashboard
+							</Title>
+							<div className='flex gap-5'>
+								<Link to={'/corredores'}>
+									<IoGrid className='text-[2rem] text-[#418df0] hover:text-[#3570bd]' />
+								</Link>
+								<Link
+									className='text-5xl'
+									to={'/corredores/analytics'}>
+									<IoStatsChart className='text-[2rem] text-[#418df0] hover:text-[#3570bd]' />
+								</Link>
+							</div>
+						</div>
+						<div className='flex gap-12'>
+							<button
+								type='submit'
+								onClick={handleSubmit}>
+								<IconLabelButtons />
+							</button>
+						</div>
+					</div>
 					<Table className={style.table}>
 						<TableHead className={style.tableHead}>
 							<TableRow className={style.tableRow}>
@@ -90,97 +139,111 @@ const CorredoresDashboard = () => {
 								<TableHeaderCell className='text-start'>
 									Instagram
 								</TableHeaderCell>
-								<TableHeaderCell className='text-start'>
-									Incidencias
-								</TableHeaderCell>
-								<TableHeaderCell className='text-start'>Estado</TableHeaderCell>
+								<TableHeaderCell className='text-start'>Nivel</TableHeaderCell>
 							</TableRow>
 						</TableHead>
-						<TableBody>
-							{lead.map((item, index) => (
+
+						<TableBody className='h-3/4'>
+							{client.map((item, index) => (
 								<TableRow
 									key={item._id}
-									className={style.tableRow}>
-									<TableCell className='text-start'>
+									className={style.tableCards}>
+									<TableCell className='flex justify-start items-center p-0'>
 										<div className='w-24 p-1 px-3 rounded-full text-ellipsis opacity-1 overflow-hidden hover:overflow-visible hover:bg-[#ffffff] hover:w-fit hover:text-black z-111 hover:absolute'>
-											{item._id}
+											<div
+												type='text'
+												id='id'
+												value={client[index]._id}>
+												<p>{client[index]._id}</p>
+											</div>
 										</div>
 									</TableCell>
-									<TableCell className='text-start'>{item.name}</TableCell>
-									<TableCell className='flex items-center'>
+									<TableCell className='flex justify-start items-center p-0'>
+										<div
+											type='text'
+											id='name'
+											value={client[index].name}>
+											<p className='w-96 p-1 px-3 rounded-full text-ellipsis opacity-1 whitespace-nowrap overflow-hidden hover:overflow-visible hover:bg-[#e3e1e1] hover:w-fit hover:text-black z-111 hover:absolute'>
+												{client[index].name}
+											</p>
+										</div>
+									</TableCell>
+
+									<TableCell className='flex justify-start items-center p-0'>
+										{/* Botón de web */}
 										<Link
-											to={item.web}
+											to={client[index].url}
 											target='_blank'>
-											<div>
-												<CiGlobe className='text-[2rem] text-[#38369E]' />
-											</div>
+											<p value={client[index].url}>
+												<CiGlobe className='text-[2rem] text-[#418df0]' />
+											</p>
 										</Link>
 									</TableCell>
-									<TableCell className='flex justify-start items-center gap-2'>
+
+									<TableCell className='flex justify-start items-center gap-3 p-0 mx-3'>
 										<div>
-											<GrInstagram className='text-[2rem] text-[#38369E]' />
+											<GrInstagram className='text-[2rem] text-[#418df0]' />
 										</div>
 										<input
-											className='bg-[#888891] rounded-full border-2 border-gray-300 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 placeholder-gray-500'
-											value={instagram}
-                      id={item._id}
-											name='instagram'
+											className='bg-transparent rounded-full border-2 border-gray-300 py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 placeholder-white focus:placeholder-black'
 											type='text'
-											onChange={(event) => handleChange(event.target.value)}
-											placeholder='Ingrese el instagram'
+											name='instagram'
+											value={client[index].Instagram}
+											onChange={(event) => handleClientClick(event, index)}
+											placeholder='Ingrese un instagram'
 										/>
 									</TableCell>
+
 									<TableCell className='flex justify-start items-center p-0'>
 										<button
 											className={
-												item.Nivel === '0'
+												item.level === '0'
 													? style.buttonNivelActive
 													: style.buttonNivel
 											}
 											type='button'
-											name={item.level}
+											name={item._id}
 											value='0'
-											onClick={(event) => handleleadClick(event, index)}>
+											onClick={(event) => handleClientClick(event, index)}>
 											0
 										</button>
 										<button
 											className={
-												item.Nivel === '1'
+												item.level === '1'
 													? style.buttonNivelActive
 													: style.buttonNivel
 											}
 											type='button'
-											name={item.level}
+											name={item._id}
 											value='1'
-											onClick={(event) => handleleadClick(event, index)}>
+											onClick={(event) => handleClientClick(event, index)}>
 											1
 										</button>
 										<button
 											className={
-												item.Nivel === '2'
+												item.level === '2'
 													? style.buttonNivelActive
 													: style.buttonNivel
 											}
 											type='button'
-											name={item.level}
+											name={item._id}
 											value='2'
-											onClick={(event) => handleleadClick(event, index)}>
+											onClick={(event) => handleClientClick(event, index)}>
 											2
 										</button>
 										<button
 											className={
-												item.Nivel === 'Incidencia'
+												item.level === 'incidencia'
 													? style.buttonNivelActive
 													: style.buttonNivel
 											}
 											type='button'
-											name={item.level}
+											name={item._id}
 											value='incidencia'
-											onClick={(event) => handleleadClick(event, index)}>
-											incidencia
+											onClick={(event) => handleClientClick(event, index)}>
+											3
 										</button>
 									</TableCell>
-									<TableCell className='text-start'></TableCell>
 								</TableRow>
 							))}
 						</TableBody>

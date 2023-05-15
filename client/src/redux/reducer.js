@@ -1,9 +1,10 @@
-import { GET_ALL_LEAD, GET_LEAD_UNCHECKED, GET_LEAD_CHEQUED } from "./actions";
+import { GET_ALL_LEAD, GET_LEAD_UNCHECKED, GET_LEAD_CHEQUED,GET_LEAD_UNCHECKED_10 } from "./actions";
 
 const initialState = {
   lead: [],
   leadChequed: [],
   leadUnchecked: [],
+  leadUnchecked10: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -17,6 +18,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         leadUnchecked: action.payload,
+      };
+    case GET_LEAD_UNCHECKED_10:
+      return {
+        ...state,
+        leadUnchecked10: action.payload,
       };
     case GET_LEAD_CHEQUED:
       return {

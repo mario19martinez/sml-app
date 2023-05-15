@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
 import style from "./Pagination.module.css";
 
-const Pagination = ({ pageStyle, setPageStyle, cardXPage, data, pages }) => {
+const Pagination = ({ pageStyle, setPageStyle, cardXPage, client, pages }) => {
   const [currentPage, setCurrentPage] = useState(pageStyle);
   const pageNumbers = [];
   useEffect(() => {
     setCurrentPage(currentPage);
   }, [currentPage]);
 
-  console.log(data.length)
-  for (let i = 1; i <= Math.ceil(data.length / cardXPage); i++) {
+  for (let i = 1; i <= Math.ceil(client.length / cardXPage); i++) {
     pageNumbers.push(i);
   }
 
-  console.log(data)
   const nextPageHandler = (arrow, num) => {
     if (arrow === "up" && pageStyle < pageNumbers.length) {
       setPageStyle(pageStyle + 1);
@@ -48,7 +46,7 @@ const Pagination = ({ pageStyle, setPageStyle, cardXPage, data, pages }) => {
               <a
                 onClick={() => {
                   pages(num);
-                  setCurrentPage(num)
+                  // setCurrentPage(num)
                   setPageStyle(num);
                 }}
               >

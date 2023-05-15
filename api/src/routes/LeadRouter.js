@@ -2,17 +2,19 @@ const { Router } = require('express');
 const {
 	postLeadHandler,
 	getAllLeadHandler,
-	getLeadUncheckedHandler,
-	getLeadCheckedHandler,
 	updateLeadHandler,
 	getLeadByIdHandler,
 	getLeadByNameHandler,
+	getLeadCheckedHandler,
+	getLeadUncheckedHandler,
+	getLead10UncheckedHandler,
 } = require('../Handlers/LeadHandlers');
 const LeadRouter = Router();
 
 LeadRouter.get('/', getAllLeadHandler);
 LeadRouter.get('/checked', getLeadCheckedHandler);
 LeadRouter.get('/unchecked', getLeadUncheckedHandler);
+LeadRouter.get('/unchecked10', getLead10UncheckedHandler);
 LeadRouter.post('/', postLeadHandler);
 LeadRouter.get('/name', getLeadByNameHandler);
 LeadRouter.get('/:id', getLeadByIdHandler);
