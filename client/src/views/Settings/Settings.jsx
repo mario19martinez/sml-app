@@ -1,71 +1,73 @@
-import Nav from "../../components/Nav/Nav";
-import Detail from "../../components/Lideres/Employees_components/Detail/Detail";
-import { useAuth0 } from "@auth0/auth0-react";
-import { useEffect } from "react";
-import { useState } from "react";
+import Nav from '../../components/Nav/Nav';
+import { useAuth0 } from '@auth0/auth0-react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import Detail from '../../components/Lideres/Employees/Detail/Detail';
 
 const user = [
-  {
-    username: "andres biasutto",
-    email: "aquiandresbiasutto@gmail.com"
-  },
-]
+	{
+		username: 'andres biasutto',
+		email: 'aquiandresbiasutto@gmail.com',
+	},
+];
 
 export default function Settings() {
-  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
-  const [userMetadata, setUserMetadata] = useState(null);
+	const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
+	const [userMetadata, setUserMetadata] = useState(null);
 
-  useEffect(() => {
-    const getUserMetadata = async () => {
-      const domain = "localhost:5173";
+	useEffect(() => {
+		const getUserMetadata = async () => {
+			const domain = 'localhost:5173';
 
-      try {
-        const accessToken = await getAccessTokenSilently({
-          authorizationParams: {
-            audience: `https://${domain}/api/v2/`,
-            scope: "read:current_user",
-          },
-        }
-        );
-        console.log(accessToken)
-        const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
+			try {
+				const accessToken = await getAccessTokenSilently({
+					authorizationParams: {
+						audience: `https://${domain}/api/v2/`,
+						scope: 'read:current_user',
+					},
+				});
+				console.log(accessToken);
+				const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
 
-        const metadataResponse = await fetch(userDetailsByIdUrl, {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
+				const metadataResponse = await fetch(userDetailsByIdUrl, {
+					headers: {
+						Authorization: `Bearer ${accessToken}`,
+					},
+				});
 
-        const { user_metadata } = await metadataResponse.json();
+				const { user_metadata } = await metadataResponse.json();
 
-        setUserMetadata(user_metadata);
-      } catch (e) {
-        console.log(e.message);
-      }
-    };
+				setUserMetadata(user_metadata);
+			} catch (e) {
+				console.log(e.message);
+			}
+		};
 
-    getUserMetadata();
-  }, [getAccessTokenSilently, user?.sub]);
-  { console.log(isAuthenticated) }
-  { console.log(useAuth0()) }
+		getUserMetadata();
+	}, [getAccessTokenSilently, user?.sub]);
+	{
+		console.log(isAuthenticated);
+	}
+	{
+		console.log(useAuth0());
+	}
 
-  const url = "https://example.com/roles"
-  return (
+	const url = 'https://example.com/roles';
+	return (
+		<>
+			<Nav />
+			{isAuthenticated && (
+				<div>
+					<p>{user[url][0]} </p>
 
-    <>
-      <Nav />
-      {isAuthenticated && (
-        <div>
-          <p>{user[url][0]} </p>
-
-          <Detail
-            name={user.name}
-            picture={user.picture}
-            email={user.email}
-          />
-        </div>
-      )}
-      {/* <div className="h-screen w-3/5 gap-3 flex flex-col justify-start items-center p-8">
+					<Detail
+						name={user.name}
+						picture={user.picture}
+						email={user.email}
+					/>
+				</div>
+			)}
+			{/* <div className="h-screen w-3/5 gap-3 flex flex-col justify-start items-center p-8">
         <button>Cambio de Colores</button>
         <div>
           <label>Languaje:</label>
@@ -111,7 +113,6 @@ export default function Settings() {
           </button>
         </div>
       </div> */}
-
-    </>
-  );
+		</>
+	);
 }
