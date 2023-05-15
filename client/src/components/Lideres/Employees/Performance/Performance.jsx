@@ -73,7 +73,7 @@ export default function Performance() {
     <div className=" flex flex-col h-2/4 w-full items-center gap-y-2">
       <div className=" w-10/12 h-3/6 border-gray-400 border-2">
         <div className="flex h-1/12 items-center justify-between pr-4 pl-2 pt-2">
-          <p className=" font-normal text-18 pt-0 text-white">Performance</p>
+          <p className=" font-normal text-18 pt-0 text-gray-200">Performance</p>
           <button>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +118,7 @@ export default function Performance() {
               style={{ animation: "fill-progress 1s ease-out forwards" }}
             ></circle>
           </svg>
-          <span className="absolute top-0 bottom-0 left-0 right-0 items-center justify-center flex font-normal text-18 pt-0 text-white">
+          <span className="absolute top-0 bottom-0 left-0 right-0 items-center justify-center flex font-normal text-18 pt-0 text-gray-200">
             70%
           </span>
         </div>
@@ -146,7 +146,7 @@ export default function Performance() {
               style={{ animation: "fill-progress 1s ease-out forwards" }}
             ></circle>
           </svg>
-          <span className="absolute top-0 bottom-0 left-0 right-0 items-center justify-center flex font-normal text-18 pt-0 text-white">
+          <span className="absolute top-0 bottom-0 left-0 right-0 items-center justify-center flex font-normal text-18 pt-0 text-gray-200">
             60%
           </span>
         </div>
