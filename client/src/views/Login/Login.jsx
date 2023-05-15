@@ -3,12 +3,12 @@ import style from './Login.module.css';
 import { validate } from '../../components/Login/Form/validation';
 import { Link } from 'react-router-dom';
 
-const userdb = [
-	{
-	  username: "andres biasutto",
-	  email: "aquiandresbiasutto@gmail"
-	},
-  ]
+// const userdb = [
+// 	{
+// 	  username: "andres biasutto",
+// 	  email: "aquiandresbiasutto@gmail"
+// 	},
+//   ]
 
 
 
@@ -41,7 +41,7 @@ function Login() {
 	return (
 		<div className={style.container}>
 			{!isAuthenticated}
-			{(isAuthenticated && userdb[0].email === user.email)? <Link to='/home'>Home</Link>: console.log("usuario no registrado")}
+			{isAuthenticated ? <Link to='/home'>Home</Link>: console.log("usuario no registrado")}
 			{!isAuthenticated && (
 				<button
 					onClick={() => loginWithRedirect()}
