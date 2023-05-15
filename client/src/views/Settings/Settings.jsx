@@ -59,15 +59,7 @@ export default function Settings() {
 			{isAuthenticated && (
 				<div>
 					<p>{user[url][0]} </p>
-
-					<Detail
-						name={user.name}
-						picture={user.picture}
-						email={user.email}
-					/>
-				</div>
-			)}
-			{/* <div className="h-screen w-3/5 gap-3 flex flex-col justify-start items-center p-8">
+          <div className="h-screen w-3/5 gap-3 flex flex-col justify-start items-center p-8">
         <button>Cambio de Colores</button>
         <div>
           <label>Languaje:</label>
@@ -112,7 +104,11 @@ export default function Settings() {
             Save Changes
           </button>
         </div>
-      </div> */}
-		</>
-	);
-}
+      </div>
+					<Detail
+						name={user.name}
+						picture={user.picture}
+						email={user.email}
+					/>
+				</div>
+			)} </>)}
