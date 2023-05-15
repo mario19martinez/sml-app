@@ -49,6 +49,11 @@ const LeadSchema = new mongoose.Schema(
       require: true,
       default: false,
     },
+    view: {
+      type: Boolean,
+      require: true,
+      default: false,
+    },
     deleted: {
       type: Boolean,
       require: true,
