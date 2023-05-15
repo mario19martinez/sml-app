@@ -120,7 +120,7 @@ const CorredoresDashboard = () => {
 								</Link>
 							</div>
 						</div>
-						<div className='flex gap-12'>
+						<div className='flex gap-12 mr-3'>
 							<button
 								type='submit'
 								onClick={handleSubmit}>
