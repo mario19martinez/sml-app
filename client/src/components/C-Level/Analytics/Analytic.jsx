@@ -14,7 +14,7 @@ function Analytic() {
           <option className="py-1">2023</option>
         </select>
       </div>
-      <div className="flex flex-col  items-center gap-5  ml-10 mb-10">
+      <div className="flex flex-col  items-center gap-5 mb-10">
         <AnalyticsNumerics />
         <div className="flex flex-col gap-5 h-screen">
           <div className="flex gap-5 space-x-72">
