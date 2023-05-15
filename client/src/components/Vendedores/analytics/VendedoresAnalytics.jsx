@@ -1,6 +1,7 @@
 import Nav from '../../Nav/Nav'
 import { useState, useEffect } from 'react';
-const AnalyticsSealer = () => {
+
+const VendedoresAnalytics = () => {
   const data = [
     {
       id: '876364',
@@ -289,4 +290,4 @@ const AnalyticsSealer = () => {
   )
 }
 
-export default AnalyticsSealer
+export default VendedoresAnalytics

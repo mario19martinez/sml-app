@@ -1,27 +1,37 @@
-import axios from 'axios';
-export const SET_LEAD = 'SET_LEAD';
-export const FETCH_LEAD_SUCCESS = 'FETCH_LEAD_SUCCESS';
+import axios from "axios";
+export const GET_ALL_LEAD = "GET_ALL_LEAD";
+export const GET_LEAD_UNCHECKED_10 = "GET_LEAD_UNCHECKED_10";
+export const GET_LEAD_UNCHECKED = "GET_LEAD_UNCHECKED";
+export const GET_LEAD_CHEQUED = "GET_LEAD_CHEQUED";
 
-export const setLead = (lead) => ({
-	type: SET_LEAD,
-	payload: lead,
-});
-
-export const fetchLead = () => {
-	return (dispatch) => {
-		return axios
-			.get('http://localhost:3001/lead')
-			.then((response) => {
-				const lead = response.data;
-				dispatch(setLead(lead));
-			})
-			.catch((error) => console.log(error));
-	};
+export const getAllLead = () => {
+  return async (dispatch) => {
+    const response = await axios.get("http://localhost:3001/lead");
+    const LeadData = response.data;
+    dispatch({ type: GET_ALL_LEAD, payload: LeadData });
+  };
 };
 
-export const fetchLeadSuccess = (leadData) => {
-	return {
-		type: FETCH_LEAD_SUCCESS,
-		payload: leadData,
-	};
+export const getLeadUnchecked = () => {
+  return async (dispatch) => {
+    const response = await axios.get("http://localhost:3001/lead/unchecked");
+    const LeadUnchecked = response.data;
+    dispatch({ type: GET_LEAD_UNCHECKED, payload: LeadUnchecked });
+  };
+};
+
+export const getLeadUnchecked10 = () => {
+  return async (dispatch) => {
+    const response = await axios.get("http://localhost:3001/lead/unchecked10");
+    const LeadUnchecked10 = response.data;
+    dispatch({ type: GET_LEAD_UNCHECKED_10, payload: LeadUnchecked10 });
+  };
+};
+
+export const getLeadChecked = () => {
+  return async (dispatch) => {
+    const response = await axios.get("http://localhost:3001/lead/checked");
+    const LeadChecked = response.data;
+    dispatch({ type: GET_LEAD_CHEQUED, payload: LeadChecked });
+  };
 };

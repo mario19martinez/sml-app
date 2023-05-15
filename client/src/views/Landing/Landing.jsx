@@ -13,7 +13,7 @@ function Landing() {
       {(isAuthenticated || location.state?.fromLogin) && (
         <>
           <Nav />
-          <div>
+          <div className="flex flex-col gap-5">
             <h1>SML VIEWS</h1>
             <Link to="/employees" className={style.linksRoutes}>
               Lider-Dashboard
@@ -30,20 +30,14 @@ function Landing() {
             <Link to="/corredores/analytics" className={style.linksRoutes}>
               Corredores-Analytics
             </Link>
-            <Link to="/corredores" className={style.linksRoutes}>
-              Corredores-Dashbord
-            </Link>
-            <Link to="/corredores/analytics" className={style.linksRoutes}>
-              Corredores-Analytics
-            </Link>
-            <Link to="/analytics" className={style.linksRoutes}>
-              Analytics
-            </Link>
             <Link to="/vendedores" className={style.linksRoutes}>
               VendedoresDashboard
             </Link>
-            <Link to="/analyticsSelers" className={style.linksRoutes}>
-              Analytics Selers
+            <Link to="/vendedores/analytics" className={style.linksRoutes}>
+              VendedoresAnalytics
+            </Link>
+            <Link to="/analytics" className={style.linksRoutes}>
+              Analytics
             </Link>
           </div>
         </>

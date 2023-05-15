@@ -1,6 +1,6 @@
 import style from "./TableEmployees.module.css";
 import { StatusOnlineIcon } from "@heroicons/react/outline";
-import Pagination from "../../pagination/Pagination";
+import PaginationOutlined from "../../pagination/PaginationOutlined";
 import {
   Card,
   Table,
@@ -292,7 +292,7 @@ export const AnalyticLeader = () => {
                         Contactado
                       </Text>
                     ) : (
-                      <Text className="bg-[#b44f82] text-[#e0dfdf] w-full  px-2 py-1.5 rounded-xl text-center w-48">
+                      <Text className="bg-[#b44f82] text-[#e0dfdf] w-full px-2 py-1.5 rounded-xl text-center">
                         No Contactado
                       </Text>
                     )}
@@ -302,11 +302,11 @@ export const AnalyticLeader = () => {
             </TableBody>
           </Table>
         </Card>
-        <Pagination
+        <PaginationOutlined
           pageStyle={pageStyle}
           setPageStyle={setPageStyle}
           cardXPage={cardXPage}
-          client={data}
+          data={data}
           pages={pages}
         />
       </div>
