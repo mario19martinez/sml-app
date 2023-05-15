@@ -1,7 +1,11 @@
-.title {
-  font-weight: 600;
-  color: rgb(202, 202, 202);
-  font-size: 20px;
+.containerCard {
+  border: 1px solid green;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 95vh;
 }
 .buttonAdd {
   background-color: #4c40cc;
