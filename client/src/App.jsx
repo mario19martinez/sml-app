@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Landing from "./views/Landing/Landing";
 import { useDispatch, useSelector } from "react-redux";
 import Employees from "./views/Employees/Employees.jsx";
@@ -15,7 +15,6 @@ import { AnalyticLeader } from "./components/Lideres/Analytic/AnalyticLeader";
 import { useEffect } from "react";
 
 function App() {
-  const location = useLocation();
 
   const dispatch = useDispatch();
   const lead = useSelector((state) => state.lead);
@@ -32,7 +31,7 @@ function App() {
         <Route path="/employees/employees" element={<Employees />} />
         <Route path="/employees/analytics" element={<AnalyticLeader />} />
         <Route path="/corredores" element={<CorredoresDashboard />} />
-        <Route path="/corredores/analytics" element={<Corredores />} />
+        <Route path="/corredores/analytics" element={<Corredores />}/>
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/settings" element={<Settings />} />
         <Route

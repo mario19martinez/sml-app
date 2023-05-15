@@ -9,13 +9,13 @@ function Detail(props) {
       <div className=" h-1/4 justify-center items-center text-center flex flex-col w-full gap-2 relative">
         <div className=" bg-emerald-700  w-20 h-20 rounded-full flex ">
           <img
-            src="https://i.pravatar.cc/150"
+            src={props.picture}
             alt="avatar"
             className="rounded-full "
           />
         </div>
-        <p className=" font-bold text-24 pt-1 text-white">Nico Fadel</p>
-        <p className=" font-light text-16 text-gray-300">
+        <p className=" font-bold text-24 pt-1 text-white">{props.name} </p>
+        <p className=" font-light text-14 text-gray-400">
           Developer / FullStack
         </p>
       </div>
@@ -36,8 +36,8 @@ function Detail(props) {
             <rect x="3" y="5" width="18" height="14" rx="2" />
             <polyline points="3 7 12 13 21 7" />
           </svg>
-          <p className=" font-normal text-14  text-gray-200 pt-0">
-            Correo@correo.com
+          <p className=" font-normal text-14  text-white pt-0">
+            {props.email}
           </p>
         </div>
         <hr className=" border-gray-400 w-11/12" />
