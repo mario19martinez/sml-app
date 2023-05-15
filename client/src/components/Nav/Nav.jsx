@@ -4,53 +4,60 @@ import Logout from "../../views/Logout/Logout";
 import Profile from "../../views/Login/Profile";
 import style from "./Nav.module.css";
 
-import { IoStatsChart, IoSettingsSharp, IoGrid } from "react-icons/io5";
+import { IoStatsChart, IoSettingsSharp, IoGrid, IoBagSharp } from "react-icons/io5";
 
 function Nav(props) {
   return (
-    <div className="bg-[#39394b] flex h-screen">
-      <div className="flex flex-col justify-between items-center mt-2">
-        <div className="flex flex-col items-center justify-center gap-2 mt-5">
-          <div className="flex flex-col items-center justify-center">
-            <Link to="/home">
-              <span>ICONO</span>
-            </Link>
-            <h1 className=" text-2xl">SML</h1>
-          </div>
-          <div />
-          <div className="flex w-full ml-10">
-            <ul className="flex flex-col gap-2">
-              <li className="flex gap-2 items-center">
-                <span className=" text-lg">
-                  <IoStatsChart />
-                </span>
-                <span>
-                  <Link to="/analytics" className=" hover:text-gray-200">
-                    Analytics
-                  </Link>
-                </span>
-              </li>
-              <li className="flex gap-2 items-center">
-                <span className=" text-lg">
-                  <IoSettingsSharp />
-                </span>
-                <span>
-                  <Link to="/settings" className=" hover:text-gray-200">
-                    Settings
-                  </Link>
-                </span>
-              </li>
-            </ul>
-          </div>
+    <div className="bg-[#39394B] flex flex-col justify-between items-center h-screen min-w-[180px]">
+      <div className="flex flex-col items-center justify-center mt-16">
+        <div className="flex flex-col items-center justify-center">
+        <img
+            className="opacity-80 w-32"
+            src="https://cdn.discordapp.com/attachments/1105243107555037294/1106577865698459788/White_Logo_Social_Media_Lab.png"
+          />
         </div>
+        <div />
+        <div className="flex w-full mt-12 ml-5">
+          <ul className="flex flex-col gap-2">
+            <li className="flex gap-2 items-center">
+              <span className=" text-lg">
+                <IoStatsChart />
+              </span>
+              <span>
+                <Link to="/analytics" className=" hover:text-gray-200">
+                  Analytics
+                </Link>
+              </span>
+            </li>
+            <li className="flex gap-2 items-center">
+              <span className=" text-lg">
+                <IoSettingsSharp />
+              </span>
+              <span>
+                <Link to="/settings" className=" hover:text-gray-200">
+                  Settings
+                </Link>
+              </span>
+            </li>
+            <li className='flex gap-2 items-center'>
+								<span className='text-[1.5rem]'>
+									<IoBagSharp className="w-4"/>
+								</span>
+								<span>
+									<Link
+										to='/employees'
+										className=' hover:text-gray-200'>
+										Employees
+									</Link>
+								</span>
+							</li>
+          </ul>
+        </div>
+      </div>
 
-        <div className={style.log}>
-          <Profile />
-          <div />
-          <div className={style.logout}>
-            <Logout />
-          </div>
-        </div>
+      <div className="flex flex-col justify-center w-full items-center mb-5">
+        <Profile />
+        <Logout/>
       </div>
     </div>
   );
