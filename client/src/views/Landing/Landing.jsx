@@ -30,20 +30,14 @@ function Landing() {
             <Link to="/corredores/analytics" className={style.linksRoutes}>
               Corredores-Analytics
             </Link>
-            <Link to="/corredores" className={style.linksRoutes}>
-              Corredores-Dashbord
-            </Link>
-            <Link to="/corredores/analytics" className={style.linksRoutes}>
-              Corredores-Analytics
-            </Link>
-            <Link to="/analytics" className={style.linksRoutes}>
-              Analytics
-            </Link>
             <Link to="/vendedores" className={style.linksRoutes}>
               VendedoresDashboard
             </Link>
             <Link to="/vendedores/analytics" className={style.linksRoutes}>
               VendedoresAnalytics
+            </Link>
+            <Link to="/analytics" className={style.linksRoutes}>
+              Analytics
             </Link>
           </div>
         </>
