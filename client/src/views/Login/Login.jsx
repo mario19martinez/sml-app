@@ -13,8 +13,7 @@ import { Link } from 'react-router-dom';
 
 
 function Login() {
-	const {user}= useAuth0();
-	const { loginWithRedirect, isAuthenticated } = useAuth0();
+	const { loginWithRedirect, isAuthenticated, user } = useAuth0();
 
 	const handleFormLogin = async (userData) => {
 		const errors = validate(userData);
@@ -40,8 +39,7 @@ function Login() {
 	
 	return (
 		<div className={style.container}>
-			{!isAuthenticated}
-			{isAuthenticated ? <Link to='/home'>Home</Link>: console.log("usuario no registrado")}
+			{isAuthenticated && <Link to='/home'>Home</Link>}
 			{!isAuthenticated && (
 				<button
 					onClick={() => loginWithRedirect()}

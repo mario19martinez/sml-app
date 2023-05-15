@@ -26,7 +26,6 @@ function App() {
         <Route path="/home" element={<Landing />} />
         <Route path="/" element={<Login />} />
         <Route path="/employees" element={<Employees />} />
-        <Route path="/employees/employees" element={<Employees />} />
         <Route path="/employees/analytics" element={<AnalyticLeader />} />
         <Route path="/corredores" element={<CorredoresDashboard />} />
         <Route path="/corredores/analytics" element={<Corredores />}/>
