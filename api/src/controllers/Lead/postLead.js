@@ -12,7 +12,7 @@ const postLead = async (data) => {
         telephone: Telephone ? Telephone : "-",
         email: email ? email : "-",
         instagram: "",
-        level: "",
+        level: "-",
         status: "Activo",
         checked: false,
         view: false,
