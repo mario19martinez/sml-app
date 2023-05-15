@@ -48,12 +48,30 @@ const CorredoresDashboard = () => {
 		});
 	};
 
+	const handleView = async (event) => {
+		console.log('Enviado el view');
+		try {
+			for (let i = 0; i < leadUnchecked10.length; i++) {
+				const response = await axios.put(
+					`http://localhost:3001/lead/${client[i]._id}`,
+					{
+						view: client[i].view,
+					}
+				);
+				console.log(response.data);
+			}
+			console.log('view seteados');
+		} catch (error) {
+			console.log('No se envio el put de view');
+		}
+	};
+
 	const { leadUnchecked10 } = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(getLeadUnchecked10());
-		handleView()
+		handleView();
 	}, [dispatch]);
 
 	useEffect(() => {
@@ -66,7 +84,7 @@ const CorredoresDashboard = () => {
 					name: leadUnchecked10[i].name,
 					url: leadUnchecked10[i].url,
 					instagram: '',
-					level: '0',
+					level: '',
 					checked: true,
 					view: true,
 				});
@@ -82,11 +100,10 @@ const CorredoresDashboard = () => {
 		try {
 			for (let i = 0; i < leadUnchecked10.length; i++) {
 				if (!client[i].level || !client[i].instagram) {
-					// Verificar si los campos están vacíos
 					alert(
 						`campos incompletos en name: ${client[i].name} id: ${client[i]._id}`
 					);
-					continue; // Saltar a la siguiente iteración del bucle
+					continue; 
 				}
 				const response = await axios.put(
 					`http://localhost:3001/lead/${client[i]._id}`,
@@ -105,25 +122,6 @@ const CorredoresDashboard = () => {
 			dispatch(getLeadUnchecked10());
 		} catch (error) {
 			console.log('No se envio el put');
-		}
-	};
-	const handleView = async (event) => {
-		event.preventDefault();
-		console.log('Enviado el view');
-		try {
-			for (let i = 0; i < leadUnchecked10.length; i++) {
-				
-				const response = await axios.put(
-					`http://localhost:3001/lead/${client[i]._id}`,
-					{
-						view: client[i].view,
-					}
-				);
-				console.log(response.data);
-			}
-			console.log('view seteados');
-		} catch (error) {
-			console.log('No se envio el put de view');
 		}
 	};
 
@@ -148,12 +146,11 @@ const CorredoresDashboard = () => {
 								</Link>
 							</div>
 						</div>
-						<div className='flex gap-12'>
-							<button
-								type='submit'
-								onClick={handleSubmit}>
-								<IconLabelButtons />
-							</button>
+						<div
+							className='flex gap-12'
+							type='submit'
+							onClick={handleSubmit}>
+							<IconLabelButtons />
 						</div>
 					</div>
 					<Table className={style.table}>
@@ -191,7 +188,7 @@ const CorredoresDashboard = () => {
 											type='text'
 											id='name'
 											value={client[index].name}>
-											<p className='w-96 p-1 px-3 rounded-full text-ellipsis opacity-1 whitespace-nowrap overflow-hidden hover:overflow-visible hover:bg-[#e3e1e1] hover:w-fit hover:text-black z-111 hover:absolute'>
+											<p className='w-96 p-1 px-3 rounded-full text-ellipsis opacity-1 whitespace-nowrap overflow-hidden '>
 												{client[index].name}
 											</p>
 										</div>
