@@ -1,15 +1,15 @@
-import Nav from "../../components/Nav/Nav";
-import { useAuth0 } from "@auth0/auth0-react";
-import { useEffect } from "react";
-import { useState } from "react";
-import Detail from "../../components/Lideres/Employees/Detail/Detail";
+import Nav from '../../components/Nav/Nav';
+import { useAuth0 } from '@auth0/auth0-react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import Detail from '../../components/Lideres/Employees/Detail/Detail';
 
-const user = [
-  {
-    username: "andres biasutto",
-    email: "aquiandresbiasutto@gmail.com",
-  },
-];
+// const user = [
+// 	{
+// 		username: 'andres biasutto',
+// 		email: 'aquiandresbiasutto@gmail.com',
+// 	},
+// ];
 
 export default function Settings() {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
@@ -17,13 +17,13 @@ export default function Settings() {
 
   useEffect(() => {
     const getUserMetadata = async () => {
-      const domain = "localhost:5173";
+      const domain = 'localhost:5173';
 
       try {
         const accessToken = await getAccessTokenSilently({
           authorizationParams: {
             audience: `https://${domain}/api/v2/`,
-            scope: "read:current_user",
+            scope: 'read:current_user',
           },
         });
         console.log(accessToken);
