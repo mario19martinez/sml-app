@@ -19,6 +19,7 @@ import {
 
 import { CiGlobe, CiWarning } from 'react-icons/ci';
 import { GrInstagram } from 'react-icons/gr';
+import { IoGrid, IoStatsChart } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 import { getLeadUnchecked10 } from '../../../redux/actions';
 import IconLabelButtons from '../../MaterialUi/IconLabelButtons';
@@ -103,13 +104,29 @@ const CorredoresDashboard = () => {
 			<Nav />
 			<Card className='w-full h-screen m-5'>
 				<form onSubmit={handleSubmit}>
-					<div className='flex justify-between items-center m-5'>
-						<Title className={style.title}>Dashboard</Title>
-						<button
-							type='submit'
-							onClick={handleSubmit}>
-							<IconLabelButtons />
-						</button>
+					<div className='flex justify-between items-center'>
+						<div className='flex gap-10  mt-2 mx-5 '>
+							<Title className='font-bold text-[#e2e2e2] text-lg'>
+								Dashboard
+							</Title>
+							<div className='flex gap-5'>
+								<Link to={'/corredores'}>
+									<IoGrid className='text-[2rem] text-[#418df0] hover:text-[#3570bd]' />
+								</Link>
+								<Link
+									className='text-5xl'
+									to={'/corredores/analytics'}>
+									<IoStatsChart className='text-[2rem] text-[#418df0] hover:text-[#3570bd]' />
+								</Link>
+							</div>
+						</div>
+						<div className='flex gap-12'>
+							<button
+								type='submit'
+								onClick={handleSubmit}>
+								<IconLabelButtons />
+							</button>
+						</div>
 					</div>
 					<Table className={style.table}>
 						<TableHead className={style.tableHead}>
@@ -126,7 +143,7 @@ const CorredoresDashboard = () => {
 							</TableRow>
 						</TableHead>
 
-						<TableBody className={style.tableBody}>
+						<TableBody className='h-3/4'>
 							{client.map((item, index) => (
 								<TableRow
 									key={item._id}
