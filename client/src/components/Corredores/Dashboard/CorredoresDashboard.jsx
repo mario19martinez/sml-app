@@ -17,7 +17,7 @@ import {
 	Badge,
 } from '@tremor/react';
 
-import { CiGlobe, CiWarning } from 'react-icons/ci';
+import { CiGlobe } from 'react-icons/ci';
 import { GrInstagram } from 'react-icons/gr';
 import { IoGrid, IoStatsChart } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
@@ -53,6 +53,7 @@ const CorredoresDashboard = () => {
 
 	useEffect(() => {
 		dispatch(getLeadUnchecked10());
+		handleView()
 	}, [dispatch]);
 
 	useEffect(() => {
@@ -67,6 +68,7 @@ const CorredoresDashboard = () => {
 					instagram: '',
 					level: '0',
 					checked: true,
+					view: true,
 				});
 			}
 		}
@@ -79,6 +81,13 @@ const CorredoresDashboard = () => {
 		alert('Enviando Informacion');
 		try {
 			for (let i = 0; i < leadUnchecked10.length; i++) {
+				if (!client[i].level || !client[i].instagram) {
+					// Verificar si los campos están vacíos
+					alert(
+						`campos incompletos en name: ${client[i].name} id: ${client[i]._id}`
+					);
+					continue; // Saltar a la siguiente iteración del bucle
+				}
 				const response = await axios.put(
 					`http://localhost:3001/lead/${client[i]._id}`,
 					{
@@ -96,6 +105,25 @@ const CorredoresDashboard = () => {
 			dispatch(getLeadUnchecked10());
 		} catch (error) {
 			console.log('No se envio el put');
+		}
+	};
+	const handleView = async (event) => {
+		event.preventDefault();
+		console.log('Enviado el view');
+		try {
+			for (let i = 0; i < leadUnchecked10.length; i++) {
+				
+				const response = await axios.put(
+					`http://localhost:3001/lead/${client[i]._id}`,
+					{
+						view: client[i].view,
+					}
+				);
+				console.log(response.data);
+			}
+			console.log('view seteados');
+		} catch (error) {
+			console.log('No se envio el put de view');
 		}
 	};
 
@@ -185,7 +213,9 @@ const CorredoresDashboard = () => {
 											<GrInstagram className='text-[2rem] text-[#418df0]' />
 										</div>
 										<input
-											className='bg-transparent rounded-full border-2 border-gray-300 py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 placeholder-white focus:placeholder-black'
+											className={`bg-transparent rounded-full border-2 border-gray-300 py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 placeholder-white focus:placeholder-black ${
+												client[index].instagram ? 'border-green-500' : ''
+											}`}
 											type='text'
 											name='instagram'
 											value={client[index].Instagram}
@@ -241,7 +271,7 @@ const CorredoresDashboard = () => {
 											name={item._id}
 											value='incidencia'
 											onClick={(event) => handleClientClick(event, index)}>
-											3
+											⚠
 										</button>
 									</TableCell>
 								</TableRow>
