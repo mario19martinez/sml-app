@@ -15,6 +15,7 @@ const postLead = async (data) => {
         level: "0",
         status: "Activo",
         checked: false,
+        view: false,
         deleted: false,
       });
       return lead;
