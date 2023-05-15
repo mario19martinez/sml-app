@@ -97,7 +97,7 @@ const CorredoresDashboard = () => {
 					name: leadUnchecked10[i].name,
 					url: leadUnchecked10[i].url,
 					instagram: '',
-					level: '0',
+					level: leadUnchecked10[i].level,
 					checked: true,
 					view: true,
 				});
