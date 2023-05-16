@@ -51,9 +51,6 @@ const VendedoresDashboard = () => {
   const [edit, setEdit] = useState(false);
   const [editIndex, setEditIndex] = useState("");
 
-  const [edit, setEdit] = useState(false);
-  const [editIndex, setEditIndex] = useState("");
-
   const pages = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -82,15 +79,6 @@ const VendedoresDashboard = () => {
     setEdit(false);
   };
 
-  const openEditMenu = (index, id) => {
-    console.log(index);
-    console.log(id);
-    setEdit(true);
-    setEditIndex(index);
-  };
-  const sendEdit = () => {
-    setEdit(false);
-  };
 
   return (
     <>
@@ -215,8 +203,9 @@ const VendedoresDashboard = () => {
                     {edit && index === editIndex ? (
                       <>
                         <IoIosClose
-                          className={style.closeEdit}
+                          className="bg-red-500 rounded-lg absolute w-35 text-3xl h-35 right-70"
                           onClick={() => openEditMenu(index, item._id)}
+
                         />
                         <AiOutlineSend
                           className="bg-[#ff1ed6]  text-white w-10 h-8 p-1 rounded-md cursor-pointer"
