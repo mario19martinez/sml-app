@@ -3,6 +3,8 @@ export const GET_ALL_LEAD = "GET_ALL_LEAD";
 export const GET_LEAD_UNCHECKED_10 = "GET_LEAD_UNCHECKED_10";
 export const GET_LEAD_UNCHECKED = "GET_LEAD_UNCHECKED";
 export const GET_LEAD_CHEQUED = "GET_LEAD_CHEQUED";
+export const GET_LEAD_CHEQUED_100 = "GET_LEAD_CHEQUED_100";
+
 
 export const getAllLead = () => {
   return async (dispatch) => {
@@ -33,5 +35,13 @@ export const getLeadChecked = () => {
     const response = await axios.get("http://localhost:3001/lead/checked");
     const LeadChecked = response.data;
     dispatch({ type: GET_LEAD_CHEQUED, payload: LeadChecked });
+  };
+};
+
+export const getLeadChecked100 = () => {
+  return async (dispatch) => {
+    const response = await axios.get("http://localhost:3001/lead/checked100");
+    const LeadChecked100 = response.data;
+    dispatch({ type: GET_LEAD_CHEQUED_100, payload: LeadChecked100 });
   };
 };
