@@ -3,17 +3,9 @@ import style from './Login.module.css';
 import { validate } from '../../components/Login/Form/validation';
 import { Link } from 'react-router-dom';
 
-// const userdb = [
-// 	{
-// 	  username: "andres biasutto",
-// 	  email: "aquiandresbiasutto@gmail"
-// 	},
-//   ]
-
-
-
 function Login() {
-	const { loginWithRedirect, isAuthenticated, user } = useAuth0();
+	const { user } = useAuth0();
+	const { loginWithRedirect, isAuthenticated } = useAuth0();
 
 	const handleFormLogin = async (userData) => {
 		const errors = validate(userData);
@@ -36,7 +28,7 @@ function Login() {
 			}
 		}
 	};
-	
+
 	return (
 		<div className={style.container}>
 			{isAuthenticated && <Link to='/home'>Home</Link>}
