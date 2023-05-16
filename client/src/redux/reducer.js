@@ -1,4 +1,11 @@
-import { GET_ALL_LEAD, GET_LEAD_UNCHECKED, GET_LEAD_CHEQUED,GET_LEAD_UNCHECKED_10, GET_LEAD_CHEQUED_100 } from "./actions";
+import {
+  GET_ALL_LEAD,
+  GET_LEAD_UNCHECKED,
+  GET_LEAD_CHEQUED,
+  GET_LEAD_UNCHECKED_10,
+  GET_LEAD_CHEQUED_100,
+  ORDER_CLIENTS,
+} from "./actions";
 
 const initialState = {
   lead: [],
@@ -6,6 +13,7 @@ const initialState = {
   leadChequed100: [],
   leadUnchecked: [],
   leadUnchecked10: [],
+  leaderDashboard: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -34,6 +42,32 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         leadChequed100: action.payload,
+      };
+    case ORDER_CLIENTS:
+      const copy = [...state.leadChequed];
+      if (action.payload === "DES") {
+        console.log("entro des");
+        copy.sort((a, b) => {
+          const clientA = a.name ? a.name.toLowerCase() : "";
+          const clientB = b.name ? b.name.toLowerCase() : "";
+          return clientA.localeCompare(clientB, "default", {
+            sensitivity: "accent",
+          });
+        });
+      } else {
+        console.log("entro asc");
+        copy.sort((a, b) => {
+          const clientA = a.name ? a.name.toLowerCase() : "";
+          const clientB = b.name ? b.name.toLowerCase() : "";
+          return clientA.localeCompare(clientB, "default", {
+            sensitivity: "accent",
+          });
+        });
+      }
+      console.log(copy);
+      return {
+        ...state,
+        leaderDashboard: copy,
       };
     default:
       return { ...state };
