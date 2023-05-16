@@ -34,6 +34,7 @@
 }
 
 .tableRow {
+  position: relative;
   margin-top: 20px;
   display: grid;
   grid-template-columns: 9% 20.5% 7.5% 6% 6% 15.5% 14% auto auto;
@@ -98,3 +99,15 @@
 		grid-template-columns: 10% 20% 15% 20% 16% auto;
 	}
 } */
+
+.closeEdit {
+background-color: #e9424a;
+border-radius: 10px;
+  position: absolute;
+  width: 35px;
+  font-size: 30px;
+  height: 35px;
+  right: 70px;
+
+  /* "absolute bg-[#e9424a] text-1 text-white w-10 h-8 rounded-md cursor-pointer left-80" */
+}
