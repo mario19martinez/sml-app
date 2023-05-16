@@ -3,17 +3,8 @@ import style from './Login.module.css';
 import { validate } from '../../components/Login/Form/validation';
 import { Link } from 'react-router-dom';
 
-// const userdb = [
-// 	{
-// 	  username: "andres biasutto",
-// 	  email: "aquiandresbiasutto@gmail"
-// 	},
-//   ]
-
-
-
 function Login() {
-	const {user}= useAuth0();
+	const { user } = useAuth0();
 	const { loginWithRedirect, isAuthenticated } = useAuth0();
 
 	const handleFormLogin = async (userData) => {
@@ -37,11 +28,10 @@ function Login() {
 			}
 		}
 	};
-	
+
 	return (
 		<div className={style.container}>
-			{!isAuthenticated}
-			{isAuthenticated ? <Link to='/home'>Home</Link>: console.log("usuario no registrado")}
+			{isAuthenticated && <Link to='/home'>Home</Link>}
 			{!isAuthenticated && (
 				<button
 					onClick={() => loginWithRedirect()}
