@@ -214,7 +214,7 @@ const VendedoresAnalytics = () => {
   return (
     <div className="flex w-screen">
       <Nav />
-      <div className="flex flex-col w-screen">
+      <div className="flex flex-col">
         <div className="flex items-center justify-between m-8">
           <h1 className="text-2xl font-bold text-white">Analytics Selers</h1>
           <select className="w-32 h-10 rounded-lg bg-purple-500 text-white text-center">
@@ -223,40 +223,41 @@ const VendedoresAnalytics = () => {
         </div>
         <div className="h-3/5">
           <div className="flex flex-col">
-            <div className="w-full flex justify-center  mb-[30px] ">
-              <div className="flex flex-row  w-[1500px] items-start mt-80px  space-x-52">
-                <div className=" w-1/7 text-center">Invoice ID</div>
-                <div className="w-1/7 text-center">Name</div>
-                <div className=" w-1/7 text-center">Profession</div>
-                <div className="w-1/7 text-center">Nivel</div>
-                <div className="w-1/7 text-center">Email</div>
-                <div className="w-1/7 text-center">Status</div>
+            <div className="w-full flex   mb-[30px] ">
+              <div className="flex flex-row  w-[1500px] text-left mt-80px ">
+                <div className="sticky whitespace-nowrap text-gray-500 top-0 px-4 py-3.5 font-semibold text-start">Invoice ID</div>
+                <div className="sticky whitespace-nowrap text-gray-500 top-0 px-4 py-3.5 font-semibold text-start ml-[120px]">Name</div>
+                <div className=" sticky whitespace-nowrap text-gray-500 top-0 px-4 py-3.5 font-semibold text-start ml-[240px]">Profession</div>
+                <div className="sticky whitespace-nowrap text-gray-500 top-0 px-4 py-3.5 font-semibold text-start ml-[240px]">Nivel</div>
+                <div className="sticky whitespace-nowrap text-gray-500 top-0 px-4 py-3.5 font-semibold text-start ml-[170px]">Telefono</div>
+                <div className="sticky whitespace-nowrap text-gray-500 top-0 px-4 py-3.5 font-semibold text-start ml-[150px]">Email</div>
+                <div className="sticky whitespace-nowrap text-gray-500 top-0 px-4 py-3.5 font-semibold text-start ml-[240px]">Status</div>
               </div>
             </div>
             {currentCards.map((item) => (
               <div className="w-full flex justify-center mb-8 h-3/5" key={item.id}>
-                <div className="flex flex-row rounded bg-[#39394B] w-[1500px] h-16 items-center mt-80px justify-center space-x-28">
-                  <div className="w-1/7 text-center">{item.id}</div>
-                  <div className="w-1/7 text-center">{item.client}</div>
-                  <div className="w-1/7 text-center">{item.profesion}</div>
-                  <div className="w-1/7 text-center">{item.nivel === 0 ?
+                <div className="flex flex-row rounded bg-[#39394B] w-[1940px] h-16 items-center mt-80px ml-[7px]">
+                  <div className=" w-1/6 text-center ">{item.id}</div>
+                  <div className="w-1/3 ml-[150px]">{item.client}</div>
+                  <div className=" w-[100px] text-center ml-[150px]">{item.profesion}</div>
+                  <div className=" w-1/6 text-center ml-[150px]">{item.nivel === 0 ?
                     <div
-                      className='bg-purple-500 text-[#39394B] w-[40px] rounded h-10 flex items-center justify-center text-[35px] drop-shadow-xl'
+                      className='bg-purple-500 text-[#39394B] w-[40px] rounded h-10 flex items-center justify-center text-[35px] drop-shadow-xl ml-[150px]'
                     >
                       0
                     </div> : item.nivel === 1 ? <div
-                      className='bg-purple-500 text-[#39394B] w-[40px] rounded h-10 flex items-center justify-center text-[35px] drop-shadow-xl'
+                      className='bg-purple-500 text-[#39394B] w-[40px] rounded h-10 flex items-center justify-center text-[35px] drop-shadow-xl ml-[150px]'
                     >
                       1
                     </div> : <div
-                      className='bg-purple-500 text-[#39394B] w-[40px] rounded h-10 flex items-center justify-center text-[35px] drop-shadow-xl'
+                      className='bg-purple-500 text-[#39394B] w-[40px] rounded h-10 flex items-center justify-center text-[35px] drop-shadow-xl ml-[150px]'
                     >
                       2
                     </div>}</div>
-                  <div className="w-1/7 text-center">{item.telefono}</div>
-                  <div className="w-1/7 text-center">{item.Email}</div>
+                  <div className=" w-1/6 text-center ml-[200px]">{item.telefono}</div>
+                  <div className="w-1/6 text-center ml-[150px]">{item.Email}</div>
                   
-                  <div className="w-1/7 text-center">
+                  <div className="w-1/6 text-center ml-[130px] mr-[40px]">
                     {item.status === true ? (
                       <div className="bg-emerald-400 w-44 h-11 flex justify-center items-center text-white rounded-3xl">
                         Contratado
