@@ -1,5 +1,4 @@
 import style from "./TableEmployees.module.css";
-import { StatusOnlineIcon } from "@heroicons/react/outline";
 import PaginationOutlined from "../../pagination/PaginationOutlined";
 import {
   Card,
@@ -18,6 +17,8 @@ import Nav from "../../Nav/Nav";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  filterLevel,
+  filterStatus,
   getLeadChecked,
   orderCategory,
   orderClients,
@@ -31,11 +32,6 @@ export const AnalyticLeader = () => {
     dispatch(getLeadChecked());
   }, [dispatch]);
 
-  useEffect(() => {
-    console.log(leaderDashboard);
-    setData(leaderDashboard);
-  }, [leaderDashboard]);
-
   const [pageStyle, setPageStyle] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const [cardXPage, setCardXpage] = useState(10);
@@ -46,6 +42,12 @@ export const AnalyticLeader = () => {
     setCurrentPage(pageNumber);
   };
   const [clientOrder, setClientOrder] = useState("");
+  const [filters, setFilters] = useState({
+    level: false,
+    runner: false,
+    sellers: false,
+    status: false,
+  });
 
   const headerClient = () => {
     if (clientOrder === "ASC") {
@@ -89,6 +91,35 @@ export const AnalyticLeader = () => {
     }
     setCurrentPage(1);
   };
+  const handlerFilter = (filter) => {
+    if (filter === "level") {
+      setFilters({ level: true, runner: false, sellers: false, status: false });
+    } else if (filter === "runner") {
+      setFilters({ level: false, runner: true, sellers: false, status: false });
+    } else if (filter === "sellers") {
+      setFilters({ level: false, runner: false, sellers: true, status: false });
+    } else {
+      setFilters({ level: false, runner: false, sellers: false, status: true });
+    }
+  };
+  const [levelValue, setLevelValue] = useState("");
+  const onChangeLevel = (value) => {
+    console.log(value);
+    setLevelValue(value);
+    dispatch(filterLevel(value));
+    setData(leaderDashboard);
+  };
+  const [statusValue, setStatusValue] = useState("");
+  const onChangeStatus = (value) => {
+    setStatusValue(value);
+    dispatch(filterStatus(value));
+    setData(leaderDashboard);
+  };
+
+  useEffect(() => {
+    console.log(leaderDashboard);
+    setData(leaderDashboard);
+  }, [leaderDashboard]);
 
   return (
     <>
@@ -97,6 +128,82 @@ export const AnalyticLeader = () => {
         <Card className="w-full h-full bg-[#222131] rounded-none p-5">
           <div className="flex justify-between items-center mx-5">
             <Title className={style.title}>Analisis</Title>
+            {filters.level === true ? (
+              <select
+                name="level"
+                id="level"
+                onChange={(event) => {
+                  onChangeLevel(event.target.value);
+                }}
+                className="w-1/5 text-center bg-transparent border border-white rounded-md p-1 "
+              >
+                <option value="" disabled selected className="bg-[#222131]">
+                  Seleccione un nivel
+                </option>
+                <option value="0" className="bg-[#222131]">
+                  0
+                </option>
+                <option value="1" className="bg-[#222131]">
+                  1
+                </option>
+                <option value="2" className="bg-[#222131]">
+                  2
+                </option>
+                <option value="incidencia" className="bg-[#222131]">
+                  Incidencia
+                </option>
+              </select>
+            ) : (
+              ""
+            )}
+            {filters.runner === true ? (
+              <input
+                type="text"
+                id="level"
+                placeholder="Buscar por corredor"
+                className="w-1/5 text-center bg-transparent border border-white rounded-md p-1 "
+              />
+            ) : (
+              ""
+            )}
+            {filters.sellers === true ? (
+              <input
+                className="w-1/5 text-center bg-transparent border border-white rounded-md p-1 "
+                type="text"
+                id="level"
+                placeholder="Buscar por Vendedores"
+              />
+            ) : (
+              ""
+            )}
+            {filters.status === true ? (
+              <select
+                name="status"
+                id="status"
+                onChange={(event) => {
+                  onChangeStatus(event.target.value);
+                }}
+                className="w-1/5 text-center bg-transparent border border-white rounded-md p-1 "
+              >
+                <option value="" disabled selected className="bg-[#222131]">
+                  Seleccione un estado
+                </option>
+                <option value="contratado" className="bg-[#222131]">
+                  Contratado
+                </option>
+                <option value="rechazado" className="bg-[#222131]">
+                  Rechazado
+                </option>
+                <option value="sin-contactar" className="bg-[#222131]">
+                  Sin Contactar
+                </option>
+                <option value="no-responde" className="bg-[#222131]">
+                  No Responde
+                </option>
+              </select>
+            ) : (
+              ""
+            )}
             <button className="bg-gray-700 w-fit h-fit p-2 rounded-md">
               Agregar Clientes
             </button>
@@ -122,7 +229,9 @@ export const AnalyticLeader = () => {
                   </button>
                 </TableHeaderCell>
                 <TableHeaderCell className="flex justify-center items-center p-0">
-                  <Text className="text-center w-6 p-0">Nivel</Text>
+                  <button onClick={() => handlerFilter("level")}>
+                    <Text className="text-center w-6 p-0">Nivel</Text>
+                  </button>
                 </TableHeaderCell>
                 <TableHeaderCell className="flex justify-center items-center p-0">
                   <Text className="text-center w-6 p-0">Email</Text>
@@ -134,13 +243,19 @@ export const AnalyticLeader = () => {
                   <Text className="text-center w-6 p-0">Telefono</Text>
                 </TableHeaderCell>
                 <TableHeaderCell className="flex justify-center items-center p-0">
-                  <Text className="text-center w-28 p-0">Corredor</Text>
+                  <button onClick={() => handlerFilter("runner")}>
+                    <Text className="text-center w-28 p-0">Corredor</Text>
+                  </button>
                 </TableHeaderCell>
                 <TableHeaderCell className="flex justify-center items-center p-0">
-                  <Text className="text-center w-28 p-0">Vendedor</Text>
+                  <button onClick={() => handlerFilter("sellers")}>
+                    <Text className="text-center w-28 p-0">Vendedor</Text>
+                  </button>
                 </TableHeaderCell>
                 <TableHeaderCell className="flex justify-center items-center p-0">
-                  <Text className="text-center w-48 p-0">Estado</Text>
+                  <button onClick={() => handlerFilter("status")}>
+                    <Text className="text-center w-48 p-0">Estado</Text>
+                  </button>
                 </TableHeaderCell>
               </TableRow>
             </TableHead>
@@ -244,7 +359,7 @@ export const AnalyticLeader = () => {
                   <TableCell className="flex justify-center items-center p-0">
                     {item.status ? (
                       <Text className="bg-[#26af7f]  text-[#1f1e1e]   px-2 py-1.5 rounded-xl text-center w-48">
-                        Contactado
+                        Contratado
                       </Text>
                     ) : (
                       <Text className="bg-[#b44f82] text-[#e0dfdf] w-full px-2 py-1.5 rounded-xl text-center">

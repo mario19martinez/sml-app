@@ -6,6 +6,8 @@ export const GET_LEAD_CHEQUED = "GET_LEAD_CHEQUED";
 export const GET_LEAD_CHEQUED_100 = "GET_LEAD_CHEQUED_100";
 export const ORDER_CLIENTS = "ORDER_CLIENTS";
 export const ORDER_CATEGORY = "ORDER_CATEGORY";
+export const FILTER_LEVEL = "FILTER_LEVEL";
+export const FILTER_STATUS = "FILTER_STATUS";
 
 export const getAllLead = () => {
   return async (dispatch) => {
@@ -53,7 +55,17 @@ export const orderClients = (order) => {
   };
 };
 export const orderCategory = (order) => {
-  return async (dispatch) => {
+  return (dispatch) => {
     dispatch({ type: ORDER_CATEGORY, payload: order });
+  };
+};
+export const filterLevel = (filter) => {
+  return (dispatch) => {
+    dispatch({ type: FILTER_LEVEL, payload: filter });
+  };
+};
+export const filterStatus = (filterStatus) => {
+  return (dispatch) => {
+    dispatch({ type: FILTER_STATUS, payload: filterStatus });
   };
 };

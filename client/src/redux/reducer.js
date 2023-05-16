@@ -6,6 +6,8 @@ import {
   GET_LEAD_CHEQUED_100,
   ORDER_CLIENTS,
   ORDER_CATEGORY,
+  FILTER_LEVEL,
+  FILTER_STATUS,
 } from "./actions";
 
 const initialState = {
@@ -91,6 +93,75 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         leaderDashboard: copyCategory,
       };
+    case FILTER_LEVEL:
+      const copyLevel = [...state.leadChequed];
+      let filteredLevel = copyLevel;
+
+      if (action.payload === "0") {
+        filteredLevel = copyLevel.filter((client) => {
+          const clientLevel = client.level ? client.level : "";
+          return clientLevel === "0";
+        });
+      }
+      if (action.payload === "1") {
+        filteredLevel = copyLevel.filter((client) => {
+          const clientLevel = client.level ? client.level : "";
+          return clientLevel === "1";
+        });
+      }
+      if (action.payload === "2") {
+        filteredLevel = copyLevel.filter((client) => {
+          const clientLevel = client.level ? client.level : "";
+          return clientLevel === "2";
+        });
+      }
+      if (action.payload === "incidencia") {
+        filteredLevel = copyLevel.filter((client) => {
+          const clientLevel = client.level ? client.level : "";
+          return clientLevel === "incidencia";
+        });
+      }
+      return {
+        ...state,
+        leaderDashboard: filteredLevel,
+      };
+    case FILTER_STATUS:
+      const copyStatus = [...state.leadChequed];
+      let filteredStatus = copyStatus;
+
+      if (action.payload === "contratado") {
+        console.log("contratado");
+        filteredStatus = copyStatus.filter((client) => {
+          const clientStatus = client.status ? client.status : "";
+          return clientStatus === "Activo";
+        });
+      }
+      if (action.payload === "no-responde") {
+        console.log("no contesta");
+        filteredStatus = copyStatus.filter((client) => {
+          const clientstatus = client.status ? client.status : "";
+          return clientstatus === "No responde";
+        });
+      }
+      if (action.payload === "rechazado") {
+        console.log("rechazado");
+        filteredStatus = copyStatus.filter((client) => {
+          const clientStatus = client.status ? client.status : "";
+          return clientStatus === "Rechazado";
+        });
+      }
+      if (action.payload === "sin-contactar") {
+        console.log("sin contactar");
+        filteredStatus = copyStatus.filter((client) => {
+          const clientStatus = client.status ? client.status : "";
+          return clientStatus === "Sin Contactar";
+        });
+      }
+      return {
+        ...state,
+        leaderDashboard: filteredStatus,
+      };
+
     default:
       return { ...state };
   }
