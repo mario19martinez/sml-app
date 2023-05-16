@@ -18,6 +18,8 @@ import {
   CiMail,
   CiEdit,
 } from "react-icons/ci";
+import { AiOutlineSend } from "react-icons/ai";
+import { IoIosClose } from "react-icons/io";
 
 import {
   Card,
@@ -46,6 +48,9 @@ const VendedoresDashboard = () => {
   const indexFirstCard = indexLastCard - cardXPage;
   const currentCard = lead.slice(indexFirstCard, indexLastCard);
 
+  const [edit, setEdit] = useState(false);
+  const [editIndex, setEditIndex] = useState("");
+
   const pages = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -64,9 +69,18 @@ const VendedoresDashboard = () => {
       .catch((err) => alert(`Error al copiar: ${err}`));
   };
 
+  const openEditMenu = (index, id) => {
+    console.log(index);
+    console.log(id);
+    setEdit(true);
+    setEditIndex(index);
+  };
+  const sendEdit = () => {
+    setEdit(false);
+  };
+
   return (
     <>
-    {console.log(lead)}
       <Nav />
       <div className="flex flex-col justify-between items-center w-screen m-5">
         {showCopiedMessage && (
@@ -116,7 +130,7 @@ const VendedoresDashboard = () => {
             </TableHead>
 
             <TableBody className=" h-3/4">
-              {currentCard.map((item) => (
+              {currentCard.map((item, index) => (
                 <TableRow key={item._id} className={style.tableCards}>
                   <TableCell className="flex justify-start items-center p-0">
                     <div className="w-24 p-1 px-3 rounded-full text-ellipsis opacity-1 overflow-hidden hover:overflow-visible hover:bg-[#e3e1e1] hover:w-fit hover:text-black z-111 hover:absolute">
@@ -135,7 +149,9 @@ const VendedoresDashboard = () => {
                   </TableCell>
 
                   <TableCell className="flex justify-start items-center p-0">
-                    <Text>{item.province}</Text>
+                    <Text className="w-24 p-1 px-3 rounded-full text-ellipsis opacity-1 overflow-hidden hover:overflow-visible hover:bg-[#e3e1e1] hover:w-fit hover:text-black z-111 hover:absolute">
+                      {item.province}
+                    </Text>
                   </TableCell>
 
                   <TableCell className="flex justify-start items-center p-0">
@@ -171,17 +187,35 @@ const VendedoresDashboard = () => {
                       </Text>
                     ) : (
                       <Text className="text-start bg-[#6254ff] p-1 text-xl rounded-md text-white">
-                        <CiWarning className="text-white p-0 text-24" />
+                        <CiWarning className="text-[#fde93a] p-0 text-24 font-bold" />
                       </Text>
                     )}
                   </TableCell>
                   <TableCell className="flex justify-start items-start p-0">
-                    <button className="bg-[#ff69b4] text-white rounded-3xl px-6 py-1">
+                      {item.status === "Activo" ? (<Text className="bg-[#ff69b4] text-24 text-white rounded-3xl px-6 py-2">
+                      No contratado
+                    </Text>) : (<Text className="bg-[#ff69b4] text-white rounded-3xl px-6 py-1">
                       Contratado
-                    </button>
+                    </Text>)}
                   </TableCell>
                   <TableCell className="flex justify-start items-start p-0">
-                    <CiEdit className="bg-[#6254ff] text-1 text-white w-10 h-8 rounded-md cursor-pointer" />
+                    {edit && index === editIndex ? (
+                      <>
+                        <IoIosClose
+                          className={style.closeEdit}
+                          onClick={() => openEditMenu(index, item._id)}
+                        />
+                        <AiOutlineSend
+                          className="bg-[#ff1ed6]  text-white w-10 h-8 p-1 rounded-md cursor-pointer"
+                          onClick={sendEdit}
+                        />
+                      </>
+                    ) : (
+                      <CiEdit
+                        className="bg-[#6254ff] text-1 text-white w-10 h-8 rounded-md cursor-pointer"
+                        onClick={() => openEditMenu(index, item._id)}
+                      />
+                    )}
                   </TableCell>
                 </TableRow>
               ))}
