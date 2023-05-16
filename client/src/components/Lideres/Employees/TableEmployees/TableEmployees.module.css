@@ -1,21 +1,3 @@
-.title {
-  font-weight: 600;
-  color: rgb(202, 202, 202);
-  font-size: 20px;
-}
-.buttonAdd {
-  background-color: #4f4de7;
-  color: rgb(219, 219, 219);
-  border-radius: 7px;
-  padding: 6px 25px;
-  font-size: 13px;
-}
-
-.table {
-  /* border: 1px solid violet; */
-  display: flex;
-}
-
 .tableHead {
   color: rgb(189, 189, 189);
   font-size: 12px;
@@ -29,7 +11,7 @@
 
   grid-template-columns: 27% 31% 19.7% 10% auto;
   /* grid-template-columns: repeat(5, 1fr); */
-  margin-left: 50px;
+  margin-left: 20px;
 }
 
 .tableCards {
@@ -39,12 +21,11 @@
   align-items: center;
   justify-content: space-between;
   background-color: #39394b;
-  font-size: 13px;
+  font-size: 14px;
   color: rgb(204, 203, 203);
-  margin: 20px;
-  padding: 13px;
+  margin: 12px;
+  padding: 8px;
   border-radius: 10px;
-  height: 3.7rem;
 }
 
 .tableCell {
@@ -55,8 +36,6 @@
   /* border: 1px solid green; */
 }
 
-.tableCards {
-}
 .icon {
   color: rgb(116, 136, 201);
   font-size: 23px;

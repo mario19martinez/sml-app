@@ -37,7 +37,7 @@ const LeadSchema = new mongoose.Schema(
     },
     level: {
       type: String,
-      enum: ["0", "1", "2", "incidencia"],
+      enum: ["-","0", "1", "2", "incidencia"],
       required: true,
     },
     status: {
@@ -45,6 +45,11 @@ const LeadSchema = new mongoose.Schema(
       require: true,
     },
     checked: {
+      type: Boolean,
+      require: true,
+      default: false,
+    },
+    view: {
       type: Boolean,
       require: true,
       default: false,

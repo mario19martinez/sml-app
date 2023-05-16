@@ -22,8 +22,8 @@
 .buttonNivel {
   background-color: rgb(202, 202, 202);
   color: #39394b;
-  border-radius: 2px;
-  padding: 1px 10px;
+  border-radius: 10px;
+  padding: 5px 12px;
   font-size: 18px;
   margin-left: 10px;
   font-weight: 700;
@@ -32,8 +32,8 @@
 .buttonNivelActive {
   background-color: #418df0;
   color: #39394b;
-  border-radius: 2px;
-  padding: 1px 10px;
+  border-radius: 10px;
+  padding: 5px 12px;
   font-size: 18px;
   margin-left: 10px;
   font-weight: 700;

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import style from './CorredoresAnalytics.module.css';
 import PaginationOutlined from '../../pagination/PaginationOutlined';
 import { useDispatch, useSelector } from 'react-redux';
-import { getLeadUnchecked } from '../../../redux/actions';
 import Nav from '../../Nav/Nav';
 import {
 	Card,
@@ -20,13 +19,14 @@ import {
 
 import { CiGlobe, CiWarning, CiInstagram, CiMail } from 'react-icons/ci';
 import { IoGrid, IoStatsChart } from 'react-icons/io5';
+import { getLeadChecked } from '../../../redux/actions';
 
 const CorredoresAnlaytics = () => {
-	const { leadUnchecked } = useSelector((state) => state);
+	const { leadChequed } = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(getLeadUnchecked());
+		dispatch(getLeadChecked());
 	}, [dispatch]);
 
 	const [pageStyle, setPageStyle] = useState(1);
@@ -34,7 +34,7 @@ const CorredoresAnlaytics = () => {
 	const [cardXPage, setCardXpage] = useState(10);
 	const indexLastCard = currentPage * cardXPage;
 	const indexFirstCard = indexLastCard - cardXPage;
-	const currentCard = leadUnchecked.slice(indexFirstCard, indexLastCard);
+	const currentCard = leadChequed.slice(indexFirstCard, indexLastCard);
 
 	const pages = (pageNumber) => {
 		setCurrentPage(pageNumber);
@@ -168,7 +168,7 @@ const CorredoresAnlaytics = () => {
         pageStyle={pageStyle}
         setPageStyle={setPageStyle}
         cardXPage={cardXPage}
-        data={leadUnchecked}
+        data={leadChequed}
       pages={pages}/> */}
 				</Card>
 				<div className=' mb-5'>
@@ -176,7 +176,7 @@ const CorredoresAnlaytics = () => {
 						pageStyle={pageStyle}
 						setPageStyle={setPageStyle}
 						cardXPage={cardXPage}
-						data={leadUnchecked}
+						data={leadChequed}
 						pages={pages}
 					/>
 				</div>
