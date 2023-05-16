@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import style from "./CorredoresDashboard.module.css";
 import Nav from "../../Nav/Nav";
+const API_KEY='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'
 
 import {
   Card,
@@ -122,6 +123,16 @@ const CorredoresDashboard = () => {
               }
             );
             console.log(response.data);
+            if (client[i].level === "incidencia") {
+              // Enviar correo electrónico utilizando el servidor back-end
+              const emailData = {
+                clientName: client[i].name,
+                recipientEmail: 'gustavomontespalavecino@gmail.com',
+                message: `Se ha detectado una incidencia para el cliente ${client[i].name}. Por favor, revisa la situación y toma las medidas necesarias.`,
+              };
+  
+              await axios.post('http://localhost:3001/corredor/sendmail', emailData);
+            }
           } else if (client[i].instagram.trim() !== "" && client[i].level !== "-") {
             // Realizar el put si Instagram no está vacío
             const response = await axios.put(
@@ -136,7 +147,10 @@ const CorredoresDashboard = () => {
               }
             );
             console.log(response.data);
-          }
+          }else {
+          // Mostrar mensaje de alerta si falta asignar nivel
+          alert(`Al Cliente: ${client[i].name} le falta asignar instagram`);
+        }
         } else {
           // Mostrar mensaje de alerta si falta asignar nivel
           alert(`Al Cliente: ${client[i].name} le falta asignar nivel`);
@@ -146,7 +160,7 @@ const CorredoresDashboard = () => {
       alert("Solicitud enviada correctamente");
       dispatch(getLeadUnchecked10());
     } catch (error) {
-      console.log("No se envió el put");
+      console.log({error: error.message});
     }
   };
 
