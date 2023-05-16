@@ -62,6 +62,7 @@ export const AnalyticLeader = () => {
       dispatch(orderClients(clientOrder));
       setData(leaderDashboard);
     }
+    setCurrentPage(1);
   };
 
   return (
@@ -232,6 +233,7 @@ export const AnalyticLeader = () => {
             cardXPage={cardXPage}
             data={data}
             pages={pages}
+            current={currentPage}
           />
         </Card>
       </div>
