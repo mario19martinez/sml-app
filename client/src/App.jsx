@@ -15,10 +15,6 @@ import CorredoresAnlaytics from "./components/Corredores/Analitycs/CorredoresAna
 
 function App() {
   const location = useLocation()
-  const dispatch = useDispatch();
-  const lead = useSelector((state) => state.lead);
-
-  useEffect(() => {}, [dispatch]);
 
   return (
     <div className="App">
@@ -33,9 +29,9 @@ function App() {
         <Route path="/settings" element={<Settings />} />
         <Route
           path="/vendedores"
-          element={<VendedoresDashboard lead={lead} />}
+          element={<VendedoresDashboard/>}
         />
-        <Route path="/vendedores/analytics" element={<VendedoresAnalytics />} />
+        <Route path="/vendedores/analytics" element={<VendedoresAnalytics/>} />
       </Routes>
 
       {location.pathname === "/" && (
