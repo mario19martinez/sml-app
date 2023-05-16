@@ -13,7 +13,7 @@ function Landing() {
 	console.log(userdb[0].rol);
 	return (
 		<div className={style.container}>
-			{(isAuthenticated || location.state?.fromLogin) && (
+			{/* {(isAuthenticated || location.state?.fromLogin) && ( */}
 				<>
 					<Nav />
 					{user[url][0] === 'c-level' || userdb[0].rol === user[url][0] ? (
@@ -81,7 +81,7 @@ function Landing() {
 						</div>
 					)}
 				</>
-			)}
+			{/* )} */}
 		</div>
 	);
 }
