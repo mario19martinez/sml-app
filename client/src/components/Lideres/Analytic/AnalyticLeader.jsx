@@ -21,12 +21,16 @@ import { getLeadChecked, orderClients } from "../../../redux/actions";
 //
 export const AnalyticLeader = () => {
   const [data, setData] = useState([]);
-  const { leadChequed, leaderDashboard } = useSelector((state) => state);
+  const { leaderDashboard } = useSelector((state) => state);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getLeadChecked());
-    setData(leadChequed);
   }, [dispatch]);
+
+  useEffect(() => {
+    console.log(leaderDashboard);
+    setData(leaderDashboard);
+  }, [leaderDashboard]);
 
   const [pageStyle, setPageStyle] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);

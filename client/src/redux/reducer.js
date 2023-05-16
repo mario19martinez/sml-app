@@ -36,6 +36,7 @@ const rootReducer = (state = initialState, action) => {
     case GET_LEAD_CHEQUED:
       return {
         ...state,
+        leaderDashboard: action.payload,
         leadChequed: action.payload,
       };
     case GET_LEAD_CHEQUED_100:
@@ -46,16 +47,14 @@ const rootReducer = (state = initialState, action) => {
     case ORDER_CLIENTS:
       const copy = [...state.leadChequed];
       if (action.payload === "DES") {
-        console.log("entro des");
         copy.sort((a, b) => {
           const clientA = a.name ? a.name.toLowerCase() : "";
           const clientB = b.name ? b.name.toLowerCase() : "";
-          return clientA.localeCompare(clientB, "default", {
+          return clientB.localeCompare(clientA, "default", {
             sensitivity: "accent",
           });
         });
       } else {
-        console.log("entro asc");
         copy.sort((a, b) => {
           const clientA = a.name ? a.name.toLowerCase() : "";
           const clientB = b.name ? b.name.toLowerCase() : "";
@@ -64,7 +63,7 @@ const rootReducer = (state = initialState, action) => {
           });
         });
       }
-      console.log(copy);
+      console.log("termino orden");
       return {
         ...state,
         leaderDashboard: copy,
