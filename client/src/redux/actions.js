@@ -5,6 +5,7 @@ export const GET_LEAD_UNCHECKED = "GET_LEAD_UNCHECKED";
 export const GET_LEAD_CHEQUED = "GET_LEAD_CHEQUED";
 export const GET_LEAD_CHEQUED_100 = "GET_LEAD_CHEQUED_100";
 export const ORDER_CLIENTS = "ORDER_CLIENTS";
+export const ORDER_CATEGORY = "ORDER_CATEGORY";
 
 export const getAllLead = () => {
   return async (dispatch) => {
@@ -49,5 +50,10 @@ export const getLeadChecked100 = () => {
 export const orderClients = (order) => {
   return async (dispatch) => {
     dispatch({ type: ORDER_CLIENTS, payload: order });
+  };
+};
+export const orderCategory = (order) => {
+  return async (dispatch) => {
+    dispatch({ type: ORDER_CATEGORY, payload: order });
   };
 };

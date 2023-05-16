@@ -17,7 +17,11 @@ import { CiMail, CiInstagram, CiPhone } from "react-icons/ci";
 import Nav from "../../Nav/Nav";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getLeadChecked, orderClients } from "../../../redux/actions";
+import {
+  getLeadChecked,
+  orderCategory,
+  orderClients,
+} from "../../../redux/actions";
 //
 export const AnalyticLeader = () => {
   const [data, setData] = useState([]);
@@ -64,6 +68,27 @@ export const AnalyticLeader = () => {
     }
     setCurrentPage(1);
   };
+  const headerCategory = () => {
+    if (clientOrder === "ASC") {
+      return "Profesion ⤴";
+    } else if (clientOrder === "DES") {
+      return "Profesion ⤵";
+    } else {
+      return "Profesion";
+    }
+  };
+  const handleOrderByCategory = () => {
+    if (clientOrder === "ASC" || clientOrder === "") {
+      setClientOrder("DES");
+      dispatch(orderCategory(clientOrder));
+      setData(leaderDashboard);
+    } else {
+      setClientOrder("ASC");
+      dispatch(orderCategory(clientOrder));
+      setData(leaderDashboard);
+    }
+    setCurrentPage(1);
+  };
 
   return (
     <>
@@ -90,7 +115,11 @@ export const AnalyticLeader = () => {
                   </button>
                 </TableHeaderCell>
                 <TableHeaderCell className="flex justify-center items-center p-0">
-                  <Text className="text-center w-28 p-0">Profesion</Text>
+                  <button onClick={() => handleOrderByCategory()}>
+                    <Text className="text-center w-28 p-0">
+                      {headerCategory()}
+                    </Text>
+                  </button>
                 </TableHeaderCell>
                 <TableHeaderCell className="flex justify-center items-center p-0">
                   <Text className="text-center w-6 p-0">Nivel</Text>

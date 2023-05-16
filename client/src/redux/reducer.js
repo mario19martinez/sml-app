@@ -5,6 +5,7 @@ import {
   GET_LEAD_UNCHECKED_10,
   GET_LEAD_CHEQUED_100,
   ORDER_CLIENTS,
+  ORDER_CATEGORY,
 } from "./actions";
 
 const initialState = {
@@ -45,9 +46,9 @@ const rootReducer = (state = initialState, action) => {
         leadChequed100: action.payload,
       };
     case ORDER_CLIENTS:
-      const copy = [...state.leadChequed];
+      const copyClient = [...state.leadChequed];
       if (action.payload === "DES") {
-        copy.sort((a, b) => {
+        copyClient.sort((a, b) => {
           const clientA = a.name ? a.name.toLowerCase() : "";
           const clientB = b.name ? b.name.toLowerCase() : "";
           return clientB.localeCompare(clientA, "default", {
@@ -55,7 +56,7 @@ const rootReducer = (state = initialState, action) => {
           });
         });
       } else {
-        copy.sort((a, b) => {
+        copyClient.sort((a, b) => {
           const clientA = a.name ? a.name.toLowerCase() : "";
           const clientB = b.name ? b.name.toLowerCase() : "";
           return clientA.localeCompare(clientB, "default", {
@@ -63,10 +64,32 @@ const rootReducer = (state = initialState, action) => {
           });
         });
       }
-      console.log("termino orden");
       return {
         ...state,
-        leaderDashboard: copy,
+        leaderDashboard: copyClient,
+      };
+    case ORDER_CATEGORY:
+      const copyCategory = [...state.leadChequed];
+      if (action.payload === "DES") {
+        copyCategory.sort((a, b) => {
+          const clientA = a.category ? a.category.toLowerCase() : "";
+          const clientB = b.category ? b.category.toLowerCase() : "";
+          return clientB.localeCompare(clientA, "default", {
+            sensitivity: "accent",
+          });
+        });
+      } else {
+        copyCategory.sort((a, b) => {
+          const clientA = a.category ? a.category.toLowerCase() : "";
+          const clientB = b.category ? b.category.toLowerCase() : "";
+          return clientA.localeCompare(clientB, "default", {
+            sensitivity: "accent",
+          });
+        });
+      }
+      return {
+        ...state,
+        leaderDashboard: copyCategory,
       };
     default:
       return { ...state };
