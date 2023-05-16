@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import PaginationOutlined from "../../pagination/PaginationOutlined";
-import { getAllLead } from "../../../redux/actions";
+import { getAllLead, getLeadChecked100 } from "../../../redux/actions";
 import { SiGooglemaps } from "react-icons/si";
 import { AiOutlinePhone, AiTwotonePhone } from "react-icons/ai";
 
