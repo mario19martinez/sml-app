@@ -22,31 +22,34 @@ import { AiOutlineSend } from "react-icons/ai";
 import { IoIosClose } from "react-icons/io";
 
 import {
-  Card,
-  Table,
-  TableHead,
-  TableRow,
-  TableHeaderCell,
-  TableBody,
-  TableCell,
-  Text,
-  Title,
-  Badge,
-} from "@tremor/react";
+	Card,
+	Table,
+	TableHead,
+	TableRow,
+	TableHeaderCell,
+	TableBody,
+	TableCell,
+	Text,
+	Title,
+	Badge,
+} from '@tremor/react';
 
-import Nav from "../../Nav/Nav";
+import Nav from '../../Nav/Nav';
 
 const VendedoresDashboard = () => {
-  const { lead } = useSelector((state) => state);
-  const dispatch = useDispatch();
-  const [showCopiedMessage, setShowCopiedMessage] = useState(false);
+	const { leadChequed100 } = useSelector((state) => state);
+	const dispatch = useDispatch();
+	const [showCopiedMessage, setShowCopiedMessage] = useState(false);
 
-  const [pageStyle, setPageStyle] = useState(1);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [cardXPage, setCardXpage] = useState(10);
-  const indexLastCard = currentPage * cardXPage;
-  const indexFirstCard = indexLastCard - cardXPage;
-  const currentCard = lead.slice(indexFirstCard, indexLastCard);
+	const [pageStyle, setPageStyle] = useState(1);
+	const [currentPage, setCurrentPage] = useState(1);
+	const [cardXPage, setCardXpage] = useState(10);
+	const indexLastCard = currentPage * cardXPage;
+	const indexFirstCard = indexLastCard - cardXPage;
+	const currentCard = leadChequed100.slice(indexFirstCard, indexLastCard);
+
+  const [edit, setEdit] = useState(false);
+  const [editIndex, setEditIndex] = useState("");
 
   const [edit, setEdit] = useState(false);
   const [editIndex, setEditIndex] = useState("");
@@ -55,18 +58,28 @@ const VendedoresDashboard = () => {
     setCurrentPage(pageNumber);
   };
 
-  useEffect(() => {
-    dispatch(getAllLead());
-  }, [dispatch]);
+	useEffect(() => {
+		dispatch(getLeadChecked100());
+	}, [dispatch]);
 
-  const handleCopyClick = (copyToProps) => {
-    navigator.clipboard
-      .writeText(copyToProps)
-      .then(() => {
-        setShowCopiedMessage(true);
-        setTimeout(() => setShowCopiedMessage(false), 2000);
-      })
-      .catch((err) => alert(`Error al copiar: ${err}`));
+	const handleCopyClick = (copyToProps) => {
+		navigator.clipboard
+			.writeText(copyToProps)
+			.then(() => {
+				setShowCopiedMessage(true);
+				setTimeout(() => setShowCopiedMessage(false), 2000);
+			})
+			.catch((err) => alert(`Error al copiar: ${err}`));
+	};
+
+  const openEditMenu = (index, id) => {
+    console.log(index);
+    console.log(id);
+    setEdit(true);
+    setEditIndex(index);
+  };
+  const sendEdit = () => {
+    setEdit(false);
   };
 
   const openEditMenu = (index, id) => {
@@ -103,31 +116,31 @@ const VendedoresDashboard = () => {
             </div>
           </div>
 
-          <Table className="flex mt-5">
-            <TableHead className="text-gray-400 text-14 font-thin">
-              <TableRow className={style.tableRow}>
-                <TableHeaderCell className="text-start">
-                  Invoice Id
-                </TableHeaderCell>
-                <TableHeaderCell className="text-start">Name</TableHeaderCell>
-                <TableHeaderCell className="text-start">
-                  Profesion
-                </TableHeaderCell>
-                <TableHeaderCell className="text-start">
-                  Country
-                </TableHeaderCell>
-                {/* <TableHeaderCell className="text-start">
+					<Table className='flex mt-5'>
+						<TableHead className='text-gray-400 text-14 font-thin'>
+							<TableRow className={style.tableRow}>
+								<TableHeaderCell className='text-start'>
+									Invoice Id
+								</TableHeaderCell>
+								<TableHeaderCell className='text-start'>Name</TableHeaderCell>
+								<TableHeaderCell className='text-start'>
+									Profesion
+								</TableHeaderCell>
+								<TableHeaderCell className='text-start'>
+									Country
+								</TableHeaderCell>
+								{/* <TableHeaderCell className="text-start">
             Phone
           </TableHeaderCell> */}
-                <TableHeaderCell className="text-start">Email</TableHeaderCell>
-                <TableHeaderCell className="text-start">
-                  Instagram
-                </TableHeaderCell>
-                <TableHeaderCell className="text-start">Nivel</TableHeaderCell>
-                <TableHeaderCell className="text-start">Status</TableHeaderCell>
-                <TableHeaderCell className="text-start"></TableHeaderCell>
-              </TableRow>
-            </TableHead>
+								<TableHeaderCell className='text-start'>Email</TableHeaderCell>
+								<TableHeaderCell className='text-start'>
+									Instagram
+								</TableHeaderCell>
+								<TableHeaderCell className='text-start'>Nivel</TableHeaderCell>
+								<TableHeaderCell className='text-start'>Status</TableHeaderCell>
+								<TableHeaderCell className='text-start'></TableHeaderCell>
+							</TableRow>
+						</TableHead>
 
             <TableBody className=" h-3/4">
               {currentCard.map((item, index) => (
@@ -223,18 +236,18 @@ const VendedoresDashboard = () => {
           </Table>
         </Card>
 
-        <div className="mb-5">
-          <PaginationOutlined
-            pageStyle={pageStyle}
-            setPageStyle={setPageStyle}
-            cardXPage={cardXPage}
-            data={lead}
-            pages={pages}
-          />
-        </div>
-      </div>
-    </>
-  );
+				<div className='mb-5'>
+					<PaginationOutlined
+						pageStyle={pageStyle}
+						setPageStyle={setPageStyle}
+						cardXPage={cardXPage}
+						data={leadChequed100}
+						pages={pages}
+					/>
+				</div>
+			</div>
+		</>
+	);
 };
 
 export default VendedoresDashboard;

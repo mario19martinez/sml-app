@@ -7,11 +7,11 @@ import Analytics from "./views/Analytics/Analytics.jsx";
 import Settings from "./views/Settings/Settings.jsx";
 import Login from "./views/Login/Login";
 import CorredoresDashboard from "./components/Corredores/Dashboard/CorredoresDashboard";
-import Corredores from "./components/Corredores/Corredores";
 import VendedoresDashboard from "./components/Vendedores/Dashboard/VendedoresDashboard";
 import { AnalyticLeader } from "./components/Lideres/Analytic/AnalyticLeader";
 import { useEffect } from "react";
 import VendedoresAnalytics from "./components/Vendedores/analytics/VendedoresAnalytics";
+import CorredoresAnlaytics from "./components/Corredores/Analitycs/CorredoresAnalytics";
 
 function App() {
   const location = useLocation()
@@ -24,7 +24,7 @@ function App() {
         <Route path="/employees" element={<Employees />} />
         <Route path="/employees/analytics" element={<AnalyticLeader />} />
         <Route path="/corredores" element={<CorredoresDashboard />} />
-        <Route path="/corredores/analytics" element={<Corredores />}/>
+        <Route path="/corredores/analytics" element={<CorredoresAnlaytics />}/>
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/settings" element={<Settings />} />
         <Route
