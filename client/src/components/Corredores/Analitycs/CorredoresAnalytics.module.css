@@ -41,7 +41,6 @@
 .tableCards {
   display: grid;
   grid-template-columns: 11% 19% 17% 19% 20% 3%;
-
   align-items: center;
   justify-content: space-between;
   background-color: #39394b;
