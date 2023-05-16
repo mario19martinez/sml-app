@@ -31,6 +31,10 @@ const CLevelSchema = new mongoose.Schema(
     description: {
       type: String,
     },
+    rol: {
+      type: String,
+      defaultValue: "c-level",
+    },
     deleted: {
       type: Boolean,
       default: false,

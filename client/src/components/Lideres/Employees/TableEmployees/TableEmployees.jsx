@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import style from "./TableEmployees.module.css";
-import { StatusOnlineIcon } from "@heroicons/react/outline";
 import PaginationOutlined from "../../../pagination/PaginationOutlined"
 import {
   Card,
@@ -16,6 +15,8 @@ import {
 } from "@tremor/react";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { CiMail } from "react-icons/ci";
+import { getAllCorredores, getAllVendedores } from '../../../../redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
 //
 export const TableEmployees = () => {
   const data = [
@@ -203,6 +204,18 @@ export const TableEmployees = () => {
 	const pages = (pageNumber) => {
 		setCurrentPage(pageNumber);
 	};
+
+  
+  const { corredores, vendedores } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllCorredores());
+    dispatch(getAllVendedores());
+  }, [dispatch]);
+
+  console.log(corredores);
+  console.log(vendedores);
 
 
   return (
