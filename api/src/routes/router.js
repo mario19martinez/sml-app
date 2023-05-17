@@ -16,7 +16,7 @@ router.use('/clevel', CLevelRouter);
 router.use('/corredor', CorredorRouter);
 router.use('/lead', LeadRouter);
 router.use('/leader', LeaderRouter);
-router.use('/Vendedor', VendedorRouter);
+router.use('/vendedor', VendedorRouter);
 router.use('authorized', AuthRouter)
 
 module.exports = router;
