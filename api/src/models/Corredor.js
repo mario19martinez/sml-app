@@ -43,6 +43,10 @@ const CorredorSchema = new mongoose.Schema(
     hired_leads: {
       type: String,
     },
+    rol: {
+      type: String,
+      defaultValue: "corredor",
+    },
     deleted: {
       type: Boolean,
       default: false,

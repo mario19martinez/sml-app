@@ -8,6 +8,8 @@ import {
   ORDER_CATEGORY,
   FILTER_LEVEL,
   FILTER_STATUS,
+  GET_ALL_CORREDORES,
+  GET_ALL_VENDEDORES,
 } from "./actions";
 
 const initialState = {
@@ -18,6 +20,8 @@ const initialState = {
   leadUnchecked10: [],
   leaderDashboard: [],
   vendedoresDashboard: [],
+  corredores: [],
+  vendedores: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -181,6 +185,16 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         leaderDashboard: filteredStatus,
+      };
+    case GET_ALL_CORREDORES:
+      return {
+        ...state,
+        corredores: action.payload,
+      };
+    case GET_ALL_VENDEDORES:
+      return {
+        ...state,
+        vendedores: action.payload,
       };
 
     default:
