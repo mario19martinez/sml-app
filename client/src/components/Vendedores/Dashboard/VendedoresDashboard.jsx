@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import PaginationOutlined from "../../pagination/PaginationOutlined";
-import { getAllLead, getLeadChecked100 } from "../../../redux/actions";
+import { filterLevel, getAllLead, getLeadChecked100 } from "../../../redux/actions";
 import { SiGooglemaps } from "react-icons/si";
 import { AiOutlinePhone, AiTwotonePhone } from "react-icons/ai";
 import Modal from "./Modal/Modal";
@@ -26,27 +26,63 @@ import { IoIosClose } from "react-icons/io";
 import Nav from "../../Nav/Nav";
 
 const VendedoresDashboard = () => {
+  const [data, setData] = useState([]);
   const { leadChequed100 } = useSelector((state) => state);
+  const { vendedoresDashboard } = useSelector((state) => state);
   const dispatch = useDispatch();
   const [showCopiedMessage, setShowCopiedMessage] = useState(false);
+  
+  useEffect(() => {
+    dispatch(getLeadChecked100());
+  }, [dispatch]);
+  useEffect(() => {
+    setData(vendedoresDashboard)
+    console.log(vendedoresDashboard)
+  }, [vendedoresDashboard]);
 
   const [pageStyle, setPageStyle] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const [cardXPage, setCardXpage] = useState(10);
   const indexLastCard = currentPage * cardXPage;
   const indexFirstCard = indexLastCard - cardXPage;
-  const currentCard = leadChequed100.slice(indexFirstCard, indexLastCard);
-
-  const [edit, setEdit] = useState(false);
-  const [editIndex, setEditIndex] = useState("");
-
+  const currentCard = data.slice(indexFirstCard, indexLastCard);
   const pages = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+  const [edit, setEdit] = useState(false);
+  const [editIndex, setEditIndex] = useState("");
 
-  useEffect(() => {
-    dispatch(getLeadChecked100());
-  }, [dispatch]);
+  //FILTER**********************
+  const [filters, setFilters] = useState({
+    level: false,
+    runner: false,
+    sellers: false,
+    status: false,
+  });
+
+  const handlerFilter = (filter) => {
+    if (filter === "level") {
+      setFilters({ level: true, runner: false, sellers: false, status: false });
+    } else if (filter === "runner") {
+      setFilters({ level: false, runner: true, sellers: false, status: false });
+    } else if (filter === "sellers") {
+      setFilters({ level: false, runner: false, sellers: true, status: false });
+    } else {
+      setFilters({ level: false, runner: false, sellers: false, status: true });
+    }
+  };
+
+  const [levelValue, setLevelValue] = useState("");
+  const onChangeLevel = (value) => {
+    console.log(value);
+    setLevelValue(value);
+    dispatch(filterLevel(value));
+    setData(vendedoresDashboard);
+    setCurrentPage(1)
+  };
+  //********************************* */
+
+
 
   const handleCopyClick = (copyToProps) => {
     navigator.clipboard
@@ -67,7 +103,7 @@ const VendedoresDashboard = () => {
   const sendEdit = () => {
     setEdit(false);
   };
-  const mesageAlert = () => {
+  const SendLeadAlert = () => {
     toast.success("✔ Lead Update!", {
       position: "top-center",
       autoClose: 3000,
@@ -76,9 +112,24 @@ const VendedoresDashboard = () => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "colored",
+      theme: "dark",
     });
   };
+  const SendIncidenceAlert = () => {
+
+    toast.warn("incidence sent!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+  };
+
+
   return (
     <>
       <Nav />
@@ -103,6 +154,34 @@ const VendedoresDashboard = () => {
                 <IoStatsChart className="text-[2rem] text-[#418df0] hover:text-[#3570bd]" />
               </Link>
             </div>
+            {filters.level === true ? (
+              <select
+                name="level"
+                id="level"
+                onChange={(event) => {
+                  onChangeLevel(event.target.value);
+                }}
+                className="w-1/5 text-center bg-transparent border border-white rounded-md p-1 absolute left-[40%] "
+              >
+                <option value="" disabled selected className="bg-[#222131]">
+                  Seleccione un nivel
+                </option>
+                <option value="0" className="bg-[#222131]">
+                  0
+                </option>
+                <option value="1" className="bg-[#222131]">
+                  1
+                </option>
+                <option value="2" className="bg-[#222131]">
+                  2
+                </option>
+                <option value="incidencia" className="bg-[#222131]">
+                  Incidencia
+                </option>
+              </select>
+            ) : (
+              ""
+            )}
           </div>
           <table className={style.table}>
             <thead className="text-gray-400 text-14 font-thin">
@@ -114,7 +193,9 @@ const VendedoresDashboard = () => {
                 <th className="text-start">Email</th>
                 <th className="text-start">Instagram</th>
                 <th className="text-start">Phone</th>
-                <th className="text-start">Nivel</th>
+                <th className="text-start">
+                  <button onClick={() => handlerFilter("level")}>Nivel</button>
+                </th>
                 <th className="text-start">Status</th>
                 <th className="text-start"></th>
               </tr>
@@ -149,12 +230,12 @@ const VendedoresDashboard = () => {
                     {item.email !== "-" ? (
                       <div onClick={() => handleCopyClick(item.email)}>
                         <div className="cursor-pointer">
-                          <CiMail className="text-[30px] mr-5 text-[#418df0]" />
+                          <CiMail className="text-[35px] mr-5 text-[#418df0]" />
                         </div>
                       </div>
                     ) : (
                       <div>
-                        <CiMail className="text-[30px] mr-5 text-[#9eabbe]" />
+                        <CiMail className="text-[35px] mr-5 text-[#9eabbe]" />
                       </div>
                     )}
                   </td>
@@ -162,12 +243,12 @@ const VendedoresDashboard = () => {
                     {item.instagram ? (
                       <div onClick={() => handleCopyClick(item.instagram)}>
                         <div className="cursor-pointer">
-                          <CiInstagram className="text-[30px] mr-5 text-[#ff598b]" />
+                          <CiInstagram className="text-[35px] mr-5 text-[#ff598b]" />
                         </div>
                       </div>
                     ) : (
                       <div>
-                        <CiInstagram className="text-[30px] mr-5 text-[#9eabbe]" />
+                        <CiInstagram className="text-[35px] mr-5 text-[#9eabbe]" />
                       </div>
                     )}
                   </td>
@@ -175,12 +256,12 @@ const VendedoresDashboard = () => {
                     {item.telephone ? (
                       <div onClick={() => handleCopyClick(item.telephone)}>
                         <div className="cursor-pointer">
-                          <AiOutlinePhone className="text-[30px] mr-5 text-[#418df0]" />
+                          <AiOutlinePhone className="text-[35px] mr-5 text-[#418df0]" />
                         </div>
                       </div>
                     ) : (
                       <div>
-                        <AiOutlinePhone className="text-[30px] mr-5 text-[#9eabbe]" />
+                        <AiOutlinePhone className="text-[35px] mr-5 text-[#9eabbe]" />
                       </div>
                     )}
                   </td>
@@ -190,9 +271,9 @@ const VendedoresDashboard = () => {
                         {item.level}
                       </p>
                     ) : (
-                      <p className="bg-[#6254ff] text-[#e8e8e9] w-[40px] rounded h-10 flex items-center justify-center text-[35px] drop-shadow-xl">
+                      <div className="bg-[#6254ff] text-[#e8e8e9] w-[40px] rounded h-10 flex items-center justify-center text-[35px] drop-shadow-xl">
                         <CiWarning className="text-[#fdfa3a] p-0 text-[35px] font-bold" />
-                      </p>
+                      </div>
                     )}
                   </td>
                   <td className="flex justify-start items-start p-0 w-fit">
@@ -208,7 +289,7 @@ const VendedoresDashboard = () => {
                     )}
                   </td>
                   <td className="flex justify-start items-start p-0 w-fit">
-                    <Modal item={item} mesageAlert={mesageAlert} />
+                    <Modal item={item} SendLeadAlert={SendLeadAlert} SendIncidenceAlert={SendIncidenceAlert}/>
                   </td>
                 </tr>
               ))}
@@ -221,8 +302,9 @@ const VendedoresDashboard = () => {
             pageStyle={pageStyle}
             setPageStyle={setPageStyle}
             cardXPage={cardXPage}
-            data={leadChequed100}
+            data={data}
             pages={pages}
+            current={currentPage}
           />
         </div>
         <ToastContainer />
