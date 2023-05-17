@@ -8,12 +8,28 @@ export const ORDER_CLIENTS = "ORDER_CLIENTS";
 export const ORDER_CATEGORY = "ORDER_CATEGORY";
 export const FILTER_LEVEL = "FILTER_LEVEL";
 export const FILTER_STATUS = "FILTER_STATUS";
+export const GET_ALL_CORREDORES = "GET_ALL_CORREDORES";
+export const GET_ALL_VENDEDORES = "GET_ALL_VENDEDORES";
 
 export const getAllLead = () => {
   return async (dispatch) => {
     const response = await axios.get("http://localhost:3001/lead");
     const LeadData = response.data;
     dispatch({ type: GET_ALL_LEAD, payload: LeadData });
+  };
+};
+export const getAllCorredores = () => {
+  return async (dispatch) => {
+    const response = await axios.get("http://localhost:3001/corredor");
+    const corredores = response.data;
+    dispatch({ type: GET_ALL_CORREDORES, payload: corredores });
+  };
+};
+export const getAllVendedores = () => {
+  return async (dispatch) => {
+    const response = await axios.get("http://localhost:3001/vendedor");
+    const vendedores = response.data;
+    dispatch({ type: GET_ALL_VENDEDORES, payload: vendedores });
   };
 };
 

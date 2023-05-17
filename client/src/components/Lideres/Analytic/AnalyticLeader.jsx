@@ -108,12 +108,14 @@ export const AnalyticLeader = () => {
     setLevelValue(value);
     dispatch(filterLevel(value));
     setData(leaderDashboard);
+    setCurrentPage(1);
   };
   const [statusValue, setStatusValue] = useState("");
   const onChangeStatus = (value) => {
     setStatusValue(value);
     dispatch(filterStatus(value));
     setData(leaderDashboard);
+    setCurrentPage(1);
   };
 
   useEffect(() => {
