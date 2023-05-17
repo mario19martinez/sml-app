@@ -312,8 +312,8 @@ export default function NestedModal({
                 {/* <option selected>Choose a country</option> */}
                 <option value="sinContactar">Sin Contactar</option>
                 <option value="vendido">Vendido</option>
-                <option value="noResponde">No Responde</option>
                 <option value="rechazado">Rechazadado</option>
+                <option value="noResponde">No Responde</option>
               </select>
             </div>
             {statusValue === "rechazado" && (
