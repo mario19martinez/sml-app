@@ -30,8 +30,6 @@ export const TableEmployees = () => {
 
   let employees = corredores.concat(vendedores);
 
-  console.log(employees);
-
   const [pageStyle, setPageStyle] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const [cardXPage, setCardXpage] = useState(10);

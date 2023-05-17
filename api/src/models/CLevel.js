@@ -17,7 +17,6 @@ const CLevelSchema = new mongoose.Schema(
     },
     birthdate: {
       type: Date,
-      required: true,
     },
     photo: {
       type: String,
@@ -33,7 +32,7 @@ const CLevelSchema = new mongoose.Schema(
     },
     rol: {
       type: String,
-      defaultValue: "c-level",
+      required: true,
     },
     deleted: {
       type: Boolean,
