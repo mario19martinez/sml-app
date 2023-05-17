@@ -1,5 +1,6 @@
 import Nav from '../../Nav/Nav'
 import { useState, useEffect } from 'react';
+import PaginationOutlined from '../../pagination/PaginationOutlined';
 
 const VendedoresAnalytics = () => {
   const data = [
@@ -193,24 +194,23 @@ const VendedoresAnalytics = () => {
       status: true
     },
   ]
+  const cardsPerPage = 8;
+  const totalPages = Math.ceil(data.length / cardsPerPage);
 
-  const cardsPerPage = 8
-  const totalPages = Math.ceil(data.length / cardsPerPage)
-
-  const [currentPage, setCurrentPage] = useState(1)
-  const [currentCards, setCurrentCards] = useState([])
+  const [currentPage, setCurrentPage] = useState(1);
+  const [currentCards, setCurrentCards] = useState([]);
 
   useEffect(() => {
-    const indexOfLastCard = currentPage * cardsPerPage
-    const indexOfFirstCard = indexOfLastCard - cardsPerPage
-    const cardsToDisplay = data.slice(indexOfFirstCard, indexOfLastCard)
-    setCurrentCards(cardsToDisplay)
-  }, [currentPage])
-
+    const indexOfLastCard = currentPage * cardsPerPage;
+    const indexOfFirstCard = indexOfLastCard - cardsPerPage;
+    const cardsToDisplay = data.slice(indexOfFirstCard, indexOfLastCard);
+    setCurrentCards(cardsToDisplay);
+  }, [currentPage, data]);
 
   const handlePageChange = (page) => {
-    setCurrentPage(page)
-  }
+    setCurrentPage(page);
+  };
+
   return (
     <div className="flex w-screen">
       <Nav />
@@ -273,16 +273,14 @@ const VendedoresAnalytics = () => {
             ))}
           </div>
           <div className="flex justify-center mt-6">
-            {Array.from({ length: totalPages }, (_, index) => (
-              <button
-                key={index}
-                className={`mx-1 px-4 py-2 rounded-lg ${currentPage === index + 1 ? 'bg-purple-500 text-white' : 'bg-[#39394B] text-white'
-                  }`}
-                onClick={() => handlePageChange(index + 1)}
-              >
-                {index + 1}
-              </button>
-            ))}
+            <PaginationOutlined
+              pageStyle={currentPage}
+              setPageStyle={setCurrentPage}
+              cardXPage={cardsPerPage}
+              data={data}
+              pages={handlePageChange}
+              current={currentPage}
+            />
           </div>
         </div>
 
