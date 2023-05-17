@@ -68,7 +68,7 @@ const VendedoresDashboard = () => {
     setEdit(false);
   };
   const mesageAlert = () => {
-    toast.success('✔ Lead Update!', {
+    toast.success("✔ Lead Update!", {
       position: "top-center",
       autoClose: 3000,
       hideProgressBar: false,
@@ -77,8 +77,8 @@ const VendedoresDashboard = () => {
       draggable: true,
       progress: undefined,
       theme: "colored",
-      });
-  }
+    });
+  };
   return (
     <>
       <Nav />
@@ -208,7 +208,7 @@ const VendedoresDashboard = () => {
                     )}
                   </td>
                   <td className="flex justify-start items-start p-0 w-fit">
-                    <Modal item={item} mesageAlert={mesageAlert}/>
+                    <Modal item={item} mesageAlert={mesageAlert} />
                   </td>
                 </tr>
               ))}
@@ -225,8 +225,7 @@ const VendedoresDashboard = () => {
             pages={pages}
           />
         </div>
-<ToastContainer 
-/>
+        <ToastContainer />
       </div>
     </>
   );
