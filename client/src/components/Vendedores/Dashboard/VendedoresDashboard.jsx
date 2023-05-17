@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import PaginationOutlined from "../../pagination/PaginationOutlined";
-import { filterLevel, getAllLead, getLeadChecked100 } from "../../../redux/actions";
+import { filterLevel, getAllLead, getLeadCheckedInactive100 } from "../../../redux/actions";
 import { SiGooglemaps } from "react-icons/si";
 import { AiOutlinePhone, AiTwotonePhone } from "react-icons/ai";
 import Modal from "./Modal/Modal";
@@ -27,13 +27,12 @@ import Nav from "../../Nav/Nav";
 
 const VendedoresDashboard = () => {
   const [data, setData] = useState([]);
-  const { leadChequed100 } = useSelector((state) => state);
   const { vendedoresDashboard } = useSelector((state) => state);
   const dispatch = useDispatch();
   const [showCopiedMessage, setShowCopiedMessage] = useState(false);
   
   useEffect(() => {
-    dispatch(getLeadChecked100());
+    dispatch(getLeadCheckedInactive100());
   }, [dispatch]);
   useEffect(() => {
     setData(vendedoresDashboard)
@@ -277,7 +276,7 @@ const VendedoresDashboard = () => {
                     )}
                   </td>
                   <td className="flex justify-start items-start p-0 w-fit">
-                    {item.status === "Activo" ? (
+                    {item.status !== "Activo" ? (
                       <p className="bg-[#e95ea3] w-44 h-11 flex justify-center items-center text-white rounded-3xl text-18">
                         {/* bg-[#ff69b4]  */}
                         No contratado

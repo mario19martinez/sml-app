@@ -3,11 +3,12 @@ export const GET_ALL_LEAD = "GET_ALL_LEAD";
 export const GET_LEAD_UNCHECKED_10 = "GET_LEAD_UNCHECKED_10";
 export const GET_LEAD_UNCHECKED = "GET_LEAD_UNCHECKED";
 export const GET_LEAD_CHEQUED = "GET_LEAD_CHEQUED";
-export const GET_LEAD_CHEQUED_100 = "GET_LEAD_CHEQUED_100";
+export const GET_LEAD_CHEQUED_INACTIVE_100 = "GET_LEAD_CHEQUED_INACTIVE_100";
 export const ORDER_CLIENTS = "ORDER_CLIENTS";
 export const ORDER_CATEGORY = "ORDER_CATEGORY";
 export const FILTER_LEVEL = "FILTER_LEVEL";
 export const FILTER_STATUS = "FILTER_STATUS";
+export const GET_ALL_LEAD_INACTIVE = "GET_ALL_LEAD_INACTIVE";
 
 export const getAllLead = () => {
   return async (dispatch) => {
@@ -41,13 +42,14 @@ export const getLeadChecked = () => {
   };
 };
 
-export const getLeadChecked100 = () => {
+export const getLeadCheckedInactive100 = () => {
   return async (dispatch) => {
-    const response = await axios.get("http://localhost:3001/lead/checked100");
-    const LeadChecked100 = response.data;
-    dispatch({ type: GET_LEAD_CHEQUED_100, payload: LeadChecked100 });
+    const response = await axios.get("http://localhost:3001/lead/checkedinactive100");
+    const LeadCheckedInactive100 = response.data;
+    dispatch({ type: GET_LEAD_CHEQUED_INACTIVE_100, payload: LeadCheckedInactive100 });
   };
 };
+
 
 export const orderClients = (order) => {
   return async (dispatch) => {
