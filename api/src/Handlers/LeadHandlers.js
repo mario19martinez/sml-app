@@ -6,7 +6,8 @@ const postLead = require('../controllers/Lead/postLead');
 const updateLeadById = require('../controllers/Lead/updateLeadById');
 const getLeadUnchecked = require('../controllers/Lead/getLeadUnchecked');
 const getLead10Unchecked = require('../controllers/Lead/getLead10Unchecked');
-const getLeadChecked100 = require('../controllers/Lead/getLeadChecked100');
+const getLeadCheckedInactive100 = require('../controllers/Lead/getLeadCheckedInactive100');
+
 
 const getAllLeadHandler = async (req, res) => {
 	try {
@@ -42,14 +43,15 @@ const getLeadCheckedHandler = async (req, res) => {
 	}
 };
 
-const getLeadChecked100Handler = async (req, res) => {
+const getLeadCheckedInactive100Handler = async (req, res) => {
 	try {
-		const leadChecked100 = await getLeadChecked100();
-		res.status(200).json(leadChecked100.slice(0, 100));
+		const leadCheckedInactive100 = await getLeadCheckedInactive100();
+		res.status(200).json(leadCheckedInactive100.slice(0, 100));
 	} catch (error) {
 		res.status(404).json({ error: error.message });
 	}
 };
+
 
 const postLeadHandler = async (req, res) => {
 	const data = req.body;
@@ -99,7 +101,7 @@ module.exports = {
 	getAllLeadHandler,
 	getLeadUncheckedHandler,
 	getLeadCheckedHandler,
-	getLeadChecked100Handler,
+	getLeadCheckedInactive100Handler,
 	postLeadHandler,
 	updateLeadHandler,
 	getLead10UncheckedHandler,

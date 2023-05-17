@@ -3,7 +3,11 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import PaginationOutlined from "../../pagination/PaginationOutlined";
-import { filterLevel, getAllLead, getLeadChecked100 } from "../../../redux/actions";
+import {
+  filterLevel,
+  getAllLead,
+  getLeadCheckedInactive100,
+} from "../../../redux/actions";
 import { SiGooglemaps } from "react-icons/si";
 import { AiOutlinePhone, AiTwotonePhone } from "react-icons/ai";
 import Modal from "./Modal/Modal";
@@ -27,17 +31,16 @@ import Nav from "../../Nav/Nav";
 
 const VendedoresDashboard = () => {
   const [data, setData] = useState([]);
-  const { leadChequed100 } = useSelector((state) => state);
   const { vendedoresDashboard } = useSelector((state) => state);
   const dispatch = useDispatch();
   const [showCopiedMessage, setShowCopiedMessage] = useState(false);
-  
+
   useEffect(() => {
-    dispatch(getLeadChecked100());
+    dispatch(getLeadCheckedInactive100());
   }, [dispatch]);
   useEffect(() => {
-    setData(vendedoresDashboard)
-    console.log(vendedoresDashboard)
+    setData(vendedoresDashboard);
+    console.log(vendedoresDashboard);
   }, [vendedoresDashboard]);
 
   const [pageStyle, setPageStyle] = useState(1);
@@ -78,11 +81,9 @@ const VendedoresDashboard = () => {
     setLevelValue(value);
     dispatch(filterLevel(value));
     setData(vendedoresDashboard);
-    setCurrentPage(1)
+    setCurrentPage(1);
   };
   //********************************* */
-
-
 
   const handleCopyClick = (copyToProps) => {
     navigator.clipboard
@@ -116,19 +117,17 @@ const VendedoresDashboard = () => {
     });
   };
   const SendIncidenceAlert = () => {
-
     toast.warn("incidence sent!", {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-        });
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   };
-
 
   return (
     <>
@@ -277,7 +276,7 @@ const VendedoresDashboard = () => {
                     )}
                   </td>
                   <td className="flex justify-start items-start p-0 w-fit">
-                    {item.status === "Activo" ? (
+                    {item.status !== "Activo" ? (
                       <p className="bg-[#e95ea3] w-44 h-11 flex justify-center items-center text-white rounded-3xl text-18">
                         {/* bg-[#ff69b4]  */}
                         No contratado
@@ -289,24 +288,29 @@ const VendedoresDashboard = () => {
                     )}
                   </td>
                   <td className="flex justify-start items-start p-0 w-fit">
-                    <Modal item={item} SendLeadAlert={SendLeadAlert} SendIncidenceAlert={SendIncidenceAlert}/>
+                    <Modal
+                      item={item}
+                      SendLeadAlert={SendLeadAlert}
+                      SendIncidenceAlert={SendIncidenceAlert}
+                    />
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-
-        <div className="mb-5">
-          <PaginationOutlined
-            pageStyle={pageStyle}
-            setPageStyle={setPageStyle}
-            cardXPage={cardXPage}
-            data={data}
-            pages={pages}
-            current={currentPage}
-          />
-        </div>
+        {pages.length > 1 && (
+          <div className="mb-5">
+            <PaginationOutlined
+              pageStyle={pageStyle}
+              setPageStyle={setPageStyle}
+              cardXPage={cardXPage}
+              data={data}
+              pages={pages}
+              current={currentPage}
+            />
+          </div>
+        )}
         <ToastContainer />
       </div>
     </>

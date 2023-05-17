@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import style from "./CorredoresDashboard.module.css";
 import Nav from "../../Nav/Nav";
-const API_KEY =
-  "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";
+const API_KEY='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'
 
 import {
   Card,
@@ -108,10 +107,8 @@ const CorredoresDashboard = () => {
       for (let i = 0; i < leadUnchecked10.length; i++) {
         if (client[i].level !== "-") {
           // Verificar si Instagram está vacío pero el nivel es igual a 0
-          if (
-            client[i].instagram.trim() === "" &&
-            (client[i].level === "incidencia" || client[i].level === "0")
-          ) {
+          if (client[i].instagram.trim() === "" &&
+            (client[i].level === "incidencia" || client[i].level === "0")) {
             // Realizar el put de todas formas
             const response = await axios.put(
               `http://localhost:3001/lead/${client[i]._id}`,
@@ -129,19 +126,13 @@ const CorredoresDashboard = () => {
               // Enviar correo electrónico utilizando el servidor back-end
               const emailData = {
                 clientName: client[i].name,
-                recipientEmail: "gustavomontespalavecino@gmail.com",
+                recipientEmail: 'gustavomontespalavecino@gmail.com',
                 message: `Se ha detectado una incidencia para el cliente ${client[i].name}. Por favor, revisa la situación y toma las medidas necesarias.`,
               };
-
-              await axios.post(
-                "http://localhost:3001/corredor/sendmail",
-                emailData
-              );
+  
+              await axios.post('http://localhost:3001/corredor/sendmail', emailData);
             }
-          } else if (
-            client[i].instagram.trim() !== "" &&
-            client[i].level !== "-"
-          ) {
+          } else if (client[i].instagram.trim() !== "" && client[i].level !== "-") {
             // Realizar el put si Instagram no está vacío
             const response = await axios.put(
               `http://localhost:3001/lead/${client[i]._id}`,
@@ -155,19 +146,20 @@ const CorredoresDashboard = () => {
               }
             );
             console.log(response.data);
-          } else {
-            // Mostrar mensaje de alerta si falta asignar nivel
-            alert(`Al Cliente: ${client[i].name} le falta asignar instagram`);
-          }
+          }else {
+          // Mostrar mensaje de alerta si falta asignar nivel
+          alert(`Al Cliente: ${client[i].name} le falta asignar instagram`);
+        }
         } else {
           // Mostrar mensaje de alerta si falta asignar nivel
           alert(`Al Cliente: ${client[i].name} le falta asignar nivel`);
         }
+
       }
       alert("Solicitud enviada correctamente");
       dispatch(getLeadUnchecked10());
     } catch (error) {
-      console.log({ error: error.message });
+      console.log({error: error.message});
     }
   };
 
@@ -241,9 +233,8 @@ const CorredoresDashboard = () => {
                       <GrInstagram className="text-[2rem] text-[#418df0]" />
                     </div>
                     <input
-                      className={`bg-transparent rounded-full border-2 border-gray-300 py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 placeholder-white focus:placeholder-black ${
-                        client[index].instagram ? "border-green-500" : ""
-                      }`}
+                      className={`bg-transparent rounded-full border-2 border-gray-300 py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 placeholder-white focus:placeholder-black ${client[index].instagram ? "border-green-500" : ""
+                        }`}
                       type="text"
                       name="instagram"
                       value={client[index].instagram}
