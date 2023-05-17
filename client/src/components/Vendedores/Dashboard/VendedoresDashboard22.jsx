@@ -10,9 +10,7 @@ import Modal from "./Modal/Modal";
 import { FaRegEdit } from "react-icons/fa";
 import { BiEdit } from "react-icons/bi";
 import { IoGrid, IoStatsChart } from "react-icons/io5";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
+AiOutlinePhone
 import {
   CiGlobe,
   CiWarning,
@@ -23,7 +21,20 @@ import {
 import { AiOutlineSend } from "react-icons/ai";
 import { IoIosClose } from "react-icons/io";
 
-import Nav from '../../Nav/Nav';
+import {
+  Card,
+  Table,
+  TableHead,
+  TableRow,
+  TableHeaderCell,
+  TableBody,
+  TableCell,
+  Text,
+  Title,
+  Badge,
+} from "@tremor/react";
+
+import Nav from "../../Nav/Nav";
 
 const VendedoresDashboard = () => {
   const { leadChequed100 } = useSelector((state) => state);
@@ -67,34 +78,21 @@ const VendedoresDashboard = () => {
   const sendEdit = () => {
     setEdit(false);
   };
-  const mesageAlert = () => {
-    toast.success("✔ Lead Update!", {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
-  };
+console.log(currentCard)
   return (
     <>
       <Nav />
-
-      <div className="flex flex-col justify-between items-center w-screen  z-0">
+      <div className="flex flex-col justify-between items-center w-screen m-5 z-0">
         {showCopiedMessage && (
           <p className="mt-2 p-3 bg-[#b9b9b978] text-white rounded-md absolute">
             Copiado al portapapeles
           </p>
         )}
-
-        <div className="w-full flex flex-col justify-center items-center">
-          <div className={style.divTitle}>
-            <h1 className="font-bold text-[#e2e2e2] text-lg mx-5 mt-2">
+        <Card className="w-full mt-5">
+          <div className="flex gap-10 items-center">
+            <Title className="font-bold text-[#e2e2e2] text-lg mx-5 mt-2">
               Dashboard
-            </h1>
+            </Title>
             <div className="flex gap-5">
               <Link to={"/vendedores"}>
                 <IoGrid className="text-[2rem] text-[#418df0] hover:text-[#3570bd]" />
@@ -104,48 +102,61 @@ const VendedoresDashboard = () => {
               </Link>
             </div>
           </div>
-          <table className={style.table}>
-            <thead className="text-gray-400 text-14 font-thin">
-              <tr className={style.tableRow}>
-                <th className="text-start">Invoice Id</th>
-                <th className="text-start">Name</th>
-                <th className="text-start">Profesion</th>
-                <th className="text-start">Country</th>
-                <th className="text-start">Email</th>
-                <th className="text-start">Instagram</th>
-                <th className="text-start">Phone</th>
-                <th className="text-start">Nivel</th>
-                <th className="text-start">Status</th>
-                <th className="text-start"></th>
-              </tr>
-            </thead>
+          <Table className="flex mt-5">
+            <TableHead className="text-gray-400 text-14 font-thin">
+              <TableRow className={style.tableRow}>
+                <TableHeaderCell className="text-start">
+                  Invoice Id
+                </TableHeaderCell>
+                <TableHeaderCell className="text-start">Name</TableHeaderCell>
+                <TableHeaderCell className="text-start">
+                  Profesion
+                </TableHeaderCell>
+                <TableHeaderCell className="text-start">
+                  Country
+                </TableHeaderCell>
+                {/* <TableHeaderCell className="text-start">
+            Phone
+          </TableHeaderCell> */}
+                <TableHeaderCell className="text-start">Email</TableHeaderCell>
+                <TableHeaderCell className="text-start">
+                  Instagram
+                </TableHeaderCell>
+                <TableHeaderCell className="text-start">
+                  Phone
+                </TableHeaderCell>
+                <TableHeaderCell className="text-start">Nivel</TableHeaderCell>
+                <TableHeaderCell className="text-start">Status</TableHeaderCell>
+                <TableHeaderCell className="text-start"></TableHeaderCell>
+              </TableRow>
+            </TableHead>
 
-            <tbody className="">
+            <TableBody className=" h-3/4">
               {currentCard.map((item, index) => (
-                <tr key={item._id} className={style.tableCards}>
-                  <td className="flex justify-start items-center p-0 w-fit">
-                    <div className="w-24 p-1 px-3 rounded-full text-ellipsis text-18 opacity-1 overflow-hidden whitespace-nowrap hover:overflow-visible hover:bg-[#e3e1e1] hover:w-fit hover:text-black z-111 hover:absolute">
+                <TableRow key={item._id} className={style.tableCards}>
+                  <TableCell className="flex justify-start items-center p-0">
+                    <div className="w-24 p-1 px-3 rounded-full text-ellipsis opacity-1 overflow-hidden hover:overflow-visible hover:bg-[#e3e1e1] hover:w-fit hover:text-black z-111 hover:absolute">
                       {item._id}
                     </div>
-                  </td>
-                  <td className="flex justify-start items-center  p-0 w-fit">
-                    <p className="w-52 p-1 px-3 rounded-full text-ellipsis text-18 opacity-1 overflow-hidden whitespace-nowrap hover:overflow-visible hover:bg-[#e3e1e1] hover:w-fit hover:text-black z-111 hover:absolute">
+                  </TableCell>
+                  <TableCell className="flex justify-start items-center  p-0">
+                    <Text className="w-96 p-1 px-3 rounded-full text-ellipsis opacity-1 overflow-hidden hover:overflow-visible hover:bg-[#e3e1e1] hover:w-fit hover:text-black z-111 hover:absolute">
                       {item.name}
-                    </p>
-                  </td>
-                  <td className="flex justify-start items-center p-0 w-fit">
-                    <p className="w-40 p-1 px-3 rounded-full text-ellipsis text-18 opacity-1 overflow-hidden whitespace-nowrap hover:overflow-visible hover:bg-[#e3e1e1] hover:w-fit hover:text-black z-111 hover:absolute">
+                    </Text>
+                  </TableCell>
+                  <TableCell className="flex justify-start items-center p-0">
+                    <Text className="w-96 p-1 px-3 rounded-full text-ellipsis opacity-1 overflow-hidden hover:overflow-visible hover:bg-[#e3e1e1] hover:w-fit hover:text-black z-111 hover:absolute">
                       {item.category}
-                    </p>
-                  </td>
+                    </Text>
+                  </TableCell>
 
-                  <td className="flex justify-center items-center p-0 w-fit">
-                    <p className="w-24 p-1 px-3 rounded-full text-ellipsis text-18 opacity-1 overflow-hidden whitespace-nowrap hover:overflow-visible hover:bg-[#e3e1e1] hover:w-fit hover:text-black z-111 hover:absolute">
+                  <TableCell className="flex justify-start items-center p-0">
+                    <Text className="w-24 p-1 px-3 rounded-full text-ellipsis opacity-1 overflow-hidden hover:overflow-visible hover:bg-[#e3e1e1] hover:w-fit hover:text-black z-111 hover:absolute">
                       {item.province}
-                    </p>
-                  </td>
+                    </Text>
+                  </TableCell>
 
-                  <td className="flex justify-center items-center p-0 w-fit">
+                  <TableCell className="flex justify-start items-center p-0">
                     {item.email !== "-" ? (
                       <div onClick={() => handleCopyClick(item.email)}>
                         <div className="cursor-pointer">
@@ -157,8 +168,8 @@ const VendedoresDashboard = () => {
                         <CiMail className="text-[30px] mr-5 text-[#9eabbe]" />
                       </div>
                     )}
-                  </td>
-                  <td className="flex justify-center items-center p-0 w-fit">
+                  </TableCell>
+                  <TableCell className="flex justify-start items-center p-0 mx-3">
                     {item.instagram ? (
                       <div onClick={() => handleCopyClick(item.instagram)}>
                         <div className="cursor-pointer">
@@ -170,8 +181,8 @@ const VendedoresDashboard = () => {
                         <CiInstagram className="text-[30px] mr-5 text-[#9eabbe]" />
                       </div>
                     )}
-                  </td>
-                  <td className="flex justify-start items-center p-0 w-fit">
+                  </TableCell>
+                  <TableCell className="flex justify-start items-center p-0 mx-3">
                     {item.telephone ? (
                       <div onClick={() => handleCopyClick(item.telephone)}>
                         <div className="cursor-pointer">
@@ -183,38 +194,37 @@ const VendedoresDashboard = () => {
                         <AiOutlinePhone className="text-[30px] mr-5 text-[#9eabbe]" />
                       </div>
                     )}
-                  </td>
-                  <td className="flex justify-start items-center p-0 w-fit">
+                  </TableCell>
+                  <TableCell className="flex justify-start items-center p-0 mx-3">
                     {item.level !== "incidencia" ? (
-                      <p className="bg-[#6254ff] text-[#ffffff] w-[40px] rounded h-10 flex items-center justify-center text-[35px] drop-shadow-xl">
+                      <Text className="text-start bg-[#6254ff] text-white py-2 px-3 text-xl rounded-md">
                         {item.level}
-                      </p>
+                      </Text>
                     ) : (
-                      <p className="bg-[#6254ff] text-[#e8e8e9] w-[40px] rounded h-10 flex items-center justify-center text-[35px] drop-shadow-xl">
-                        <CiWarning className="text-[#fdfa3a] p-0 text-[35px] font-bold" />
-                      </p>
+                      <Text className="text-start bg-[#6254ff] p-1 text-xl rounded-md text-white">
+                        <CiWarning className="text-[#fdfa3a] p-0 text-24 font-bold" />
+                      </Text>
                     )}
-                  </td>
-                  <td className="flex justify-start items-start p-0 w-fit">
-                    {item.status === "Activo" ? (
-                      <p className="bg-[#e95ea3] w-44 h-11 flex justify-center items-center text-white rounded-3xl text-18">
-                        {/* bg-[#ff69b4]  */}
+                  </TableCell>
+                  <TableCell className="flex justify-start items-start p-0">
+                    {item.status !== "Activo" ? (
+                      <Text className="bg-[#ff69b4] text-24 text-white rounded-3xl px-6 py-2">
                         No contratado
-                      </p>
+                      </Text>
                     ) : (
-                      <p className="bg-emerald-400 w-44 h-11 flex justify-center items-center text-[#000000] rounded-3xl text-18">
+                      <Text className="bg-[#ff69b4] text-white rounded-3xl px-6 py-1">
                         Contratado
-                      </p>
+                      </Text>
                     )}
-                  </td>
-                  <td className="flex justify-start items-start p-0 w-fit">
-                    <Modal item={item} mesageAlert={mesageAlert} />
-                  </td>
-                </tr>
+                  </TableCell>
+                  <TableCell className="flex justify-start items-start p-0">
+                    <Modal item={item}/>
+                  </TableCell>
+                </TableRow>
               ))}
-            </tbody>
-          </table>
-        </div>
+            </TableBody>
+          </Table>
+        </Card>
 
         <div className="mb-5">
           <PaginationOutlined
@@ -225,7 +235,6 @@ const VendedoresDashboard = () => {
             pages={pages}
           />
         </div>
-        <ToastContainer />
       </div>
     </>
   );

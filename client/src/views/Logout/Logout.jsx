@@ -7,7 +7,7 @@ function Logout(){
     const { logout } = useAuth0()
     return(
         <div  className='mt-2'>
-            <button onClick={()=> logout()}><IoLogOut className='w-8 h-8 hover:text-red-400 pl-1'/></button>
+            <button onClick={()=> logout()}><IoLogOut className='w-9 h-9 hover:text-red-400 pl-1'/></button>
         </div>
     )
 }

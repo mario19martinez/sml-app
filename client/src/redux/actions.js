@@ -4,7 +4,10 @@ export const GET_LEAD_UNCHECKED_10 = "GET_LEAD_UNCHECKED_10";
 export const GET_LEAD_UNCHECKED = "GET_LEAD_UNCHECKED";
 export const GET_LEAD_CHEQUED = "GET_LEAD_CHEQUED";
 export const GET_LEAD_CHEQUED_100 = "GET_LEAD_CHEQUED_100";
-
+export const ORDER_CLIENTS = "ORDER_CLIENTS";
+export const ORDER_CATEGORY = "ORDER_CATEGORY";
+export const FILTER_LEVEL = "FILTER_LEVEL";
+export const FILTER_STATUS = "FILTER_STATUS";
 
 export const getAllLead = () => {
   return async (dispatch) => {
@@ -43,5 +46,26 @@ export const getLeadChecked100 = () => {
     const response = await axios.get("http://localhost:3001/lead/checked100");
     const LeadChecked100 = response.data;
     dispatch({ type: GET_LEAD_CHEQUED_100, payload: LeadChecked100 });
+  };
+};
+
+export const orderClients = (order) => {
+  return async (dispatch) => {
+    dispatch({ type: ORDER_CLIENTS, payload: order });
+  };
+};
+export const orderCategory = (order) => {
+  return (dispatch) => {
+    dispatch({ type: ORDER_CATEGORY, payload: order });
+  };
+};
+export const filterLevel = (filter) => {
+  return (dispatch) => {
+    dispatch({ type: FILTER_LEVEL, payload: filter });
+  };
+};
+export const filterStatus = (filterStatus) => {
+  return (dispatch) => {
+    dispatch({ type: FILTER_STATUS, payload: filterStatus });
   };
 };
