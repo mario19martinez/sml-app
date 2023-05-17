@@ -72,10 +72,6 @@ export default function NestedModal(name, email, employees) {
   const [inputEmail, setInputEmail] = useState("");
   const [selectEmployees, setSelectEmployees] = useState("");
 
-  console.log(inputName);
-  console.log(inputEmail);
-  console.log(selectEmployees);
-
   return (
     <div>
       <Button variant="contained" onClick={handleOpen}>
