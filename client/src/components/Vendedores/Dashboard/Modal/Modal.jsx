@@ -19,7 +19,7 @@ const style = {
   pb: 4,
 };
 
-function ChildModal({ setOpen }) {
+function ChildModal({ setOpen, mesageAlert }) {
   const [openChild, setOpenChild] = React.useState(false);
   const handleOpen = () => {
     setOpenChild(true);
@@ -31,7 +31,7 @@ function ChildModal({ setOpen }) {
   const handleUpdate = () => {
     setOpenChild(false);
     setOpen(false);
-    alert("Lead Update");
+    mesageAlert()
   };
   const handleCancel = () => {
     setOpen(false);
@@ -40,8 +40,8 @@ function ChildModal({ setOpen }) {
   return (
     <React.Fragment>
       <div className="flex justify-around items-center">
-      <button type="button" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" onClick={handleCancel}>Close x</button>
-      <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={handleOpen}>Save Changes</button>
+      <button type="button" className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" onClick={handleCancel}>Close x</button>
+      <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={handleOpen}>Save Changes</button>
         {/* <Button
           onClick={handleCancel}
           variant="outlined"
@@ -72,8 +72,8 @@ function ChildModal({ setOpen }) {
             ¿Seguro quieres guardar los cambios?
           </p> */}
           <div className="flex justify-around items-center m-5">
-          <button type="button" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" onClick={handleClose}>No</button>
-      <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={handleUpdate}>Yes</button>
+          <button type="button" className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" onClick={handleClose}>No</button>
+      <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={handleUpdate}>Yes</button>
           {/* <Button
             onClick={handleClose}
             sx={{ color: "white", background: "#497d96" }}
@@ -94,14 +94,31 @@ function ChildModal({ setOpen }) {
   );
 }
 
-export default function NestedModal({ item }) {
+export default function NestedModal({ item, mesageAlert}) {
   const [open, setOpen] = React.useState(false);
+  const [disabledState1, setDisabledState1] = React.useState(false);
+  const [disabledState2, setDisabledState2] = React.useState(false);
+  const [disabledState3, setDisabledState3] = React.useState(false);
+
   const handleOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleChange1 = () => {
+setDisabledState1(!disabledState1)
+
+  }
+  const handleChange2 = () => {
+setDisabledState2(!disabledState2)
+
+  }
+  const handleChange3 = () => {
+setDisabledState3(!disabledState3)
+
+  }
 
   return (
     <div>
@@ -119,7 +136,7 @@ export default function NestedModal({ item }) {
           <h2 id="parent-modal-title" className="text-center text-white mb-6">
             {item.name}
           </h2>
-          <div class="flex flex-col">
+          <div className="flex flex-col">
             <div className="mt-2">
               <label
                 htmlFor="last_name"
@@ -128,18 +145,27 @@ export default function NestedModal({ item }) {
                 Email
               </label>
               <div className="flex justify-center items-center">
-                <input
+                {disabledState1 ? (<input
                   type="text"
                   id="last_name"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50 border border-gray-300 text-dark text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-dark dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500"
+
                   // placeholder={item.email}
-                  placeholder="google@gmail.com.ar"
-                  required
+                  required 
+                  value={item.email}
+                />): (<input
+                  type="text"
+                  id="last_name"
+                  className="bbg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  // placeholder={item.email}
+                  placeholder={item.email}
+                  required 
                   disabled
-                />
+                />)}
+                
                 <CiEdit
                   className="bg-[#6254ff] text-1 text-white w-10 h-8 rounded-md cursor-pointer m-2"
-                  onClick={handleOpen}
+                  onClick={handleChange1}
                 />
               </div>
             </div>
@@ -151,18 +177,26 @@ export default function NestedModal({ item }) {
                 Instagram
               </label>
               <div className="flex justify-center items-center">
-                <input
+              {disabledState2 ? (<input
                   type="text"
                   id="last_name"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50 border border-gray-300 text-dark text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-dark dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  // placeholder={item.email}
                   // placeholder={item.instagram}
-                  placeholder="www.instagram.com/juanperez"
-                  required
+                  required 
+                  value={item.instagram}
+                />): (<input
+                  type="text"
+                  id="last_name"
+                  className="bbg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  // placeholder={item.email}
+                  placeholder={item.instagram}
+                  required 
                   disabled
-                />
+                />)}
                 <CiEdit
                   className="bg-[#6254ff] text-1 text-white w-10 h-8 rounded-md cursor-pointer m-2"
-                  onClick={handleOpen}
+                  onClick={handleChange2}
                 />
               </div>
             </div>
@@ -174,18 +208,26 @@ export default function NestedModal({ item }) {
                 Phone
               </label>
               <div className="flex justify-center items-center">
-                <input
+              {disabledState3 ? (<input
                   type="text"
                   id="last_name"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50 border border-gray-300 text-dark text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-dark dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  // placeholder={item.email}
+                  // placeholder={item.telephone}
+                  required 
+                  value={item.telephone}
+                />): (<input
+                  type="text"
+                  id="last_name"
+                  className="bbg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  // placeholder={item.email}
                   placeholder={item.telephone}
-                  // placeholder="www.instagram.com/juanperez"
-                  required
+                  required 
                   disabled
-                />
+                />)}
                 <CiEdit
                   className="bg-[#6254ff] text-1 text-white w-10 h-8 rounded-md cursor-pointer m-2"
-                  onClick={handleOpen}
+                  onClick={handleChange3}
                 />
               </div>
             </div>
@@ -194,14 +236,14 @@ export default function NestedModal({ item }) {
           <div className=" flex items-center justify-between flex-col mt-5 mb-10">
             <div className="">
               <label
-                for="countries"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                htmlFor="countries"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Status
               </label>
               <select
                 id="countries"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               >
                 {/* <option selected>Choose a country</option> */}
                 <option value="US">No Responde</option>
@@ -212,14 +254,14 @@ export default function NestedModal({ item }) {
             </div>
             <div className="m-5">
               <label
-                for="countries"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                htmlFor="countries"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Motivo
               </label>
               <select
                 id="countries"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               >
                 {/* <option selected>Choose a country</option> */}
                 <option value="US">Sin Dinero</option>
@@ -231,7 +273,7 @@ export default function NestedModal({ item }) {
           </div>
 
           <div className="">
-            <ChildModal setOpen={setOpen} />
+            <ChildModal setOpen={setOpen} mesageAlert={mesageAlert} />
           </div>
         </Box>
       </Modal>
