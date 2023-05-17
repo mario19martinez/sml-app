@@ -43,10 +43,6 @@ const VendedorSchema = new mongoose.Schema(
     unanswered_leads: {
       type: String,
     },
-    rol: {
-      type: String,
-      defaultValue: "vendedor",
-    },
     deleted: {
       type: Boolean,
       default: false,

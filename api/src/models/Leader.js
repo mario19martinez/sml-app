@@ -31,10 +31,6 @@ const LeaderSchema = new mongoose.Schema(
     description: {
       type: String,
     },
-    rol: {
-      type: String,
-      defaultValue: "leader",
-    },
     deleted: {
       type: Boolean,
       default: false,
