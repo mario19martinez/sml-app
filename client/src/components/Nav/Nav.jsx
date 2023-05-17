@@ -7,7 +7,7 @@ import { IoStatsChart, IoSettingsSharp, IoBagSharp } from 'react-icons/io5';
 
 function Nav() {
 	return (
-		<div className='bg-[#39394B] flex flex-col justify-between items-center h-screen min-w-[190px]'>
+		<div className='bg-[#39394B] flex flex-col justify-between items-center h-screen min-w-[180px]'>
 			<div className='flex flex-col items-center justify-center mt-16'>
 				<div className='flex flex-col items-center justify-center m-1'>
 					<Link to={'/home'}>
