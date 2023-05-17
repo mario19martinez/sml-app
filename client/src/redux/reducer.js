@@ -3,7 +3,7 @@ import {
   GET_LEAD_UNCHECKED,
   GET_LEAD_CHEQUED,
   GET_LEAD_UNCHECKED_10,
-  GET_LEAD_CHEQUED_100,
+  GET_LEAD_CHEQUED_INACTIVE_100,
   ORDER_CLIENTS,
   ORDER_CATEGORY,
   FILTER_LEVEL,
@@ -13,7 +13,7 @@ import {
 const initialState = {
   lead: [],
   leadChequed: [],
-  leadChequed100: [],
+  leadCheckedInactive100: [],
   leadUnchecked: [],
   leadUnchecked10: [],
   leaderDashboard: [],
@@ -43,12 +43,13 @@ const rootReducer = (state = initialState, action) => {
         leaderDashboard: action.payload,
         leadChequed: action.payload,
       };
-    case GET_LEAD_CHEQUED_100:
+    case GET_LEAD_CHEQUED_INACTIVE_100:
       return {
         ...state,
-        leadChequed100: action.payload,
+        leadCheckedInactive100: action.payload,
         vendedoresDashboard: action.payload,
       };
+
     case ORDER_CLIENTS:
       const copyClient = [...state.leadChequed];
       if (action.payload === "DES") {
