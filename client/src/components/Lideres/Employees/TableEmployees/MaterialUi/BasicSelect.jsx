@@ -7,13 +7,10 @@ import Select from '@mui/material/Select';
 import { styled } from '@mui/material/styles';
 
 const StyledMenuItem = styled(MenuItem)(() => ({
-	backgroundColor: '#39394b',
 	'&:hover': {
-		backgroundColor: '#3f3f4f',
+		backgroundColor: '#39394b'
 	},
-	color: '#fff',
 	'&.Mui-selected': {
-		backgroundColor: '#3f3f4f',
 	},
 }));
 
@@ -27,10 +24,6 @@ const StyledSelect = styled(Select)(() => ({
 }));
 
 const StyledFormControl = styled(FormControl)(() => ({
-	backgroundColor: '#39394b',
-	'& .MuiInputLabel-formControl': {
-		color: '#fff',
-	},
 	'& .MuiInputLabel-formControl': {
 		color: '#fff',
 	},
