@@ -6,7 +6,7 @@ import PaginationOutlined from "../../pagination/PaginationOutlined";
 import { getAllLead, getLeadChecked100 } from "../../../redux/actions";
 import { SiGooglemaps } from "react-icons/si";
 import { AiOutlinePhone, AiTwotonePhone } from "react-icons/ai";
-
+import Modal from "../Dashboard/Modal/Modal";
 import { FaRegEdit } from "react-icons/fa";
 import { BiEdit } from "react-icons/bi";
 import { AiFillEdit } from "react-icons/ai";
@@ -22,31 +22,31 @@ import { AiOutlineSend } from "react-icons/ai";
 import { IoIosClose } from "react-icons/io";
 
 import {
-	Card,
-	Table,
-	TableHead,
-	TableRow,
-	TableHeaderCell,
-	TableBody,
-	TableCell,
-	Text,
-	Title,
-	Badge,
-} from '@tremor/react';
+  Card,
+  Table,
+  TableHead,
+  TableRow,
+  TableHeaderCell,
+  TableBody,
+  TableCell,
+  Text,
+  Title,
+  Badge,
+} from "@tremor/react";
 
-import Nav from '../../Nav/Nav';
+import Nav from "../../Nav/Nav";
 
 const VendedoresDashboard = () => {
-	const { leadChequed100 } = useSelector((state) => state);
-	const dispatch = useDispatch();
-	const [showCopiedMessage, setShowCopiedMessage] = useState(false);
+  const { leadChequed100 } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const [showCopiedMessage, setShowCopiedMessage] = useState(false);
 
-	const [pageStyle, setPageStyle] = useState(1);
-	const [currentPage, setCurrentPage] = useState(1);
-	const [cardXPage, setCardXpage] = useState(10);
-	const indexLastCard = currentPage * cardXPage;
-	const indexFirstCard = indexLastCard - cardXPage;
-	const currentCard = leadChequed100.slice(indexFirstCard, indexLastCard);
+  const [pageStyle, setPageStyle] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [cardXPage, setCardXpage] = useState(10);
+  const indexLastCard = currentPage * cardXPage;
+  const indexFirstCard = indexLastCard - cardXPage;
+  const currentCard = leadChequed100.slice(indexFirstCard, indexLastCard);
 
   const [edit, setEdit] = useState(false);
   const [editIndex, setEditIndex] = useState("");
@@ -55,19 +55,19 @@ const VendedoresDashboard = () => {
     setCurrentPage(pageNumber);
   };
 
-	useEffect(() => {
-		dispatch(getLeadChecked100());
-	}, [dispatch]);
+  useEffect(() => {
+    dispatch(getLeadChecked100());
+  }, [dispatch]);
 
-	const handleCopyClick = (copyToProps) => {
-		navigator.clipboard
-			.writeText(copyToProps)
-			.then(() => {
-				setShowCopiedMessage(true);
-				setTimeout(() => setShowCopiedMessage(false), 2000);
-			})
-			.catch((err) => alert(`Error al copiar: ${err}`));
-	};
+  const handleCopyClick = (copyToProps) => {
+    navigator.clipboard
+      .writeText(copyToProps)
+      .then(() => {
+        setShowCopiedMessage(true);
+        setTimeout(() => setShowCopiedMessage(false), 2000);
+      })
+      .catch((err) => alert(`Error al copiar: ${err}`));
+  };
 
   const openEditMenu = (index, id) => {
     console.log(index);
@@ -78,11 +78,11 @@ const VendedoresDashboard = () => {
   const sendEdit = () => {
     setEdit(false);
   };
-
+console.log(currentCard)
   return (
     <>
       <Nav />
-      <div className="flex flex-col justify-between items-center w-screen m-5">
+      <div className="flex flex-col justify-between items-center w-screen m-5 z-0">
         {showCopiedMessage && (
           <p className="mt-2 p-3 bg-[#b9b9b978] text-white rounded-md absolute">
             Copiado al portapapeles
@@ -102,32 +102,31 @@ const VendedoresDashboard = () => {
               </Link>
             </div>
           </div>
-
-					<Table className='flex mt-5'>
-						<TableHead className='text-gray-400 text-14 font-thin'>
-							<TableRow className={style.tableRow}>
-								<TableHeaderCell className='text-start'>
-									Invoice Id
-								</TableHeaderCell>
-								<TableHeaderCell className='text-start'>Name</TableHeaderCell>
-								<TableHeaderCell className='text-start'>
-									Profesion
-								</TableHeaderCell>
-								<TableHeaderCell className='text-start'>
-									Country
-								</TableHeaderCell>
-								{/* <TableHeaderCell className="text-start">
+          <Table className="flex mt-5">
+            <TableHead className="text-gray-400 text-14 font-thin">
+              <TableRow className={style.tableRow}>
+                <TableHeaderCell className="text-start">
+                  Invoice Id
+                </TableHeaderCell>
+                <TableHeaderCell className="text-start">Name</TableHeaderCell>
+                <TableHeaderCell className="text-start">
+                  Profesion
+                </TableHeaderCell>
+                <TableHeaderCell className="text-start">
+                  Country
+                </TableHeaderCell>
+                {/* <TableHeaderCell className="text-start">
             Phone
           </TableHeaderCell> */}
-								<TableHeaderCell className='text-start'>Email</TableHeaderCell>
-								<TableHeaderCell className='text-start'>
-									Instagram
-								</TableHeaderCell>
-								<TableHeaderCell className='text-start'>Nivel</TableHeaderCell>
-								<TableHeaderCell className='text-start'>Status</TableHeaderCell>
-								<TableHeaderCell className='text-start'></TableHeaderCell>
-							</TableRow>
-						</TableHead>
+                <TableHeaderCell className="text-start">Email</TableHeaderCell>
+                <TableHeaderCell className="text-start">
+                  Instagram
+                </TableHeaderCell>
+                <TableHeaderCell className="text-start">Nivel</TableHeaderCell>
+                <TableHeaderCell className="text-start">Status</TableHeaderCell>
+                <TableHeaderCell className="text-start"></TableHeaderCell>
+              </TableRow>
+            </TableHead>
 
             <TableBody className=" h-3/4">
               {currentCard.map((item, index) => (
@@ -192,30 +191,18 @@ const VendedoresDashboard = () => {
                     )}
                   </TableCell>
                   <TableCell className="flex justify-start items-start p-0">
-                      {item.status === "Activo" ? (<Text className="bg-[#ff69b4] text-24 text-white rounded-3xl px-6 py-2">
-                      No contratado
-                    </Text>) : (<Text className="bg-[#ff69b4] text-white rounded-3xl px-6 py-1">
-                      Contratado
-                    </Text>)}
+                    {item.status !== "Activo" ? (
+                      <Text className="bg-[#ff69b4] text-24 text-white rounded-3xl px-6 py-2">
+                        No contratado
+                      </Text>
+                    ) : (
+                      <Text className="bg-[#ff69b4] text-white rounded-3xl px-6 py-1">
+                        Contratado
+                      </Text>
+                    )}
                   </TableCell>
                   <TableCell className="flex justify-start items-start p-0">
-                    {edit && index === editIndex ? (
-                      <>
-                        <IoIosClose
-                          className={style.closeEdit}
-                          onClick={() => openEditMenu(index, item._id)}
-                        />
-                        <AiOutlineSend
-                          className="bg-[#ff1ed6]  text-white w-10 h-8 p-1 rounded-md cursor-pointer"
-                          onClick={sendEdit}
-                        />
-                      </>
-                    ) : (
-                      <CiEdit
-                        className="bg-[#6254ff] text-1 text-white w-10 h-8 rounded-md cursor-pointer"
-                        onClick={() => openEditMenu(index, item._id)}
-                      />
-                    )}
+                    <Modal item={item}/>
                   </TableCell>
                 </TableRow>
               ))}
@@ -223,18 +210,18 @@ const VendedoresDashboard = () => {
           </Table>
         </Card>
 
-				<div className='mb-5'>
-					<PaginationOutlined
-						pageStyle={pageStyle}
-						setPageStyle={setPageStyle}
-						cardXPage={cardXPage}
-						data={leadChequed100}
-						pages={pages}
-					/>
-				</div>
-			</div>
-		</>
-	);
+        <div className="mb-5">
+          <PaginationOutlined
+            pageStyle={pageStyle}
+            setPageStyle={setPageStyle}
+            cardXPage={cardXPage}
+            data={leadChequed100}
+            pages={pages}
+          />
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default VendedoresDashboard;
