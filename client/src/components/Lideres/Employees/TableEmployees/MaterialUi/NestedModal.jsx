@@ -109,7 +109,7 @@ function ChildModal({ inputName, inputEmail, selectEmployees, handleReset }) {
         aria-labelledby="child-modal-title"
         aria-describedby="child-modal-description"
       >
-        <Box sx={{ ...style, width: "40%", backgroundColor: "#39394b" }}>
+        <Box sx={{ ...style, width: "20%", backgroundColor: "#39394b" }}>
           <div className="flex flex-col gap-5 p-8">
             <h2 id="child-modal-title">Confirm employee creation</h2>
             <div className="flex flex-col gap-2 justify-center items-start">
@@ -161,7 +161,7 @@ export default function NestedModal(name, email, employees) {
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
       >
-        <Box sx={{ ...style, width: "40%", height: "60%", bgcolor: "#39394b" }}>
+        <Box sx={{ ...style, width: "30%", height: "50%", bgcolor: "#39394b" }}>
           <div>
             <div className="flex flex-col gap-5 my-5">
               <h2 id="parent-modal-title">New Employees</h2>
