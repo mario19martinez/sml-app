@@ -11,6 +11,7 @@ export const FILTER_STATUS = 'FILTER_STATUS';
 export const GET_ALL_CORREDORES = 'GET_ALL_CORREDORES';
 export const GET_ALL_VENDEDORES = 'GET_ALL_VENDEDORES';
 
+
 export const getAllLead = () => {
 	return async (dispatch) => {
 		const response = await axios.get('http://localhost:3001/lead');
@@ -62,26 +63,5 @@ export const getLeadChecked100 = () => {
 		const response = await axios.get('http://localhost:3001/lead/checked100');
 		const LeadChecked100 = response.data;
 		dispatch({ type: GET_LEAD_CHEQUED_100, payload: LeadChecked100 });
-	};
-};
-
-export const orderClients = (order) => {
-	return async (dispatch) => {
-		dispatch({ type: ORDER_CLIENTS, payload: order });
-	};
-};
-export const orderCategory = (order) => {
-	return (dispatch) => {
-		dispatch({ type: ORDER_CATEGORY, payload: order });
-	};
-};
-export const filterLevel = (filter) => {
-	return (dispatch) => {
-		dispatch({ type: FILTER_LEVEL, payload: filter });
-	};
-};
-export const filterStatus = (filterStatus) => {
-	return (dispatch) => {
-		dispatch({ type: FILTER_STATUS, payload: filterStatus });
 	};
 };
