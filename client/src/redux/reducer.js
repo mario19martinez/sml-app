@@ -17,6 +17,7 @@ const initialState = {
   leadUnchecked: [],
   leadUnchecked10: [],
   leaderDashboard: [],
+  vendedoresDashboard: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -46,6 +47,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         leadChequed100: action.payload,
+        vendedoresDashboard: action.payload,
       };
     case ORDER_CLIENTS:
       const copyClient = [...state.leadChequed];
@@ -96,9 +98,15 @@ const rootReducer = (state = initialState, action) => {
     case FILTER_LEVEL:
       const copyLevel = [...state.leadChequed];
       let filteredLevel = copyLevel;
+      const copyLevelVendedores = [...state.leadChequed100];
+      let filteredLevelVendedores = copyLevelVendedores;
 
       if (action.payload === "0") {
         filteredLevel = copyLevel.filter((client) => {
+          const clientLevel = client.level ? client.level : "";
+          return clientLevel === "0";
+        });
+        filteredLevelVendedores = copyLevelVendedores.filter((client) => {
           const clientLevel = client.level ? client.level : "";
           return clientLevel === "0";
         });
@@ -108,9 +116,17 @@ const rootReducer = (state = initialState, action) => {
           const clientLevel = client.level ? client.level : "";
           return clientLevel === "1";
         });
+        filteredLevelVendedores = copyLevelVendedores.filter((client) => {
+          const clientLevel = client.level ? client.level : "";
+          return clientLevel === "1";
+        });
       }
       if (action.payload === "2") {
         filteredLevel = copyLevel.filter((client) => {
+          const clientLevel = client.level ? client.level : "";
+          return clientLevel === "2";
+        });
+        filteredLevelVendedores = copyLevelVendedores.filter((client) => {
           const clientLevel = client.level ? client.level : "";
           return clientLevel === "2";
         });
@@ -120,10 +136,15 @@ const rootReducer = (state = initialState, action) => {
           const clientLevel = client.level ? client.level : "";
           return clientLevel === "incidencia";
         });
+        filteredLevelVendedores = copyLevelVendedores.filter((client) => {
+          const clientLevel = client.level ? client.level : "";
+          return clientLevel === "incidencia";
+        });
       }
       return {
         ...state,
         leaderDashboard: filteredLevel,
+        vendedoresDashboard: filteredLevelVendedores,
       };
     case FILTER_STATUS:
       const copyStatus = [...state.leadChequed];
