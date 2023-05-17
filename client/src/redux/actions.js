@@ -17,6 +17,20 @@ export const getAllLead = () => {
     dispatch({ type: GET_ALL_LEAD, payload: LeadData });
   };
 };
+export const getAllCorredores = () => {
+  return async (dispatch) => {
+    const response = await axios.get("http://localhost:3001/corredor");
+    const corredores = response.data;
+    dispatch({ type: GET_ALL_CORREDORES, payload: corredores });
+  };
+};
+export const getAllVendedores = () => {
+  return async (dispatch) => {
+    const response = await axios.get("http://localhost:3001/vendedor");
+    const vendedores = response.data;
+    dispatch({ type: GET_ALL_VENDEDORES, payload: vendedores });
+  };
+};
 
 export const getLeadUnchecked = () => {
   return async (dispatch) => {

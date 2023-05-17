@@ -21,10 +21,9 @@ import { GrInstagram } from "react-icons/gr";
 import { IoGrid, IoStatsChart } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { getLeadUnchecked10 } from "../../../redux/actions";
-import IconLabelButtons from "../../MaterialUi/IconLabelButtons";
+import IconLabelButtons from "./MaterialUi/IconLabelButtons";
 
 const CorredoresDashboard = () => {
-
   const [client, setClient] = useState([]);
 
   const handleChangeInstagram = (event, index) => {
