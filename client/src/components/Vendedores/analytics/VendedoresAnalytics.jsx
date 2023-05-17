@@ -231,15 +231,15 @@ const VendedoresAnalytics = () => {
                 <div className="sticky whitespace-nowrap text-gray-500 top-0 px-4 py-3.5 font-semibold text-start ml-[240px]">Nivel</div>
                 <div className="sticky whitespace-nowrap text-gray-500 top-0 px-4 py-3.5 font-semibold text-start ml-[170px]">Telefono</div>
                 <div className="sticky whitespace-nowrap text-gray-500 top-0 px-4 py-3.5 font-semibold text-start ml-[150px]">Email</div>
-                <div className="sticky whitespace-nowrap text-gray-500 top-0 px-4 py-3.5 font-semibold text-start ml-[240px]">Status</div>
+                <div className="sticky whitespace-nowrap text-gray-500 top-0 px-4 py-3.5 font-semibold text-start">Status</div>
               </div>
             </div>
             {currentCards.map((item) => (
               <div className="w-full flex justify-center mb-8 h-3/5" key={item.id}>
-                <div className="flex flex-row rounded bg-[#39394B] w-[1940px] h-16 items-center mt-80px ml-[7px]">
+                <div className="flex flex-row rounded bg-[#39394B] w-[1720px] h-12 items-center mt-80px ml-[11px]">
                   <div className=" w-1/6 text-center ">{item.id}</div>
                   <div className="w-1/3 ml-[150px]">{item.client}</div>
-                  <div className=" w-[100px] text-center ml-[150px]">{item.profesion}</div>
+                  <div className=" w-[68px] text-center ml-[150px]">{item.profesion}</div>
                   <div className=" w-1/6 text-center ml-[150px]">{item.nivel === 0 ?
                     <div
                       className='bg-purple-500 text-[#39394B] w-[40px] rounded h-10 flex items-center justify-center text-[35px] drop-shadow-xl ml-[150px]'
@@ -257,7 +257,7 @@ const VendedoresAnalytics = () => {
                   <div className=" w-1/6 text-center ml-[200px]">{item.telefono}</div>
                   <div className="w-1/6 text-center ml-[150px]">{item.Email}</div>
                   
-                  <div className="w-1/6 text-center ml-[130px] mr-[40px]">
+                  <div className="w-1/6 text-center ">
                     {item.status === true ? (
                       <div className="bg-emerald-400 w-44 h-11 flex justify-center items-center text-white rounded-3xl">
                         Contratado
