@@ -205,7 +205,7 @@ const VendedoresAnalytics = () => {
     const indexOfFirstCard = indexOfLastCard - cardsPerPage;
     const cardsToDisplay = data.slice(indexOfFirstCard, indexOfLastCard);
     setCurrentCards(cardsToDisplay);
-  }, [currentPage, data]);
+  }, [currentPage]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -236,7 +236,7 @@ const VendedoresAnalytics = () => {
             </div>
             {currentCards.map((item) => (
               <div className="w-full flex justify-center mb-8 h-3/5" key={item.id}>
-                <div className="flex flex-row rounded bg-[#39394B] w-[1720px] h-12 items-center mt-80px ml-[11px]">
+                <div className="flex flex-row rounded bg-[#39394B] w-[1710px] h-12 items-center mt-80px ml-[11px]">
                   <div className=" w-1/6 text-center ">{item.id}</div>
                   <div className="w-1/3 ml-[150px]">{item.client}</div>
                   <div className=" w-[68px] text-center ml-[150px]">{item.profesion}</div>
@@ -272,7 +272,7 @@ const VendedoresAnalytics = () => {
               </div>
             ))}
           </div>
-          <div className="flex justify-center mt-6">
+          <div className="flex justify-center ">
             <PaginationOutlined
               pageStyle={currentPage}
               setPageStyle={setCurrentPage}
