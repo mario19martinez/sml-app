@@ -1,5 +1,5 @@
 const sendGrid = require('@sendgrid/mail');
-const sendGridApiKey = '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';
+const sendGridApiKey = '';
 
 const sendmail = async (req, res) => {
     try {
@@ -27,3 +27,7 @@ module.exports = {
 	
 	sendmail
 };
+
+
+
+
