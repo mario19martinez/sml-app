@@ -23,7 +23,7 @@ import {
 import { Route, Routes, useNavigate } from "react-router-dom";
 
 if (!"pk_test_ZmFtb3VzLWRyYWdvbi0xMi5jbGVyay5hY2NvdW50cy5kZXYk") {
-  throw new Error("Missing Publishable Key")
+  throw new Error("Missing Publishable Key");
 }
 
 const clerkPubKey = "pk_test_ZmFtb3VzLWRyYWdvbi0xMi5jbGVyay5hY2NvdW50cy5kZXYk";
@@ -49,13 +49,8 @@ function ClerkProviderWithRoutes() {
   const navigate = useNavigate();
 
   return (
-    <ClerkProvider
-      publishableKey={clerkPubKey}
-      navigate={(to) => navigate(to)}
-    >
-
+    <ClerkProvider publishableKey={clerkPubKey} navigate={(to) => navigate(to)}>
       <Routes>
-
         <Route path="/" element={<PublicPage />} />
         <Route
           path="/sign-in/*"
@@ -73,10 +68,7 @@ function ClerkProviderWithRoutes() {
         <Route path="/corredores/analytics" element={<CorredoresAnlaytics />} />
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/settings" element={<Settings />} />
-        <Route
-          path="/vendedores"
-          element={<VendedoresDashboard />}
-        />
+        <Route path="/vendedores" element={<VendedoresDashboard />} />
         <Route path="/vendedores/analytics" element={<VendedoresAnalytics />} />
         <Route
           path="/protected"
@@ -92,20 +84,11 @@ function ClerkProviderWithRoutes() {
           }
         />
       </Routes>
-        
-        <div className="App flex items-center justify-center">
-          <img
-            className="opacity-20 w-4/5 mt-[2%]"
-            src="https://cdn.discordapp.com/attachments/1105243107555037294/1106577865698459788/White_Logo_Social_Media_Lab.png"
-          />
-        </div>
     </ClerkProvider>
   );
 }
 
-
 function App() {
-
   return (
     <div className="App">
       <ClerkProviderWithRoutes />
