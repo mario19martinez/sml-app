@@ -18,8 +18,10 @@ import { CiMail } from "react-icons/ci";
 import { getAllCorredores, getAllVendedores } from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import NestedModal from "./MaterialUi/NestedModal";
+import BasicButtonGroup from "./MaterialUi/BasicButtonGroup";
 //
 export const TableEmployees = () => {
+  const [cp, setCp] = useState(false);
   const { corredores, vendedores } = useSelector((state) => state);
   const dispatch = useDispatch();
 
@@ -30,8 +32,6 @@ export const TableEmployees = () => {
 
   let employees = corredores.concat(vendedores);
 
-  console.log(employees);
-
   const [pageStyle, setPageStyle] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const [cardXPage, setCardXpage] = useState(10);
@@ -41,6 +41,10 @@ export const TableEmployees = () => {
 
   const pages = (pageNumber) => {
     setCurrentPage(pageNumber);
+  };
+
+  const controlPanel = () => {
+    setCp(!cp);
   };
 
   return (
@@ -89,20 +93,25 @@ export const TableEmployees = () => {
                     <Text className="text-start">{item.contactNumber}</Text>
                   </TableCell>
                   <TableCell className="p-0">
-                    {item.classifications === "Corredor" ? (
+                    {item.rol === "corredor" ? (
                       <Text className="bg-[#29c08b]  text-[#050505] text-center p-1 w-20 rounded-lg">
-                        {item.classifications}
+                        {item.rol}
                       </Text>
                     ) : (
                       <Text className="bg-[#ca4f8d] text-[#f1f1f1] text-center p-1 px-2 w-20 rounded-lg">
-                        {item.classifications}
+                        {item.rol}
                       </Text>
                     )}
                   </TableCell>
-                  <TableCell className="p-0">
-                    <a href="">
+                  <TableCell className="p-0 relative">
+                    <button onClick={controlPanel}>
                       <HiOutlineDotsHorizontal className="text-18" />
-                    </a>
+                    </button>
+                    {cp ? (
+                      <div className="absolute top-[2rem] right-0">
+                        <BasicButtonGroup />
+                      </div>
+                    ) : null}
                   </TableCell>
                 </TableRow>
               ))}

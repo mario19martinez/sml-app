@@ -19,6 +19,7 @@ const postLeader = async ({
     country,
     contactNumber,
     description,
+    rol,
     deleted,
   });
   return leader;
