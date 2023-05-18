@@ -9,7 +9,7 @@ function Profile() {
       {user && (
         <div className="flex flex-col justify-center items-center w-12">
           <img className="w-12 h-12 rounded-full" src={user.picture} alt={user.name} />
-          <h2 className="text-16 whitespace-nowrap mt-2">{user.name}</h2>
+          <h2 className="text-[18px] min-w-[180px] mt-2 text-center">{user.name}</h2>
         </div>
       )}
     </>

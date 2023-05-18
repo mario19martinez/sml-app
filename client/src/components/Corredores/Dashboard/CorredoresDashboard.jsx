@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import style from "./CorredoresDashboard.module.css";
 import Nav from "../../Nav/Nav";
+const API_KEY =
+  "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";
 
 import {
   Card,
@@ -20,11 +22,12 @@ import { GrInstagram } from "react-icons/gr";
 import { IoGrid, IoStatsChart } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { getLeadUnchecked10 } from "../../../redux/actions";
-import IconLabelButtons from "../../MaterialUi/IconLabelButtons";
+import IconLabelButtons from "./MaterialUi/IconLabelButtons";
 
 const CorredoresDashboard = () => {
-  const [instaComplete, setInstaComplete] = useState([]);
   const [client, setClient] = useState([]);
+  //el estado que guarda el progreso
+  const [progress, setProgress] = useState(0);
 
   const handleChangeInstagram = (event, index) => {
     const { name, value } = event.target;
@@ -50,13 +53,7 @@ const CorredoresDashboard = () => {
         [name]: value,
         level: value,
       };
-      if (name === "instagram") {
-        setInstaComplete((prevInstaComplete) => {
-          const updatedInstaComplete = [...prevInstaComplete];
-          updatedInstaComplete[index] = value.trim() !== "";
-          return updatedInstaComplete;
-        });
-      }
+
       return updatedClient;
     });
   };
@@ -98,13 +95,15 @@ const CorredoresDashboard = () => {
           url: leadUnchecked10[i].url,
           instagram: "",
           level: leadUnchecked10[i].level,
-          checked: true,
+          checked: leadUnchecked10[i].checked,
           view: true,
         });
       }
     }
     setClient(clientes);
   }, [leadUnchecked10]);
+
+  console.log(leadUnchecked10);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -113,8 +112,10 @@ const CorredoresDashboard = () => {
       for (let i = 0; i < leadUnchecked10.length; i++) {
         if (client[i].level !== "-") {
           // Verificar si Instagram está vacío pero el nivel es igual a 0
-          if (client[i].instagram.trim() === "" && 
-          (client[i].level === "incidencia"||client[i].level === "0")) {
+          if (
+            client[i].instagram.trim() === "" &&
+            (client[i].level === "incidencia" || client[i].level === "0")
+          ) {
             // Realizar el put de todas formas
             const response = await axios.put(
               `http://localhost:3001/lead/${client[i]._id}`,
@@ -128,7 +129,23 @@ const CorredoresDashboard = () => {
               }
             );
             console.log(response.data);
-          } else if (client[i].instagram.trim() !== "") {
+            if (client[i].level === "incidencia") {
+              // Enviar correo electrónico utilizando el servidor back-end
+              const emailData = {
+                clientName: client[i].name,
+                recipientEmail: "gustavomontespalavecino@gmail.com",
+                message: `Se ha detectado una incidencia para el cliente ${client[i].name}. Por favor, revisa la situación y toma las medidas necesarias.`,
+              };
+
+              await axios.post(
+                "http://localhost:3001/corredor/sendmail",
+                emailData
+              );
+            }
+          } else if (
+            client[i].instagram.trim() !== "" &&
+            client[i].level !== "-"
+          ) {
             // Realizar el put si Instagram no está vacío
             const response = await axios.put(
               `http://localhost:3001/lead/${client[i]._id}`,
@@ -144,21 +161,51 @@ const CorredoresDashboard = () => {
             console.log(response.data);
           } else {
             // Mostrar mensaje de alerta si falta asignar nivel
-            alert(`Al Cliente: ${client[i].name} le falta asignar nivel`);
+            alert(`Al Cliente: ${client[i].name} le falta asignar instagram`);
           }
+        } else {
+          // Mostrar mensaje de alerta si falta asignar nivel
+          alert(`Al Cliente: ${client[i].name} le falta asignar nivel`);
+        }
+        const totalSteps = 10;
+        const stepDuration = 100;
+        for (let i = 0; i < totalSteps; i++) {
+          await new Promise((resolve) => setTimeout(resolve, stepDuration));
+          const newProgress = ((i + 1) / totalSteps) * 10;
+          setProgress(newProgress);
         }
       }
       alert("Solicitud enviada correctamente");
       dispatch(getLeadUnchecked10());
     } catch (error) {
-      console.log("No se envió el put");
+      console.log({ error: error.message });
     }
   };
+
+  useEffect(() => {
+    //Obtener el valor del progreso almacenado en localStorage al cargar el componente
+    const storedProgress = localStorage.getItem('progress');
+    if(storedProgress){
+      setProgress(Number(storedProgress));
+    }
+  }, []);
+  useEffect(() => {
+    //almacena el valor del progreso en localStorage cada vez que cambie
+    localStorage.setItem('progress', progress.toString());
+  }, [progress]);
+
+  useEffect(() => {
+    if (progress === 1000){
+      localStorage.removeItem('progress')
+      return 0;
+      
+    }
+  }, [progress]);
 
   return (
     <>
       <Nav />
-      <Card className="w-full m-5">
+      <Card className="w-full m-5 bg-[#39394b]">
         <form onSubmit={handleSubmit}>
           <div className="flex justify-between items-center">
             <div className="flex gap-10  mt-2 mx-5 ">
@@ -177,6 +224,10 @@ const CorredoresDashboard = () => {
             <div className="flex gap-12" type="submit" onClick={handleSubmit}>
               <IconLabelButtons />
             </div>
+          </div>
+          <div>
+          <progress className={style.progres} value={progress} max={100} />
+          <span>{progress}</span>
           </div>
           <Table className={style.table}>
             <TableHead className={style.tableHead}>
