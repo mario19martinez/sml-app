@@ -27,7 +27,7 @@ const style = {
   pb: 4,
 };
 
-function ChildModal({ item, setOpen, statusObj, SendLeadAlert }) {
+function ChildModal({ item, setOpen, statusObj, SendLeadAlert, SendErrorUpdateAlert, updateLeads }) {
   const [openChild, setOpenChild] = React.useState(false);
 
   const handleOpen = () => {
@@ -44,16 +44,14 @@ function ChildModal({ item, setOpen, statusObj, SendLeadAlert }) {
       .then((response) => {
         // Si la respuesta es exitosa, redirige a otra página
         if (response.data.title) {
-          alert("Lead Update");
-          dispatch(getRecipes());
+          updateLeads();
           setOpen(false);
-          SendLeadAlert();
         }
+        SendLeadAlert();
       })
       .catch((error) => {
         // Si hay un error, muestra un mensaje de error
-        alert("The lead could not be updated", error);
-        SendLeadAlertError();
+        SendErrorUpdateAlert();
       });
     setOpenChild(false);
     setOpen(false);
@@ -204,14 +202,14 @@ export default function NestedModal({
   item,
   SendLeadAlert,
   SendIncidenceAlert,
+  SendErrorUpdateAlert,
+  updateLeads
 }) {
   const [open, setOpen] = React.useState(false);
-  const [disabledState1, setDisabledState1] = React.useState(false);
-  const [disabledState2, setDisabledState2] = React.useState(false);
-  const [disabledState3, setDisabledState3] = React.useState(false);
+
   const [statusObj, setStatusObj] = React.useState({
-    status: "",
-    statusoption: "",
+    status: item.status,
+    statusoption: item.statusoption,
   });
 
   useEffect(() => {
@@ -237,15 +235,6 @@ export default function NestedModal({
     setOpen(false);
   };
 
-  const handleChange1 = () => {
-    setDisabledState1(!disabledState1);
-  };
-  const handleChange2 = () => {
-    setDisabledState2(!disabledState2);
-  };
-  const handleChange3 = () => {
-    setDisabledState3(!disabledState3);
-  };
 
   const handleSelectChange = (event) => {
     const value = event.target.value;
@@ -363,7 +352,7 @@ export default function NestedModal({
               <select
                 onChange={handleSelectChange}
                 name="status"
-                defaultValue={item.status}
+                defaultValue={statusObj.status}
                 id="select1"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               >
@@ -386,7 +375,7 @@ export default function NestedModal({
                   id="Motivo"
                   onChange={handleSelectChange}
                   name="statusoption"
-                  defaultValue={item.statusoption}
+                  defaultValue={statusObj.statusoption}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 >
                   {/* <option selected>Choose a country</option> */}
@@ -415,6 +404,7 @@ export default function NestedModal({
                     type="text"
                     id="last_name"
                     name="statusoption"
+                    // defaultValue={item.statusoption}
                     value={statusObj.statusoption}
                     className="bbg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-28 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     // placeholder={item.email}
@@ -433,6 +423,8 @@ export default function NestedModal({
               statusObj={statusObj}
               setOpen={setOpen}
               SendLeadAlert={SendLeadAlert}
+              SendErrorUpdateAlert={SendErrorUpdateAlert}
+              updateLeads={updateLeads}
             />
           </div>
         </Box>

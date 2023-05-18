@@ -3,10 +3,7 @@ const Lead = require("../../models/Lead");
 const getLeadCheckedInactive100 = async () => {
   const leadChequedInactive = await Lead.find({
     checked: true,
-    $nor: [
-      { status: "Activo" },
-      { status: "Contratado" }
-    ]
+    status: "Sin contactar",
   })
     .limit(100)
     .exec();

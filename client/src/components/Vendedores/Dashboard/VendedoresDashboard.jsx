@@ -3,11 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import PaginationOutlined from "../../pagination/PaginationOutlined";
-import {
-  filterLevel,
-
-  getLeadCheckedInactive100,
-} from "../../../redux/actions";
+import { filterLevel, getLeadCheckedInactive100 } from "../../../redux/actions";
 import { SiGooglemaps } from "react-icons/si";
 import { AiOutlinePhone, AiTwotonePhone } from "react-icons/ai";
 import Modal from "./Modal/Modal";
@@ -37,11 +33,14 @@ const VendedoresDashboard = () => {
 
   useEffect(() => {
     dispatch(getLeadCheckedInactive100());
+    
+    console.log("usssssseeeeee")
   }, [dispatch]);
   useEffect(() => {
     setData(leadCheckedInactive100);
     console.log(leadCheckedInactive100);
   }, [leadCheckedInactive100]);
+
 
   const [pageStyle, setPageStyle] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
@@ -115,6 +114,19 @@ const VendedoresDashboard = () => {
       progress: undefined,
       theme: "dark",
     });
+    dispatch(getLeadCheckedInactive100());
+  };
+  const SendErrorUpdateAlert = () => {
+    toast.error("The lead could not be updated!", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   };
   const SendIncidenceAlert = () => {
     toast.warn("incidence sent!", {
@@ -127,13 +139,18 @@ const VendedoresDashboard = () => {
       progress: undefined,
       theme: "dark",
     });
+    dispatch(getLeadCheckedInactive100());
+  };
+  const updateLeads = () => {
+    dispatch(getLeadCheckedInactive100());
+    setData(leadCheckedInactive100);
   };
 
   return (
     <>
       <Nav />
 
-      {leadCheckedInactive100.length  ? (
+      {leadCheckedInactive100.length ? (
         <div className="flex flex-col justify-between items-center w-screen  z-0">
           {showCopiedMessage && (
             <p className="mt-2 p-3 bg-[#b9b9b978] text-white rounded-md absolute">
@@ -291,6 +308,8 @@ const VendedoresDashboard = () => {
                         item={item}
                         SendLeadAlert={SendLeadAlert}
                         SendIncidenceAlert={SendIncidenceAlert}
+                        SendErrorUpdateAlert={SendErrorUpdateAlert}
+                        updateLeads={updateLeads}
                       />
                     </td>
                   </tr>
