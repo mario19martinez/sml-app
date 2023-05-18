@@ -14,6 +14,7 @@ const postLead = async (data) => {
         instagram: "",
         level: "-",
         status: "Activo",
+        statusoption: "",
         checked: false,
         view: false,
         deleted: false,

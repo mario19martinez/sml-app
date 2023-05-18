@@ -68,6 +68,7 @@ const updateLeadHandler = async (req, res) => {
 	try {
 		const id = req.params.id;
 		const updatedData = req.body;
+		// console.log(updatedData)
 		const lead = await updateLeadById(id, updatedData);
 		res.status(200).json(lead);
 	} catch (error) {
