@@ -18,8 +18,10 @@ import { CiMail } from "react-icons/ci";
 import { getAllCorredores, getAllVendedores } from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import NestedModal from "./MaterialUi/NestedModal";
+import BasicButtonGroup from "./MaterialUi/BasicButtonGroup";
 //
 export const TableEmployees = () => {
+  const [cp, setCp] = useState(false);
   const { corredores, vendedores } = useSelector((state) => state);
   const dispatch = useDispatch();
 
@@ -39,6 +41,10 @@ export const TableEmployees = () => {
 
   const pages = (pageNumber) => {
     setCurrentPage(pageNumber);
+  };
+
+  const controlPanel = () => {
+    setCp(!cp);
   };
 
   return (
@@ -97,10 +103,15 @@ export const TableEmployees = () => {
                       </Text>
                     )}
                   </TableCell>
-                  <TableCell className="p-0">
-                    <a href="">
+                  <TableCell className="p-0 relative">
+                    <button onClick={controlPanel}>
                       <HiOutlineDotsHorizontal className="text-18" />
-                    </a>
+                    </button>
+                    {cp ? (
+                      <div className="absolute top-[2rem] right-0">
+                        <BasicButtonGroup />
+                      </div>
+                    ) : null}
                   </TableCell>
                 </TableRow>
               ))}
