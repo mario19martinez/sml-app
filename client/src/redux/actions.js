@@ -12,6 +12,7 @@ export const GET_ALL_LEAD_INACTIVE = "GET_ALL_LEAD_INACTIVE";
 export const GET_ALL_CORREDORES = "GET_ALL_CORREDORES"
 export const GET_ALL_VENDEDORES = "GET_ALL_VENDEDORES"
 
+
 export const getAllLead = () => {
   return async (dispatch) => {
     const response = await axios.get("http://localhost:3001/lead");

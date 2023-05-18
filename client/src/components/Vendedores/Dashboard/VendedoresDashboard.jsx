@@ -7,7 +7,6 @@ import {
   filterLevel,
   getAllLead,
   getLeadCheckedInactive100,
-  getLeadChecked
 } from "../../../redux/actions";
 import { SiGooglemaps } from "react-icons/si";
 import { AiOutlinePhone, AiTwotonePhone } from "react-icons/ai";
@@ -17,7 +16,6 @@ import { BiEdit } from "react-icons/bi";
 import { IoGrid, IoStatsChart } from "react-icons/io5";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 
 import {
   CiGlobe,
@@ -29,21 +27,13 @@ import {
 import { AiOutlineSend } from "react-icons/ai";
 import { IoIosClose } from "react-icons/io";
 
-import Nav from '../../Nav/Nav';
+import Nav from "../../Nav/Nav";
 
 const VendedoresDashboard = () => {
   const [data, setData] = useState([]);
   const { vendedoresDashboard } = useSelector((state) => state);
   const dispatch = useDispatch();
   const [showCopiedMessage, setShowCopiedMessage] = useState(false);
-  
-  useEffect(() => {
-    dispatch(getLeadChecked100());
-  }, [dispatch]);
-  useEffect(() => {
-    setData(vendedoresDashboard)
-    console.log(vendedoresDashboard)
-  }, [vendedoresDashboard]);
 
   useEffect(() => {
     dispatch(getLeadCheckedInactive100());

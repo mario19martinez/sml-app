@@ -1,6 +1,8 @@
 import Nav from '../../Nav/Nav'
 import { useState, useEffect } from 'react';
 import PaginationOutlined from '../../pagination/PaginationOutlined';
+import { Link } from 'react-router-dom';
+import { IoGrid, IoStatsChart } from 'react-icons/io5';
 
 const VendedoresAnalytics = () => {
   const data = [
@@ -216,7 +218,18 @@ const VendedoresAnalytics = () => {
       <Nav />
       <div className="flex flex-col">
         <div className="flex items-center justify-between m-8">
+          <div className='flex flex-row '>
           <h1 className="text-2xl font-bold text-white">Analytics Selers</h1>
+          <div className="flex gap-5">
+              <Link to={"/vendedores"}>
+                <IoGrid className="text-[2rem] text-[#418df0] hover:text-[#3570bd] ml-[10px]" />
+              </Link>
+              <Link className="text-5xl" to={"/vendedores/analytics"}>
+                <IoStatsChart className="text-[2rem] text-[#418df0] hover:text-[#3570bd]" />
+              </Link>
+            </div>
+          </div>
+          
           <select className="w-32 h-10 rounded-lg bg-purple-500 text-white text-center">
             <option className="py-1">2023</option>
           </select>
