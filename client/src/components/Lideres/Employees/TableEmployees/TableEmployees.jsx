@@ -87,13 +87,13 @@ export const TableEmployees = () => {
                     <Text className="text-start">{item.contactNumber}</Text>
                   </TableCell>
                   <TableCell className="p-0">
-                    {item.classifications === "Corredor" ? (
+                    {item.rol === "corredor" ? (
                       <Text className="bg-[#29c08b]  text-[#050505] text-center p-1 w-20 rounded-lg">
-                        {item.classifications}
+                        {item.rol}
                       </Text>
                     ) : (
                       <Text className="bg-[#ca4f8d] text-[#f1f1f1] text-center p-1 px-2 w-20 rounded-lg">
-                        {item.classifications}
+                        {item.rol}
                       </Text>
                     )}
                   </TableCell>
