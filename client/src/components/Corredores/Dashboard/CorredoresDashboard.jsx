@@ -26,6 +26,8 @@ import IconLabelButtons from "./MaterialUi/IconLabelButtons";
 
 const CorredoresDashboard = () => {
   const [client, setClient] = useState([]);
+  //el estado que guarda el progreso
+  const [progress, setProgress] = useState(0);
 
   const handleChangeInstagram = (event, index) => {
     const { name, value } = event.target;
@@ -165,6 +167,13 @@ const CorredoresDashboard = () => {
           // Mostrar mensaje de alerta si falta asignar nivel
           alert(`Al Cliente: ${client[i].name} le falta asignar nivel`);
         }
+        const totalSteps = 10;
+        const stepDuration = 100;
+        for (let i = 0; i < totalSteps; i++) {
+          await new Promise((resolve) => setTimeout(resolve, stepDuration));
+          const newProgress = ((i + 1) / totalSteps) * 10;
+          setProgress(newProgress);
+        }
       }
       alert("Solicitud enviada correctamente");
       dispatch(getLeadUnchecked10());
@@ -172,6 +181,26 @@ const CorredoresDashboard = () => {
       console.log({ error: error.message });
     }
   };
+
+  useEffect(() => {
+    //Obtener el valor del progreso almacenado en localStorage al cargar el componente
+    const storedProgress = localStorage.getItem('progress');
+    if(storedProgress){
+      setProgress(Number(storedProgress));
+    }
+  }, []);
+  useEffect(() => {
+    //almacena el valor del progreso en localStorage cada vez que cambie
+    localStorage.setItem('progress', progress.toString());
+  }, [progress]);
+
+  useEffect(() => {
+    if (progress === 1000){
+      localStorage.removeItem('progress')
+      return 0;
+      
+    }
+  }, [progress]);
 
   return (
     <>
@@ -195,6 +224,10 @@ const CorredoresDashboard = () => {
             <div className="flex gap-12" type="submit" onClick={handleSubmit}>
               <IconLabelButtons />
             </div>
+          </div>
+          <div>
+          <progress className={style.progres} value={progress} max={100} />
+          <span>{progress}</span>
           </div>
           <Table className={style.table}>
             <TableHead className={style.tableHead}>
