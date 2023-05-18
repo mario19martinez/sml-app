@@ -21,7 +21,6 @@ import { IoGrid, IoStatsChart } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { getLeadUnchecked10 } from "../../../redux/actions";
 import IconLabelButtons from "../../MaterialUi/IconLabelButtons";
-// import swal from 'sweetalert';
 
 
 
@@ -133,7 +132,7 @@ const CorredoresDashboard = () => {
               const emailData = {
                 clientName: client[i].name,
                 recipientEmail: "gustavomontespalavecino@gmail.com",
-                message: `Se ha detectado una incidencia para el cliente ${client[i].name} con el numero de id ${client[i].id}. Por favor, revisa la situación y toma las medidas necesarias.`,
+                message: `Se ha detectado una incidencia para el cliente ${client[i].name}. Por favor, revisa la situación y toma las medidas necesarias.`,
               };
 
               await axios.post(

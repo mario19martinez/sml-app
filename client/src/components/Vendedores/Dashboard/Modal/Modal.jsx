@@ -39,7 +39,7 @@ function ChildModal({ item, setOpen, statusObj, SendLeadAlert, SendErrorUpdateAl
 
   const handleUpdate = () => {
     axios
-      .put(`http://localhost:3001/lead/vendedor/${item._id}`, statusObj)
+      .put(`http://localhost:3001/lead/${item._id}`, statusObj)
       .then((response) => {
         // Si la respuesta es exitosa, redirige a otra página
         if (response.data.title) {
