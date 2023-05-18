@@ -170,7 +170,6 @@ const CorredoresAnlaytics = () => {
             cardXPage={cardXPage}
             data={leadChequed}
             pages={pages}
-            current={currentPage}
           />
         </div>
       </div>

@@ -55,6 +55,7 @@ const getLeadCheckedInactive100Handler = async (req, res) => {
 
 const postLeadHandler = async (req, res) => {
   const data = req.body;
+  console.log(data);
   try {
     const lead = await postLead(data);
     res.status(200).json(data);
@@ -74,7 +75,6 @@ const updateLeadHandler = async (req, res) => {
   }
 };
 const updateLeadVendedorHandler = async (req, res) => {
-  console.log(req.body)
   try {
     const id = req.params.id;
     const updatedData = req.body;
