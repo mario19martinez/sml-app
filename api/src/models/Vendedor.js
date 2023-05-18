@@ -17,7 +17,6 @@ const VendedorSchema = new mongoose.Schema(
     },
     birthdate: {
       type: Date,
-      required: true,
     },
     photo: {
       type: String,
@@ -45,7 +44,7 @@ const VendedorSchema = new mongoose.Schema(
     },
     rol: {
       type: String,
-      defaultValue: "vendedor",
+      required: true,
     },
     deleted: {
       type: Boolean,
