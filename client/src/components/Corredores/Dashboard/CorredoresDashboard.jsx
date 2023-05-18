@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import style from "./CorredoresDashboard.module.css";
+"./CorredoresDashboard.module.css";
 import Nav from "../../Nav/Nav";
-const API_KEY =
-  "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";
 
 import {
   Card,
@@ -22,12 +20,13 @@ import { GrInstagram } from "react-icons/gr";
 import { IoGrid, IoStatsChart } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { getLeadUnchecked10 } from "../../../redux/actions";
-import IconLabelButtons from "./MaterialUi/IconLabelButtons";
+import IconLabelButtons from "../../MaterialUi/IconLabelButtons";
+import swal from 'sweetalert';
+
+
 
 const CorredoresDashboard = () => {
   const [client, setClient] = useState([]);
-  //el estado que guarda el progreso
-  const [progress, setProgress] = useState(0);
 
   const handleChangeInstagram = (event, index) => {
     const { name, value } = event.target;
@@ -107,7 +106,7 @@ const CorredoresDashboard = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    alert("Enviando Informacion");
+    await swal("Enviando informacion!", `porfavor no cierre la pestaña hasta completar el proceso`, "warning",);
     try {
       for (let i = 0; i < leadUnchecked10.length; i++) {
         if (client[i].level !== "-") {
@@ -159,48 +158,20 @@ const CorredoresDashboard = () => {
               }
             );
             console.log(response.data);
-          } else {
-            // Mostrar mensaje de alerta si falta asignar nivel
-            alert(`Al Cliente: ${client[i].name} le falta asignar instagram`);
-          }
-        } else {
-          // Mostrar mensaje de alerta si falta asignar nivel
-          alert(`Al Cliente: ${client[i].name} le falta asignar nivel`);
+          }else {
+          await swal("Atencion!", `Al Cliente: ${client[i].name} le falta asignar instagram`, "warning");   
         }
-        const totalSteps = 10;
-        const stepDuration = 100;
-        for (let i = 0; i < totalSteps; i++) {
-          await new Promise((resolve) => setTimeout(resolve, stepDuration));
-          const newProgress = ((i + 1) / totalSteps) * 10;
-          setProgress(newProgress);
+        } else {
+          await swal("Atencion!", `Al Cliente: ${client[i].name} le falta asignar nivel`, "warning",);
         }
       }
-      alert("Solicitud enviada correctamente");
+      await swal("Good job!", "informacion enviada correctamente!", "success");
       dispatch(getLeadUnchecked10());
     } catch (error) {
-      console.log({ error: error.message });
+      await swal(":(", "error al enviar la informacion!", "error");
+      console.log({error: error.message});
     }
   };
-
-  useEffect(() => {
-    //Obtener el valor del progreso almacenado en localStorage al cargar el componente
-    const storedProgress = localStorage.getItem('progress');
-    if(storedProgress){
-      setProgress(Number(storedProgress));
-    }
-  }, []);
-  useEffect(() => {
-    //almacena el valor del progreso en localStorage cada vez que cambie
-    localStorage.setItem('progress', progress.toString());
-  }, [progress]);
-
-  useEffect(() => {
-    if (progress === 1000){
-      localStorage.removeItem('progress')
-      return 0;
-      
-    }
-  }, [progress]);
 
   return (
     <>
@@ -224,10 +195,6 @@ const CorredoresDashboard = () => {
             <div className="flex gap-12" type="submit" onClick={handleSubmit}>
               <IconLabelButtons />
             </div>
-          </div>
-          <div>
-          <progress className={style.progres} value={progress} max={100} />
-          <span>{progress}</span>
           </div>
           <Table className={style.table}>
             <TableHead className={style.tableHead}>
