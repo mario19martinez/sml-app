@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-"./CorredoresDashboard.module.css";
+import style from "./CorredoresDashboard.module.css";
 import Nav from "../../Nav/Nav";
 
 import {
