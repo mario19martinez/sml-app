@@ -11,17 +11,14 @@ const updateLeadVendedorById = async (id, updatedData) => {
       {
         $lookup: {
           from: "vendedor",
-          localField: "origen",
+          localField: "name",
           foreignField: "_id",
-          as: "articuloPais",
+          as: "leadVendedor",
         },
       },
       {
-        $unwind: "$vendedorLead",
-      },
-      {
-        $match: { precio: 500 },
-      },
+        $unwind: "$leadVendedor",
+      }
     ]);
     console.log("**** Resultados ****", resultado);
 
