@@ -15,6 +15,8 @@ const postLead = async (data) => {
         level: "-",
         status: "Sin contactar",
         statusoptions: "",
+        vendedor:"",
+        corredor:"",
         checked: false,
         view: false,
         deleted: false,
