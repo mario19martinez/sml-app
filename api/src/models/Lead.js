@@ -44,6 +44,10 @@ const LeadSchema = new mongoose.Schema(
       type: String,
       require: true,
     },
+    statusoption: {
+      type: String,
+      require: true,
+    },
     checked: {
       type: Boolean,
       require: true,
