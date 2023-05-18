@@ -93,13 +93,15 @@ const CorredoresDashboard = () => {
           url: leadUnchecked10[i].url,
           instagram: "",
           level: leadUnchecked10[i].level,
-          checked: true,
+          checked: leadUnchecked10[i].checked,
           view: true,
         });
       }
     }
     setClient(clientes);
   }, [leadUnchecked10]);
+
+  console.log(leadUnchecked10);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
