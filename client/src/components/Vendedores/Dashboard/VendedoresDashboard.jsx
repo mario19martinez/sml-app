@@ -33,12 +33,9 @@ const VendedoresDashboard = () => {
 
   useEffect(() => {
     dispatch(getLeadCheckedInactive100());
-    
-    console.log("usssssseeeeee")
   }, [dispatch]);
   useEffect(() => {
     setData(leadCheckedInactive100);
-    console.log(leadCheckedInactive100);
   }, [leadCheckedInactive100]);
 
 
@@ -76,7 +73,6 @@ const VendedoresDashboard = () => {
 
   const [levelValue, setLevelValue] = useState("");
   const onChangeLevel = (value) => {
-    console.log(value);
     setLevelValue(value);
     dispatch(filterLevel(value));
     setData(leadCheckedInactive100);
@@ -95,8 +91,6 @@ const VendedoresDashboard = () => {
   };
 
   const openEditMenu = (index, id) => {
-    console.log(index);
-    console.log(id);
     setEdit(true);
     setEditIndex(index);
   };

@@ -38,7 +38,6 @@ function ChildModal({ item, setOpen, statusObj, SendLeadAlert, SendErrorUpdateAl
   };
 
   const handleUpdate = () => {
-    console.log(statusObj)
     axios
       .put(`http://localhost:3001/lead/${item._id}`, statusObj)
       .then((response) => {
@@ -256,7 +255,6 @@ export default function NestedModal({
     else{
       setStatusObj({ ...statusObj, [property]: value });
     }
-    console.log(statusObj);
   };
 
   return (
