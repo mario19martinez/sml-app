@@ -22,5 +22,4 @@ LeadRouter.get('/name', getLeadByNameHandler);
 LeadRouter.get('/:id', getLeadByIdHandler);
 LeadRouter.put('/:id', updateLeadHandler);
 
-
 module.exports = LeadRouter;
