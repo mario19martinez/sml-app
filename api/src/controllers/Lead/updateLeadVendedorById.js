@@ -2,12 +2,19 @@ const Lead = require("../../models/Lead");
 const Vendedor = require("../../models/Vendedor");
 
 const updateLeadVendedorById = async (id, updatedData) => {
-  console.log("entro2");
+  console.log(updatedData.dataLead.vendedor_id);
   try {
-    const lead = await Lead.findByIdAndUpdate(id, updatedData.statusObj, {
+    const lead = await Lead.findByIdAndUpdate(id, updatedData.dataLead, {
       new: true,
     });
-    const vendedor = await Vendedor.findByIdAndUpdate(updatedData._id, updatedData.dataVendedor, {
+
+    console.log(updatedData.dataVendedor)
+
+    const valor = updatedData.dataVendedor
+
+    const vendedor = await Vendedor.findByIdAndUpdate(updatedData.dataLead.vendedor_id, {
+     $push: { leads_contacted: { $each: [valor] } },
+    }, { 
       new: true,
     });
 
