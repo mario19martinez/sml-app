@@ -22,7 +22,7 @@ import { GrInstagram } from "react-icons/gr";
 import { IoGrid, IoStatsChart } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { getLeadUnchecked10 } from "../../../redux/actions";
-import IconLabelButtons from "../Dashboard/MaterialUi/IconLabelButtons";
+import IconLabelButtons from "./MaterialUi/IconLabelButtons";
 
 const CorredoresDashboard = () => {
   const [client, setClient] = useState([]);
@@ -174,7 +174,7 @@ const CorredoresDashboard = () => {
   return (
     <>
       <Nav />
-      <Card className="w-full m-5">
+      <Card className="w-full m-5 bg-[#39394b]">
         <form onSubmit={handleSubmit}>
           <div className="flex justify-between items-center">
             <div className="flex gap-10  mt-2 mx-5 ">
