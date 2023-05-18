@@ -51,11 +51,15 @@ const LeadSchema = new mongoose.Schema(
       require: true,
       default: "",
     },
-    vendedor: {
-      type: mongoose.Types.ObjectId,
+    vendedor_id: {
+      type: String,
+      require: true,
+      default: "",
     },
-    corredor: {
-      type: mongoose.Types.ObjectId,
+    corredor_id: {
+      type: String,
+      require: true,
+      default: "",
     },
     checked: {
       type: Boolean,
