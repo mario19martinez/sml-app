@@ -132,7 +132,7 @@ const CorredoresDashboard = () => {
               const emailData = {
                 clientName: client[i].name,
                 recipientEmail: "gustavomontespalavecino@gmail.com",
-                message: `Se ha detectado una incidencia para el cliente ${client[i].name}. Por favor, revisa la situación y toma las medidas necesarias.`,
+                message: `Se ha detectado una incidencia para el cliente ${client[i].name} con el numero de id ${client[i].id}. Por favor, revisa la situación y toma las medidas necesarias.`,
               };
 
               await axios.post(
