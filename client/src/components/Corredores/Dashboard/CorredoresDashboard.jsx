@@ -21,6 +21,7 @@ import { IoGrid, IoStatsChart } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { getLeadUnchecked10 } from "../../../redux/actions";
 import IconLabelButtons from "../../MaterialUi/IconLabelButtons";
+import swal from 'sweetalert';
 
 
 
@@ -76,6 +77,21 @@ const CorredoresDashboard = () => {
 
   const { leadUnchecked10 } = useSelector((state) => state);
   const dispatch = useDispatch();
+
+/*   useEffect(() => {
+    const UserName = localStorage.getItem('UserName');
+    const Password = localStorage.getItem('Password');
+
+    if (UserName && Password) {
+      // El usuario está autenticado, mostrar contenido relevante
+      console.log('Usuario autenticado:', UserName);
+    } else {
+      // El usuario no está autenticado, redirigir a la página de inicio de sesión
+      console.log('Usuario no autenticado');
+      // Redirigir a la página de inicio de sesión
+      window.location.href = '/login';
+    }
+  }, []); */
 
   useEffect(() => {
     dispatch(getLeadUnchecked10());
