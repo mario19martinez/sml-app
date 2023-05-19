@@ -175,7 +175,7 @@ const CorredoresDashboard = () => {
   return (
     <>
       <Nav />
-      <Card className="w-full m-5 bg-[#39394b]">
+      <Card className="w-full m-5 bg-[#222131]">
         <form onSubmit={handleSubmit}>
           <div className="flex justify-between items-center">
             <div className="flex gap-10  mt-2 mx-5 ">
