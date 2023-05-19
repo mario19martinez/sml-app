@@ -17,7 +17,6 @@ const VendedorSchema = new mongoose.Schema(
     },
     birthdate: {
       type: Date,
-      required: true,
     },
     photo: {
       type: String,
@@ -32,16 +31,24 @@ const VendedorSchema = new mongoose.Schema(
       type: String,
     },
     leads_contacted: {
-      type: String,
+      type:Array,
+      default: []
     },
     hired_leads: {
-      type: String,
+      type:Array,
+      default: []
     },
     declined_leads: {
-      type: String,
+      type:Array,
+      default: []
     },
     unanswered_leads: {
+      type:Array,
+      default: []
+    },
+    rol: {
       type: String,
+      required: true,
     },
     deleted: {
       type: Boolean,
