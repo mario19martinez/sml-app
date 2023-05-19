@@ -13,18 +13,15 @@ import {
   Title,
   Badge,
 } from "@tremor/react";
-import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { CiMail } from "react-icons/ci";
 import { getAllCorredores, getAllVendedores } from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import NestedModal from "./MaterialUi/NestedModal";
-import BasicButtonGroup from "./MaterialUi/BasicButtonGroup";
-//
+import NestedModalEdit from "./MaterialUi/Edit/NestedModalEdit";
 export const TableEmployees = () => {
-  const [cp, setCp] = useState(false);
   const { corredores, vendedores } = useSelector((state) => state);
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
     dispatch(getAllCorredores());
     dispatch(getAllVendedores());
@@ -43,9 +40,7 @@ export const TableEmployees = () => {
     setCurrentPage(pageNumber);
   };
 
-  const controlPanel = () => {
-    setCp(!cp);
-  };
+  console.log(currentCard);
 
   return (
     <>
@@ -104,14 +99,17 @@ export const TableEmployees = () => {
                     )}
                   </TableCell>
                   <TableCell className="p-0 relative">
-                    <button onClick={controlPanel}>
-                      <HiOutlineDotsHorizontal className="text-18" />
-                    </button>
-                    {cp ? (
-                      <div className="absolute top-[2rem] right-0">
-                        <BasicButtonGroup />
+                    <div>
+                      <div className=" ml-20 pl-2">
+                        <NestedModalEdit
+                          itemId={item._id}
+                          itemName={item.name}
+                          itemEmail={item.email}
+                          itemPhone={item.contactNumber}
+                          itemRol={item.rol}
+                        />
                       </div>
-                    ) : null}
+                    </div>
                   </TableCell>
                 </TableRow>
               ))}
